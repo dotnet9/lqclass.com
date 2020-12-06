@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <PreserveCompilationReferences>true</PreserveCompilationReferences>
+ </PropertyGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="WalkingTec.Mvvm.Core" Version="3.7.9" />
+  </ItemGroup >
+</Project>
+
