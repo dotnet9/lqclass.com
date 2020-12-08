@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace lqclass.com.Test
+namespace LQClass.Test
 {
     public class MockHttpSession : ISession
     {

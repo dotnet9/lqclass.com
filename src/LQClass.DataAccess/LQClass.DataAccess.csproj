@@ -7,7 +7,7 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\lqclass.com.Model\lqclass.com.Model.csproj" />
+    <ProjectReference Include="..\LQClass.Model\LQClass.Model.csproj" />
   </ItemGroup >
 </Project>
 

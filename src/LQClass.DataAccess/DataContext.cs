@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using WalkingTec.Mvvm.Core;
 
-namespace lqclass.com.DataAccess
+namespace LQClass.DataAccess
 {
     public class DataContext : FrameworkContext
     {

@@ -3,7 +3,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:6528/"
+      "applicationUrl": "http://localhost:7126/"
     }
   },
   "profiles": {
@@ -14,14 +14,14 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "lqclass.com": {
+    "LQClass": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation"
       },
-      "applicationUrl": "http://localhost:6528/"
+      "applicationUrl": "http://localhost:7126/"
     },
     "ApiOnly": {
       "commandName": "Project",
@@ -31,7 +31,7 @@
         "ASPNETCORE_ENVIRONMENT": "Production",
         "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation"
       },
-      "applicationUrl": "http://localhost:6528/"
+      "applicationUrl": "http://localhost:7126/"
     }
   }
 }

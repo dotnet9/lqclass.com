@@ -46,7 +46,7 @@ class ConfigStore {
      * 默认配置
      */
     default = {
-        // title: "lqclass.com",
+        // title: "LQClass",
         logo: ImgLogo,
         avatar: ImgUser,
     };

@@ -15,7 +15,7 @@ using WalkingTec.Mvvm.TagHelpers.LayUI;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Logging;
 
-namespace lqclass.com
+namespace LQClass
 {
     public class Program
     {

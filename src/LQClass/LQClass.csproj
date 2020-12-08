@@ -48,10 +48,12 @@
   </Target>
 
   <ItemGroup>
-   <ProjectReference Include="..\lqclass.com.Model\lqclass.com.Model.csproj" />
-    <ProjectReference Include="..\lqclass.com.DataAccess\lqclass.com.DataAccess.csproj" />
-    <ProjectReference Include="..\lqclass.com.ViewModel\lqclass.com.ViewModel.csproj" />
- </ItemGroup >
+   <ProjectReference Include="..\LQClass.Model\LQClass.Model.csproj" />
+    <ProjectReference Include="..\LQClass.DataAccess\LQClass.DataAccess.csproj" />
+    <ProjectReference Include="..\LQClass.ViewModel\LQClass.ViewModel.csproj" />
+ </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
 </Project>
 
 

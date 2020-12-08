@@ -9,9 +9,9 @@ using WalkingTec.Mvvm.TagHelpers.LayUI.Common;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Caching.Memory;
-using lqclass.com.DataAccess;
+using LQClass.DataAccess;
 
-namespace lqclass.com.Test
+namespace LQClass.Test
 {
     public class MockController
     {
