@@ -1,0 +1,8 @@
+{
+  "Development": {
+    "API": "http://api.lqclass.com/api/"
+  },
+  "Production": {
+    "API": "http://api.lqclass.com/api/"
+  }
+}
