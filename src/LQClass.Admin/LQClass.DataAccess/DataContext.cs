@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using System;
 using System.Collections.Generic;
@@ -29,7 +29,7 @@ namespace LQClass.DataAccess
     {
         public DataContext CreateDbContext(string[] args)
         {
-            return new DataContext("your full connection string", DBTypeEnum.SqlServer);
+            return new DataContext("Data Source=lqclass_com.db", DBTypeEnum.SQLite);
         }
     }
 
