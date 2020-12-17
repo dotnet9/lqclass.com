@@ -1,0 +1,74 @@
+{
+	"info": {
+		"_postman_id": "9c3c837a-540e-4526-b35e-d90d513cd164",
+		"name": "乐趣课堂",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "远程登录",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "userid",
+							"value": "lqclass.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "lqclass.com",
+							"type": "text"
+						},
+						{
+							"key": "cookie",
+							"value": "false",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://api.lqclass.com/api/_login/Login",
+					"protocol": "http",
+					"host": [
+						"api",
+						"lqclass",
+						"com"
+					],
+					"path": [
+						"api",
+						"_login",
+						"Login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "本地登录",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://api.lqclass.com/api/_login/Login",
+					"protocol": "http",
+					"host": [
+						"api",
+						"lqclass",
+						"com"
+					],
+					"path": [
+						"api",
+						"_login",
+						"Login"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
