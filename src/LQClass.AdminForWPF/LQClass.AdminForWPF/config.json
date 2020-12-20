@@ -1,8 +1,6 @@
 {
-  "Development": {
-    "API": "http://api.lqclass.com/api/"
-  },
-  "Production": {
-    "API": "http://api.lqclass.com/api/"
-  }
+  "Name": "乐趣Class",
+  "IsRemberMe": false,
+  "IsAutoLogin": false,
+  "ConfigType": "Production"
 }

@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LQClass.AdminForWPF", "LQClass.AdminForWPF\LQClass.AdminForWPF.csproj", "{34293A3B-540B-4AD0-A49F-B325EF6C0F50}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LQClass.AdminForWPF", "LQClass.AdminForWPF\LQClass.AdminForWPF.csproj", "{34293A3B-540B-4AD0-A49F-B325EF6C0F50}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LQClass.AdminForWPF.Infrastructure", "LQClass.AdminForWPF.Infrastructure\LQClass.AdminForWPF.Infrastructure.csproj", "{B66335A4-1C52-4853-96F4-C1683FC3E36C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LQClass.AdminForWPF.Infrastructure", "LQClass.AdminForWPF.Infrastructure\LQClass.AdminForWPF.Infrastructure.csproj", "{B66335A4-1C52-4853-96F4-C1683FC3E36C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LQClass.CustomControls", "LQClass.CustomControls\LQClass.CustomControls.csproj", "{896F92C1-58F1-4642-8D16-1F5C6781005A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{B66335A4-1C52-4853-96F4-C1683FC3E36C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B66335A4-1C52-4853-96F4-C1683FC3E36C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B66335A4-1C52-4853-96F4-C1683FC3E36C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{896F92C1-58F1-4642-8D16-1F5C6781005A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{896F92C1-58F1-4642-8D16-1F5C6781005A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{896F92C1-58F1-4642-8D16-1F5C6781005A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{896F92C1-58F1-4642-8D16-1F5C6781005A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
