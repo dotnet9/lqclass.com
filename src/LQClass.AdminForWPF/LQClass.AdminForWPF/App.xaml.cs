@@ -1,4 +1,5 @@
-﻿using LQClass.AdminForWPF.Infrastructure.Configs;
+using LQClass.AdminForWPF.Infrastructure.Configs;
+using LQClass.AdminForWPF.Models;
 using LQClass.AdminForWPF.ViewModels;
 using LQClass.AdminForWPF.Views;
 using Prism.Ioc;
@@ -26,6 +27,7 @@ namespace LQClass.AdminForWPF
 		protected override void RegisterTypes(IContainerRegistry containerRegistry)
 		{
 			containerRegistry.RegisterForNavigation<LoginView, LoginViewModel>();
+      containerRegistry.RegisterSingleton<LoginModel>();
 		}
 	}
 }

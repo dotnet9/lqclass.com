@@ -1,13 +1,12 @@
 using LQClass.AdminForWPF.Infrastructure.Configs;
 using LQClass.AdminForWPF.Infrastructure.Tools;
+using LQClass.AdminForWPF.Models;
 using LQClass.AdminForWPF.Views;
 using Prism.Commands;
 using Prism.Mvvm;
-using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -112,8 +111,15 @@ namespace LQClass.AdminForWPF.ViewModels
 
     #endregion
 
-    public LoginViewModel()
+    #region 私有字段
+
+    private LoginModel _loginModel;
+
+    #endregion
+
+    public LoginViewModel(LoginModel loginModel)
     {
+      this._loginModel = loginModel;
       this.IsRemberMe = AppConfig.Instance.IsRemberMe;
       this.IsAutoLogin = AppConfig.Instance.IsAutoLogin;
       this.UserName = AppConfig.Instance.UserName;
@@ -134,7 +140,7 @@ namespace LQClass.AdminForWPF.ViewModels
     {
       try
       {
-        var response = await Login(AppConfig.Instance.RunningConfig.API, UserName, Password);
+        var response = await _loginModel.Login(UserName, Password);
         if (response.IsSuccessful)
         {
           AppConfig.Instance.IsRemberMe = this.IsRemberMe;
@@ -171,20 +177,6 @@ namespace LQClass.AdminForWPF.ViewModels
         UseShellExecute = false,
         CreateNoWindow = true
       });
-    }
-
-    private async Task<IRestResponse> Login(string apiAddress, string userName, string pwd)
-    {
-      var client = new RestClient($"{apiAddress}_login/Login");
-      client.Timeout = -1;
-      var request = new RestRequest(Method.POST);
-      request.AlwaysMultipartFormData = true;
-      request.AddParameter("userid", userName);
-      request.AddParameter("password", pwd);
-      request.AddParameter("cookie", "false");
-      var response = await client.ExecuteAsync(request);
-
-      return response;
     }
 
     /// <summary>
