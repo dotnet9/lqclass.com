@@ -1,6 +1,7 @@
-﻿using LQClass.AdminForWPF.Infrastructure.Tools;
+using LQClass.AdminForWPF.Infrastructure.Tools;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace LQClass.AdminForWPF.Infrastructure.Configs
@@ -42,12 +43,17 @@ namespace LQClass.AdminForWPF.Infrastructure.Configs
 		/// </summary>
 		public string ConfigType { get; set; }
 
-		#endregion
+    /// <summary>
+    /// 超链接
+    /// </summary>
+    public List<QuickLink> QuickLinks { get; set; }
 
-		/// <summary>
-		/// 运行配置，分为开发环境、生产环境
-		/// </summary>
-		public ConfigDesc RunningConfig { get; set; }
+    #endregion
+
+    /// <summary>
+    /// 运行配置，分为开发环境、生产环境
+    /// </summary>
+    public ConfigDesc RunningConfig { get; set; }
 
 		private static object lockObj = new object();
 
@@ -115,4 +121,25 @@ namespace LQClass.AdminForWPF.Infrastructure.Configs
 		/// </summary>
 		public string API { get; set; }
 	}
+
+  /// <summary>
+  /// 超链接
+  /// </summary>
+  public class QuickLink
+  {
+    /// <summary>
+    /// 链接名称
+    /// </summary>
+    public string Name { get; set; }
+
+    /// <summary>
+    /// 链接说明
+    /// </summary>
+    public string Desc { get; set; }
+
+    /// <summary>
+    /// Url
+    /// </summary>
+    public string Url { get; set; }
+  }
 }

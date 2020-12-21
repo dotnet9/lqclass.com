@@ -2,5 +2,27 @@
   "Name": "乐趣Class",
   "IsRemberMe": false,
   "IsAutoLogin": false,
-  "ConfigType": "Production"
+  "ConfigType": "Production",
+  "QuickLinks": [
+    {
+      "Name": "Github",
+      "Desc": "乐趣Class仓库地址",
+      "URL": "https://github.com/dotnet9/lqclass.com"
+    },
+    {
+      "Name": "Dotnet9",
+      "Desc": "Dotnet9站点",
+      "URL": "https://dotnet9.com"
+    },
+    {
+      "Name": "Prism 8",
+      "Desc": "WPF MVVM框架",
+      "URL": "https://github.com/PrismLibrary/Prism"
+    },
+    {
+      "Name": "MaterialDesignInXamlToolkit",
+      "Desc": "WPF控件库",
+      "URL": "https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit"
+    }
+  ]
 }
