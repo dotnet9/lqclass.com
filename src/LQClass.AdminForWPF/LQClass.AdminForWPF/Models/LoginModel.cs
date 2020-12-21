@@ -24,7 +24,7 @@ namespace LQClass.AdminForWPF.Models
       request.AlwaysMultipartFormData = true;
       request.AddParameter("userid", userName);
       request.AddParameter("password", pwd);
-      request.AddParameter("cookie", "false");
+      request.AddParameter("cookie", "true");
       var response = await client.ExecuteAsync(request);
 
       return response;

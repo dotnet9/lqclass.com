@@ -1,9 +1,9 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using System.IO;
 
 namespace LQClass.AdminForWPF.Infrastructure.Tools
 {
-	public class JsonHelper
+  public class JsonHelper
 	{
 		/// <summary>
 		/// json字符串格式化输出
