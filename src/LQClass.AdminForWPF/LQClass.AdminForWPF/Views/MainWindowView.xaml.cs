@@ -1,4 +1,5 @@
-﻿using System;
+using MahApps.Metro.Controls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,8 +18,8 @@ namespace LQClass.AdminForWPF.Views
 	/// <summary>
 	/// MainWindowView.xaml 的交互逻辑
 	/// </summary>
-	public partial class MainWindowView : Window
-	{
+	public partial class MainWindowView : MetroWindow
+  {
 		public MainWindowView()
 		{
 			InitializeComponent();

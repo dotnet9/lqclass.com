@@ -1,29 +1,20 @@
-using LQClass.AdminForWPF.I18nResources;
 using LQClass.AdminForWPF.Infrastructure.Configs;
+using LQClass.AdminForWPF.Infrastructure.Mvvm;
 using LQClass.AdminForWPF.Infrastructure.Tools;
 using LQClass.AdminForWPF.Models;
 using LQClass.AdminForWPF.Views;
 using Prism.Commands;
-using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Windows;
 using System.Windows.Input;
 
 namespace LQClass.AdminForWPF.ViewModels
 {
-  public class LoginViewModel : BindableBase
+  public class LoginViewModel : ViewModelBase
   {
     #region 属性
 
-    /// <summary>
-    /// 窗体标题
-    /// </summary>
-    public string Title
-    {
-      get { return AppConfig.Instance.Name; }
-    }
 
     private bool _isRemberMe = false;
     /// <summary>
@@ -86,22 +77,6 @@ namespace LQClass.AdminForWPF.ViewModels
         (RaiseLoginCommand as DelegateCommand).RaiseCanExecuteChanged();
       }
     }
-    private string _CurrentLanguage;
-    /// <summary>
-    /// 当前选择的选择
-    /// </summary>
-    public string CurrentLanguage
-    {
-      get { return _CurrentLanguage; }
-      set
-      {
-        this.SetProperty(ref _CurrentLanguage, value);
-      }
-    }
-    /// <summary>
-    /// 语言列表
-    /// </summary>
-    public List<LanguageModel> Languages { get { return LanguageModel.GetLanguages(); } }
 
     /// <summary>
     /// 超链接列表
@@ -119,19 +94,6 @@ namespace LQClass.AdminForWPF.ViewModels
     public ICommand RaiseLoginCommand =>
       _raiseLoginCommand ?? (_raiseLoginCommand = new DelegateCommand(RaiseLogginHandler, CanRaiseLoginCommand));
 
-    private ICommand _RaiseChangeLanguageCommand;
-    /// <summary>
-    /// 切换语言命令
-    /// </summary>
-    public ICommand RaiseChangeLanguageCommand =>
-      _RaiseChangeLanguageCommand ?? (_RaiseChangeLanguageCommand = new DelegateCommand<string>(RaiseChangeLanguageHandler));
-
-    private ICommand _raiseOpenLinkCommand;
-    /// <summary>
-    /// 打开命令
-    /// </summary>
-    public ICommand RaiseOpenLinkCommand =>
-      _raiseOpenLinkCommand ?? (_raiseOpenLinkCommand = new DelegateCommand<string>(RaiseOpenLinkHandler));
 
     #endregion
 
@@ -141,10 +103,12 @@ namespace LQClass.AdminForWPF.ViewModels
 
     #endregion
 
+    /// <summary>
+    /// 切换语言
+    /// </summary>
+    /// <param name="loginModel"></param>
     public LoginViewModel(LoginModel loginModel)
     {
-      CurrentLanguage = Languages?.Find(cu => cu.Key == AppConfig.Instance.Language)?.Name;
-
       this._loginModel = loginModel;
       this.IsRemberMe = AppConfig.Instance.IsRemberMe;
       this.IsAutoLogin = AppConfig.Instance.IsAutoLogin;
@@ -193,29 +157,6 @@ namespace LQClass.AdminForWPF.ViewModels
       {
         MessageBox.Show(ex.Message);
       }
-    }
-
-    /// <summary>
-    /// 切换语言
-    /// </summary>
-    /// <param name="languageKey"></param>
-    private void RaiseChangeLanguageHandler(string languageKey)
-    {
-      var lan = Languages.Find(cu => cu.Key == languageKey);
-      this.CurrentLanguage = lan.Name;
-      AppConfig.Instance.SetLanguage(languageKey);
-    }
-
-    /// <summary>
-    /// 打开超链接
-    /// </summary>
-    private void RaiseOpenLinkHandler(string url)
-    {
-      Process.Start(new ProcessStartInfo("cmd", $"/c start {url}")
-      {
-        UseShellExecute = false,
-        CreateNoWindow = true
-      });
     }
 
     /// <summary>

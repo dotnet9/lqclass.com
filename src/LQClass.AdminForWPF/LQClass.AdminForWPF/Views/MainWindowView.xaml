@@ -1,14 +1,67 @@
-<Window x:Class="LQClass.AdminForWPF.Views.MainWindowView"
+<mah:MetroWindow x:Class="LQClass.AdminForWPF.Views.MainWindowView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:prism="http://prismlibrary.com/"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:i18="clr-namespace:LQClass.AdminForWPF.I18nResources"
+        xmlns:markup="clr-namespace:WpfExtensions.Xaml.Markup;assembly=WpfExtensions.Xaml"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:local="clr-namespace:LQClass.AdminForWPF.Views"
         mc:Ignorable="d"
         prism:ViewModelLocator.AutoWireViewModel="True"
-        Title="MainWindowView" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
-</Window>
+        Title="{Binding Title}" Height="450" Width="800"
+        GlowBrush="{DynamicResource MahApps.Brushes.Accent}"
+        Icon="../Images/logo.ico"
+        NonActiveGlowBrush="#CDFF0000"
+        ShowIconOnTitleBar="True"
+        ShowTitleBar="True"
+        WindowStartupLocation="CenterScreen">
+  <mah:MetroWindow.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Light.Blue.xaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </mah:MetroWindow.Resources>
+  <mah:MetroWindow.LeftWindowCommands>
+    <mah:WindowCommands>
+      <Button ToolTip="{markup:I18n {x:Static i18:Language.MainWindowView_GithubToolTip}}"
+              Command="{Binding RaiseOpenLinkCommand}"
+              CommandParameter="https://github.com/dotnet9/lqclass.com">
+        <materialDesign:PackIcon Kind="Github" Width="22" Height="22" />
+      </Button>
+    </mah:WindowCommands>
+  </mah:MetroWindow.LeftWindowCommands>
+  <mah:MetroWindow.RightWindowCommands>
+    <mah:WindowCommands>
+      <mah:DropDownButton Margin="15 0"
+                                HorizontalAlignment="Left"
+                                Content="{Binding CurrentLanguage}"
+                                ItemsSource="{Binding Languages}">
+        <mah:DropDownButton.ItemTemplate>
+          <DataTemplate>
+            <Button Content="{Binding Name}"
+                    Command="{Binding RelativeSource={RelativeSource AncestorType=Window,Mode=FindAncestor}, Path=DataContext.RaiseChangeLanguageCommand}"
+                    CommandParameter="{Binding Key}"/>
+          </DataTemplate>
+        </mah:DropDownButton.ItemTemplate>
+        <!--<mah:DropDownButton.ItemContainerStyle>
+          <Style BasedOn="{StaticResource {x:Type MenuItem}}" TargetType="{x:Type MenuItem}">
+            <Setter Property="Header" Value="{Binding Name}"/>
+            <Setter Property="Command" Value="" />
+            <Setter Property="CommandParameter" Value="{Binding Key}" />
+          </Style>
+        </mah:DropDownButton.ItemContainerStyle>-->
+        <mah:DropDownButton.Icon>
+
+          <materialDesign:PackIcon Kind="Language" Width="16" Height="16" Margin="0,5,10,0"/>
+        </mah:DropDownButton.Icon>
+      </mah:DropDownButton>
+    </mah:WindowCommands>
+  </mah:MetroWindow.RightWindowCommands>
+</mah:MetroWindow>

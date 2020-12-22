@@ -104,5 +104,14 @@ namespace LQClass.AdminForWPF.I18nResources {
                 return ResourceManager.GetString("LoginView_UserNameToolTip", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   查找类似 The responsitory of LQClass&apos;s 的本地化字符串。
+        /// </summary>
+        internal static string MainWindowView_GithubToolTip {
+            get {
+                return ResourceManager.GetString("MainWindowView_GithubToolTip", resourceCulture);
+            }
+        }
     }
 }

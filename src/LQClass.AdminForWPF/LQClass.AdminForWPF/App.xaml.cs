@@ -35,12 +35,13 @@ namespace LQClass.AdminForWPF
     {
       I18nManager.Instance.Add(I18nResources.UiResource.ResourceManager);
       AppConfig.Instance.SetLanguage();
-      return Container.Resolve<LoginView>();
+      return Container.Resolve<MainWindowView>();
     }
 
     protected override void RegisterTypes(IContainerRegistry containerRegistry)
     {
       containerRegistry.RegisterForNavigation<LoginView, LoginViewModel>();
+      containerRegistry.RegisterForNavigation<MainWindowView, MainWindowViewModel>();
       containerRegistry.RegisterSingleton<LoginModel>();
     }
 

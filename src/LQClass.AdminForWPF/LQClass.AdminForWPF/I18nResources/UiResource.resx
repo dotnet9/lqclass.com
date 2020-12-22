@@ -132,4 +132,7 @@
   <data name="LoginView_UserNameToolTip" xml:space="preserve">
     <value>Please input user name, the test user name is：lqclass.com</value>
   </data>
+  <data name="MainWindowView_GithubToolTip" xml:space="preserve">
+    <value>The responsitory of LQClass's</value>
+  </data>
 </root>

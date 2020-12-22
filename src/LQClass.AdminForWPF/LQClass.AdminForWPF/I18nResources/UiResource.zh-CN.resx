@@ -132,4 +132,7 @@
   <data name="LoginView_UserNameToolTip" xml:space="preserve">
     <value>请输入账号，测试账号：lqclass.com</value>
   </data>
+  <data name="MainWindowView_GithubToolTip" xml:space="preserve">
+    <value>乐趣Class仓库</value>
+  </data>
 </root>
