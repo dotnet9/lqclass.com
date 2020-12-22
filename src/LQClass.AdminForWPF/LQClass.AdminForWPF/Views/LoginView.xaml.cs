@@ -10,6 +10,7 @@ namespace LQClass.AdminForWPF.Views
 		public LoginView()
 		{
 			InitializeComponent();
+			this.NameTextBox.Focus();
 		}
 
 		private void MoveWindow_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)

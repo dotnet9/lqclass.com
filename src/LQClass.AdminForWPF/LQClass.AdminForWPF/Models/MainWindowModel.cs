@@ -1,13 +1,9 @@
-using LQClass.AdminForWPF.Infrastructure.Mvvm;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using WpfExtensions.Xaml;
 
 namespace LQClass.AdminForWPF.Models
 {
-  public class MainWindowModel 
-  {
-  }
+	public class MainWindowModel
+	{
+	}
 }

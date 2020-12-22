@@ -160,8 +160,12 @@
               <CheckBox Content="{markup:I18n {x:Static i18:Language.LoginView_IsAutoLogin}}" Margin="30 0" IsChecked="{Binding IsAutoLogin}"/>
             </StackPanel>
 
-            <Button Grid.ColumnSpan="2" Grid.Row="4" Height="40"
-                                Content="{markup:I18n {x:Static i18:Language.LoginView_Login}}" Command="{Binding RaiseLoginCommand}"/>
+            <Button Grid.ColumnSpan="2" Grid.Row="4" Height="40" IsDefault="True"
+                                Content="{markup:I18n {x:Static i18:Language.LoginView_Login}}" 
+                                Command="{Binding RaiseLoginCommand}"
+                                materialDesign:ButtonProgressAssist.Value="-1"
+                                materialDesign:ButtonProgressAssist.IsIndicatorVisible="{Binding IsIndeterminate}"
+                                materialDesign:ButtonProgressAssist.IsIndeterminate="{Binding IsIndeterminate}"/>
           </Grid>
         </Border>
         <!--#endregion-->
@@ -225,8 +229,7 @@
                 </Style>
               </mah:DropDownButton.ItemContainerStyle>
               <mah:DropDownButton.Icon>
-
-                <materialDesign:PackIcon Kind="Language" Width="16" Height="16" Margin="0,5,10,0"/>
+                <materialDesign:PackIcon Kind="Language" Width="16" Height="16" />
               </mah:DropDownButton.Icon>
             </mah:DropDownButton>
             

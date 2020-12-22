@@ -19,6 +19,10 @@ namespace LQClass.AdminForWPF.I18nResources
 		public static readonly ComponentResourceKey LoginView_Login = new ComponentResourceKey(typeof(UiResource), nameof(LoginView_Login));
 		public static readonly ComponentResourceKey LoginView_PasswordToolTip = new ComponentResourceKey(typeof(UiResource), nameof(LoginView_PasswordToolTip));
 		public static readonly ComponentResourceKey LoginView_UserNameToolTip = new ComponentResourceKey(typeof(UiResource), nameof(LoginView_UserNameToolTip));
+		public static readonly ComponentResourceKey MainWindowView_FirstPage = new ComponentResourceKey(typeof(UiResource), nameof(MainWindowView_FirstPage));
 		public static readonly ComponentResourceKey MainWindowView_GithubToolTip = new ComponentResourceKey(typeof(UiResource), nameof(MainWindowView_GithubToolTip));
+		public static readonly ComponentResourceKey MainWindowView_Internationalization = new ComponentResourceKey(typeof(UiResource), nameof(MainWindowView_Internationalization));
+		public static readonly ComponentResourceKey MainWindowView_Logout = new ComponentResourceKey(typeof(UiResource), nameof(MainWindowView_Logout));
+		public static readonly ComponentResourceKey MainWindowView_ModifyPwd = new ComponentResourceKey(typeof(UiResource), nameof(MainWindowView_ModifyPwd));
 	}
 }

@@ -23,6 +23,33 @@
       "Name": "MaterialDesignInXamlToolkit",
       "Desc": "WPF控件库",
       "URL": "https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit"
+    },
+    {
+      "Name": "MahApps.Metro",
+      "Desc": "WPF控件库",
+      "URL": "https://github.com/MahApps/MahApps.Metro"
+    },
+    {
+      "Name": "Accelerider.Windows",
+      "Desc": "WPF开源项目",
+      "URL": "https://github.com/Accelerider/Accelerider.Windows"
+    }
+  ],
+  "WebLinks": [
+    {
+      "Name": "Blog",
+      "Desc": "博客前台",
+      "URL": "http://lqclass.com"
+    },
+    {
+      "Name": "Admin",
+      "Desc": "博客后台",
+      "URL": "http://admin.lqclass.com"
+    },
+    {
+      "Name": "API",
+      "Desc": "后端API文档",
+      "URL": "http://api.lqclass.com/swagger/index.html"
     }
   ]
 }

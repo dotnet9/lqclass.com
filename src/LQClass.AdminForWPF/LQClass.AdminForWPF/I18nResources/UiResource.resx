@@ -132,7 +132,19 @@
   <data name="LoginView_UserNameToolTip" xml:space="preserve">
     <value>Please input user name, the test user name is：lqclass.com</value>
   </data>
+  <data name="MainWindowView_FirstPage" xml:space="preserve">
+    <value>First page</value>
+  </data>
   <data name="MainWindowView_GithubToolTip" xml:space="preserve">
-    <value>The responsitory of LQClass's</value>
+    <value>The code reponsitory</value>
+  </data>
+  <data name="MainWindowView_Internationalization" xml:space="preserve">
+    <value>Multilingual</value>
+  </data>
+  <data name="MainWindowView_Logout" xml:space="preserve">
+    <value>Log out</value>
+  </data>
+  <data name="MainWindowView_ModifyPwd" xml:space="preserve">
+    <value>Modify password</value>
   </data>
 </root>

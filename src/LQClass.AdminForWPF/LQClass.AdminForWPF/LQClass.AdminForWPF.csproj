@@ -14,6 +14,11 @@
   <ItemGroup>
     <None Remove="Images\logo.ico" />
     <None Remove="Images\logo.png" />
+    <None Remove="Images\sidebar-1.jpg" />
+    <None Remove="Images\sidebar-2.jpg" />
+    <None Remove="Images\sidebar-3.jpg" />
+    <None Remove="Images\sidebar-4.jpg" />
+    <None Remove="Images\user.png" />
     <None Remove="Images\WeChat-public-address.jpg" />
   </ItemGroup>
 
@@ -34,6 +39,11 @@
   <ItemGroup>
     <Resource Include="Images\logo.ico" />
     <Resource Include="Images\logo.png" />
+    <Resource Include="Images\sidebar-1.jpg" />
+    <Resource Include="Images\sidebar-2.jpg" />
+    <Resource Include="Images\sidebar-3.jpg" />
+    <Resource Include="Images\sidebar-4.jpg" />
+    <Resource Include="Images\user.png" />
     <Resource Include="Images\WeChat-public-address.jpg" />
   </ItemGroup>
 

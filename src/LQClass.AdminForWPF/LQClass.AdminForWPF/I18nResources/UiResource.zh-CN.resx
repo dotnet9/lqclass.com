@@ -132,7 +132,19 @@
   <data name="LoginView_UserNameToolTip" xml:space="preserve">
     <value>请输入账号，测试账号：lqclass.com</value>
   </data>
+  <data name="MainWindowView_FirstPage" xml:space="preserve">
+    <value>首页</value>
+  </data>
   <data name="MainWindowView_GithubToolTip" xml:space="preserve">
-    <value>乐趣Class仓库</value>
+    <value>代码仓库</value>
+  </data>
+  <data name="MainWindowView_Internationalization" xml:space="preserve">
+    <value>多语言</value>
+  </data>
+  <data name="MainWindowView_Logout" xml:space="preserve">
+    <value>注销</value>
+  </data>
+  <data name="MainWindowView_ModifyPwd" xml:space="preserve">
+    <value>修改密码</value>
   </data>
 </root>

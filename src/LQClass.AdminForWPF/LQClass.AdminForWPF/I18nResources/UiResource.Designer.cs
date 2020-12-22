@@ -106,11 +106,47 @@ namespace LQClass.AdminForWPF.I18nResources {
         }
         
         /// <summary>
-        ///   查找类似 The responsitory of LQClass&apos;s 的本地化字符串。
+        ///   查找类似 First page 的本地化字符串。
+        /// </summary>
+        internal static string MainWindowView_FirstPage {
+            get {
+                return ResourceManager.GetString("MainWindowView_FirstPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 The code reponsitory 的本地化字符串。
         /// </summary>
         internal static string MainWindowView_GithubToolTip {
             get {
                 return ResourceManager.GetString("MainWindowView_GithubToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Multilingual 的本地化字符串。
+        /// </summary>
+        internal static string MainWindowView_Internationalization {
+            get {
+                return ResourceManager.GetString("MainWindowView_Internationalization", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Log out 的本地化字符串。
+        /// </summary>
+        internal static string MainWindowView_Logout {
+            get {
+                return ResourceManager.GetString("MainWindowView_Logout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Modify password 的本地化字符串。
+        /// </summary>
+        internal static string MainWindowView_ModifyPwd {
+            get {
+                return ResourceManager.GetString("MainWindowView_ModifyPwd", resourceCulture);
             }
         }
     }
