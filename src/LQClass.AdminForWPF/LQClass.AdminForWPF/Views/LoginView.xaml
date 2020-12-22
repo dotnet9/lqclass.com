@@ -6,7 +6,10 @@
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:prism="http://prismlibrary.com/"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         prism:ViewModelLocator.AutoWireViewModel="True"
+        xmlns:i18="clr-namespace:LQClass.AdminForWPF.I18nResources"
+        xmlns:markup="clr-namespace:WpfExtensions.Xaml.Markup;assembly=WpfExtensions.Xaml"
         xmlns:ctlHelper="clr-namespace:LQClass.CustomControls.Helpers;assembly=LQClass.CustomControls"
         mc:Ignorable="d"
         x:Name="win"
@@ -110,6 +113,9 @@
         </Grid.RowDefinitions>
 
         <Image Source="/Images/logo.png" HorizontalAlignment="Left" />
+        <Button HorizontalAlignment="Right" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}" Click="Close_Click">
+          <materialDesign:PackIcon Kind="Close"/>
+        </Button>
 
         <!--#region 登录输入区域-->
         <Border Grid.Row="1"  Background="White" HorizontalAlignment="Right" 
@@ -135,13 +141,13 @@
                                                  Grid.Row="1"
                                          Margin="0,5,10,0" Foreground="{Binding ElementName=NameTextBox, Path=BorderBrush}"/>
             <TextBox x:Name="NameTextBox" Grid.Row="1" Grid.Column="1" Text="{Binding UserName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-                              materialDesign:HintAssist.Hint="请输入账号，测试账号：lqclass.com" FontSize="14"/>
+                              materialDesign:HintAssist.Hint="{markup:I18n {x:Static i18:Language.LoginView_UserNameToolTip}}" FontSize="14"/>
 
             <materialDesign:PackIcon Kind="Key" Width="16" Height="16" Margin="0,5,10,0"
                                                  VerticalAlignment="Center"
                                         Grid.Row="2" Foreground="{Binding ElementName=passwordBox,Path=BorderBrush}"/>
             <PasswordBox x:Name="passwordBox" Grid.Row="2" Grid.Column="1"
-                              materialDesign:HintAssist.Hint="请输入密码，测试密码：lqclass.com" FontSize="14"
+                              materialDesign:HintAssist.Hint="{markup:I18n {x:Static i18:Language.LoginView_PasswordToolTip}}" FontSize="14"
                               materialDesign:TextFieldAssist.HasClearButton="True"
                               ctlHelper:PasswordBoxHelper.Password="{Binding Password,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
               <i:Interaction.Behaviors>
@@ -150,12 +156,12 @@
             </PasswordBox>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="3" Grid.ColumnSpan="2" Margin="20 0">
-              <CheckBox Content="记住密码" Margin="30 0" IsChecked="{Binding IsRemberMe}"/>
-              <CheckBox Content="自动登录" Margin="30 0" IsChecked="{Binding IsAutoLogin}"/>
+              <CheckBox Content="{markup:I18n {x:Static i18:Language.LoginView_IsRemberMe}}" Margin="30 0" IsChecked="{Binding IsRemberMe}"/>
+              <CheckBox Content="{markup:I18n {x:Static i18:Language.LoginView_IsAutoLogin}}" Margin="30 0" IsChecked="{Binding IsAutoLogin}"/>
             </StackPanel>
 
             <Button Grid.ColumnSpan="2" Grid.Row="4" Height="40"
-                                Content="登录" Command="{Binding RaiseLoginCommand}"/>
+                                Content="{markup:I18n {x:Static i18:Language.LoginView_Login}}" Command="{Binding RaiseLoginCommand}"/>
           </Grid>
         </Border>
         <!--#endregion-->
@@ -205,20 +211,40 @@
 
         <!--#region 脚注-->
         <Border Grid.Row="3" Background="#f8f8f9" CornerRadius="0 0 10 10">
-          <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock VerticalAlignment="Center" FontSize="16">
+          <Grid>
+            <mah:DropDownButton Margin="15 0"
+                                HorizontalAlignment="Left"
+                                Content="{Binding CurrentLanguage}"
+                                DisplayMemberPath="Name"
+                                ItemsSource="{Binding Languages}">
+              <mah:DropDownButton.ItemContainerStyle>
+                <Style BasedOn="{StaticResource {x:Type MenuItem}}" TargetType="{x:Type MenuItem}">
+                  <Setter Property="Header" Value="{Binding Name}"/>
+                  <Setter Property="Command" Value="{Binding RelativeSource={RelativeSource AncestorType=Window,Mode=FindAncestor}, Path=DataContext.RaiseChangeLanguageCommand}" />
+                  <Setter Property="CommandParameter" Value="{Binding Key}" />
+                </Style>
+              </mah:DropDownButton.ItemContainerStyle>
+              <mah:DropDownButton.Icon>
+
+                <materialDesign:PackIcon Kind="Language" Width="16" Height="16" Margin="0,5,10,0"/>
+              </mah:DropDownButton.Icon>
+            </mah:DropDownButton>
+            
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+              <TextBlock VerticalAlignment="Center" FontSize="16">
                             <Hyperlink Command="{Binding RaiseOpenLinkCommand}"
                                        CommandParameter="https://dotnet9.com">Help</Hyperlink>
-            </TextBlock>
-            <TextBlock Foreground="#333333" FontSize="16">
+              </TextBlock>
+              <TextBlock Foreground="#333333" FontSize="16">
               <Run Text="© 2020 "/>
               <Hyperlink Command="{Binding RaiseOpenLinkCommand}"
                          CommandParameter="http://lqclass.com">
                 <Run Text="LQCLASS.COM"/>
               </Hyperlink>
               <Run Text=" all rights reserved" />
-            </TextBlock>
-          </StackPanel>
+              </TextBlock>
+            </StackPanel>
+          </Grid>
         </Border>
         <!--endregion-->
       </Grid>

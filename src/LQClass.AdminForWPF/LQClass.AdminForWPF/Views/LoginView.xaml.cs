@@ -1,13 +1,11 @@
-﻿using System.Diagnostics;
 using System.Windows;
-using System.Windows.Documents;
 
 namespace LQClass.AdminForWPF.Views
 {
-	/// <summary>
-	/// LoginView.xaml 的交互逻辑
-	/// </summary>
-	public partial class LoginView : Window
+  /// <summary>
+  /// LoginView.xaml 的交互逻辑
+  /// </summary>
+  public partial class LoginView : Window
 	{
 		public LoginView()
 		{
@@ -22,14 +20,9 @@ namespace LQClass.AdminForWPF.Views
 			}
 		}
 
-		private void Hyperlink_Click(object sender, RoutedEventArgs e)
-		{
-			Hyperlink link = sender as Hyperlink;
-			Process.Start(new ProcessStartInfo("cmd", $"/c start {link.NavigateUri.AbsoluteUri}")
-			{
-				UseShellExecute = false,
-				CreateNoWindow = true
-			});
-		}
-	}
+    private void Close_Click(object sender, RoutedEventArgs e)
+    {
+      this.Close();
+    }
+  }
 }

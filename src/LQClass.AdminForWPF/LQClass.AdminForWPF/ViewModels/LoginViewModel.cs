@@ -1,3 +1,4 @@
+using LQClass.AdminForWPF.I18nResources;
 using LQClass.AdminForWPF.Infrastructure.Configs;
 using LQClass.AdminForWPF.Infrastructure.Tools;
 using LQClass.AdminForWPF.Models;
@@ -85,6 +86,22 @@ namespace LQClass.AdminForWPF.ViewModels
         (RaiseLoginCommand as DelegateCommand).RaiseCanExecuteChanged();
       }
     }
+    private string _CurrentLanguage;
+    /// <summary>
+    /// 当前选择的选择
+    /// </summary>
+    public string CurrentLanguage
+    {
+      get { return _CurrentLanguage; }
+      set
+      {
+        this.SetProperty(ref _CurrentLanguage, value);
+      }
+    }
+    /// <summary>
+    /// 语言列表
+    /// </summary>
+    public List<LanguageModel> Languages { get { return LanguageModel.GetLanguages(); } }
 
     /// <summary>
     /// 超链接列表
@@ -101,6 +118,13 @@ namespace LQClass.AdminForWPF.ViewModels
     /// </summary>
     public ICommand RaiseLoginCommand =>
       _raiseLoginCommand ?? (_raiseLoginCommand = new DelegateCommand(RaiseLogginHandler, CanRaiseLoginCommand));
+
+    private ICommand _RaiseChangeLanguageCommand;
+    /// <summary>
+    /// 切换语言命令
+    /// </summary>
+    public ICommand RaiseChangeLanguageCommand =>
+      _RaiseChangeLanguageCommand ?? (_RaiseChangeLanguageCommand = new DelegateCommand<string>(RaiseChangeLanguageHandler));
 
     private ICommand _raiseOpenLinkCommand;
     /// <summary>
@@ -119,6 +143,8 @@ namespace LQClass.AdminForWPF.ViewModels
 
     public LoginViewModel(LoginModel loginModel)
     {
+      CurrentLanguage = Languages?.Find(cu => cu.Key == AppConfig.Instance.Language)?.Name;
+
       this._loginModel = loginModel;
       this.IsRemberMe = AppConfig.Instance.IsRemberMe;
       this.IsAutoLogin = AppConfig.Instance.IsAutoLogin;
@@ -150,11 +176,13 @@ namespace LQClass.AdminForWPF.ViewModels
             AppConfig.Instance.UserName = DESHelper.Encrypt3Des(this.UserName);
             AppConfig.Instance.Password = DESHelper.Encrypt3Des(this.Password);
           }
+          else
+          {
+            AppConfig.Instance.UserName =
+              AppConfig.Instance.Password = string.Empty;
+          }
           AppConfig.Instance.Save();
-          MessageBox.Show($"登录成功：{JsonHelper.FormatJsonString(response.Content)}");
-          var win = App.Current.MainWindow;
-          new MainWindowView().Show();
-          win.Close();
+          ShellSwitcher.Switch<LoginView, MainWindowView>();
         }
         else
         {
@@ -165,6 +193,17 @@ namespace LQClass.AdminForWPF.ViewModels
       {
         MessageBox.Show(ex.Message);
       }
+    }
+
+    /// <summary>
+    /// 切换语言
+    /// </summary>
+    /// <param name="languageKey"></param>
+    private void RaiseChangeLanguageHandler(string languageKey)
+    {
+      var lan = Languages.Find(cu => cu.Key == languageKey);
+      this.CurrentLanguage = lan.Name;
+      AppConfig.Instance.SetLanguage(languageKey);
     }
 
     /// <summary>
