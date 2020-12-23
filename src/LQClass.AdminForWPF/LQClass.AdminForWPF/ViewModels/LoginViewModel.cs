@@ -1,8 +1,11 @@
 using LQClass.AdminForWPF.Infrastructure.Configs;
+using LQClass.AdminForWPF.Infrastructure.Models;
 using LQClass.AdminForWPF.Infrastructure.Mvvm;
 using LQClass.AdminForWPF.Infrastructure.Tools;
 using LQClass.AdminForWPF.Models;
 using LQClass.AdminForWPF.Views;
+using MaterialDesignThemes.Wpf;
+using Newtonsoft.Json;
 using Prism.Commands;
 using System;
 using System.Collections.Generic;
@@ -14,7 +17,6 @@ namespace LQClass.AdminForWPF.ViewModels
 	public class LoginViewModel : ViewModelBase
 	{
 		#region 属性
-
 
 		private bool _isRemberMe = false;
 		/// <summary>
@@ -153,6 +155,7 @@ namespace LQClass.AdminForWPF.ViewModels
 				var response = await _loginModel.Login(UserName, Password);
 				if (response.IsSuccessful)
 				{
+					LoginResultDto.Instance = JsonConvert.DeserializeObject<LoginResultDto>(response.Content);
 					AppConfig.Instance.IsRemberMe = this.IsRemberMe;
 					AppConfig.Instance.IsAutoLogin = this.IsAutoLogin;
 					if (AppConfig.Instance.IsRemberMe)
@@ -170,14 +173,14 @@ namespace LQClass.AdminForWPF.ViewModels
 				}
 				else
 				{
-					MessageBox.Show($"登录失败：{JsonHelper.FormatJsonString(response.Content)}");
+					ShowTipMsg($"{JsonHelper.FormatJsonString(response.Content)}");
 					AppConfig.Instance.IsAutoLogin = this.IsAutoLogin = false;
 					AppConfig.Instance.Save();
 				}
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show(ex.Message);
+				ShowTipMsg(ex.Message);
 			}
 			finally
 			{
@@ -192,5 +195,7 @@ namespace LQClass.AdminForWPF.ViewModels
 		private bool CanRaiseLoginCommand() => !string.IsNullOrWhiteSpace(UserName) && !string.IsNullOrWhiteSpace(Password);
 
 		#endregion
+
+
 	}
 }

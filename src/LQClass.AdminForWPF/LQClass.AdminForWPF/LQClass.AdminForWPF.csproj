@@ -12,8 +12,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\Down.png" />
     <None Remove="Images\logo.ico" />
     <None Remove="Images\logo.png" />
+    <None Remove="Images\Right.png" />
     <None Remove="Images\sidebar-1.jpg" />
     <None Remove="Images\sidebar-2.jpg" />
     <None Remove="Images\sidebar-3.jpg" />
@@ -23,6 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="HandyControl" Version="3.0.0" />
     <PackageReference Include="MahApps.Metro" Version="2.4.3" />
     <PackageReference Include="MaterialDesignThemes" Version="4.0.0-ci2312" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
@@ -37,8 +40,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\Down.png" />
     <Resource Include="Images\logo.ico" />
     <Resource Include="Images\logo.png" />
+    <Resource Include="Images\Right.png" />
     <Resource Include="Images\sidebar-1.jpg" />
     <Resource Include="Images\sidebar-2.jpg" />
     <Resource Include="Images\sidebar-3.jpg" />
@@ -94,6 +99,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>UiResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Dtos\" />
   </ItemGroup>
 
 </Project>

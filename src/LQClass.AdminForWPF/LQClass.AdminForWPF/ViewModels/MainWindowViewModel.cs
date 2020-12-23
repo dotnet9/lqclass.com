@@ -1,9 +1,11 @@
 using LQClass.AdminForWPF.Infrastructure.Configs;
+using LQClass.AdminForWPF.Infrastructure.Models;
 using LQClass.AdminForWPF.Infrastructure.Mvvm;
 using LQClass.AdminForWPF.Models;
 using LQClass.AdminForWPF.Views;
 using Prism.Commands;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
 
 namespace LQClass.AdminForWPF.ViewModels
@@ -12,6 +14,8 @@ namespace LQClass.AdminForWPF.ViewModels
 	{
 		#region 属性
 
+		private ObservableCollection<CustomMenu> _CustomMenus;
+		public ObservableCollection<CustomMenu> CustomMenus { get { return _CustomMenus; } }
 
 		#endregion
 
@@ -36,6 +40,7 @@ namespace LQClass.AdminForWPF.ViewModels
 		public MainWindowViewModel(MainWindowModel mainWindowModel)
 		{
 			windowModel = mainWindowModel;
+			_CustomMenus = windowModel.ReadCustomMenus();
 		}
 
 		#region 命令处理方法

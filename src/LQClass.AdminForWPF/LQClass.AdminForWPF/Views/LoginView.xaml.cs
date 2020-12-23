@@ -1,3 +1,4 @@
+using LQClass.AdminForWPF.ViewModels;
 using System.Windows;
 
 namespace LQClass.AdminForWPF.Views
@@ -11,6 +12,7 @@ namespace LQClass.AdminForWPF.Views
 		{
 			InitializeComponent();
 			this.NameTextBox.Focus();
+			(this.DataContext as LoginViewModel).Snackbar = this.messageTips;
 		}
 
 		private void MoveWindow_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)

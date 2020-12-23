@@ -18,239 +18,250 @@
         Background="Transparent"
         WindowStartupLocation="CenterScreen"
         Title="{Binding Title}" Height="700" Width="900">
-  <Window.Resources>
-    <Style x:Key="h1Title" TargetType="TextBlock">
-      <Style.Setters>
-        <Setter Property="FontSize" Value="50"/>
-        <Setter Property="FontWeight" Value="Bold" />
-        <Setter Property="Margin" Value="10"/>
-      </Style.Setters>
-    </Style>
-    <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource MaterialDesignTextBox}">
-      <Setter Property="Margin" Value="0,8"/>
-      <Setter Property="VerticalAlignment" Value="Center"/>
-    </Style>
+    <Window.Resources>
+        <Style x:Key="h1Title" TargetType="TextBlock">
+            <Style.Setters>
+                <Setter Property="FontSize" Value="50"/>
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="Margin" Value="10"/>
+            </Style.Setters>
+        </Style>
+        <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource MaterialDesignTextBox}">
+            <Setter Property="Margin" Value="0,8"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
 
-    <Style TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource MaterialDesignPasswordBox}">
-      <Setter Property="Margin" Value="0,8"/>
-    </Style>
-  </Window.Resources>
-  <Border CornerRadius="10" Background="White" BorderThickness="1" BorderBrush="#CCC">
-    <Border x:Name="mainPanel" CornerRadius="10" MouseDown="MoveWindow_MouseDown">
-      <!--#region 背景动画-->
-      <Border.Triggers>
-        <EventTrigger RoutedEvent="Page.Loaded">
-          <BeginStoryboard Name="backgroundAnimationsBeginStoryboard">
-            <Storyboard >
-              <ColorAnimation 
+        <Style TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource MaterialDesignPasswordBox}">
+            <Setter Property="Margin" Value="0,8"/>
+        </Style>
+    </Window.Resources>
+    <Border CornerRadius="10" Background="White" BorderThickness="1" BorderBrush="#CCC">
+        <Border x:Name="mainPanel" CornerRadius="10" MouseDown="MoveWindow_MouseDown">
+            <!--#region 背景动画-->
+            <Border.Triggers>
+                <EventTrigger RoutedEvent="Page.Loaded">
+                    <BeginStoryboard Name="backgroundAnimationsBeginStoryboard">
+                        <Storyboard >
+                            <ColorAnimation 
                     Storyboard.TargetName="mainPanel"
                     Storyboard.TargetProperty="(DockPanel.Background).(DrawingBrush.Drawing).(DrawingGroup.Children)[0].(GeometryDrawing.Brush).(SolidColorBrush.Color)"
                     From="DarkCyan" To="DarkGray" Duration="0:0:50" RepeatBehavior="Forever" 
                     AutoReverse="True"/>
-              <DoubleAnimation 
+                            <DoubleAnimation 
                     Storyboard.TargetName="mainPanel"
                     Storyboard.TargetProperty="(DockPanel.Background).(DrawingBrush.Transform).(RotateTransform.Angle)"
                     From="0" To="360" Duration="0:5:00" RepeatBehavior="Forever" 
                     AutoReverse="True"/>
-              <DoubleAnimation 
+                            <DoubleAnimation 
                     Storyboard.TargetName="mainPanel"
                     Storyboard.TargetProperty="(DockPanel.Background).(DrawingBrush.Drawing).(DrawingGroup.Children)[1].(GeometryDrawing.Geometry).(EllipseGeometry.RadiusX)"
                     From="0.1" To="0.25" Duration="0:0:5" RepeatBehavior="Forever" 
                     AutoReverse="True"/>
-              <PointAnimation 
+                            <PointAnimation 
                     Storyboard.TargetName="mainPanel"
                     Storyboard.TargetProperty="(DockPanel.Background).(DrawingBrush.Drawing).(DrawingGroup.Children)[2].(GeometryDrawing.Geometry).(EllipseGeometry.Center)"
                     From="-0.25, -0.25" To="1.25,1.25" Duration="0:0:10" RepeatBehavior="Forever" 
                     AutoReverse="True"/>
-            </Storyboard>
-          </BeginStoryboard>
-        </EventTrigger>
-      </Border.Triggers>
-      <Border.Background>
-        <DrawingBrush TileMode="Tile"
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Border.Triggers>
+            <Border.Background>
+                <DrawingBrush TileMode="Tile"
                 Viewport="0,0,100,100" ViewportUnits="Absolute">
-          <DrawingBrush.Drawing>
-            <DrawingGroup>
-              <DrawingGroup.Children>
+                    <DrawingBrush.Drawing>
+                        <DrawingGroup>
+                            <DrawingGroup.Children>
 
-                <GeometryDrawing>
-                  <GeometryDrawing.Geometry>
-                    <RectangleGeometry Rect="0,0,1,1" />
-                  </GeometryDrawing.Geometry>
-                  <GeometryDrawing.Brush>
-                    <SolidColorBrush Color="DarkCyan" />
-                  </GeometryDrawing.Brush>
-                  <GeometryDrawing.Pen>
-                    <Pen Thickness="0.01" Brush="DarkGray" />
-                  </GeometryDrawing.Pen>
-                </GeometryDrawing>
+                                <GeometryDrawing>
+                                    <GeometryDrawing.Geometry>
+                                        <RectangleGeometry Rect="0,0,1,1" />
+                                    </GeometryDrawing.Geometry>
+                                    <GeometryDrawing.Brush>
+                                        <SolidColorBrush Color="DarkCyan" />
+                                    </GeometryDrawing.Brush>
+                                    <GeometryDrawing.Pen>
+                                        <Pen Thickness="0.01" Brush="DarkGray" />
+                                    </GeometryDrawing.Pen>
+                                </GeometryDrawing>
 
-                <GeometryDrawing Brush="#99CCCCCC">
-                  <GeometryDrawing.Geometry>
-                    <EllipseGeometry Center="0.75,0.5" RadiusX="0.25" RadiusY="0.25" />
-                  </GeometryDrawing.Geometry>
-                </GeometryDrawing>
-                <GeometryDrawing Brush="#66CCCCCC">
-                  <GeometryDrawing.Geometry>
-                    <EllipseGeometry Center="0.25,0.25" RadiusX="0.1" RadiusY="0.1" />
-                  </GeometryDrawing.Geometry>
-                </GeometryDrawing>
-              </DrawingGroup.Children>
-            </DrawingGroup>
-          </DrawingBrush.Drawing>
-          <DrawingBrush.Transform>
-            <RotateTransform CenterX="0.5" CenterY="0.5" />
-          </DrawingBrush.Transform>
-        </DrawingBrush>
-      </Border.Background>
-      <!--#endregion-->
-      <Grid>
-        <Grid.RowDefinitions>
-          <RowDefinition Height="*"/>
-          <RowDefinition Height="Auto"/>
-          <RowDefinition Height="*"/>
-          <RowDefinition Height="30"/>
-        </Grid.RowDefinitions>
+                                <GeometryDrawing Brush="#99CCCCCC">
+                                    <GeometryDrawing.Geometry>
+                                        <EllipseGeometry Center="0.75,0.5" RadiusX="0.25" RadiusY="0.25" />
+                                    </GeometryDrawing.Geometry>
+                                </GeometryDrawing>
+                                <GeometryDrawing Brush="#66CCCCCC">
+                                    <GeometryDrawing.Geometry>
+                                        <EllipseGeometry Center="0.25,0.25" RadiusX="0.1" RadiusY="0.1" />
+                                    </GeometryDrawing.Geometry>
+                                </GeometryDrawing>
+                            </DrawingGroup.Children>
+                        </DrawingGroup>
+                    </DrawingBrush.Drawing>
+                    <DrawingBrush.Transform>
+                        <RotateTransform CenterX="0.5" CenterY="0.5" />
+                    </DrawingBrush.Transform>
+                </DrawingBrush>
+            </Border.Background>
+            <!--#endregion-->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
 
-        <Image Source="/Images/logo.png" HorizontalAlignment="Left" />
-        <Button HorizontalAlignment="Right" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}" Click="Close_Click">
-          <materialDesign:PackIcon Kind="Close"/>
-        </Button>
+                <Image Source="/Images/logo.png" HorizontalAlignment="Left" />
+                <Button HorizontalAlignment="Right" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}" Click="Close_Click">
+                    <materialDesign:PackIcon Kind="Close"/>
+                </Button>
 
-        <!--#region 登录输入区域-->
-        <Border Grid.Row="1"  Background="White" HorizontalAlignment="Right" 
+                <!--#region 登录输入区域-->
+                <Border Grid.Row="1"  Background="White" HorizontalAlignment="Right" 
                             CornerRadius="5" Margin="30" Width="500" Height="400">
-          <Grid Margin="60">
-            <Grid.RowDefinitions>
-              <RowDefinition Height="0.8*"/>
-              <RowDefinition Height="50"/>
-              <RowDefinition Height="50"/>
-              <RowDefinition Height="30"/>
-              <RowDefinition Height="50"/>
-              <RowDefinition Height="0.2*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-              <ColumnDefinition Width="25"/>
-              <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <TextBlock Text="{Binding Title}" Style="{StaticResource h1Title}" 
+                    <Grid Margin="60">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.8*"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="0.2*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding Title}" Style="{StaticResource h1Title}" 
                                    Grid.ColumnSpan="2" HorizontalAlignment="Center"/>
 
 
-            <materialDesign:PackIcon Kind="Account" Width="16" Height="16" VerticalAlignment="Center"
+                        <materialDesign:PackIcon Kind="Account" Width="16" Height="16" VerticalAlignment="Center"
                                                  Grid.Row="1"
                                          Margin="0,5,10,0" Foreground="{Binding ElementName=NameTextBox, Path=BorderBrush}"/>
-            <TextBox x:Name="NameTextBox" Grid.Row="1" Grid.Column="1" Text="{Binding UserName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                        <TextBox x:Name="NameTextBox" Grid.Row="1" Grid.Column="1" Text="{Binding UserName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                               materialDesign:HintAssist.Hint="{markup:I18n {x:Static i18:Language.LoginView_UserNameToolTip}}" FontSize="14"/>
 
-            <materialDesign:PackIcon Kind="Key" Width="16" Height="16" Margin="0,5,10,0"
+                        <materialDesign:PackIcon Kind="Key" Width="16" Height="16" Margin="0,5,10,0"
                                                  VerticalAlignment="Center"
                                         Grid.Row="2" Foreground="{Binding ElementName=passwordBox,Path=BorderBrush}"/>
-            <PasswordBox x:Name="passwordBox" Grid.Row="2" Grid.Column="1"
+                        <PasswordBox x:Name="passwordBox" Grid.Row="2" Grid.Column="1"
                               materialDesign:HintAssist.Hint="{markup:I18n {x:Static i18:Language.LoginView_PasswordToolTip}}" FontSize="14"
                               materialDesign:TextFieldAssist.HasClearButton="True"
                               ctlHelper:PasswordBoxHelper.Password="{Binding Password,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
-              <i:Interaction.Behaviors>
-                <ctlHelper:PasswordBoxBehavior/>
-              </i:Interaction.Behaviors>
-            </PasswordBox>
+                            <i:Interaction.Behaviors>
+                                <ctlHelper:PasswordBoxBehavior/>
+                            </i:Interaction.Behaviors>
+                        </PasswordBox>
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="3" Grid.ColumnSpan="2" Margin="20 0">
-              <CheckBox Content="{markup:I18n {x:Static i18:Language.LoginView_IsRemberMe}}" Margin="30 0" IsChecked="{Binding IsRemberMe}"/>
-              <CheckBox Content="{markup:I18n {x:Static i18:Language.LoginView_IsAutoLogin}}" Margin="30 0" IsChecked="{Binding IsAutoLogin}"/>
-            </StackPanel>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="3" Grid.ColumnSpan="2" Margin="20 0">
+                            <CheckBox Content="{markup:I18n {x:Static i18:Language.LoginView_IsRemberMe}}" Margin="30 0" IsChecked="{Binding IsRemberMe}"/>
+                            <CheckBox Content="{markup:I18n {x:Static i18:Language.LoginView_IsAutoLogin}}" Margin="30 0" IsChecked="{Binding IsAutoLogin}"/>
+                        </StackPanel>
 
-            <Button Grid.ColumnSpan="2" Grid.Row="4" Height="40" IsDefault="True"
+                        <Button Grid.ColumnSpan="2" Grid.Row="4" Height="40" IsDefault="True"
                                 Content="{markup:I18n {x:Static i18:Language.LoginView_Login}}" 
                                 Command="{Binding RaiseLoginCommand}"
                                 materialDesign:ButtonProgressAssist.Value="-1"
                                 materialDesign:ButtonProgressAssist.IsIndicatorVisible="{Binding IsIndeterminate}"
                                 materialDesign:ButtonProgressAssist.IsIndeterminate="{Binding IsIndeterminate}"/>
-          </Grid>
-        </Border>
-        <!--#endregion-->
+                    </Grid>
+                </Border>
+                <!--#endregion-->
 
-        <!--#region 超链接-->
-        <Grid Grid.Row="2" Background="#eee">
-          <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="*"/>
-          </Grid.RowDefinitions>
-          <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*" />
-          </Grid.ColumnDefinitions>
-          <TextBlock Text="Quick Links" FontSize="18" Margin="10 5"/>
-          <ListBox Grid.Row="1" DataContext="{Binding}" ItemsSource="{Binding QuickLinks}">
-            <ListBox.Resources>
-              <Style TargetType="TextBlock">
-                <Setter Property="MinWidth" Value="100"/>
-                <Setter Property="Margin" Value="30 20" />
-                <Setter Property="FontSize" Value="16" />
-                <Setter Property="LineHeight" Value="44" />
-                <Setter Property="VerticalAlignment" Value="Center"/>
-              </Style>
-            </ListBox.Resources>
-            <ListBox.ItemsPanel>
-              <ItemsPanelTemplate>
-                <WrapPanel Orientation="Horizontal"/>
-              </ItemsPanelTemplate>
-            </ListBox.ItemsPanel>
-            <ListBox.ItemTemplate>
-              <DataTemplate>
-                <Button Content="{Binding Name}" ToolTip="{Binding Desc}"
+                <!--#region 超链接-->
+                <Grid Grid.Row="2" Background="#eee">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Quick Links" FontSize="18" Margin="10 5"/>
+                    <ListBox Grid.Row="1" DataContext="{Binding}" ItemsSource="{Binding QuickLinks}">
+                        <ListBox.Resources>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="MinWidth" Value="100"/>
+                                <Setter Property="Margin" Value="30 20" />
+                                <Setter Property="FontSize" Value="16" />
+                                <Setter Property="LineHeight" Value="44" />
+                                <Setter Property="VerticalAlignment" Value="Center"/>
+                            </Style>
+                        </ListBox.Resources>
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Button Content="{Binding Name}" ToolTip="{Binding Desc}"
                         Command="{Binding RelativeSource={RelativeSource AncestorType=Window,Mode=FindAncestor}, Path=DataContext.RaiseOpenLinkCommand}"
                         CommandParameter="{Binding Url}"/>
-                <!--<TextBlock Text="{Binding Name}" ToolTip="{Binding Desc}">                            
+                                <!--<TextBlock Text="{Binding Name}" ToolTip="{Binding Desc}">                            
                   <Hyperlink NavigateUri="{Binding Url}"
                              Command="{Binding RelativeSource={RelativeSource AncestorType=Window,Mode=FindAncestor}, Path=DataContext.RaiseOpenLinkCommand}"
                              CommandParameter="{Binding Url}"></Hyperlink>
                 </TextBlock>-->
-              </DataTemplate>
-            </ListBox.ItemTemplate>
-          </ListBox>
-          <Image Grid.Column="1" Grid.RowSpan="2" Source="/Images/WeChat-public-address.jpg" Margin="10"/>
-        </Grid>
-        <!--#endregion-->
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <Image Grid.Column="1" Grid.RowSpan="2" Source="/Images/WeChat-public-address.jpg" Margin="10"/>
+                </Grid>
+                <!--#endregion-->
 
-        <!--#region 脚注-->
-        <Border Grid.Row="3" Background="#f8f8f9" CornerRadius="0 0 10 10">
-          <Grid>
-            <mah:DropDownButton Margin="15 0"
+                <!--#region 脚注-->
+                <Border Grid.Row="3" Background="#f8f8f9" CornerRadius="0 0 10 10">
+                    <Grid>
+                        <mah:DropDownButton Margin="15 0"
                                 HorizontalAlignment="Left"
                                 Content="{Binding CurrentLanguage}"
                                 DisplayMemberPath="Name"
                                 ItemsSource="{Binding Languages}">
-              <mah:DropDownButton.ItemContainerStyle>
-                <Style BasedOn="{StaticResource {x:Type MenuItem}}" TargetType="{x:Type MenuItem}">
-                  <Setter Property="Header" Value="{Binding Name}"/>
-                  <Setter Property="Command" Value="{Binding RelativeSource={RelativeSource AncestorType=Window,Mode=FindAncestor}, Path=DataContext.RaiseChangeLanguageCommand}" />
-                  <Setter Property="CommandParameter" Value="{Binding Key}" />
-                </Style>
-              </mah:DropDownButton.ItemContainerStyle>
-              <mah:DropDownButton.Icon>
-                <materialDesign:PackIcon Kind="Language" Width="16" Height="16" />
-              </mah:DropDownButton.Icon>
-            </mah:DropDownButton>
-            
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-              <TextBlock VerticalAlignment="Center" FontSize="16">
+                            <mah:DropDownButton.ItemContainerStyle>
+                                <Style BasedOn="{StaticResource {x:Type MenuItem}}" TargetType="{x:Type MenuItem}">
+                                    <Setter Property="Header" Value="{Binding Name}"/>
+                                    <Setter Property="Command" Value="{Binding RelativeSource={RelativeSource AncestorType=Window,Mode=FindAncestor}, Path=DataContext.RaiseChangeLanguageCommand}" />
+                                    <Setter Property="CommandParameter" Value="{Binding Key}" />
+                                </Style>
+                            </mah:DropDownButton.ItemContainerStyle>
+                            <mah:DropDownButton.Icon>
+                                <materialDesign:PackIcon Kind="Language" Width="16" Height="16" />
+                            </mah:DropDownButton.Icon>
+                        </mah:DropDownButton>
+
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock VerticalAlignment="Center" FontSize="16">
                             <Hyperlink Command="{Binding RaiseOpenLinkCommand}"
                                        CommandParameter="https://dotnet9.com">Help</Hyperlink>
-              </TextBlock>
-              <TextBlock Foreground="#333333" FontSize="16">
+                            </TextBlock>
+                            <TextBlock Foreground="#333333" FontSize="16">
               <Run Text="© 2020 "/>
               <Hyperlink Command="{Binding RaiseOpenLinkCommand}"
                          CommandParameter="http://lqclass.com">
                 <Run Text="LQCLASS.COM"/>
               </Hyperlink>
               <Run Text=" all rights reserved" />
-              </TextBlock>
-            </StackPanel>
-          </Grid>
+                            </TextBlock>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                <!--endregion-->
+
+                <materialDesign:Snackbar Grid.Row="2" Grid.RowSpan="2" 
+                            x:Name="messageTips"
+                            MessageQueue="{materialDesign:MessageQueue}">
+                    <materialDesign:Snackbar.Resources>
+                        <Style BasedOn="{StaticResource {x:Type materialDesign:SnackbarMessage}}" 
+                               TargetType="{x:Type materialDesign:SnackbarMessage}">
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        </Style>
+                    </materialDesign:Snackbar.Resources>
+                </materialDesign:Snackbar>
+            </Grid>
         </Border>
-        <!--endregion-->
-      </Grid>
     </Border>
-  </Border>
 </Window>
