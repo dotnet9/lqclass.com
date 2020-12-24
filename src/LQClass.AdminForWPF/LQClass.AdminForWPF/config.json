@@ -51,5 +51,47 @@
       "Desc": "后端API文档",
       "URL": "http://api.lqclass.com/swagger/index.html"
     }
+  ],
+  "MainMenus": [
+    {
+      "Key": "Home",
+      "Value": "首页",
+      "Icon": "home.png"
+    },
+    {
+      "Key": "System",
+      "Value": "系统管理",
+      "Icon": "system.png"
+    },
+    {
+      "Key": "Log",
+      "Value": "日志",
+      "Icon": "log.png"
+    },
+    {
+      "Key": "User Management",
+      "Value": "用户管理",
+      "Icon": "User Settings.png"
+    },
+    {
+      "Key": "Role Management",
+      "Value": "角色管理",
+      "Icon": "user role.png"
+    },
+    {
+      "Key": "Group Management",
+      "Value": "用户组管理",
+      "Icon": "group.png"
+    },
+    {
+      "Key": "Menu Mangement",
+      "Value": "菜单管理",
+      "Icon": "menu.png"
+    },
+    {
+      "Key": "Data Privilege",
+      "Value": "数据权限",
+      "Icon": "data.png"
+    }
   ]
 }

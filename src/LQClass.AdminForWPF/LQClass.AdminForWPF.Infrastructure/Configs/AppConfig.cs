@@ -1,3 +1,4 @@
+using LQClass.AdminForWPF.Infrastructure.Models;
 using LQClass.AdminForWPF.Infrastructure.Tools;
 using Newtonsoft.Json;
 using System;
@@ -58,6 +59,11 @@ namespace LQClass.AdminForWPF.Infrastructure.Configs
 		/// 当前项目链接
 		/// </summary>
 		public List<QuickLink> WebLinks { get; set; }
+
+		/// <summary>
+		/// 菜单中文翻译，其他语言可考虑单独做成配置文件
+		/// </summary>
+		public List<MainMenu> MainMenus { get; set; }
 
 		#endregion
 
@@ -130,6 +136,21 @@ namespace LQClass.AdminForWPF.Infrastructure.Configs
 				File.Delete(configFile);
 			}
 			File.AppendAllText(configFile, formatStr);
+		}
+
+		/// <summary>
+		/// 获取菜单对应的中文值
+		/// </summary>
+		/// <param name="key"></param>
+		/// <returns></returns>
+		public MainMenu GetMenu(string key)
+		{
+			var kv = this.MainMenus.Find(cu => cu.Key == key);
+			if (kv != null)
+			{
+				return kv;
+			}
+			return new MainMenu { Key = key, Value = key, Icon = "home.png" };
 		}
 		private AppConfig() { }
 	}

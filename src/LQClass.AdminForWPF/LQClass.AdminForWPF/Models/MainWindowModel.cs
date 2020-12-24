@@ -1,5 +1,7 @@
+using LQClass.AdminForWPF.Infrastructure.Configs;
 using LQClass.AdminForWPF.Infrastructure.Models;
 using LQClass.AdminForWPF.Infrastructure.Mvvm;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -17,7 +19,13 @@ namespace LQClass.AdminForWPF.Models
 		{
 			var oldMenus = LoginResultDto.Instance.Attributes.Menus;
 			ObservableCollection<CustomMenu> customMenus = new ObservableCollection<CustomMenu>();
-			ReadChildren(string.Empty, oldMenus, customMenus);
+
+			// Ìí¼ÓÊ×Ò³²Ëµ¥
+			var mainMenu = AppConfig.Instance.GetMenu(CustomMenu.KEY_OF_HOME);
+			var newMenu = new CustomMenu(1, "1", "", mainMenu.Value, $"{AppDomain.CurrentDomain.BaseDirectory}Images\\{mainMenu.Icon}");
+			customMenus.Add(newMenu);
+
+			ReadChildren(1, string.Empty, oldMenus, customMenus);
 			return customMenus;
 		}
 
@@ -26,7 +34,7 @@ namespace LQClass.AdminForWPF.Models
 		/// </summary>
 		/// <param name="parentID"></param>
 		/// <param name="customMenus"></param>
-		private void ReadChildren(string parentID, List<MenuInfo> soureMenus, ObservableCollection<CustomMenu> customMenus)
+		private void ReadChildren(int level, string parentID, List<MenuInfo> soureMenus, ObservableCollection<CustomMenu> customMenus)
 		{
 			var findResults = soureMenus.ToList().FindAll(cu => cu.ParentId == parentID);
 			if (findResults == null || findResults.Count <= 0)
@@ -35,9 +43,10 @@ namespace LQClass.AdminForWPF.Models
 			}
 			foreach (var menuItem in findResults)
 			{
-				var newMenu = new CustomMenu { ID = menuItem.Id, ParentID = parentID, Name = menuItem.Text };
+				var mainMenu = AppConfig.Instance.GetMenu(menuItem.Text);
+				var newMenu = new CustomMenu(level, menuItem.Id, parentID, mainMenu.Value, $"{AppDomain.CurrentDomain.BaseDirectory}Images\\{mainMenu.Icon}");
 				customMenus.Add(newMenu);
-				ReadChildren(newMenu.ID, soureMenus, newMenu.Children);
+				ReadChildren(level + 1, newMenu.ID, soureMenus, newMenu.Children);
 			}
 		}
 	}

@@ -41,13 +41,16 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Rectangle Grid.RowSpan="4">
-            <Rectangle.Fill>
-                <ImageBrush ImageSource="/Images/sidebar-1.jpg" Stretch="UniformToFill" TileMode="Tile"/>
-            </Rectangle.Fill>
-        </Rectangle>
+        <Border Grid.RowSpan="4">
+            <Border.Background>
+                <ImageBrush ImageSource="/LQClass.AdminForWPF;component/Images/sidebar-3.jpg" Stretch="UniformToFill"/>
+            </Border.Background>
+            <Grid>
+                <Rectangle Fill="#ee444444"/>
+            </Grid>
+        </Border>
 
-        <StackPanel Orientation="Horizontal" Background="#22000000">
+        <StackPanel Orientation="Horizontal" Background="#44000000">
             <Image Source="/Images/logo.png" HorizontalAlignment="Left"  Margin="10 0 0 0"/>
             <TextBlock Text="{Binding Title}" Foreground="White" FontSize="18" FontWeight="Bold" VerticalAlignment="Center"/>
         </StackPanel>
@@ -61,18 +64,9 @@
             </Rectangle.Fill>
         </Rectangle>
 
-        <TreeView Grid.Row="2" Grid.RowSpan="2" Background="Transparent"
-                  ItemsSource="{Binding CustomMenus}" Foreground="White">
-            <TreeView.ItemContainerStyle>
-                <Style TargetType="{x:Type TreeViewItem}">
-                    <Setter Property="IsExpanded" Value="True"></Setter>
-                </Style>
-            </TreeView.ItemContainerStyle>
-            <TreeView.ItemTemplate>
-                <HierarchicalDataTemplate ItemsSource="{Binding Children}">
-                    <TextBlock Text="{Binding Name}"/>
-                </HierarchicalDataTemplate>
-            </TreeView.ItemTemplate>
+        <TreeView  Grid.Row="2" Grid.RowSpan="2"
+                   ItemsSource="{Binding CustomMenus}"
+                   ItemTemplate="{StaticResource treeHierTemp}">
         </TreeView>
 
         <Menu Grid.Column="1" HorizontalAlignment="Right" Margin="0 0 130 0">
