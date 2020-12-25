@@ -103,7 +103,7 @@
         <Setter Property="VirtualizingStackPanel.IsVirtualizing" Value="True"></Setter>
         <Setter Property="VirtualizingStackPanel.VirtualizationMode" Value="Recycling" />
         <Setter Property="ScrollViewer.IsDeferredScrollingEnabled" Value="False" />
-        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Background" Value="#77000000"/>
         <Setter Property="ItemContainerStyle" Value="{StaticResource DefaultTreeViewItem}"/>
         <Setter Property="ItemsPanel">
             <Setter.Value>

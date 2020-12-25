@@ -390,3 +390,6 @@ src/LQClass.AdminForWPF/Build/net5.0-windows/zh-CN/LQClass.AdminForWPF.resources
 src/LQClass.AdminForWPF/LQClass.AdminForWPF.Infrastructure/LQClass.AdminForWPF.Infrastructure.csproj
 src/LQClass.AdminForWPF/LQClass.AdminForWPF/LQClass.AdminForWPF.csproj
 src/LQClass.AdminForWPF/LQClass.CustomControls/LQClass.CustomControls.csproj
+src/LQClass.AdminForWPF/Build/net5.0-windows/AduSkin.dll
+src/LQClass.AdminForWPF/Build/net5.0-windows/runtimes/win/lib/netcoreapp2.0/System.Management.dll
+*.dll

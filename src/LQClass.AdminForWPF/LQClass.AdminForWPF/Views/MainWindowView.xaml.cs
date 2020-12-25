@@ -1,17 +1,7 @@
+using HandyControl.Controls;
+using LQClass.AdminForWPF.Infrastructure.Models;
 using MahApps.Metro.Controls;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace LQClass.AdminForWPF.Views
 {
@@ -19,10 +9,40 @@ namespace LQClass.AdminForWPF.Views
 	/// MainWindowView.xaml 的交互逻辑
 	/// </summary>
 	public partial class MainWindowView : MetroWindow
-  {
+	{
 		public MainWindowView()
 		{
 			InitializeComponent();
+		}
+
+		private void TreeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+		{
+			var menuItem = this.tree.SelectedItem as CustomMenu;
+			if (menuItem == null)
+			{
+				return;
+			}
+			bool isExist = false;
+			foreach (var item in this.tabCtl.Items)
+			{
+				var tabItem = item as TabItem;
+				if (tabItem == null)
+				{
+					continue;
+				}
+				if (tabItem.Header?.ToString() == menuItem.Name)
+				{
+					isExist = true;
+					this.tabCtl.SelectedItem = tabItem;
+					break;
+				}
+			}
+			if (!isExist)
+			{
+				var tabItem = new TabItem();
+				tabItem.Header = menuItem.Name;
+				this.tabCtl.Items.Add(tabItem);
+			}
 		}
 	}
 }

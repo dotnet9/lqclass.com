@@ -21,10 +21,12 @@
     <mah:MetroWindow.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <!--#region 主窗体使用MahApps.Metro控件库风格-->
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Light.Blue.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/LQClass.AdminForWPF;component/Styles/MainMenu.xaml" />
+                <!--#endregion-->
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </mah:MetroWindow.Resources>
@@ -37,10 +39,11 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="5"/>
-            <RowDefinition Height="35"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="35"/>
         </Grid.RowDefinitions>
 
+        <!--#region 左侧菜单背景-->
         <Border Grid.RowSpan="4">
             <Border.Background>
                 <ImageBrush ImageSource="/LQClass.AdminForWPF;component/Images/sidebar-3.jpg" Stretch="UniformToFill"/>
@@ -49,11 +52,14 @@
                 <Rectangle Fill="#bb444444"/>
             </Grid>
         </Border>
+        <!--#endregion-->
 
+        <!--#region 左侧菜单上的logo及标题-->
         <StackPanel Orientation="Horizontal" Background="#44000000">
             <Image Source="/Images/logo.png" HorizontalAlignment="Left"  Margin="10 0 0 0"/>
             <TextBlock Text="{Binding Title}" Foreground="White" FontSize="18" FontWeight="Bold" VerticalAlignment="Center"/>
         </StackPanel>
+        <!--#endregion-->
 
         <Rectangle Grid.Row="1" Height="1" Width="180">
             <Rectangle.Fill>
@@ -64,12 +70,30 @@
             </Rectangle.Fill>
         </Rectangle>
 
-        <TreeView  Grid.Row="2" Grid.RowSpan="2"
+        <!--#region 左侧菜单树-->
+        <TreeView  Grid.Row="2" Grid.RowSpan="2" x:Name="tree"
                    ItemsSource="{Binding CustomMenus}"
-                   ItemTemplate="{StaticResource treeHierTemp}">
+                   ItemTemplate="{StaticResource treeHierTemp}"
+                   SelectedItemChanged="TreeView_SelectedItemChanged">
         </TreeView>
+        <!--#endregion-->
 
+        <!--#region 标题栏菜单-->
         <Menu Grid.Column="1" HorizontalAlignment="Right" Margin="0 0 130 0">
+            <MenuItem Header="Wechat"
+                      Command="{Binding RaiseOpenLinkCommand}"
+                      CommandParameter="https://github.com/dotnet9/lqclass.com">
+                <MenuItem.Icon>
+                    <materialDesign:PackIcon Kind="Wechat" Width="22" Height="22" />
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem Header="QQchat"
+                      Command="{Binding RaiseOpenLinkCommand}"
+                      CommandParameter="https://github.com/dotnet9/lqclass.com">
+                <MenuItem.Icon>
+                    <materialDesign:PackIcon Kind="Qqchat" Width="22" Height="22" />
+                </MenuItem.Icon>
+            </MenuItem>
             <MenuItem Header="{markup:I18n {x:Static i18:Language.MainWindowView_GithubToolTip}}"
                       Command="{Binding RaiseOpenLinkCommand}"
                       CommandParameter="https://github.com/dotnet9/lqclass.com">
@@ -101,5 +125,29 @@
                 <MenuItem Header="{markup:I18n {x:Static i18:Language.MainWindowView_Logout}}" Command="{Binding RaiseLogoutCommand}" />
             </MenuItem>
         </Menu>
+        <!--#endregion-->
+
+        <!--#region 右侧内容区域-->
+        <hc:TabControl Grid.Column="1" Grid.Row="2" x:Name="tabCtl"
+                            ShowOverflowButton="True" ShowContextMenu="True" IsDraggable="True"
+                            ShowCloseButton="True" ShowScrollButton="True" IsScrollable="True">
+            <hc:TabControl.Resources>
+                <ResourceDictionary>
+                    <ResourceDictionary.MergedDictionaries>
+                        <!--#region TabControl风格使用HandyControl控件库-->
+                        <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml"/>
+                        <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
+                        <!--#endregion-->
+                    </ResourceDictionary.MergedDictionaries>
+                </ResourceDictionary>
+            </hc:TabControl.Resources>
+        </hc:TabControl>
+        <!--#endregion-->
+
+        <!--#region 状态栏-->
+        <StatusBar Grid.Column="1" Grid.Row="3">
+            <StatusBarItem Content="就绪"/>
+        </StatusBar>
+        <!--#endregion-->
     </Grid>
 </mah:MetroWindow>
