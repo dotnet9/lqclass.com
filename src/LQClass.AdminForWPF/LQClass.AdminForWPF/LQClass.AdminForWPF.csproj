@@ -38,6 +38,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AduSkin" Version="1.1.1.8" />
     <PackageReference Include="HandyControl" Version="3.0.0" />
     <PackageReference Include="MahApps.Metro" Version="2.4.3" />
     <PackageReference Include="MaterialDesignThemes" Version="4.0.0-ci2312" />

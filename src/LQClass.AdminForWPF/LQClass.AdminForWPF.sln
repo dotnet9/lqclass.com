@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LQClass.AdminForWPF", "LQCl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LQClass.AdminForWPF.Infrastructure", "LQClass.AdminForWPF.Infrastructure\LQClass.AdminForWPF.Infrastructure.csproj", "{B66335A4-1C52-4853-96F4-C1683FC3E36C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LQClass.CustomControls", "LQClass.CustomControls\LQClass.CustomControls.csproj", "{896F92C1-58F1-4642-8D16-1F5C6781005A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LQClass.CustomControls", "LQClass.CustomControls\LQClass.CustomControls.csproj", "{896F92C1-58F1-4642-8D16-1F5C6781005A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{CF65061E-2AE5-4002-B737-8F657A77E0DA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

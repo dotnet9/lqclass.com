@@ -6,6 +6,7 @@
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:prism="http://prismlibrary.com/"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         prism:ViewModelLocator.AutoWireViewModel="True"
         xmlns:i18="clr-namespace:LQClass.AdminForWPF.I18nResources"
@@ -172,16 +173,21 @@
 
                 <!--#region 超链接-->
                 <Grid Grid.Row="2" Background="#eee">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="130" />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Text="Quick Links" FontSize="18" Margin="10 5"/>
-                    <ListBox Grid.Row="1" DataContext="{Binding}" ItemsSource="{Binding QuickLinks}">
+                    <Grid.Resources>
+                        <ResourceDictionary>
+                            <ResourceDictionary.MergedDictionaries>
+                                <!--#region TabControl风格使用HandyControl控件库-->
+                                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml"/>
+                                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
+                                <!--#endregion-->
+                            </ResourceDictionary.MergedDictionaries>
+                        </ResourceDictionary>
+                    </Grid.Resources>
+                    <ListBox DataContext="{Binding}" ItemsSource="{Binding QuickLinks}">
                         <ListBox.Resources>
                             <Style TargetType="TextBlock">
                                 <Setter Property="MinWidth" Value="100"/>
@@ -198,9 +204,13 @@
                         </ListBox.ItemsPanel>
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <Button Content="{Binding Name}" ToolTip="{Binding Desc}"
+                                <hc:Shield Subject="{Binding Name}" Status="{Binding Version}" Color="{Binding VersionColor}"
+                                           ToolTip="{Binding Desc}"
+                                           Command="{Binding RelativeSource={RelativeSource AncestorType=Window,Mode=FindAncestor}, Path=DataContext.RaiseOpenLinkCommand}"
+                                           CommandParameter="{Binding Url}"/>
+                                <!--<Button Content="{Binding Name}" ToolTip="{Binding Desc}"
                         Command="{Binding RelativeSource={RelativeSource AncestorType=Window,Mode=FindAncestor}, Path=DataContext.RaiseOpenLinkCommand}"
-                        CommandParameter="{Binding Url}"/>
+                        CommandParameter="{Binding Url}"/>-->
                                 <!--<TextBlock Text="{Binding Name}" ToolTip="{Binding Desc}">                            
                   <Hyperlink NavigateUri="{Binding Url}"
                              Command="{Binding RelativeSource={RelativeSource AncestorType=Window,Mode=FindAncestor}, Path=DataContext.RaiseOpenLinkCommand}"
@@ -209,7 +219,7 @@
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
-                    <Image Grid.Column="1" Grid.RowSpan="2" Source="/Images/WeChat-public-address.jpg" Margin="10"/>
+                    <Image Grid.Column="1" Source="/Images/WeChat-public-address.jpg" Margin="10"/>
                 </Grid>
                 <!--#endregion-->
 

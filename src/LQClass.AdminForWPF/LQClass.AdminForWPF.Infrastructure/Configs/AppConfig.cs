@@ -177,6 +177,16 @@ namespace LQClass.AdminForWPF.Infrastructure.Configs
 		public string Name { get; set; }
 
 		/// <summary>
+		/// 版本或者状态
+		/// </summary>
+		public string Version { get; set; }
+
+		/// <summary>
+		/// 界面显示的版本颜色
+		/// </summary>
+		public string VersionColor { get; set; }
+
+		/// <summary>
 		/// 链接说明
 		/// </summary>
 		public string Desc { get; set; }

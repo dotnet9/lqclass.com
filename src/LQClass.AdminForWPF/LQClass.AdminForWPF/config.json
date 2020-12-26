@@ -7,41 +7,57 @@
     {
       "Name": "Github",
       "Desc": "乐趣Class仓库地址",
+      "Version": "2020",
+      "VersionColor": "#d8624c",
       "URL": "https://github.com/dotnet9/lqclass.com"
     },
     {
       "Name": "Dotnet9",
       "Desc": "Dotnet9站点",
+      "Version": "2019-2020",
+      "VersionColor": "#d8624c",
       "URL": "https://dotnet9.com"
     },
     {
-      "Name": "Prism 8",
-      "Desc": "WPF MVVM框架",
+      "Name": "Prism",
+      "Desc": "WPF MVVM框架，支持模块化",
+      "Version": "8.0.0",
+      "VersionColor": "#1182c3",
       "URL": "https://github.com/PrismLibrary/Prism"
     },
     {
       "Name": "MaterialDesignInXamlToolkit",
       "Desc": "WPF控件库",
+      "Version": "4.0.0",
+      "VersionColor": "#1182c3",
       "URL": "https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit"
     },
     {
       "Name": "MahApps.Metro",
       "Desc": "WPF控件库",
+      "Version": "2.4.3",
+      "VersionColor": "#1182c3",
       "URL": "https://github.com/MahApps/MahApps.Metro"
     },
     {
       "Name": "HandyControl",
       "Desc": "WPF控件库",
+      "Version": "3.0.0",
+      "VersionColor": "#1182c3",
       "URL": "https://github.com/HandyOrg/HandyControl"
     },
     {
       "Name": "AduSkin",
       "Desc": "WPF控件库",
+      "Version": "1.1.1.8",
+      "VersionColor": "#1182c3",
       "URL": "https://github.com/aduskin/AduSkin"
     },
     {
       "Name": "Accelerider.Windows",
       "Desc": "WPF开源项目",
+      "Version": "1.0",
+      "VersionColor": "#1182c3",
       "URL": "https://github.com/Accelerider/Accelerider.Windows"
     }
   ],

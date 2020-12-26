@@ -11,6 +11,7 @@
     <SpaRoot>ClientApp\</SpaRoot>
     <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
     <CopyRefAssembliesToPublishDirectory>true</CopyRefAssembliesToPublishDirectory>
+    <UserSecretsId>712597a1-aff1-4a77-b8d2-033e3b9a3f99</UserSecretsId>
 </PropertyGroup>
 
 
@@ -70,7 +71,7 @@
    <ProjectReference Include="..\LQClass.Model\LQClass.Model.csproj" />
     <ProjectReference Include="..\LQClass.DataAccess\LQClass.DataAccess.csproj" />
     <ProjectReference Include="..\LQClass.ViewModel\LQClass.ViewModel.csproj" />
- </ItemGroup >
+ </ItemGroup>
 </Project>
 
 
