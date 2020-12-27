@@ -3,12 +3,10 @@ using LQClass.AdminForWPF.Models;
 using LQClass.AdminForWPF.ViewModels;
 using LQClass.AdminForWPF.Views;
 using Prism.Ioc;
+using Prism.Modularity;
 using Prism.Unity;
 using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows;
 using WpfExtensions.Xaml;
@@ -44,6 +42,16 @@ namespace LQClass.AdminForWPF
 			containerRegistry.RegisterForNavigation<MainWindowView, MainWindowViewModel>();
 			containerRegistry.RegisterSingleton<LoginModel>();
 			containerRegistry.RegisterSingleton<MainWindowModel>();
+		}
+
+		protected override IModuleCatalog CreateModuleCatalog()
+		{
+			string modulePath = @".\Modules";
+			if (!Directory.Exists(modulePath))
+			{
+				Directory.CreateDirectory(modulePath);
+			}
+			return new DirectoryModuleCatalog() { ModulePath = modulePath };
 		}
 
 		#region 异常处理

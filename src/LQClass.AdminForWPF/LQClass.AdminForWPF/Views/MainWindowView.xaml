@@ -9,6 +9,8 @@
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:i18="clr-namespace:LQClass.AdminForWPF.I18nResources"
         xmlns:markup="clr-namespace:WpfExtensions.Xaml.Markup;assembly=WpfExtensions.Xaml"
+        xmlns:inf="clr-namespace:LQClass.AdminForWPF.Infrastructure;assembly=LQClass.AdminForWPF.Infrastructure"
+        xmlns:Behaviors="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
         prism:ViewModelLocator.AutoWireViewModel="True"
         Title="{Binding Title}" Height="800" Width="1200"
@@ -70,14 +72,6 @@
             </Rectangle.Fill>
         </Rectangle>
 
-        <!--#region 左侧菜单树-->
-        <TreeView  Grid.Row="2" Grid.RowSpan="2" x:Name="tree"
-                   ItemsSource="{Binding CustomMenus}"
-                   ItemTemplate="{StaticResource treeHierTemp}"
-                   SelectedItemChanged="TreeView_SelectedItemChanged">
-        </TreeView>
-        <!--#endregion-->
-
         <!--#region 标题栏菜单-->
         <Menu Grid.Column="1" HorizontalAlignment="Right" Margin="0 0 130 0">
             <MenuItem Header="Wechat"
@@ -127,10 +121,24 @@
         </Menu>
         <!--#endregion-->
 
+        <!--#region 左侧菜单树-->
+        <TreeView  Grid.Row="2" Grid.RowSpan="2" x:Name="tree"
+                   ItemsSource="{Binding CustomMenus}"
+                   ItemTemplate="{StaticResource treeHierTemp}">
+            <Behaviors:Interaction.Triggers>
+                <Behaviors:EventTrigger EventName="SelectedItemChanged" SourceObject="{Binding ElementName=tree}">
+                    <Behaviors:InvokeCommandAction Command="{Binding RaiseSelectedItemCommand}"
+                                                   CommandParameter="{Binding ElementName=tree, Path=SelectedItem}"/>
+                </Behaviors:EventTrigger>
+            </Behaviors:Interaction.Triggers>
+        </TreeView>
+        <!--#endregion-->
+
         <!--#region 右侧内容区域-->
         <hc:TabControl Grid.Column="1" Grid.Row="2" x:Name="tabCtl"
                             ShowOverflowButton="True" ShowContextMenu="True" IsDraggable="True"
-                            ShowCloseButton="True" ShowScrollButton="True" IsScrollable="True">
+                            ShowCloseButton="True" ShowScrollButton="True" IsScrollable="True"
+                       prism:RegionManager.RegionName="{x:Static inf:RegionNames.MainTabRegion}">
             <hc:TabControl.Resources>
                 <ResourceDictionary>
                     <ResourceDictionary.MergedDictionaries>

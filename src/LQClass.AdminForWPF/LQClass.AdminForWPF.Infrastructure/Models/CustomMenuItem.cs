@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 
 namespace LQClass.AdminForWPF.Infrastructure.Models
 {
-	public class CustomMenu : BindableBase
+	public class CustomMenuItem : BindableBase
 	{
 		public const string KEY_OF_HOME = "Home";
 
@@ -11,7 +11,7 @@ namespace LQClass.AdminForWPF.Infrastructure.Models
 		public string ParentID { get; set; }
 		public string Name { get; set; }
 
-		public CustomMenu(int level, string id, string parentID, string name, string icon)
+		public CustomMenuItem(int level, string id, string parentID, string name, string icon)
 		{
 			this.Level = level;
 			this.ID = id;
@@ -22,7 +22,7 @@ namespace LQClass.AdminForWPF.Infrastructure.Models
 		public int Level { get; set; }
 		public string Icon { get; set; }
 
-		public ObservableCollection<CustomMenu> Children { get; set; } = new ObservableCollection<CustomMenu>();
+		public ObservableCollection<CustomMenuItem> Children { get; set; } = new ObservableCollection<CustomMenuItem>();
 
 
 		private bool _IsSelected = false;

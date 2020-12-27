@@ -1,9 +1,12 @@
+using HandyControl.Controls;
+using LQClass.AdminForWPF.Infrastructure;
 using LQClass.AdminForWPF.Infrastructure.Configs;
 using LQClass.AdminForWPF.Infrastructure.Models;
 using LQClass.AdminForWPF.Infrastructure.Mvvm;
 using LQClass.AdminForWPF.Models;
 using LQClass.AdminForWPF.Views;
 using Prism.Commands;
+using Prism.Regions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
@@ -14,8 +17,8 @@ namespace LQClass.AdminForWPF.ViewModels
 	{
 		#region 属性
 
-		private ObservableCollection<CustomMenu> _CustomMenus;
-		public ObservableCollection<CustomMenu> CustomMenus { get { return _CustomMenus; } }
+		private ObservableCollection<CustomMenuItem> _CustomMenus;
+		public ObservableCollection<CustomMenuItem> CustomMenus { get { return _CustomMenus; } }
 
 		#endregion
 
@@ -29,6 +32,13 @@ namespace LQClass.AdminForWPF.ViewModels
 		public ICommand RaiseLogoutCommand =>
 		  _RaiseLogoutCommand ?? (_RaiseLogoutCommand = new DelegateCommand(RaiseLogoutHandler));
 
+		private ICommand _RaiseSelectedItemCommand;
+		/// <summary>
+		/// 选择菜单命令
+		/// </summary>
+		public ICommand RaiseSelectedItemCommand =>
+		  _RaiseSelectedItemCommand ?? (_RaiseSelectedItemCommand = new DelegateCommand<CustomMenuItem>(RaiseSelectedItemHandler));
+
 		#endregion
 
 		#region 私有变量
@@ -37,7 +47,7 @@ namespace LQClass.AdminForWPF.ViewModels
 
 		#endregion
 
-		public MainWindowViewModel(MainWindowModel mainWindowModel)
+		public MainWindowViewModel(MainWindowModel mainWindowModel, IRegionManager regionManager) : base(regionManager)
 		{
 			windowModel = mainWindowModel;
 			_CustomMenus = windowModel.ReadCustomMenus();
@@ -54,6 +64,16 @@ namespace LQClass.AdminForWPF.ViewModels
 			AppConfig.Instance.IsAutoLogin = false;
 			AppConfig.Instance.Save();
 			ShellSwitcher.Switch<MainWindowView, LoginView>();
+		}
+
+		/// <summary>
+		/// 选择菜单命令
+		/// </summary>
+		private void RaiseSelectedItemHandler(CustomMenuItem menuItem)
+		{
+			var view= RegionManager.Regions[RegionNames.MainTabRegion].GetView("Home");
+			//(view as TabItem).Header = menuItem.Name;
+			RegionManager.Regions[RegionNames.MainTabRegion].Activate(view);
 		}
 
 		#endregion

@@ -1,6 +1,6 @@
 ﻿namespace LQClass.AdminForWPF.Infrastructure.Models
 {
-	public class MainMenu
+	public class MainMenuItem
 	{
 		public string Key { get; set; }
 		public string Value { get; set; }

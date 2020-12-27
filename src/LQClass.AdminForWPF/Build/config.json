@@ -1,0 +1,135 @@
+{
+    "Name": "乐趣Class",
+    "Language": "zh-CN",
+    "IsRemberMe": true,
+    "IsAutoLogin": false,
+    "UserName": "j8ZC524bF5GA49FVb3BV3Q==",
+    "Password": "j8ZC524bF5GA49FVb3BV3Q==",
+    "ConfigType": "Production",
+    "QuickLinks": [
+        {
+            "Name": "Github",
+            "Version": "2020",
+            "VersionColor": "#d8624c",
+            "Desc": "乐趣Class仓库地址",
+            "Url": "https://github.com/dotnet9/lqclass.com"
+        },
+        {
+            "Name": "Dotnet9",
+            "Version": "2019-2020",
+            "VersionColor": "#d8624c",
+            "Desc": "Dotnet9站点",
+            "Url": "https://dotnet9.com"
+        },
+        {
+            "Name": "Prism",
+            "Version": "8.0.0",
+            "VersionColor": "#1182c3",
+            "Desc": "WPF MVVM框架，支持模块化",
+            "Url": "https://github.com/PrismLibrary/Prism"
+        },
+        {
+            "Name": "MaterialDesignInXamlToolkit",
+            "Version": "4.0.0",
+            "VersionColor": "#1182c3",
+            "Desc": "WPF控件库",
+            "Url": "https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit"
+        },
+        {
+            "Name": "MahApps.Metro",
+            "Version": "2.4.3",
+            "VersionColor": "#1182c3",
+            "Desc": "WPF控件库",
+            "Url": "https://github.com/MahApps/MahApps.Metro"
+        },
+        {
+            "Name": "HandyControl",
+            "Version": "3.0.0",
+            "VersionColor": "#1182c3",
+            "Desc": "WPF控件库",
+            "Url": "https://github.com/HandyOrg/HandyControl"
+        },
+        {
+            "Name": "AduSkin",
+            "Version": "1.1.1.8",
+            "VersionColor": "#1182c3",
+            "Desc": "WPF控件库",
+            "Url": "https://github.com/aduskin/AduSkin"
+        },
+        {
+            "Name": "Accelerider.Windows",
+            "Version": "1.0",
+            "VersionColor": "#1182c3",
+            "Desc": "WPF开源项目",
+            "Url": "https://github.com/Accelerider/Accelerider.Windows"
+        }
+    ],
+    "WebLinks": [
+        {
+            "Name": "Blog",
+            "Version": null,
+            "VersionColor": null,
+            "Desc": "博客前台",
+            "Url": "http://lqclass.com"
+        },
+        {
+            "Name": "Admin",
+            "Version": null,
+            "VersionColor": null,
+            "Desc": "博客后台",
+            "Url": "http://admin.lqclass.com"
+        },
+        {
+            "Name": "API",
+            "Version": null,
+            "VersionColor": null,
+            "Desc": "后端API文档",
+            "Url": "http://api.lqclass.com/swagger/index.html"
+        }
+    ],
+    "MainMenus": [
+        {
+            "Key": "Home",
+            "Value": "首页",
+            "Icon": "home.png"
+        },
+        {
+            "Key": "System",
+            "Value": "系统管理",
+            "Icon": "system.png"
+        },
+        {
+            "Key": "Log",
+            "Value": "日志",
+            "Icon": "log.png"
+        },
+        {
+            "Key": "User Management",
+            "Value": "用户管理",
+            "Icon": "User Settings.png"
+        },
+        {
+            "Key": "Role Management",
+            "Value": "角色管理",
+            "Icon": "user role.png"
+        },
+        {
+            "Key": "Group Management",
+            "Value": "用户组管理",
+            "Icon": "group.png"
+        },
+        {
+            "Key": "Menu Mangement",
+            "Value": "菜单管理",
+            "Icon": "menu.png"
+        },
+        {
+            "Key": "Data Privilege",
+            "Value": "数据权限",
+            "Icon": "data.png"
+        }
+    ],
+    "RunningConfig": {
+        "API": "http://api.lqclass.com/api/"
+    }
+}

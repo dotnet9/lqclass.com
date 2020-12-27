@@ -17,7 +17,7 @@ namespace LQClass.AdminForWPF.Views
 
 		private void TreeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
 		{
-			var menuItem = this.tree.SelectedItem as CustomMenu;
+			var menuItem = this.tree.SelectedItem as CustomMenuItem;
 			if (menuItem == null)
 			{
 				return;

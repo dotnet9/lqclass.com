@@ -3,6 +3,7 @@ using LQClass.AdminForWPF.Infrastructure.Models;
 using MaterialDesignThemes.Wpf;
 using Prism.Commands;
 using Prism.Mvvm;
+using Prism.Regions;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -66,8 +67,15 @@ namespace LQClass.AdminForWPF.Infrastructure.Mvvm
 
 		#endregion
 
-		public ViewModelBase()
+		#region private变量
+
+		public IRegionManager RegionManager { get; private set; }
+
+		#endregion
+
+		public ViewModelBase(IRegionManager regionManager)
 		{
+			RegionManager = regionManager;
 			RaiseChangeLanguageHandler(AppConfig.Instance.Language);
 		}
 

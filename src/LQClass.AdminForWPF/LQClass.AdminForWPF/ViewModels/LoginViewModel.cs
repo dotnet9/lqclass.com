@@ -7,6 +7,7 @@ using LQClass.AdminForWPF.Views;
 using MaterialDesignThemes.Wpf;
 using Newtonsoft.Json;
 using Prism.Commands;
+using Prism.Regions;
 using System;
 using System.Collections.Generic;
 using System.Windows;
@@ -119,7 +120,7 @@ namespace LQClass.AdminForWPF.ViewModels
 		/// 切换语言
 		/// </summary>
 		/// <param name="loginModel"></param>
-		public LoginViewModel(LoginModel loginModel)
+		public LoginViewModel(LoginModel loginModel,IRegionManager regionManager):base(regionManager)
 		{
 			this._loginModel = loginModel;
 			this.IsRemberMe = AppConfig.Instance.IsRemberMe;

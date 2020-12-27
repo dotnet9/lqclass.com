@@ -18,7 +18,7 @@ namespace LQClass.AdminForWPF.Converters
 				return new Thickness(0);
 			else
 			{
-				CustomMenu menu = item.DataContext as CustomMenu;
+				CustomMenuItem menu = item.DataContext as CustomMenuItem;
 				return new Thickness((Indent - 1) * menu.Level, 5, 0, 0);
 			}
 		}

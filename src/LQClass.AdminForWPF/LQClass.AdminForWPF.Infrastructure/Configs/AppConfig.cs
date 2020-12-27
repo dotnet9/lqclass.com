@@ -63,7 +63,7 @@ namespace LQClass.AdminForWPF.Infrastructure.Configs
 		/// <summary>
 		/// 菜单中文翻译，其他语言可考虑单独做成配置文件
 		/// </summary>
-		public List<MainMenu> MainMenus { get; set; }
+		public List<MainMenuItem> MainMenus { get; set; }
 
 		#endregion
 
@@ -143,14 +143,14 @@ namespace LQClass.AdminForWPF.Infrastructure.Configs
 		/// </summary>
 		/// <param name="key"></param>
 		/// <returns></returns>
-		public MainMenu GetMenu(string key)
+		public MainMenuItem GetMenu(string key)
 		{
 			var kv = this.MainMenus.Find(cu => cu.Key == key);
 			if (kv != null)
 			{
 				return kv;
 			}
-			return new MainMenu { Key = key, Value = key, Icon = "home.png" };
+			return new MainMenuItem { Key = key, Value = key, Icon = "home.png" };
 		}
 		private AppConfig() { }
 	}
