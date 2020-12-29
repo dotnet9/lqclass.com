@@ -135,11 +135,9 @@
         <!--#endregion-->
 
         <!--#region 右侧内容区域-->
-        <hc:TabControl Grid.Column="1" Grid.Row="2" x:Name="tabCtl"
-                            ShowOverflowButton="True" ShowContextMenu="True" IsDraggable="True"
-                            ShowCloseButton="True" ShowScrollButton="True" IsScrollable="True"
-                       prism:RegionManager.RegionName="{x:Static inf:RegionNames.MainTabRegion}">
-            <hc:TabControl.Resources>
+        <Border Grid.Column="1" Grid.Row="2">
+
+            <Border.Resources>
                 <ResourceDictionary>
                     <ResourceDictionary.MergedDictionaries>
                         <!--#region TabControl风格使用HandyControl控件库-->
@@ -148,8 +146,12 @@
                         <!--#endregion-->
                     </ResourceDictionary.MergedDictionaries>
                 </ResourceDictionary>
-            </hc:TabControl.Resources>
-        </hc:TabControl>
+            </Border.Resources>
+            <TabControl x:Name="tabCtl"
+                       prism:RegionManager.RegionName="{x:Static inf:RegionNames.MainTabRegion}">
+                <TabItem Header="df"/>
+            </TabControl>
+        </Border>
         <!--#endregion-->
 
         <!--#region 状态栏-->

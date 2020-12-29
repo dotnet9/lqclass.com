@@ -9,13 +9,15 @@ namespace LQClass.AdminForWPF.Infrastructure.Models
 
 		public string ID { get; set; }
 		public string ParentID { get; set; }
+		public string Key { get; set; }
 		public string Name { get; set; }
 
-		public CustomMenuItem(int level, string id, string parentID, string name, string icon)
+		public CustomMenuItem(int level, string id, string parentID,string key, string name, string icon)
 		{
 			this.Level = level;
 			this.ID = id;
 			this.ParentID = parentID;
+			this.Key = key;
 			this.Name = name;
 			this.Icon = icon;
 		}

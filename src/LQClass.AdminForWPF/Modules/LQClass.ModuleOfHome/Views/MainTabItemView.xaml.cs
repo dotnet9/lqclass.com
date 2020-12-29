@@ -5,9 +5,9 @@ namespace LQClass.ModuleOfHome.Views
 	/// <summary>
 	/// Interaction logic for ViewA.xaml
 	/// </summary>
-	public partial class HomeTabItemView : TabItem
+	public partial class MainTabItemView : TabItem
 	{
-		public HomeTabItemView()
+		public MainTabItemView()
 		{
 			InitializeComponent();
 		}

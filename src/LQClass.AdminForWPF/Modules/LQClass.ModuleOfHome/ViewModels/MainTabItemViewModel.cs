@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LQClass.ModuleOfHome.ViewModels
 {
-	public class HomeTabItemViewModel : BindableBase
+	public class MainTabItemViewModel : BindableBase
 	{
 		private string _message;
 		public string Message
@@ -17,7 +17,7 @@ namespace LQClass.ModuleOfHome.ViewModels
 			set { SetProperty(ref _message, value); }
 		}
 
-		public HomeTabItemViewModel()
+		public MainTabItemViewModel()
 		{
 			Message = "View A from your Prism Module";
 		}
