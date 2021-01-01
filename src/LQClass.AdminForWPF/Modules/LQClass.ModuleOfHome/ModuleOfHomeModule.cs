@@ -33,7 +33,7 @@ namespace LQClass.ModuleOfHome
 			}
 			_regionManager.Regions[RegionNames.MainTabRegion].Add(_unityContainer.Resolve<MainTabItemView>(), "Home");      // View命名为"Home"，主窗口调用时使用
 			//_regionManager.RegisterViewWithRegion(RegionNames.MainTabRegion, typeof(MainTabItemView));
-			containerRegistry.RegisterForNavigation<MainTabItemView, MainTabItemViewModel>();
+			//containerRegistry.RegisterForNavigation<MainTabItemView, MainTabItemViewModel>();
 		}
 	}
 }

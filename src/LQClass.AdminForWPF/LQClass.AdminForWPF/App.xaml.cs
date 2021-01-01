@@ -38,8 +38,6 @@ namespace LQClass.AdminForWPF
 
 		protected override void RegisterTypes(IContainerRegistry containerRegistry)
 		{
-			containerRegistry.RegisterForNavigation<LoginView, LoginViewModel>();
-			containerRegistry.RegisterForNavigation<MainWindowView, MainWindowViewModel>();
 			containerRegistry.RegisterSingleton<LoginModel>();
 			containerRegistry.RegisterSingleton<MainWindowModel>();
 		}

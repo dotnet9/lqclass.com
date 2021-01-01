@@ -10,6 +10,7 @@ using Prism.Commands;
 using Prism.Regions;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -105,7 +106,7 @@ namespace LQClass.AdminForWPF.ViewModels
 		/// 登录命令
 		/// </summary>
 		public ICommand RaiseLoginCommand =>
-		  _raiseLoginCommand ?? (_raiseLoginCommand = new DelegateCommand(RaiseLogginHandler, CanRaiseLoginCommand));
+		  _raiseLoginCommand ?? (_raiseLoginCommand = new DelegateCommand(async () => await RaiseLogginHandler(), CanRaiseLoginCommand));
 
 
 		#endregion
@@ -120,7 +121,7 @@ namespace LQClass.AdminForWPF.ViewModels
 		/// 切换语言
 		/// </summary>
 		/// <param name="loginModel"></param>
-		public LoginViewModel(LoginModel loginModel,IRegionManager regionManager):base(regionManager)
+		public LoginViewModel(LoginModel loginModel, IRegionManager regionManager) : base(regionManager)
 		{
 			this._loginModel = loginModel;
 			this.IsRemberMe = AppConfig.Instance.IsRemberMe;
@@ -148,7 +149,7 @@ namespace LQClass.AdminForWPF.ViewModels
 		/// <summary>
 		/// 处理登录操作
 		/// </summary>
-		private async void RaiseLogginHandler()
+		private async Task RaiseLogginHandler()
 		{
 			try
 			{
