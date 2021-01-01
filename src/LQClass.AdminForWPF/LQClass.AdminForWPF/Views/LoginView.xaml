@@ -113,6 +113,7 @@
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
 
+                <!--标题栏logo 关闭按钮-->
                 <Image Source="/Images/logo.png" HorizontalAlignment="Left" />
                 <Button HorizontalAlignment="Right" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}" Click="Close_Click">
                     <materialDesign:PackIcon Kind="Close"/>
@@ -261,6 +262,7 @@
                 </Border>
                 <!--endregion-->
 
+                <!--消息提示-->
                 <materialDesign:Snackbar Grid.Row="2" Grid.RowSpan="2" 
                             x:Name="messageTips"
                             MessageQueue="{materialDesign:MessageQueue}">

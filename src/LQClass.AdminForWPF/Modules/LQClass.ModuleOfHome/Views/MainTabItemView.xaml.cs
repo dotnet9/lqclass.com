@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿
+using HandyControl.Controls;
 
 namespace LQClass.ModuleOfHome.Views
 {

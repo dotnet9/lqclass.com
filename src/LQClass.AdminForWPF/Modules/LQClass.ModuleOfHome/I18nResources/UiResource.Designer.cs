@@ -59,5 +59,14 @@ namespace LQClass.ModuleOfHome.I18nResources {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   查找类似 Home 的本地化字符串。
+        /// </summary>
+        internal static string MainTabItemView_Header {
+            get {
+                return ResourceManager.GetString("MainTabItemView_Header", resourceCulture);
+            }
+        }
     }
 }

@@ -3,7 +3,7 @@
 	public static class RegionNames
     {
         /// <summary>
-        /// 模块主视频Region名
+        /// 主工程客户区Region名
         /// </summary>
         public const string MainTabRegion = "MainTabRegion";
     }

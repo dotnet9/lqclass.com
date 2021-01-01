@@ -14,5 +14,6 @@ namespace LQClass.ModuleOfHome.I18nResources
 {
 	public static class Language
 	{
+		public static readonly ComponentResourceKey MainTabItemView_Header = new ComponentResourceKey(typeof(UiResource), nameof(MainTabItemView_Header));
 	}
 }

@@ -7,6 +7,7 @@ using LQClass.AdminForWPF.Models;
 using LQClass.AdminForWPF.Views;
 using Prism.Commands;
 using Prism.Regions;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
@@ -65,15 +66,20 @@ namespace LQClass.AdminForWPF.ViewModels
 			AppConfig.Instance.Save();
 			ShellSwitcher.Switch<MainWindowView, LoginView>();
 		}
-
+		public event Action<object> AddTabItem;
 		/// <summary>
 		/// —°‘Ò≤Àµ•√¸¡Ó
 		/// </summary>
 		private void RaiseSelectedItemHandler(CustomMenuItem menuItem)
 		{
-			var view= RegionManager.Regions[RegionNames.MainTabRegion].GetView("Home");
-			//(view as TabItem).Header = menuItem.Name;
-			RegionManager.Regions[RegionNames.MainTabRegion].Activate(view);
+			//if (!RegionManager.Regions.ContainsRegionWithName(RegionNames.MainTabRegion))
+			//{
+			//	RegionManager.Regions.Add(RegionNames.MainTabRegion, new Region { Name = RegionNames.MainTabRegion });
+			//}
+			//var view = RegionManager.Regions[RegionNames.MainTabRegion].GetView(menuItem.Key);
+			//AddTabItem?.Invoke(view);
+			RegionManager.Regions[RegionNames.MainTabRegion].RequestNavigate(menuItem.Key) ;
+			//TabControl.Items.Add(new TabItem { Header=menuItem.Name});
 		}
 
 		#endregion
