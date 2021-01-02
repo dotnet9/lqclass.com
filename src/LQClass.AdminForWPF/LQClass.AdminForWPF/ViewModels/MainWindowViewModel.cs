@@ -76,10 +76,11 @@ namespace LQClass.AdminForWPF.ViewModels
 			//{
 			//	RegionManager.Regions.Add(RegionNames.MainTabRegion, new Region { Name = RegionNames.MainTabRegion });
 			//}
-			var view = RegionManager.Regions[RegionNames.MainTabRegion].GetView(menuItem.Key);
+			var view = RegionManager.Regions[RegionNames.MainTabRegion].GetView(menuItem.Key) as TabItem;
+			//TabItem item = new TabItem { Header = view.Header, Content = view.Content };
 			AddTabItem?.Invoke(view);
 			//RegionManager.Regions[RegionNames.MainTabRegion].RequestNavigate(menuItem.Key) ;
-			RegionManager.RequestNavigate(RegionNames.MainTabRegion, "MainTabItemView");
+			//RegionManager.RequestNavigate(RegionNames.MainTabRegion, "MainTabItemView");
 			//TabControl.Items.Add(new TabItem { Header=menuItem.Name});
 		}
 

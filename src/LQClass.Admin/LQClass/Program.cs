@@ -12,7 +12,7 @@ using Swashbuckle.AspNetCore.Swagger;
 using WalkingTec.Mvvm.Core;
 using WalkingTec.Mvvm.Mvc;
 using WalkingTec.Mvvm.TagHelpers.LayUI;
-using Microsoft.AspNetCore.SpaServices.Webpack;
+using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Logging;
 
 namespace LQClass
@@ -79,20 +79,18 @@ namespace LQClass
                         {
                             c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
                         });
-                        if (env.IsDevelopment())
-                        {
-                            x.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions
-                            {
-                                HotModuleReplacement = false,
-                                ConfigFile = "config/webpack.dev.js",
-                                ProjectPath = System.IO.Path.Combine(env.ContentRootPath, "ClientApp/")
-
-                            });
-                        }
                         x.UseSpaStaticFiles();
                         x.UseFrameworkService();
+                        x.UseSpa(spa =>
+                        {
+                            spa.Options.SourcePath = "ClientApp";                        
+                            if (env.IsDevelopment())
+                            {
+                                spa.UseReactDevelopmentServer(npmScript: "start");
+                            }
+                        });
                      });
-                    }
+                 }
                  );
         }
     }

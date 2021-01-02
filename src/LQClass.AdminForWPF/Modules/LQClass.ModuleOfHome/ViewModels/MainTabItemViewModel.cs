@@ -10,6 +10,12 @@ namespace LQClass.ModuleOfHome.ViewModels
 {
 	public class MainTabItemViewModel : BindableBase
 	{
+		private string _Header;
+		public string Header
+		{
+			get { return _Header; }
+			set { SetProperty(ref _Header, value); }
+		}
 		private string _message;
 		public string Message
 		{
@@ -20,6 +26,7 @@ namespace LQClass.ModuleOfHome.ViewModels
 		public MainTabItemViewModel()
 		{
 			Message = "View A from your Prism Module";
+			Header = "aaaa";
 		}
 	}
 }

@@ -200,9 +200,6 @@
                         <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml" />
                         <!--#endregion-->
                     </ResourceDictionary.MergedDictionaries>
-                    <Style TargetType="{x:Type hc:TabItem}">
-                        <Setter Property="Header" Value="{Binding Header}"></Setter>
-                    </Style>
                 </ResourceDictionary>
             </Border.Resources>
             <hc:TabControl

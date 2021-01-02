@@ -3,7 +3,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:5134/"
+      "applicationUrl": "http://localhost:5250/"
     }
   },
   "profiles": {
@@ -21,7 +21,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development",
         "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation"
       },
-      "applicationUrl": "http://localhost:5134/"
+      "applicationUrl": "http://localhost:5250/"
     },
     "ApiOnly": {
       "commandName": "Project",
@@ -31,7 +31,7 @@
         "ASPNETCORE_ENVIRONMENT": "Production",
         "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation"
       },
-      "applicationUrl": "http://localhost:5134/"
+      "applicationUrl": "http://localhost:5250/"
     }
   }
 }
