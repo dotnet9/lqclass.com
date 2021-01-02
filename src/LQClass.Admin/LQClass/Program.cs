@@ -45,7 +45,7 @@ namespace LQClass
                         x.AddLayui();
                         x.AddSwaggerGen(c =>
                         {
-                            c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+                            c.SwaggerDoc("v1", new OpenApiInfo { Title = "乐趣Class WEB API", Version = "v1" });
                             var bearer = new OpenApiSecurityScheme()
                             {
                                 Description = "JWT Bearer",
@@ -77,7 +77,7 @@ namespace LQClass
                         x.UseSwagger();
                         x.UseSwaggerUI(c =>
                         {
-                            c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                            c.SwaggerEndpoint("/swagger/v1/swagger.json", "乐趣Class WEB API V1");
                         });
                         x.UseSpaStaticFiles();
                         x.UseFrameworkService();

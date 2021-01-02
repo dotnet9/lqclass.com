@@ -11,6 +11,7 @@
     <SpaRoot>ClientApp\</SpaRoot>
     <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
     <CopyRefAssembliesToPublishDirectory>true</CopyRefAssembliesToPublishDirectory>
+    <UserSecretsId>b5ed7b09-0b7c-4998-b4fd-dfc1a85822eb</UserSecretsId>
 </PropertyGroup>
 
 
@@ -33,10 +34,10 @@
     </Exec>
     <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
     <Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..." />
-    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="cnpm install" />
   </Target>
   <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
-    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="cnpm install" />
     <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build" />
     <ItemGroup>
       <DistFiles Include="$(SpaRoot)build\**" />
@@ -51,7 +52,7 @@
    <ProjectReference Include="..\LQClass.Model\LQClass.Model.csproj" />
     <ProjectReference Include="..\LQClass.DataAccess\LQClass.DataAccess.csproj" />
     <ProjectReference Include="..\LQClass.ViewModel\LQClass.ViewModel.csproj" />
- </ItemGroup >
+ </ItemGroup>
 </Project>
 
 
