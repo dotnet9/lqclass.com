@@ -12,34 +12,15 @@ namespace LQClass.AdminForWPF.Views
 		public MainWindowView()
 		{
 			InitializeComponent();
-			(DataContext as MainWindowViewModel).AddTabItem += AddTabItem;
-		}
-
-		private void AddTabItem(object view)
-		{
-			if (view is TabItem newTabItem)
+			this.Loaded += (sender, args) =>
 			{
-				bool isExist = false;
-				foreach (var item in this.tabCtl.Items)
+				var vm = this.DataContext as MainWindowViewModel;
+				if(vm.NeedShowHome)
 				{
-					var tabItem = item as TabItem;
-					if (tabItem == null)
-					{
-						continue;
-					}
-					if (tabItem.Header?.ToString() == newTabItem.Header?.ToString())
-					{
-						isExist = true;
-						this.tabCtl.SelectedItem = tabItem;
-						break;
-					}
+					vm.ShowHome();
+					vm.NeedShowHome = false;
 				}
-				if (!isExist)
-				{
-					this.tabCtl.Items.Add(newTabItem);
-					this.tabCtl.SelectedItem = newTabItem;
-				}
-			}
+			};
 		}
 	}
 }

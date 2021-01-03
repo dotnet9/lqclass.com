@@ -1,4 +1,3 @@
-using HandyControl.Controls;
 using LQClass.AdminForWPF.Infrastructure;
 using LQClass.AdminForWPF.Infrastructure.Configs;
 using LQClass.AdminForWPF.Infrastructure.Models;
@@ -7,9 +6,9 @@ using LQClass.AdminForWPF.Models;
 using LQClass.AdminForWPF.Views;
 using Prism.Commands;
 using Prism.Regions;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows.Input;
 
 namespace LQClass.AdminForWPF.ViewModels
@@ -18,8 +17,22 @@ namespace LQClass.AdminForWPF.ViewModels
 	{
 		#region 属性
 
-		private ObservableCollection<CustomMenuItem> _CustomMenus;
+		private ObservableCollection<CustomMenuItem> _CustomMenus = new ObservableCollection<CustomMenuItem>();
+		/// <summary>
+		/// 菜单列表
+		/// </summary>
 		public ObservableCollection<CustomMenuItem> CustomMenus { get { return _CustomMenus; } }
+
+		private CustomMenuItem _SelectedMenuItem;
+		/// <summary>
+		/// 选择的菜单
+		/// </summary>
+		public CustomMenuItem SelectedMenuItem
+		{
+			get { return _SelectedMenuItem; }
+			set { this.SetProperty(ref _SelectedMenuItem, value); }
+		}
+
 
 		#endregion
 
@@ -51,7 +64,28 @@ namespace LQClass.AdminForWPF.ViewModels
 		public MainWindowViewModel(MainWindowModel mainWindowModel, IRegionManager regionManager) : base(regionManager)
 		{
 			windowModel = mainWindowModel;
-			_CustomMenus = windowModel.ReadCustomMenus();
+		}
+
+		/// <summary>
+		/// 初始化
+		/// </summary>
+		public void InitData()
+		{
+			_CustomMenus.Clear();
+			_CustomMenus.AddRange(windowModel.ReadCustomMenus());
+		}
+
+		public bool NeedShowHome { get; set; } = true;
+		/// <summary>
+		/// 显示首页
+		/// </summary>
+		public void ShowHome()
+		{
+			if (NeedShowHome)
+			{
+				SelectedMenuItem = _CustomMenus.First(cu => cu.Key == CustomMenuItem.KEY_OF_HOME);
+				RaiseSelectedItemHandler(SelectedMenuItem);
+			}
 		}
 
 		#region 命令处理方法
@@ -66,22 +100,13 @@ namespace LQClass.AdminForWPF.ViewModels
 			AppConfig.Instance.Save();
 			ShellSwitcher.Switch<MainWindowView, LoginView>();
 		}
-		public event Action<object> AddTabItem;
+
 		/// <summary>
 		/// 选择菜单命令
 		/// </summary>
 		private void RaiseSelectedItemHandler(CustomMenuItem menuItem)
 		{
-			//if (!RegionManager.Regions.ContainsRegionWithName(RegionNames.MainTabRegion))
-			//{
-			//	RegionManager.Regions.Add(RegionNames.MainTabRegion, new Region { Name = RegionNames.MainTabRegion });
-			//}
-			var view = RegionManager.Regions[RegionNames.MainTabRegion].GetView(menuItem.Key) as TabItem;
-			//TabItem item = new TabItem { Header = view.Header, Content = view.Content };
-			AddTabItem?.Invoke(view);
-			//RegionManager.Regions[RegionNames.MainTabRegion].RequestNavigate(menuItem.Key) ;
-			//RegionManager.RequestNavigate(RegionNames.MainTabRegion, "MainTabItemView");
-			//TabControl.Items.Add(new TabItem { Header=menuItem.Name});
+			RegionManager.RequestNavigate(RegionNames.MainTabRegion, menuItem.Key);
 		}
 
 		#endregion

@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LQClass.CustomControls", "L
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{CF65061E-2AE5-4002-B737-8F657A77E0DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LQClass.ModuleOfHome", "Modules\LQClass.ModuleOfHome\LQClass.ModuleOfHome.csproj", "{BB2DB45E-46C6-485F-ACA5-C6016C5811E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LQClass.ModuleOfHome", "Modules\LQClass.ModuleOfHome\LQClass.ModuleOfHome.csproj", "{BB2DB45E-46C6-485F-ACA5-C6016C5811E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LQClass.ModuleOfLog", "Modules\LQClass.ModuleOfLog\LQClass.ModuleOfLog.csproj", "{C2D2F2C8-2579-476F-AF9E-50E70ADE28BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,12 +37,17 @@ Global
 		{BB2DB45E-46C6-485F-ACA5-C6016C5811E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB2DB45E-46C6-485F-ACA5-C6016C5811E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB2DB45E-46C6-485F-ACA5-C6016C5811E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2D2F2C8-2579-476F-AF9E-50E70ADE28BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2D2F2C8-2579-476F-AF9E-50E70ADE28BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2D2F2C8-2579-476F-AF9E-50E70ADE28BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2D2F2C8-2579-476F-AF9E-50E70ADE28BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{BB2DB45E-46C6-485F-ACA5-C6016C5811E9} = {CF65061E-2AE5-4002-B737-8F657A77E0DA}
+		{C2D2F2C8-2579-476F-AF9E-50E70ADE28BD} = {CF65061E-2AE5-4002-B737-8F657A77E0DA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {62EA4233-BA9B-49E1-9EB5-9064D8235098}

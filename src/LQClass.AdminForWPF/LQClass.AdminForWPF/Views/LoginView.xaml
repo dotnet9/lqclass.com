@@ -144,7 +144,9 @@
                 </Grid.RowDefinitions>
 
                 <!--  标题栏logo 关闭按钮  -->
-                <Image HorizontalAlignment="Left" Source="/Images/logo.png" />
+                <Border HorizontalAlignment="Left" Background="#ddffffff" CornerRadius="25" Margin="5">
+                    <Image Source="/Images/logo.png" />
+                </Border>
                 <Button
                     HorizontalAlignment="Right"
                     VerticalAlignment="Top"
@@ -195,6 +197,7 @@
                             x:Name="NameTextBox"
                             Grid.Row="1"
                             Grid.Column="1"
+                            VerticalAlignment="Center"
                             materialDesign:HintAssist.Hint="{markup:I18n {x:Static i18:Language.LoginView_UserNameToolTip}}"
                             FontSize="14"
                             Text="{Binding UserName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
@@ -211,6 +214,7 @@
                             x:Name="passwordBox"
                             Grid.Row="2"
                             Grid.Column="1"
+                            VerticalAlignment="Center"
                             ctlHelper:PasswordBoxHelper.Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             materialDesign:HintAssist.Hint="{markup:I18n {x:Static i18:Language.LoginView_PasswordToolTip}}"
                             materialDesign:TextFieldAssist.HasClearButton="True"

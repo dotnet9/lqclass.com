@@ -69,7 +69,7 @@ namespace LQClass.AdminForWPF.Infrastructure.Mvvm
 
 		#region private变量
 
-		public IRegionManager RegionManager { get; private set; }
+		public readonly IRegionManager RegionManager;
 
 		#endregion
 

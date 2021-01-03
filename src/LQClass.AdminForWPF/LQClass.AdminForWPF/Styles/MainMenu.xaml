@@ -1,23 +1,28 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:converter="clr-namespace:LQClass.AdminForWPF.Converters">
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converter="clr-namespace:LQClass.AdminForWPF.Converters">
 
-    <converter:IndentConverter Indent="22"  x:Key="IndentConverter" />
+    <converter:IndentConverter x:Key="IndentConverter" Indent="22" />
 
     <Style x:Key="ExpandCollapseToggleStyle" TargetType="{x:Type ToggleButton}">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ToggleButton}">
                     <Grid>
-                        <Image x:Name="ExpandImg" Width="32" Height="32" Source="/LQClass.AdminForWPF;component/Images/Right.png"/>
+                        <Image
+                            x:Name="ExpandImg"
+                            Width="32"
+                            Height="32"
+                            Source="/LQClass.AdminForWPF;component/Images/Right.png" />
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="True">
-                            <Setter Property="Source" TargetName="ExpandImg" Value="/LQClass.AdminForWPF;component/Images/Down.png"/>
-                            <Setter Property="Cursor" Value="Hand"/>
+                            <Setter TargetName="ExpandImg" Property="Source" Value="/LQClass.AdminForWPF;component/Images/Down.png" />
+                            <Setter Property="Cursor" Value="Hand" />
                         </Trigger>
                         <Trigger Property="IsChecked" Value="False">
-                            <Setter Property="Source" TargetName="ExpandImg" Value="/LQClass.AdminForWPF;component/Images/Right.png"/>
+                            <Setter TargetName="ExpandImg" Property="Source" Value="/LQClass.AdminForWPF;component/Images/Right.png" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -25,46 +30,58 @@
         </Setter>
     </Style>
 
-    <Style  x:Key="DefaultTreeViewItem" TargetType="TreeViewItem">
+    <Style x:Key="DefaultTreeViewItem" TargetType="TreeViewItem">
         <Setter Property="MinHeight" Value="45" />
-        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="FontSize" Value="14" />
         <Setter Property="Foreground" Value="#ffffff" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Margin" Value="0" />
-        <Setter Property="IsSelected" Value="{Binding IsSelected,Mode=TwoWay}"/>
-        <Setter Property="IsExpanded" Value="{Binding IsExpanded,Mode=TwoWay}"/>
+        <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
+        <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TreeViewItem">
-                    <Border x:Name="back" Background="#01ffffff" BorderBrush="Transparent"
-                                BorderThickness="1" UseLayoutRounding="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                    <Border
+                        x:Name="back"
+                        Background="#01ffffff"
+                        BorderBrush="Transparent"
+                        BorderThickness="1"
+                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                        UseLayoutRounding="True">
                         <StackPanel Height="Auto">
-                            <Grid VerticalAlignment="Bottom"
-                                      Margin="{Binding Converter={StaticResource IndentConverter},RelativeSource={RelativeSource TemplatedParent}}">
+                            <Grid Margin="{Binding Converter={StaticResource IndentConverter}, RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="Bottom">
                                 <Grid.ColumnDefinitions>
                                     <!--<ColumnDefinition Width="*" />-->
-                                    <ColumnDefinition MinWidth="90" Width="Auto"/>
+                                    <ColumnDefinition Width="Auto" MinWidth="90" />
                                     <ColumnDefinition Width="32" />
-                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
                                 <!--<Grid.RowDefinitions>
                                         <RowDefinition/>
                                         <RowDefinition/>
                                     </Grid.RowDefinitions>-->
-                                <!--内容-->
-                                <ContentPresenter Grid.Column="0" x:Name="PART_Header" ContentSource="Header"
-                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                <!--  内容  -->
+                                <ContentPresenter
+                                    x:Name="PART_Header"
+                                    Grid.Column="0"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    ContentSource="Header"
+                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
 
-                                <!--展开收缩按钮-->
-                                <ToggleButton Grid.Column="1" Width="32" Height="32" x:Name="Expander" ClickMode="Press" 
-                                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
-                                                  IsChecked="{Binding IsExpanded,RelativeSource={RelativeSource TemplatedParent}}" 
-                                                  Style="{StaticResource ExpandCollapseToggleStyle}"/>
+                                <!--  展开收缩按钮  -->
+                                <ToggleButton
+                                    x:Name="Expander"
+                                    Grid.Column="1"
+                                    Width="32"
+                                    Height="32"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    ClickMode="Press"
+                                    IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}}"
+                                    Style="{StaticResource ExpandCollapseToggleStyle}" />
 
                             </Grid>
-                            <ItemsPresenter x:Name="ItemsHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            <ItemsPresenter x:Name="ItemsHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                         </StackPanel>
                     </Border>
                     <ControlTemplate.Triggers>
@@ -78,10 +95,10 @@
                             <Setter TargetName="ItemsHost" Property="Visibility" Value="Collapsed" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#33ffffff" TargetName="back"/>
+                            <Setter TargetName="back" Property="Background" Value="#33ffffff" />
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="Background" Value="#33ffffff" TargetName="back"/>
+                            <Setter TargetName="back" Property="Background" Value="#33ffffff" />
                             <Setter Property="Foreground" Value="#1677D2" />
                         </Trigger>
                         <MultiTrigger>
@@ -97,18 +114,18 @@
         </Setter>
     </Style>
 
-    <!--TreeView样式-->
+    <!--  TreeView样式  -->
     <Style TargetType="TreeView">
         <Setter Property="ScrollViewer.CanContentScroll" Value="True" />
-        <Setter Property="VirtualizingStackPanel.IsVirtualizing" Value="True"></Setter>
+        <Setter Property="VirtualizingStackPanel.IsVirtualizing" Value="True" />
         <Setter Property="VirtualizingStackPanel.VirtualizationMode" Value="Recycling" />
         <Setter Property="ScrollViewer.IsDeferredScrollingEnabled" Value="False" />
-        <Setter Property="Background" Value="#77000000"/>
-        <Setter Property="ItemContainerStyle" Value="{StaticResource DefaultTreeViewItem}"/>
+        <Setter Property="Background" Value="#77000000" />
+        <Setter Property="ItemContainerStyle" Value="{StaticResource DefaultTreeViewItem}" />
         <Setter Property="ItemsPanel">
             <Setter.Value>
                 <ItemsPanelTemplate>
-                    <VirtualizingStackPanel IsItemsHost="True" Margin="0"/>
+                    <VirtualizingStackPanel Margin="0" IsItemsHost="True" />
                 </ItemsPanelTemplate>
             </Setter.Value>
         </Setter>
@@ -117,11 +134,22 @@
     <HierarchicalDataTemplate x:Key="treeHierTemp" ItemsSource="{Binding Children}">
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="32"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="32" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Image Source="{Binding Icon}" Width="18" Height="18" VerticalAlignment="Center"  HorizontalAlignment="Center" x:Name="img"/>
-            <TextBlock VerticalAlignment="Center" Text="{Binding Name}" Margin="2 0 0 0" FontSize="14" Grid.Column="1"/>
+            <Image
+                x:Name="img"
+                Width="18"
+                Height="18"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Source="{Binding Icon}" />
+            <TextBlock
+                Grid.Column="1"
+                Margin="2,0,0,0"
+                VerticalAlignment="Center"
+                FontSize="14"
+                Text="{Binding Name}" />
         </Grid>
     </HierarchicalDataTemplate>
 </ResourceDictionary>

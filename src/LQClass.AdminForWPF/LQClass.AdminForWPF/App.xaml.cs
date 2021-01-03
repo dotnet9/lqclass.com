@@ -33,7 +33,22 @@ namespace LQClass.AdminForWPF
 		{
 			I18nManager.Instance.Add(I18nResources.UiResource.ResourceManager);
 			AppConfig.Instance.SetLanguage();
-			return Container.Resolve<LoginView>();
+			return Container.Resolve<MainWindowView>();
+		}
+
+		protected override void InitializeShell(Window shell)
+		{
+			LoginView loginView = new LoginView();
+			if (loginView.ShowDialog() == true)
+			{
+				var shellVM = shell.DataContext as MainWindowViewModel;
+				shellVM.InitData();
+				base.InitializeShell(shell);
+			}
+			else
+			{
+				Application.Current.Shutdown(-1);
+			}
 		}
 
 		protected override void RegisterTypes(IContainerRegistry containerRegistry)

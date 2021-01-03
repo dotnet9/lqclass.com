@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using Unity;
 
 namespace LQClass.AdminForWPF.ViewModels
 {
@@ -145,7 +146,7 @@ namespace LQClass.AdminForWPF.ViewModels
 		}
 
 		#region 命令处理方法
-
+		public event Action<bool> LoginComplete;
 		/// <summary>
 		/// 处理登录操作
 		/// </summary>
@@ -171,7 +172,13 @@ namespace LQClass.AdminForWPF.ViewModels
 						  AppConfig.Instance.Password = string.Empty;
 					}
 					AppConfig.Instance.Save();
-					ShellSwitcher.Switch<LoginView, MainWindowView>();
+					LoginComplete?.Invoke(true);
+					//Application.Current.MainWindow.DialogResult = true;
+					//Application.Current.MainWindow.Close();
+					//Application.Current.MainWindow = new MainWindowView();
+					//Application.Current.MainWindow.Show();
+					//mainView.Close();
+					//ShellSwitcher.Switch<LoginView, MainWindowView>();
 				}
 				else
 				{

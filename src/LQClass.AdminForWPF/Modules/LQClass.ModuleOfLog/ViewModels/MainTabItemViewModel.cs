@@ -1,10 +1,11 @@
 ﻿using Prism.Mvvm;
 using WpfExtensions.Xaml;
 
-namespace LQClass.ModuleOfHome.ViewModels
+namespace LQClass.ModuleOfLog.ViewModels
 {
 	public class MainTabItemViewModel : BindableBase
 	{
+
 		private string _Header;
 		public string Header
 		{

@@ -18,7 +18,10 @@
     <PackageReference Include="WpfExtensions.Xaml" Version="1.1.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\LQClass.AdminForWPF.Infrastructure\LQClass.AdminForWPF.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\LQClass.AdminForWPF.Infrastructure\LQClass.AdminForWPF.Infrastructure.csproj">
+      <Private>false</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\LQClass.CustomControls\LQClass.CustomControls.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="I18nResources\Language.cs">

@@ -1,16 +1,16 @@
-﻿<UserControl x:Class="LQClass.ModuleOfHome.Views.MainTabItemView"
+﻿<UserControl x:Class="LQClass.ModuleOfLog.Views.MainTabItemView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:LQClass.ModuleOfHome.Views"
+             xmlns:local="clr-namespace:LQClass.ModuleOfLog.Views"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:i18="clr-namespace:LQClass.ModuleOfHome.I18nResources"
+             xmlns:i18="clr-namespace:LQClass.ModuleOfLog.I18nResources"
              xmlns:markup="clr-namespace:WpfExtensions.Xaml.Markup;assembly=WpfExtensions.Xaml"
              xmlns:hc="https://handyorg.github.io/handycontrol"
-             mc:Ignorable="d"
+             mc:Ignorable="d" 
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True" >
-    <StackPanel Background="Blue">
+    <StackPanel Background="DarkOrange">
         <TextBlock Text="{Binding Header}"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center" />

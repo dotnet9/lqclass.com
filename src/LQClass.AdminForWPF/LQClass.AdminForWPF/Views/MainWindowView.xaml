@@ -195,20 +195,27 @@
             <Border.Resources>
                 <ResourceDictionary>
                     <ResourceDictionary.MergedDictionaries>
+
                         <!--#region TabControl风格使用HandyControl控件库-->
+
                         <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml" />
                         <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml" />
+
                         <!--#endregion-->
+
                     </ResourceDictionary.MergedDictionaries>
+                    <Style x:Key="HeaderStyle" TargetType="{x:Type hc:TabItem}">
+                        <Setter Property="Header" Value="{Binding RelativeSource={RelativeSource Self}, Path=Content.DataContext.Header}" />
+                    </Style>
                 </ResourceDictionary>
             </Border.Resources>
+            <!--<ContentControl prism:RegionManager.RegionName="{x:Static inf:RegionNames.MainTabRegion}"/>-->
             <hc:TabControl
-                x:Name="tabCtl"
-                IsAnimationEnabled="True"
-                IsDraggable="True"
-                IsScrollable="True"
-                ShowCloseButton="True">
-            </hc:TabControl>
+                    prism:RegionManager.RegionName="{x:Static inf:RegionNames.MainTabRegion}"
+                    IsAnimationEnabled="True"
+                    IsDraggable="True"
+                    ItemContainerStyle="{StaticResource HeaderStyle}"
+                    ShowCloseButton="True" />
         </Border>
         <!--#endregion-->
 

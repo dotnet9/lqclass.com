@@ -1,21 +1,22 @@
-﻿using LQClass.ModuleOfHome.ViewModels;
-using LQClass.ModuleOfHome.Views;
+﻿using LQClass.ModuleOfLog.ViewModels;
+using LQClass.ModuleOfLog.Views;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
+using Prism.Unity;
 using Unity;
 using WpfExtensions.Xaml;
 
-namespace LQClass.ModuleOfHome
+namespace LQClass.ModuleOfLog
 {
-	public class ModuleOfHomeModule : IModule
+	public class ModuleOfLogModule : IModule
 	{
 		private readonly IRegionManager _regionManager;
 		private readonly IUnityContainer _unityContainer;
 
-		public ModuleOfHomeModule(IRegionManager regionManager, IUnityContainer unityContainer)
+		public ModuleOfLogModule(IRegionManager regionManager, IUnityContainer unityContainer)
 		{
-			I18nManager.Instance.Add(LQClass.ModuleOfHome.I18nResources.UiResource.ResourceManager);
+			I18nManager.Instance.Add(LQClass.ModuleOfLog.I18nResources.UiResource.ResourceManager);
 			this._regionManager = regionManager;
 			this._unityContainer = unityContainer;
 		}
@@ -26,7 +27,7 @@ namespace LQClass.ModuleOfHome
 
 		public void RegisterTypes(IContainerRegistry containerRegistry)
 		{
-			containerRegistry.RegisterForNavigation<MainTabItemView, MainTabItemViewModel>("Home");
+			containerRegistry.RegisterForNavigation<MainTabItemView, MainTabItemViewModel>("Log");
 		}
 	}
 }
