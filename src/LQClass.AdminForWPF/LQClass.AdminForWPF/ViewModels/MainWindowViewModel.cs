@@ -4,11 +4,13 @@ using LQClass.AdminForWPF.Infrastructure.Models;
 using LQClass.AdminForWPF.Infrastructure.Mvvm;
 using LQClass.AdminForWPF.Models;
 using LQClass.AdminForWPF.Views;
+using LQClass.CustomControls.TabControlHelper;
 using Prism.Commands;
 using Prism.Regions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace LQClass.AdminForWPF.ViewModels
@@ -101,12 +103,48 @@ namespace LQClass.AdminForWPF.ViewModels
 			ShellSwitcher.Switch<MainWindowView, LoginView>();
 		}
 
+		private Dictionary<string, object> dictExistTabItems = new Dictionary<string, object>();
 		/// <summary>
 		/// —°‘Ò≤Àµ•√¸¡Ó
 		/// </summary>
 		private void RaiseSelectedItemHandler(CustomMenuItem menuItem)
 		{
-			RegionManager.RequestNavigate(RegionNames.MainTabRegion, menuItem.Key);
+			if (menuItem == null)
+			{
+				return;
+			}
+			if (!RegionManager.Regions.ContainsRegionWithName(RegionNames.MainTabRegion))
+			{
+				return;
+			}
+			var region = RegionManager.Regions[RegionNames.MainTabRegion];
+			if (dictExistTabItems.ContainsKey(menuItem.Key))
+			{
+				region.Activate(dictExistTabItems[menuItem.Key]);
+				return;
+			}
+			region.RequestNavigate(menuItem.Key);
+			dictExistTabItems.Clear();
+
+			foreach (var viewObj in region.Views)
+			{
+				ICloseable view = viewObj as ICloseable;
+				if (view != null)
+				{
+					dictExistTabItems[view.Closer.Key] = view;
+					if (view.Closer.CanClose)
+					{
+						view.Closer.RequestClose += () =>
+						{
+							dictExistTabItems.Remove(view.Closer.Key);
+							if (region.Views.Contains(view))
+							{
+								region.Remove(view);
+							}
+						};
+					}
+				}
+			}
 		}
 
 		#endregion

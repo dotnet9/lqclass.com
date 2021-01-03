@@ -104,27 +104,27 @@
             "Icon": "log.png"
         },
         {
-            "Key": "User Management",
+            "Key": "User_Management",
             "Value": "用户管理",
             "Icon": "User Settings.png"
         },
         {
-            "Key": "Role Management",
+            "Key": "Role_Management",
             "Value": "角色管理",
             "Icon": "user role.png"
         },
         {
-            "Key": "Group Management",
+            "Key": "Group_Management",
             "Value": "用户组管理",
             "Icon": "group.png"
         },
         {
-            "Key": "Menu Mangement",
+            "Key": "Menu_Mangement",
             "Value": "菜单管理",
             "Icon": "menu.png"
         },
         {
-            "Key": "Data Privilege",
+            "Key": "Data_Privilege",
             "Value": "数据权限",
             "Icon": "data.png"
         }

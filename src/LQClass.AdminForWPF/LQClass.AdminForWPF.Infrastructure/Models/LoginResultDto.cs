@@ -41,7 +41,15 @@ namespace LQClass.AdminForWPF.Infrastructure.Models
 	{
 		public string Id { get; set; }
 		public string ParentId { get; set; }
-		public string Text { get; set; }
+		private string _Text;
+		public string Text
+		{
+			get { return _Text; }
+			set
+			{
+				_Text = value.Replace(" ", "_");
+			}
+		}
 		public string Url { get; set; }
 		public string Icon { get; set; }
 	}

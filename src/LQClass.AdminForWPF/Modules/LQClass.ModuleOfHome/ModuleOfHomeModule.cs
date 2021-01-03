@@ -10,6 +10,7 @@ namespace LQClass.ModuleOfHome
 {
 	public class ModuleOfHomeModule : IModule
 	{
+		public const string KEY_OF_CURRENT_MODULE = "Home";
 		private readonly IRegionManager _regionManager;
 		private readonly IUnityContainer _unityContainer;
 
@@ -26,7 +27,7 @@ namespace LQClass.ModuleOfHome
 
 		public void RegisterTypes(IContainerRegistry containerRegistry)
 		{
-			containerRegistry.RegisterForNavigation<MainTabItemView, MainTabItemViewModel>("Home");
+			containerRegistry.RegisterForNavigation<MainTabItemView, MainTabItemViewModel>(KEY_OF_CURRENT_MODULE);
 		}
 	}
 }

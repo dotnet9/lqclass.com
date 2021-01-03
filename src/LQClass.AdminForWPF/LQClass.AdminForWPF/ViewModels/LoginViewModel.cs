@@ -173,12 +173,6 @@ namespace LQClass.AdminForWPF.ViewModels
 					}
 					AppConfig.Instance.Save();
 					LoginComplete?.Invoke(true);
-					//Application.Current.MainWindow.DialogResult = true;
-					//Application.Current.MainWindow.Close();
-					//Application.Current.MainWindow = new MainWindowView();
-					//Application.Current.MainWindow.Show();
-					//mainView.Close();
-					//ShellSwitcher.Switch<LoginView, MainWindowView>();
 				}
 				else
 				{

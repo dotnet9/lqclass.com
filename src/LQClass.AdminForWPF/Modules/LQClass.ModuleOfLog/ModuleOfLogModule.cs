@@ -11,6 +11,7 @@ namespace LQClass.ModuleOfLog
 {
 	public class ModuleOfLogModule : IModule
 	{
+		public const string KEY_OF_CURRENT_MODULE = "Log";
 		private readonly IRegionManager _regionManager;
 		private readonly IUnityContainer _unityContainer;
 
@@ -27,7 +28,7 @@ namespace LQClass.ModuleOfLog
 
 		public void RegisterTypes(IContainerRegistry containerRegistry)
 		{
-			containerRegistry.RegisterForNavigation<MainTabItemView, MainTabItemViewModel>("Log");
+			containerRegistry.RegisterForNavigation<MainTabItemView, MainTabItemViewModel>(KEY_OF_CURRENT_MODULE);
 		}
 	}
 }

@@ -1,0 +1,25 @@
+﻿<UserControl
+    x:Class="LQClass.ModuleOfUserManagement.Views.MainTabItemView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
+    xmlns:i18="clr-namespace:LQClass.ModuleOfUserManagement.I18nResources"
+    xmlns:local="clr-namespace:LQClass.ModuleOfUserManagement.Views"
+    xmlns:markup="clr-namespace:WpfExtensions.Xaml.Markup;assembly=WpfExtensions.Xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    mc:Ignorable="d">
+    <StackPanel Background="DarkOrange">
+        <TextBlock
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Text="{Binding Header}" />
+        <TextBlock
+            FontSize="50"
+            FontWeight="Bold"
+            Foreground="Red"
+            Text="{markup:I18n {x:Static i18:Language.MainTabItemView_Header}}" />
+    </StackPanel>
+</UserControl>
