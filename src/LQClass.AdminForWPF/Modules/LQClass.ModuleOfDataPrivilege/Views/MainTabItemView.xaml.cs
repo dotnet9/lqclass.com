@@ -12,7 +12,9 @@ namespace LQClass.ModuleOfDataPrivilege.Views
 		public MainTabItemView()
 		{
 			InitializeComponent();
-			this.Closer = new CloseableHeader(ModuleOfDataPrivilegeModule.KEY_OF_CURRENT_MODULE, I18nManager.Instance.Get(I18nResources.Language.MainTabItemView_Header).ToString(), true);
+			this.Closer = new CloseableHeader(ModuleOfDataPrivilegeModule.KEY_OF_CURRENT_MODULE
+				, I18nManager.Instance.Get(I18nResources.Language.MainTabItemView_Header).ToString()
+				, true);
 		}
 
 		public CloseableHeader Closer { get; private set; }

@@ -347,7 +347,7 @@
                                 <Hyperlink Command="{Binding RaiseOpenLinkCommand}" CommandParameter="https://dotnet9.com">Help</Hyperlink>
                             </TextBlock>
                             <TextBlock FontSize="16" Foreground="#333333">
-                                <Run Text="© 2020 " />
+                                <Run Text="© 2020-2021 " />
                                 <Hyperlink Command="{Binding RaiseOpenLinkCommand}" CommandParameter="http://lqclass.com">
                                     <Run Text="LQCLASS.COM" />
                                 </Hyperlink>

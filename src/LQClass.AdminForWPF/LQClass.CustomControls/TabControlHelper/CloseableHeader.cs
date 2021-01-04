@@ -1,11 +1,12 @@
 ﻿using Prism.Commands;
+using Prism.Mvvm;
 using System;
 using System.Windows;
 using System.Windows.Input;
 
 namespace LQClass.CustomControls.TabControlHelper
 {
-	public class CloseableHeader
+	public class CloseableHeader : BindableBase
 	{
 		public CloseableHeader(string key, string title, bool canClose)
 		{
@@ -26,6 +27,12 @@ namespace LQClass.CustomControls.TabControlHelper
 			}
 		}
 		public string Key { get; private set; }
+		private string _Icon;
+		public string Icon
+		{
+			get { return _Icon; }
+			set { this.SetProperty(ref _Icon, value); }
+		}
 		public string Title { get; private set; }
 		public bool CanClose { get; private set; }
 		public Visibility Visibility

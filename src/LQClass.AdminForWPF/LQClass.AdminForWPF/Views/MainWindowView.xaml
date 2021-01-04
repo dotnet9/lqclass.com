@@ -34,6 +34,8 @@
                 <ResourceDictionary Source="pack://application:,,,/LQClass.AdminForWPF;component/Styles/MainMenuStyle.xaml" />
                 <!--#endregion-->
             </ResourceDictionary.MergedDictionaries>
+            <SolidColorBrush x:Key="tabBackground" Color="#F5F5F5" />
+            <SolidColorBrush x:Key="tabBorderBrush" Color="#ccc" />
         </ResourceDictionary>
     </mah:MetroWindow.Resources>
 
@@ -191,20 +193,34 @@
         <!--#endregion-->
 
         <!--#region 右侧内容区域-->
-        <Border Grid.Row="2" Grid.Column="1">
-
+        <Border
+            Grid.Row="2"
+            Grid.Column="1"
+            Padding="0,8,0,0"
+            Background="{StaticResource tabBackground}"
+            BorderBrush="{StaticResource tabBorderBrush}"
+            BorderThickness="0.5">
             <Border.Resources>
                 <ResourceDictionary>
+                    <!--#region 右侧TabItem样式-->
                     <Style TargetType="TabItem">
                         <Setter Property="HeaderTemplate">
                             <Setter.Value>
                                 <DataTemplate>
-                                    <Grid Width="120">
-                                        <ContentPresenter
-                                            HorizontalAlignment="Center"
-                                            VerticalAlignment="Center"
-                                            Content="{Binding Path=Title}" />
+                                    <Grid Width="135">
+                                        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                                            <Image
+                                                Width="16"
+                                                Height="16"
+                                                Margin="0,0,5,0"
+                                                Source="{Binding Icon}" />
+                                            <ContentPresenter
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Content="{Binding Path=Title}" />
+                                        </StackPanel>
                                         <Button
+                                            x:Name="xBtn"
                                             HorizontalAlignment="Right"
                                             Background="{x:Null}"
                                             BorderBrush="{x:Null}"
@@ -223,11 +239,9 @@
                                 <ControlTemplate TargetType="{x:Type TabItem}">
                                     <Border
                                         Name="Border"
-                                        Height="30"
-                                        Margin="10,0"
-                                        BorderBrush="#FFDCDCDC"
-                                        BorderThickness="1,1,1,0"
-                                        CornerRadius="10,10,0,0">
+                                        Height="35"
+                                        Margin="8,0,0,0"
+                                        CornerRadius="5 5 0 0">
                                         <ContentPresenter
                                             Name="ContentSite"
                                             HorizontalAlignment="Center"
@@ -236,10 +250,13 @@
                                     </Border>
                                     <ControlTemplate.Triggers>
                                         <Trigger Property="TabItem.IsSelected" Value="True">
-                                            <Setter TargetName="Border" Property="Border.Background" Value="#FF87CEFA" />
+                                            <Setter TargetName="Border" Property="Border.Background" Value="White" />
+                                            <Setter TargetName="ContentSite" Property="TextBlock.Foreground" Value="#1677D2" />
+                                            <Setter TargetName="Border" Property="Border.BorderThickness" Value="0.5 0.5 0.5 0" />
+                                            <Setter TargetName="Border" Property="Border.BorderBrush" Value="{StaticResource tabBorderBrush}" />
                                         </Trigger>
                                         <Trigger Property="TabItem.IsSelected" Value="False">
-                                            <Setter TargetName="Border" Property="Border.Background" Value="#FFFFFF" />
+                                            <Setter TargetName="Border" Property="Border.Background" Value="{StaticResource tabBackground}" />
                                         </Trigger>
                                     </ControlTemplate.Triggers>
                                 </ControlTemplate>
@@ -247,10 +264,20 @@
                         </Setter>
                         <Setter Property="Header" Value="{Binding Path=Content.Closer, RelativeSource={x:Static RelativeSource.Self}}" />
                     </Style>
+                    <!--#endregion-->
                 </ResourceDictionary>
             </Border.Resources>
             <!--<ContentControl prism:RegionManager.RegionName="{x:Static inf:RegionNames.MainTabRegion}"/>-->
-            <TabControl prism:RegionManager.RegionName="{x:Static inf:RegionNames.MainTabRegion}" BorderThickness="0" />
+            <TabControl
+                x:Name="tc"
+                prism:RegionManager.RegionName="{x:Static inf:RegionNames.MainTabRegion}"
+                BorderThickness="0">
+                <Behaviors:Interaction.Triggers>
+                    <Behaviors:EventTrigger EventName="SelectionChanged" SourceObject="{Binding ElementName=tc}">
+                        <Behaviors:InvokeCommandAction Command="{Binding RaiseSelectedTabItemCommand}" CommandParameter="{Binding ElementName=tc, Path=SelectedItem}" />
+                    </Behaviors:EventTrigger>
+                </Behaviors:Interaction.Triggers>
+            </TabControl>
         </Border>
         <!--#endregion-->
 

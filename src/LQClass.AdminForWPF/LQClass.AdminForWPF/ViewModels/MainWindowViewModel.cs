@@ -55,6 +55,13 @@ namespace LQClass.AdminForWPF.ViewModels
 		public ICommand RaiseSelectedItemCommand =>
 		  _RaiseSelectedItemCommand ?? (_RaiseSelectedItemCommand = new DelegateCommand<CustomMenuItem>(RaiseSelectedItemHandler));
 
+		private ICommand _RaiseSelectedTabItemCommand;
+		/// <summary>
+		/// 选择TabItem菜单命令
+		/// </summary>
+		public ICommand RaiseSelectedTabItemCommand =>
+		  _RaiseSelectedTabItemCommand ?? (_RaiseSelectedTabItemCommand = new DelegateCommand<object>(RaiseSelectedTabItemHandler));
+
 		#endregion
 
 		#region 私有变量
@@ -103,47 +110,95 @@ namespace LQClass.AdminForWPF.ViewModels
 			ShellSwitcher.Switch<MainWindowView, LoginView>();
 		}
 
+		/// <summary>
+		/// 显示的菜单TabItem
+		/// </summary>
 		private Dictionary<string, object> dictExistTabItems = new Dictionary<string, object>();
+		/// <summary>
+		/// 点击过的菜单项
+		/// </summary>
+		private Dictionary<string, CustomMenuItem> dictExistMenuItems = new Dictionary<string, CustomMenuItem>();
+		/// <summary>
+		/// 用于控制左侧的TreeItem与右侧的TabItem选择，同时触发一个
+		/// </summary>
+		private bool isSelectedItem = false;
 		/// <summary>
 		/// 选择菜单命令
 		/// </summary>
 		private void RaiseSelectedItemHandler(CustomMenuItem menuItem)
 		{
-			if (menuItem == null)
+			try
 			{
-				return;
-			}
-			if (!RegionManager.Regions.ContainsRegionWithName(RegionNames.MainTabRegion))
-			{
-				return;
-			}
-			var region = RegionManager.Regions[RegionNames.MainTabRegion];
-			if (dictExistTabItems.ContainsKey(menuItem.Key))
-			{
-				region.Activate(dictExistTabItems[menuItem.Key]);
-				return;
-			}
-			region.RequestNavigate(menuItem.Key);
-			dictExistTabItems.Clear();
-
-			foreach (var viewObj in region.Views)
-			{
-				ICloseable view = viewObj as ICloseable;
-				if (view != null)
+				if (isSelectedItem)
 				{
-					dictExistTabItems[view.Closer.Key] = view;
-					if (view.Closer.CanClose)
+					return;
+				}
+				isSelectedItem = true;
+				if (menuItem == null
+					|| !RegionManager.Regions.ContainsRegionWithName(RegionNames.MainTabRegion))
+				{
+					return;
+				}
+				dictExistMenuItems[menuItem.Key] = menuItem;
+				var region = RegionManager.Regions[RegionNames.MainTabRegion];
+				if (dictExistTabItems.ContainsKey(menuItem.Key))
+				{
+					region.Activate(dictExistTabItems[menuItem.Key]);
+					return;
+				}
+				region.RequestNavigate(menuItem.Key);
+				dictExistTabItems.Clear();
+
+				foreach (var viewObj in region.Views)
+				{
+					ICloseable view = viewObj as ICloseable;
+					if (view != null)
 					{
-						view.Closer.RequestClose += () =>
+						dictExistTabItems[view.Closer.Key] = view;
+						view.Closer.Icon = $"./../Images/{view.Closer.Key}OfTab.png";
+						if (view.Closer.CanClose)
 						{
-							dictExistTabItems.Remove(view.Closer.Key);
-							if (region.Views.Contains(view))
+							view.Closer.RequestClose += () =>
 							{
-								region.Remove(view);
-							}
-						};
+								dictExistTabItems.Remove(view.Closer.Key);
+								if (region.Views.Contains(view))
+								{
+									region.Remove(view);
+								}
+							};
+						}
 					}
 				}
+			}
+			finally
+			{
+				isSelectedItem = false;
+			}
+		}
+
+		/// <summary>
+		/// 选择TabItem时，同步更新左侧TreeItem选择状态
+		/// </summary>
+		/// <param name="obj"></param>
+		private void RaiseSelectedTabItemHandler(object obj)
+		{
+			try
+			{
+				if (isSelectedItem)
+				{
+					return;
+				}
+				isSelectedItem = true;
+				ICloseable view = obj as ICloseable;
+				if (view == null || !dictExistMenuItems.ContainsKey(view.Closer.Key))
+				{
+					return;
+				}
+				dictExistMenuItems[view.Closer.Key].IsSelected = true;
+			}
+			finally
+			{
+				isSelectedItem = false;
 			}
 		}
 

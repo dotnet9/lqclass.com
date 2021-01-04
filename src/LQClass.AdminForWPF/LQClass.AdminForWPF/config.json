@@ -14,7 +14,7 @@
     {
       "Name": "Dotnet9",
       "Desc": "Dotnet9站点",
-      "Version": "2019-2020",
+      "Version": "2019-2021",
       "VersionColor": "#d8624c",
       "URL": "https://dotnet9.com"
     },
@@ -81,43 +81,35 @@
   "MainMenus": [
     {
       "Key": "Home",
-      "Value": "首页",
-      "Icon": "home.png"
+      "Value": "首页"
     },
     {
       "Key": "System",
-      "Value": "系统管理",
-      "Icon": "system.png"
+      "Value": "系统管理"
     },
     {
       "Key": "Log",
-      "Value": "日志",
-      "Icon": "log.png"
+      "Value": "日志"
     },
     {
       "Key": "User_Management",
-      "Value": "用户管理",
-      "Icon": "User Settings.png"
+      "Value": "用户管理"
     },
     {
       "Key": "Role_Management",
-      "Value": "角色管理",
-      "Icon": "user role.png"
+      "Value": "角色管理"
     },
     {
       "Key": "Group_Management",
-      "Value": "用户组管理",
-      "Icon": "group.png"
+      "Value": "用户组管理"
     },
     {
       "Key": "Menu_Mangement",
-      "Value": "菜单管理",
-      "Icon": "menu.png"
+      "Value": "菜单管理"
     },
     {
       "Key": "Data_Privilege",
-      "Value": "数据权限",
-      "Icon": "data.png"
+      "Value": "数据权限"
     }
   ]
 }

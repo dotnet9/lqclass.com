@@ -27,7 +27,7 @@ namespace LQClass.AdminForWPF.Models
 
 			// Ìí¼ÓÊ×Ò³²Ëµ¥
 			var mainMenu = AppConfig.Instance.GetMenu(CustomMenuItem.KEY_OF_HOME);
-			var newMenu = new CustomMenuItem(1, "1", "", mainMenu.Key, mainMenu.Value, $"{AppDomain.CurrentDomain.BaseDirectory}Images\\{mainMenu.Icon}");
+			var newMenu = new CustomMenuItem(1, "1", "", mainMenu.Key, mainMenu.Value, $"./../Images/{mainMenu.Key}.png");
 			customMenus.Add(newMenu);
 
 			ReadChildren(1, string.Empty, oldMenus, customMenus);
@@ -49,7 +49,7 @@ namespace LQClass.AdminForWPF.Models
 			foreach (var menuItem in findResults)
 			{
 				var mainMenu = AppConfig.Instance.GetMenu(menuItem.Text);
-				var newMenu = new CustomMenuItem(level, menuItem.Id, parentID, mainMenu.Key, mainMenu.Value, $"{AppDomain.CurrentDomain.BaseDirectory}Images\\{mainMenu.Icon}");
+				var newMenu = new CustomMenuItem(level, menuItem.Id, parentID, mainMenu.Key, mainMenu.Value, $"./../Images/{mainMenu.Key}.png");
 				customMenus.Add(newMenu);
 				ReadChildren(level + 1, newMenu.ID, soureMenus, newMenu.Children);
 			}

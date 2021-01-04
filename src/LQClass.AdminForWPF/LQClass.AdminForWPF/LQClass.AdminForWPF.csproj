@@ -18,23 +18,31 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<None Remove="Images\data.png" />
+		<None Remove="Images\Data_Privilege.png" />
+		<None Remove="Images\Data_PrivilegeOfTab.png" />
 		<None Remove="Images\Down.png" />
-		<None Remove="Images\group.png" />
+		<None Remove="Images\Group_Management.png" />
+		<None Remove="Images\Group_ManagementOfTab.png" />
 		<None Remove="Images\home.png" />
+		<None Remove="Images\HomeOfTab.png" />
 		<None Remove="Images\log.png" />
 		<None Remove="Images\logo.ico" />
 		<None Remove="Images\logo.png" />
-		<None Remove="Images\menu.png" />
+		<None Remove="Images\LogOfTab.png" />
+		<None Remove="Images\Menu_Mangement.png" />
+		<None Remove="Images\Menu_MangementOfTab.png" />
 		<None Remove="Images\Right.png" />
+		<None Remove="Images\Role_Management.png" />
+		<None Remove="Images\Role_ManagementOfTab.png" />
 		<None Remove="Images\sidebar-1.jpg" />
 		<None Remove="Images\sidebar-2.jpg" />
 		<None Remove="Images\sidebar-3.jpg" />
 		<None Remove="Images\sidebar-4.jpg" />
 		<None Remove="Images\system.png" />
-		<None Remove="Images\user role.png" />
-		<None Remove="Images\User Settings.png" />
+		<None Remove="Images\SystemOfTab.png" />
 		<None Remove="Images\user.png" />
+		<None Remove="Images\User_Management.png" />
+		<None Remove="Images\User_ManagementOfTab.png" />
 		<None Remove="Images\WeChat-public-address.jpg" />
 	</ItemGroup>
 
@@ -55,19 +63,22 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Resource Include="Images\data.png">
+		<Resource Include="Images\Data_Privilege.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>
+		<Resource Include="Images\Data_PrivilegeOfTab.png" />
 		<Resource Include="Images\Down.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>
-		<Resource Include="Images\group.png">
+		<Resource Include="Images\Group_Management.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>
-		<Resource Include="Images\home.png">
+		<Resource Include="Images\Group_ManagementOfTab.png" />
+		<Resource Include="Images\Home.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>
-		<Resource Include="Images\log.png">
+		<Resource Include="Images\HomeOfTab.png" />
+		<Resource Include="Images\Log.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>
 		<Resource Include="Images\logo.ico">
@@ -76,12 +87,15 @@
 		<Resource Include="Images\logo.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>
-		<Resource Include="Images\menu.png">
+		<Resource Include="Images\LogOfTab.png" />
+		<Resource Include="Images\Menu_Mangement.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>
+		<Resource Include="Images\Menu_MangementOfTab.png" />
 		<Resource Include="Images\Right.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>
+		<Resource Include="Images\Role_ManagementOfTab.png" />
 		<Resource Include="Images\sidebar-1.jpg">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>
@@ -94,18 +108,20 @@
 		<Resource Include="Images\sidebar-4.jpg">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>
-		<Resource Include="Images\system.png">
+		<Resource Include="Images\System.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>
-		<Resource Include="Images\user role.png">
+		<Resource Include="Images\Role_Management.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>
-		<Resource Include="Images\User Settings.png">
+		<Resource Include="Images\SystemOfTab.png" />
+		<Resource Include="Images\User_Management.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>
 		<Resource Include="Images\user.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>
+		<Resource Include="Images\User_ManagementOfTab.png" />
 		<Resource Include="Images\WeChat-public-address.jpg">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>
