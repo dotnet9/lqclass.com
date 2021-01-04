@@ -68,7 +68,17 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "查询日志",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
