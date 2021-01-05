@@ -1,12 +1,12 @@
 {
-  "Name": "乐趣Class",
+  "Name": "乐 趣 课 堂",
   "IsRemberMe": false,
   "IsAutoLogin": false,
   "ConfigType": "Production",
   "QuickLinks": [
     {
       "Name": "Github",
-      "Desc": "乐趣Class仓库地址",
+      "Desc": "乐趣课堂仓库地址",
       "Version": "2020",
       "VersionColor": "#d8624c",
       "URL": "https://github.com/dotnet9/lqclass.com"
