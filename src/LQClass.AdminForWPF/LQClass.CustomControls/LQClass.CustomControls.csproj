@@ -15,8 +15,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Quartz Regular.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.19" />
     <PackageReference Include="Prism.Core" Version="8.0.0.1909" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Images\" />
+    <Folder Include="Resources\" />
   </ItemGroup>
 
 </Project>

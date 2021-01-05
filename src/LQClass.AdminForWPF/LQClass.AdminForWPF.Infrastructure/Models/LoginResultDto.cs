@@ -6,6 +6,8 @@ namespace LQClass.AdminForWPF.Infrastructure.Models
 	public class LoginResultDto
 	{
 		public static LoginResultDto Instance { get; set; }
+
+
 		public string Id { get; set; }
 		public string ITCode { get; set; }
 		public string Name { get; set; }
@@ -16,6 +18,8 @@ namespace LQClass.AdminForWPF.Infrastructure.Models
 		public AttributeInfo Attributes { get; set; }
 		public object FunctionPrivileges { get; set; }
 		public object DataPrivileges { get; set; }
+
+
 	}
 
 	public class RoleDto

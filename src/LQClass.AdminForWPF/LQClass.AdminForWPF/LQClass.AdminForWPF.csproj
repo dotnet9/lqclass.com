@@ -44,6 +44,7 @@
 		<None Remove="Images\User_Management.png" />
 		<None Remove="Images\User_ManagementOfTab.png" />
 		<None Remove="Images\WeChat-public-address.jpg" />
+		<None Remove="fonts\Quartz Regular.ttf" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -125,6 +126,7 @@
 		<Resource Include="Images\WeChat-public-address.jpg">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>
+		<Resource Include="fonts\Quartz Regular.ttf" />
 	</ItemGroup>
 
 	<ItemGroup>

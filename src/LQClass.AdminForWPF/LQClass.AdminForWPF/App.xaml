@@ -14,8 +14,11 @@
 
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Indigo.xaml" />
+
+                <ResourceDictionary Source="pack://application:,,,/LQClass.AdminForWPF;component/Styles/CommonButtonStyle.xaml" />
                 <!--#endregion-->
             </ResourceDictionary.MergedDictionaries>
+            <FontFamily x:Key="QuartzRegular">pack://application:,,,/LQClass.AdminForWPF;component/fonts/#Quartz Regular</FontFamily>
         </ResourceDictionary>
     </prism:PrismApplication.Resources>
 </prism:PrismApplication>

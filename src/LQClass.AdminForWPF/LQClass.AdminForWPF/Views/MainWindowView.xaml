@@ -73,6 +73,7 @@
                 FontSize="18"
                 FontWeight="Bold"
                 Foreground="White"
+                FontFamily="{StaticResource QuartzRegular}"
                 Text="{Binding Title}" />
         </StackPanel>
         <!--#endregion-->

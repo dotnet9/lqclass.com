@@ -22,7 +22,7 @@
       <Private>false</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\LQClass.CustomControls\LQClass.CustomControls.csproj">
-      <Private>false</Private>
+      <Private>true</Private>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

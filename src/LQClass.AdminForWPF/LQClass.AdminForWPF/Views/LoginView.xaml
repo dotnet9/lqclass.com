@@ -28,6 +28,7 @@
                 <Setter Property="FontSize" Value="50" />
                 <Setter Property="FontWeight" Value="Bold" />
                 <Setter Property="Margin" Value="10" />
+                <Setter Property="FontFamily" Value="{StaticResource QuartzRegular}"/>
             </Style.Setters>
         </Style>
         <Style BasedOn="{StaticResource MaterialDesignTextBox}" TargetType="{x:Type TextBox}">
@@ -242,6 +243,7 @@
 
                         <Button
                             Grid.Row="4"
+                            FontFamily="{StaticResource QuartzRegular}"
                             Grid.ColumnSpan="2"
                             Height="40" FontSize="16"
                             materialDesign:ButtonProgressAssist.IsIndeterminate="{Binding IsIndeterminate}"
