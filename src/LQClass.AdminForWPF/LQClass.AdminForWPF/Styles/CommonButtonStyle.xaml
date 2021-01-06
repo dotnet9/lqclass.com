@@ -32,7 +32,7 @@
             <Setter Property="Content">
                 <Setter.Value>
                     <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="Cancel" VerticalAlignment="Center"/>
+                        <materialDesign:PackIcon VerticalAlignment="Center" Kind="Cancel" />
                         <TextBlock
                             Margin="8,0,0,0"
                             VerticalAlignment="Center"

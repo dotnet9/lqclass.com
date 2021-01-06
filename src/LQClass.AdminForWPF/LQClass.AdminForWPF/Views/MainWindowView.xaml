@@ -41,7 +41,7 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="200" MinWidth="50"/>
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -287,5 +287,19 @@
             <StatusBarItem Content="就绪" />
         </StatusBar>
         <!--#endregion-->
+
+        <!--  消息提示  -->
+        <materialDesign:Snackbar
+                    x:Name="messageTips"
+                    Grid.Row="2"
+                    Grid.RowSpan="2"
+                    Grid.Column="1"
+                    MessageQueue="{materialDesign:MessageQueue}">
+            <materialDesign:Snackbar.Resources>
+                <Style BasedOn="{StaticResource {x:Type materialDesign:SnackbarMessage}}" TargetType="{x:Type materialDesign:SnackbarMessage}">
+                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                </Style>
+            </materialDesign:Snackbar.Resources>
+        </materialDesign:Snackbar>
     </Grid>
 </mah:MetroWindow>

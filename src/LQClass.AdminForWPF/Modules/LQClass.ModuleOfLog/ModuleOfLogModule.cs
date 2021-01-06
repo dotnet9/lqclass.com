@@ -1,4 +1,5 @@
-﻿using LQClass.ModuleOfLog.ViewModels;
+﻿using LQClass.ModuleOfLog.Models;
+using LQClass.ModuleOfLog.ViewModels;
 using LQClass.ModuleOfLog.Views;
 using Prism.Ioc;
 using Prism.Modularity;
@@ -29,6 +30,7 @@ namespace LQClass.ModuleOfLog
 		public void RegisterTypes(IContainerRegistry containerRegistry)
 		{
 			containerRegistry.RegisterForNavigation<MainTabItemView, MainTabItemViewModel>(KEY_OF_CURRENT_MODULE);
+			containerRegistry.RegisterSingleton<MainTabItemModel>();
 		}
 	}
 }

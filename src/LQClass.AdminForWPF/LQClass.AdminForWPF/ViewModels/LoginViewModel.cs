@@ -3,17 +3,13 @@ using LQClass.AdminForWPF.Infrastructure.Models;
 using LQClass.AdminForWPF.Infrastructure.Mvvm;
 using LQClass.AdminForWPF.Infrastructure.Tools;
 using LQClass.AdminForWPF.Models;
-using LQClass.AdminForWPF.Views;
-using MaterialDesignThemes.Wpf;
 using Newtonsoft.Json;
 using Prism.Commands;
 using Prism.Regions;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Input;
-using Unity;
 
 namespace LQClass.AdminForWPF.ViewModels
 {
@@ -81,16 +77,6 @@ namespace LQClass.AdminForWPF.ViewModels
 				this.SetProperty(ref _password, value);
 				(RaiseLoginCommand as DelegateCommand).RaiseCanExecuteChanged();
 			}
-		}
-
-		private bool _IsIndeterminate = false;
-		/// <summary>
-		/// 登录时显示正在繁忙
-		/// </summary>
-		public bool IsIndeterminate
-		{
-			get { return _IsIndeterminate; }
-			set { this.SetProperty(ref _IsIndeterminate, value); }
 		}
 
 		/// <summary>

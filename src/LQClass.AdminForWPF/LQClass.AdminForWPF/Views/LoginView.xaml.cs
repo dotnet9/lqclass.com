@@ -13,8 +13,8 @@ namespace LQClass.AdminForWPF.Views
 			InitializeComponent();
 			this.NameTextBox.Focus();
 			var vm = this.DataContext as LoginViewModel;
-			vm.Snackbar = this.messageTips;
-			vm.LoginComplete += (result) => DialogResult = result;
+			LoginViewModel.Snackbar = this.messageTips;
+			vm.LoginComplete += ((result) => DialogResult = result);
 		}
 
 		private void MoveWindow_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)

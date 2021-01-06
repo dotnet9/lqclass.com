@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
     xmlns:i18="clr-namespace:LQClass.ModuleOfLog.I18nResources"
     xmlns:local="clr-namespace:LQClass.ModuleOfLog.Views"
     xmlns:markup="clr-namespace:WpfExtensions.Xaml.Markup;assembly=WpfExtensions.Xaml"
@@ -11,35 +12,91 @@
     xmlns:prism="http://prismlibrary.com/"
     prism:ViewModelLocator.AutoWireViewModel="True"
     mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!--#region TabControl风格使用HandyControl控件库-->
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml" />
+                <!--#endregion-->
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="80" />
+            <RowDefinition Height="150" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <materialDesign:Card Margin="5">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="100" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="100" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <StackPanel
-                    Grid.Column="4"
-                    Grid.ColumnSpan="2"
-                    Orientation="Horizontal">
-                    <Button
-                        Command="{Binding CopyToClipboardCommand, Mode=OneTime}"
-                        CommandParameter="{Binding ElementName=KindsListBox, Path=SelectedValue}"
-                        Style="{StaticResource SearchButton}" />
-                    <Button
-                        Command="{Binding CopyToClipboardCommand, Mode=OneTime}"
-                        CommandParameter="{Binding ElementName=KindsListBox, Path=SelectedValue}"
-                        Style="{StaticResource ClearButton}" />
+            <WrapPanel Orientation="Horizontal">
+                <WrapPanel.Resources>
+                    <Style x:Key="searchLable" TargetType="TextBlock">
+                        <Style.Setters>
+                            <Setter Property="VerticalAlignment" Value="Bottom" />
+                            <Setter Property="HorizontalAlignment" Value="Right" />
+                            <Setter Property="Width" Value="70" />
+                            <Setter Property="Margin" Value="20,10,0,10" />
+                        </Style.Setters>
+                    </Style>
+                    <Style
+                        x:Key="searchTxt"
+                        BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        TargetType="TextBox">
+                        <Style.Setters>
+                            <Setter Property="VerticalAlignment" Value="Center" />
+                            <Setter Property="Width" Value="200" />
+                            <Setter Property="Margin" Value="0,10,50,10" />
+                        </Style.Setters>
+                    </Style>
+                    <Style
+                        x:Key="searchDateTimePickere"
+                        BasedOn="{StaticResource DateTimePickerPlus}"
+                        TargetType="hc:DateTimePicker">
+                        <Style.Setters>
+                            <Setter Property="hc:InfoElement.TitleWidth" Value="0" />
+                            <Setter Property="VerticalAlignment" Value="Bottom" />
+                            <Setter Property="Width" Value="200" />
+                            <Setter Property="Margin" Value="0,10,50,10" />
+                            <Setter Property="ShowClearButton" Value="True" />
+                        </Style.Setters>
+                    </Style>
+                </WrapPanel.Resources>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource searchLable}" Text="ITCode：" />
+                    <TextBox Style="{StaticResource searchTxt}" />
                 </StackPanel>
-            </Grid>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource searchLable}" Text="Url：" />
+                    <TextBox Style="{StaticResource searchTxt}" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource searchLable}" Text="IP：" />
+                    <TextBox Style="{StaticResource searchTxt}" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource searchLable}" Text="类型：" />
+                    <TextBox Style="{StaticResource searchTxt}" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource searchLable}" Text="开始时间：" />
+                    <hc:DateTimePicker Style="{StaticResource searchDateTimePickere}" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource searchLable}" Text="结束时间：" />
+                    <hc:DateTimePicker Style="{StaticResource searchDateTimePickere}" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Button Command="{Binding RaiseSearchCommand, Mode=OneTime}" Style="{StaticResource SearchButton}" />
+                    <Button Command="{Binding CopyToClipboardCommand, Mode=OneTime}" Style="{StaticResource ClearButton}" />
+                </StackPanel>
+            </WrapPanel>
         </materialDesign:Card>
         <materialDesign:Card Grid.Row="1" Margin="5">
             <Grid>
@@ -50,44 +107,43 @@
                 <DataGrid
                     AutoGenerateColumns="False"
                     IsReadOnly="True"
-                    ItemsSource="{Binding DeviceTemplateDtos}">
+                    ItemsSource="{Binding ListData}">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Binding="{Binding DeviceType}" Header="设备类型" />
                         <DataGridTextColumn
                             Width="200"
-                            Binding="{Binding ProjectName}"
+                            Binding="{Binding LogType}"
                             Header="类型" />
                         <DataGridTextColumn
                             Width="150"
-                            Binding="{Binding APName}"
+                            Binding="{Binding ModuleName}"
                             Header="模块" />
                         <DataGridTextColumn
                             Width="180"
-                            Binding="{Binding PUID}"
+                            Binding="{Binding ActionName}"
                             Header="动作" />
                         <DataGridTextColumn
                             Width="180"
-                            Binding="{Binding PUID}"
+                            Binding="{Binding ITCode}"
                             Header="ITCode" />
                         <DataGridTextColumn
                             Width="180"
-                            Binding="{Binding PUID}"
+                            Binding="{Binding ActionUrl}"
                             Header="Url" />
                         <DataGridTextColumn
                             Width="180"
-                            Binding="{Binding PUID}"
+                            Binding="{Binding ActionTime}"
                             Header="操作时间" />
                         <DataGridTextColumn
                             Width="180"
-                            Binding="{Binding PUID}"
+                            Binding="{Binding Duration}"
                             Header="时长" />
                         <DataGridTextColumn
                             Width="180"
-                            Binding="{Binding PUID}"
+                            Binding="{Binding IP}"
                             Header="IP" />
                         <DataGridTextColumn
                             Width="180"
-                            Binding="{Binding PUID}"
+                            Binding="{Binding Remark}"
                             Header="备注" />
                         <DataGridTextColumn
                             Width="180"
@@ -95,6 +151,14 @@
                             Header="操作" />
                     </DataGrid.Columns>
                 </DataGrid>
+
+                <hc:Pagination Grid.Row="1" MaxPageCount="10" PageIndex="{Binding PageIndex}" IsJumpEnabled="True">
+                    <hc:Interaction.Triggers>
+                        <hc:EventTrigger EventName="PageUpdated">
+                            <hc:EventToCommand Command="{Binding PageUpdatedCmd}" PassEventArgsToCommand="True" />
+                        </hc:EventTrigger>
+                    </hc:Interaction.Triggers>
+                </hc:Pagination>
             </Grid>
         </materialDesign:Card>
     </Grid>

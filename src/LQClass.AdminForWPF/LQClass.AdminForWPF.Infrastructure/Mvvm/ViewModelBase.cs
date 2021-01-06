@@ -23,6 +23,16 @@ namespace LQClass.AdminForWPF.Infrastructure.Mvvm
 			get { return AppConfig.Instance.Name; }
 		}
 
+		private bool _IsIndeterminate = false;
+		/// <summary>
+		/// 登录时显示正在繁忙
+		/// </summary>
+		public bool IsIndeterminate
+		{
+			get { return _IsIndeterminate; }
+			set { this.SetProperty(ref _IsIndeterminate, value); }
+		}
+
 		private string _CurrentLanguage;
 		/// <summary>
 		/// 当前选择的选择
@@ -44,7 +54,7 @@ namespace LQClass.AdminForWPF.Infrastructure.Mvvm
 		/// <summary>
 		/// 提示控件，未找到设置时间等绑定属性，先由view输入viewmodel
 		/// </summary>
-		public Snackbar Snackbar { get; set; }
+		public static Snackbar Snackbar { get; set; }
 
 		#endregion
 
@@ -77,6 +87,11 @@ namespace LQClass.AdminForWPF.Infrastructure.Mvvm
 		{
 			RegionManager = regionManager;
 			RaiseChangeLanguageHandler(AppConfig.Instance.Language);
+		}
+
+		public ViewModelBase()
+		{
+
 		}
 
 		#region 命令处理方法

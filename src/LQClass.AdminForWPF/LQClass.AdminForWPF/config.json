@@ -47,13 +47,6 @@
       "URL": "https://github.com/HandyOrg/HandyControl"
     },
     {
-      "Name": "AduSkin",
-      "Desc": "WPF控件库",
-      "Version": "1.1.1.8",
-      "VersionColor": "#1182c3",
-      "URL": "https://github.com/aduskin/AduSkin"
-    },
-    {
       "Name": "Accelerider.Windows",
       "Desc": "WPF开源项目",
       "Version": "1.0",

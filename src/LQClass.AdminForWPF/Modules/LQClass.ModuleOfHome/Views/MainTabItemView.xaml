@@ -7,21 +7,21 @@
     xmlns:lqclass="clr-namespace:LQClass.CustomControls.Controls;assembly=LQClass.CustomControls"
     xmlns:markup="clr-namespace:WpfExtensions.Xaml.Markup;assembly=WpfExtensions.Xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
     xmlns:prism="http://prismlibrary.com/"
     prism:ViewModelLocator.AutoWireViewModel="True"
     mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!--#region TabControl风格使用HandyControl控件库-->
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml" />
+                <!--#endregion-->
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
     <StackPanel>
-        <TextBlock
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Text="{Binding Header}" />
-        <Grid Width="300" Height="60">
-            <lqclass:SwitchButton CheckedText="lqclass.com" Text="dotnet9.com" IsChecked="True"/>
-        </Grid>
-        <TextBlock
-            FontSize="50"
-            FontWeight="Bold"
-            Foreground="Red"
-            Text="{markup:I18n {x:Static i18:Language.MainTabItemView_Header}}" />
+        <hc:CalendarWithClock Margin="32" x:Name="cwc" ShowConfirmButton="False"/>
     </StackPanel>
 </UserControl>
