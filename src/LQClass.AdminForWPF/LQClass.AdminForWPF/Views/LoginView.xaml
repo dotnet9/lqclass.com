@@ -2,18 +2,16 @@
     x:Class="LQClass.AdminForWPF.Views.LoginView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:ctlHelper="clr-namespace:LQClass.CustomControls.Helpers;assembly=LQClass.CustomControls"
+    xmlns:Behaviors="http://schemas.microsoft.com/xaml/behaviors"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:hc="https://handyorg.github.io/handycontrol"
-    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
     xmlns:i18="clr-namespace:LQClass.AdminForWPF.I18nResources"
     xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
     xmlns:markup="clr-namespace:WpfExtensions.Xaml.Markup;assembly=WpfExtensions.Xaml"
-    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prism="http://prismlibrary.com/"
     x:Name="win"
-    Title="{Binding Title}"
+    Title="乐 趣 课 堂"
     Width="900"
     Height="700"
     prism:ViewModelLocator.AutoWireViewModel="True"
@@ -22,24 +20,6 @@
     WindowStartupLocation="CenterScreen"
     WindowStyle="None"
     mc:Ignorable="d">
-    <Window.Resources>
-        <Style x:Key="h1Title" TargetType="TextBlock">
-            <Style.Setters>
-                <Setter Property="FontSize" Value="50" />
-                <Setter Property="FontWeight" Value="Bold" />
-                <Setter Property="Margin" Value="10" />
-                <Setter Property="FontFamily" Value="{StaticResource QuartzRegular}"/>
-            </Style.Setters>
-        </Style>
-        <Style BasedOn="{StaticResource MaterialDesignTextBox}" TargetType="{x:Type TextBox}">
-            <Setter Property="Margin" Value="0,8" />
-            <Setter Property="VerticalAlignment" Value="Center" />
-        </Style>
-
-        <Style BasedOn="{StaticResource MaterialDesignPasswordBox}" TargetType="{x:Type PasswordBox}">
-            <Setter Property="Margin" Value="0,8" />
-        </Style>
-    </Window.Resources>
     <Border
         Background="White"
         BorderBrush="#CCC"
@@ -144,8 +124,12 @@
                     <RowDefinition Height="30" />
                 </Grid.RowDefinitions>
 
-                <!--  标题栏logo 关闭按钮  -->
-                <Border HorizontalAlignment="Left" Background="#ddffffff" CornerRadius="25" Margin="5">
+                <!--#region标题栏logo 关闭按钮-->
+                <Border
+                    Margin="5"
+                    HorizontalAlignment="Left"
+                    Background="#ddffffff"
+                    CornerRadius="25">
                     <Image Source="/Images/logo.png" />
                 </Border>
                 <Button
@@ -153,9 +137,11 @@
                     VerticalAlignment="Top"
                     Background="{x:Null}"
                     BorderBrush="{x:Null}"
-                    Click="Close_Click">
-                    <materialDesign:PackIcon Kind="Close" />
-                </Button>
+                    Click="Close_Click"
+                    Content="X"
+                    FontSize="14"
+                    Foreground="White" />
+                <!--#endregion-->
 
                 <!--#region 登录输入区域-->
                 <Border
@@ -166,92 +152,71 @@
                     HorizontalAlignment="Right"
                     Background="White"
                     CornerRadius="5">
-                    <Grid Margin="60">
+                    <Grid Margin="80,50">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="0.8*" />
-                            <RowDefinition Height="50" />
-                            <RowDefinition Height="50" />
-                            <RowDefinition Height="30" />
-                            <RowDefinition Height="50" />
-                            <RowDefinition Height="0.2*" />
+                            <RowDefinition Height="70" />
+                            <RowDefinition Height="70" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
                         </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="25" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
                         <TextBlock
                             Grid.ColumnSpan="2"
                             HorizontalAlignment="Center"
-                            Style="{StaticResource h1Title}"
-                            Text="{Binding Title}" />
+                            FontSize="50"
+                            FontWeight="Bold"
+                            Text="乐 趣 课 堂" />
 
 
-                        <materialDesign:PackIcon
-                            Grid.Row="1"
-                            Width="16"
-                            Height="16"
-                            Margin="0,5,10,0"
-                            VerticalAlignment="Center"
-                            Foreground="{Binding ElementName=NameTextBox, Path=BorderBrush}"
-                            Kind="Account" />
-                        <TextBox
+                        <hc:TextBox
                             x:Name="NameTextBox"
                             Grid.Row="1"
                             Grid.Column="1"
                             VerticalAlignment="Center"
-                            materialDesign:HintAssist.Hint="{markup:I18n {x:Static i18:Language.LoginView_UserNameToolTip}}"
+                            hc:InfoElement.Placeholder="请输入密码，测试密码：lqclass.com"
+                            hc:InfoElement.Title="账号"
+                            hc:InfoElement.TitleWidth="140"
                             FontSize="14"
+                            ShowClearButton="True"
                             Text="{Binding UserName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-                        <materialDesign:PackIcon
-                            Grid.Row="2"
-                            Width="16"
-                            Height="16"
-                            Margin="0,5,10,0"
-                            VerticalAlignment="Center"
-                            Foreground="{Binding ElementName=passwordBox, Path=BorderBrush}"
-                            Kind="Key" />
-                        <PasswordBox
+                        <hc:PasswordBox
                             x:Name="passwordBox"
                             Grid.Row="2"
                             Grid.Column="1"
                             VerticalAlignment="Center"
-                            ctlHelper:PasswordBoxHelper.Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                            materialDesign:HintAssist.Hint="{markup:I18n {x:Static i18:Language.LoginView_PasswordToolTip}}"
-                            materialDesign:TextFieldAssist.HasClearButton="True"
-                            FontSize="14">
-                            <i:Interaction.Behaviors>
-                                <ctlHelper:PasswordBoxBehavior />
-                            </i:Interaction.Behaviors>
-                        </PasswordBox>
+                            hc:InfoElement.Placeholder="请输入密码，测试密码：lqclass.com"
+                            hc:InfoElement.Title="密码"
+                            FontSize="14"
+                            ShowClearButton="True"
+                            ToolTip="{markup:I18n {x:Static i18:Language.LoginView_PasswordToolTip}}" />
 
                         <StackPanel
                             Grid.Row="3"
                             Grid.ColumnSpan="2"
-                            Margin="20,0"
+                            Margin="20,10,20,10"
                             HorizontalAlignment="Center"
                             Orientation="Horizontal">
                             <CheckBox
                                 Margin="30,0"
-                                Content="{markup:I18n {x:Static i18:Language.LoginView_IsRemberMe}}"
+                                Content="自动登录"
                                 IsChecked="{Binding IsRemberMe}" />
                             <CheckBox
                                 Margin="30,0"
-                                Content="{markup:I18n {x:Static i18:Language.LoginView_IsAutoLogin}}"
+                                Content="记住我"
                                 IsChecked="{Binding IsAutoLogin}" />
                         </StackPanel>
 
-                        <Button
+                        <ToggleButton
                             Grid.Row="4"
-                            FontFamily="{StaticResource QuartzRegular}"
-                            Grid.ColumnSpan="2"
-                            Height="40" FontSize="16"
-                            materialDesign:ButtonProgressAssist.IsIndeterminate="{Binding IsIndeterminate}"
-                            materialDesign:ButtonProgressAssist.IsIndicatorVisible="{Binding IsIndeterminate}"
-                            materialDesign:ButtonProgressAssist.Value="-1"
+                            Width="330"
+                            Height="40"
                             Command="{Binding RaiseLoginCommand}"
-                            Content="{markup:I18n {x:Static i18:Language.LoginView_Login}}"
-                            IsDefault="True" />
+                            Content="登          录"
+                            FontSize="16"
+                            IsChecked="{Binding IsBusy}"
+                            IsEnabled="{Binding RelativeSource={RelativeSource Mode=Self},Path=IsChecked,Converter={StaticResource Boolean2BooleanReConverter}}"
+                            Style="{StaticResource ToggleButtonLoadingPrimary}" />
                     </Grid>
                 </Border>
                 <!--#endregion-->
@@ -262,16 +227,6 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="130" />
                     </Grid.ColumnDefinitions>
-                    <Grid.Resources>
-                        <ResourceDictionary>
-                            <ResourceDictionary.MergedDictionaries>
-                                <!--#region TabControl风格使用HandyControl控件库-->
-                                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml" />
-                                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml" />
-                                <!--#endregion-->
-                            </ResourceDictionary.MergedDictionaries>
-                        </ResourceDictionary>
-                    </Grid.Resources>
                     <ListBox DataContext="{Binding}" ItemsSource="{Binding QuickLinks}">
                         <ListBox.Resources>
                             <Style TargetType="TextBlock">
@@ -296,14 +251,6 @@
                                     Subject="{Binding Name}"
                                     ToolTip="{Binding Desc}"
                                     Color="{Binding VersionColor}" />
-                                <!--<Button Content="{Binding Name}" ToolTip="{Binding Desc}"
-                        Command="{Binding RelativeSource={RelativeSource AncestorType=Window,Mode=FindAncestor}, Path=DataContext.RaiseOpenLinkCommand}"
-                        CommandParameter="{Binding Url}"/>-->
-                                <!--<TextBlock Text="{Binding Name}" ToolTip="{Binding Desc}">
-                  <Hyperlink NavigateUri="{Binding Url}"
-                             Command="{Binding RelativeSource={RelativeSource AncestorType=Window,Mode=FindAncestor}, Path=DataContext.RaiseOpenLinkCommand}"
-                             CommandParameter="{Binding Url}"></Hyperlink>
-                </TextBlock>-->
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
@@ -333,12 +280,12 @@
                                     <Setter Property="CommandParameter" Value="{Binding Key}" />
                                 </Style>
                             </mah:DropDownButton.ItemContainerStyle>
-                            <mah:DropDownButton.Icon>
+                            <!--<mah:DropDownButton.Icon>
                                 <materialDesign:PackIcon
                                     Width="16"
                                     Height="16"
                                     Kind="Language" />
-                            </mah:DropDownButton.Icon>
+                            </mah:DropDownButton.Icon>-->
                         </mah:DropDownButton>
 
                         <StackPanel
@@ -361,7 +308,7 @@
                 <!--  endregion  -->
 
                 <!--  消息提示  -->
-                <materialDesign:Snackbar
+                <!--<materialDesign:Snackbar
                     x:Name="messageTips"
                     Grid.Row="2"
                     Grid.RowSpan="2"
@@ -371,7 +318,7 @@
                             <Setter Property="HorizontalContentAlignment" Value="Center" />
                         </Style>
                     </materialDesign:Snackbar.Resources>
-                </materialDesign:Snackbar>
+                </materialDesign:Snackbar>-->
             </Grid>
         </Border>
     </Border>

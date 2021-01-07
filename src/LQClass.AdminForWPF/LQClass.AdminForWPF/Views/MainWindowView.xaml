@@ -1,4 +1,4 @@
-<mah:MetroWindow
+<hc:BlurWindow
     x:Class="LQClass.AdminForWPF.Views.MainWindowView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -16,15 +16,15 @@
     Title="{Binding Title}"
     Width="1200"
     Height="800"
+    hc:GlobalShortcut.Host="True"
+    hc:WindowAttach.IgnoreAltF4="True"
     prism:ViewModelLocator.AutoWireViewModel="True"
-    GlowBrush="{DynamicResource MahApps.Brushes.Accent}"
     Icon="../Images/logo.ico"
-    NonActiveGlowBrush="#CDFF0000"
-    ShowIconOnTitleBar="True"
-    ShowTitleBar="False"
+    ResizeMode="CanResizeWithGrip"
+    ShowTitle="False"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
-    <mah:MetroWindow.Resources>
+    <hc:BlurWindow.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <!--#region 主窗体使用MahApps.Metro控件库风格-->
@@ -37,11 +37,11 @@
             <SolidColorBrush x:Key="tabBackground" Color="#F5F5F5" />
             <SolidColorBrush x:Key="tabBorderBrush" Color="#ccc" />
         </ResourceDictionary>
-    </mah:MetroWindow.Resources>
+    </hc:BlurWindow.Resources>
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200" MinWidth="50"/>
+            <ColumnDefinition Width="200" MinWidth="50" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -70,10 +70,10 @@
                 Source="/Images/logo.png" />
             <TextBlock
                 VerticalAlignment="Center"
+                FontFamily="{StaticResource QuartzRegular}"
                 FontSize="18"
                 FontWeight="Bold"
                 Foreground="White"
-                FontFamily="{StaticResource QuartzRegular}"
                 Text="{Binding Title}" />
         </StackPanel>
         <!--#endregion-->
@@ -290,11 +290,11 @@
 
         <!--  消息提示  -->
         <materialDesign:Snackbar
-                    x:Name="messageTips"
-                    Grid.Row="2"
-                    Grid.RowSpan="2"
-                    Grid.Column="1"
-                    MessageQueue="{materialDesign:MessageQueue}">
+            x:Name="messageTips"
+            Grid.Row="2"
+            Grid.RowSpan="2"
+            Grid.Column="1"
+            MessageQueue="{materialDesign:MessageQueue}">
             <materialDesign:Snackbar.Resources>
                 <Style BasedOn="{StaticResource {x:Type materialDesign:SnackbarMessage}}" TargetType="{x:Type materialDesign:SnackbarMessage}">
                     <Setter Property="HorizontalContentAlignment" Value="Center" />
@@ -302,4 +302,4 @@
             </materialDesign:Snackbar.Resources>
         </materialDesign:Snackbar>
     </Grid>
-</mah:MetroWindow>
+</hc:BlurWindow>

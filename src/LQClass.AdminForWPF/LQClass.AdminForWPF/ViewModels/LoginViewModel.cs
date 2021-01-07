@@ -1,3 +1,5 @@
+using HandyControl.Controls;
+using HandyControl.Data;
 using LQClass.AdminForWPF.Infrastructure.Configs;
 using LQClass.AdminForWPF.Infrastructure.Models;
 using LQClass.AdminForWPF.Infrastructure.Mvvm;
@@ -78,6 +80,22 @@ namespace LQClass.AdminForWPF.ViewModels
 				(RaiseLoginCommand as DelegateCommand).RaiseCanExecuteChanged();
 			}
 		}
+		private bool _IsBusy;
+		/// <summary>
+		/// 是否正在繁忙
+		/// </summary>
+		public bool IsBusy
+		{
+			get { return _IsBusy; }
+			set
+			{
+				this.SetProperty(ref _IsBusy, value);
+			}
+		}
+		/// <summary>
+		/// 密码框
+		/// </summary>
+		public PasswordBox PasswordBox { get; set; }
 
 		/// <summary>
 		/// 超链接列表
@@ -87,6 +105,13 @@ namespace LQClass.AdminForWPF.ViewModels
 		#endregion
 
 		#region 命令
+
+		private ICommand _RaiseChangePasswordCommand;
+		/// <summary>
+		/// 输入密码命令
+		/// </summary>
+		public ICommand RaiseChangePasswordCommand =>
+		  _RaiseChangePasswordCommand ?? (_RaiseChangePasswordCommand = new DelegateCommand<string>(pwd => this.Password = pwd));
 
 		private ICommand _raiseLoginCommand;
 		/// <summary>
@@ -147,6 +172,7 @@ namespace LQClass.AdminForWPF.ViewModels
 				IsIndeterminate = true;
 
 				// 使用cookie的方式登录，动态获取菜单信息
+				Password = this.PasswordBox.Password;
 				var response = await _loginModel.Login(UserName, Password);
 				if (response.IsSuccessful)
 				{
@@ -170,6 +196,7 @@ namespace LQClass.AdminForWPF.ViewModels
 				}
 				else
 				{
+					Growl.ErrorGlobal(new GrowlInfo { Message = $"{JsonHelper.FormatJsonString(response.Content)}", WaitTime = 5 });
 					ShowTipMsg($"{JsonHelper.FormatJsonString(response.Content)}");
 					AppConfig.Instance.IsAutoLogin = this.IsAutoLogin = false;
 					AppConfig.Instance.Save();
@@ -182,6 +209,7 @@ namespace LQClass.AdminForWPF.ViewModels
 			finally
 			{
 				IsIndeterminate = false;
+				IsBusy = false;
 			}
 		}
 
@@ -199,7 +227,7 @@ namespace LQClass.AdminForWPF.ViewModels
 		/// 登录操作是否可用
 		/// </summary>
 		/// <returns></returns>
-		private bool CanRaiseLoginCommand() => !string.IsNullOrWhiteSpace(UserName) && !string.IsNullOrWhiteSpace(Password);
+		private bool CanRaiseLoginCommand() => !string.IsNullOrWhiteSpace(UserName);
 
 		#endregion
 

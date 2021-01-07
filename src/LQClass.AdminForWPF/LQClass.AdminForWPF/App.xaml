@@ -1,22 +1,18 @@
 <prism:PrismApplication
     x:Class="LQClass.AdminForWPF.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
-    xmlns:prism="http://prismlibrary.com/">
+    xmlns:prism="http://prismlibrary.com/"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <prism:PrismApplication.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
 
-                <!--#region 整个客户端控件风格以MaterialDesignThemes控件库为主-->
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
-
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Indigo.xaml" />
+                <!--#region TabControl风格使用HandyControl控件库-->
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml" />
+                <!--#endregion-->
 
                 <ResourceDictionary Source="pack://application:,,,/LQClass.AdminForWPF;component/Styles/CommonButtonStyle.xaml" />
-                <!--#endregion-->
             </ResourceDictionary.MergedDictionaries>
             <FontFamily x:Key="QuartzRegular">pack://application:,,,/LQClass.AdminForWPF;component/fonts/#Quartz Regular</FontFamily>
         </ResourceDictionary>

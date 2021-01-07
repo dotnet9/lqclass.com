@@ -7,7 +7,7 @@ namespace LQClass.AdminForWPF.Views
 	/// <summary>
 	/// MainWindowView.xaml 的交互逻辑
 	/// </summary>
-	public partial class MainWindowView : MetroWindow
+	public partial class MainWindowView : BlurWindow
 	{
 		public MainWindowView()
 		{

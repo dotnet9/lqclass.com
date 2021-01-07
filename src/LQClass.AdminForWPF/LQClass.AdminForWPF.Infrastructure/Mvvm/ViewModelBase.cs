@@ -1,3 +1,4 @@
+using HandyControl.Controls;
 using LQClass.AdminForWPF.Infrastructure.Configs;
 using LQClass.AdminForWPF.Infrastructure.Models;
 using MaterialDesignThemes.Wpf;
@@ -127,13 +128,14 @@ namespace LQClass.AdminForWPF.Infrastructure.Mvvm
 		/// <param name="msg"></param>
 		public void ShowTipMsg(string msg)
 		{
-			Snackbar.MessageQueue?.Enqueue(msg,
-				null,
-				null,
-				null,
-				false,
-				true,
-				TimeSpan.FromSeconds(3));
+			
+			 //  Snackbar?.MessageQueue?.Enqueue(msg,
+			 //null,
+			 //null,
+			 //null,
+			 //false,
+			 //true,
+			 //TimeSpan.FromSeconds(3));
 		}
 	}
 }

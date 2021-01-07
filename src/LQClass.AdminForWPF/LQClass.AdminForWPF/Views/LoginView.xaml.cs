@@ -3,18 +3,21 @@ using System.Windows;
 
 namespace LQClass.AdminForWPF.Views
 {
-  /// <summary>
-  /// LoginView.xaml 的交互逻辑
-  /// </summary>
-  public partial class LoginView : Window
+	/// <summary>
+	/// LoginView.xaml 的交互逻辑
+	/// </summary>
+	public partial class LoginView : Window
 	{
 		public LoginView()
 		{
 			InitializeComponent();
+
 			this.NameTextBox.Focus();
 			var vm = this.DataContext as LoginViewModel;
-			LoginViewModel.Snackbar = this.messageTips;
+			//LoginViewModel.Snackbar = this.messageTips;
 			vm.LoginComplete += ((result) => DialogResult = result);
+			vm.PasswordBox = this.passwordBox;
+			this.passwordBox.Password = vm.Password;
 		}
 
 		private void MoveWindow_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -25,9 +28,9 @@ namespace LQClass.AdminForWPF.Views
 			}
 		}
 
-    private void Close_Click(object sender, RoutedEventArgs e)
-    {
-      this.Close();
-    }
-  }
+		private void Close_Click(object sender, RoutedEventArgs e)
+		{
+			this.Close();
+		}
+	}
 }

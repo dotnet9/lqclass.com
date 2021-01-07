@@ -128,14 +128,17 @@ namespace LQClass.AdminForWPF.Infrastructure.Configs
 		/// </summary>
 		public void Save()
 		{
-			var jsonStr = JsonConvert.SerializeObject(_Instance);
-			var formatStr = JsonHelper.FormatJsonString(jsonStr);
-			var configFile = $"{AppDomain.CurrentDomain.BaseDirectory}config.json";
-			if (File.Exists(configFile))
+			lock (lockObj)
 			{
-				File.Delete(configFile);
+				var jsonStr = JsonConvert.SerializeObject(_Instance);
+				var formatStr = JsonHelper.FormatJsonString(jsonStr);
+				var configFile = $"{AppDomain.CurrentDomain.BaseDirectory}config.json";
+				if (File.Exists(configFile))
+				{
+					File.Delete(configFile);
+				}
+				File.AppendAllText(configFile, formatStr);
 			}
-			File.AppendAllText(configFile, formatStr);
 		}
 
 		/// <summary>
