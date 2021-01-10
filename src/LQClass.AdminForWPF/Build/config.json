@@ -2,7 +2,7 @@
     "Name": "乐 趣 课 堂",
     "Language": "zh-CN",
     "IsRemberMe": true,
-    "IsAutoLogin": false,
+    "IsAutoLogin": true,
     "UserName": "j8ZC524bF5GA49FVb3BV3Q==",
     "Password": "j8ZC524bF5GA49FVb3BV3Q==",
     "ConfigType": "Production",
@@ -27,20 +27,6 @@
             "VersionColor": "#1182c3",
             "Desc": "WPF MVVM框架，支持模块化",
             "Url": "https://github.com/PrismLibrary/Prism"
-        },
-        {
-            "Name": "MaterialDesignInXamlToolkit",
-            "Version": "4.0.0",
-            "VersionColor": "#1182c3",
-            "Desc": "WPF控件库",
-            "Url": "https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit"
-        },
-        {
-            "Name": "MahApps.Metro",
-            "Version": "2.4.3",
-            "VersionColor": "#1182c3",
-            "Desc": "WPF控件库",
-            "Url": "https://github.com/MahApps/MahApps.Metro"
         },
         {
             "Name": "HandyControl",

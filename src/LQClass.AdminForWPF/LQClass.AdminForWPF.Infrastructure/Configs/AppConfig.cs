@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Windows;
 using WpfExtensions.Xaml;
 
 namespace LQClass.AdminForWPF.Infrastructure.Configs
@@ -119,7 +120,7 @@ namespace LQClass.AdminForWPF.Infrastructure.Configs
 			_Instance.Language = language;
 
 			var culture = new System.Globalization.CultureInfo(language);
-			I18nManager.Instance.CurrentUICulture = culture;
+			Application.Current.Dispatcher.Thread.CurrentUICulture = culture;
 			Save();
 		}
 

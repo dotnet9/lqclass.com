@@ -1,0 +1,109 @@
+﻿<Grid
+    x:Class="LQClass.AdminForWPF.Views.NoUserContent"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
+    xmlns:langs="clr-namespace:LQClass.AdminForWPF.Properties.Langs"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <Grid.Resources>
+        <Geometry x:Key="GithubGeometry">M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-0.64-52.48-0.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-0.64-33.92 40.32-0.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-0.64 123.52-0.64 140.8 0 13.44 9.6 29.44 35.2 24.32A512.832 512.832 0 0 0 1024 512c0-282.88-229.12-512-512-512z</Geometry>
+        <Geometry x:Key="QqGeometry">M936.194300839506 691.6934192494618c-5.891587367822223-94.26540047423211-70.69904970840491-170.8560375504593-106.04857520987652-212.09715041975304 5.891587367822223-11.783174735644446 17.674762103466666-79.53643140740742-29.457938133649378-126.66913164452346V349.981342854005c0-182.63921228610366-129.61492468116543-315.1999312984493-294.57937486380246-315.1999312984493s-294.57937615834066 132.5607190123457-294.57937615834066 315.1999312984493v2.9457943311802466c-47.132700237116055 47.132700237116055-35.349525501471604 114.885956908879-29.45793683911111 126.66913164452346-35.349525501471604 41.24111286929382-100.15698784205432 117.83174994552098-106.04857520987652 212.09715041975304 0 23.56634947128889 2.9457943311802466 58.91587497276049 14.728969066824689 76.59063707622718 14.728969066824689 20.62055643464691 55.97008193611851-2.9457943311802466 82.48222444404936-64.80746234058272 8.837381699002469 29.457938133649378 26.51214380246913 73.64484403958517 67.75325667176295 126.66913164452346-70.69904970840491 14.728969066824689-88.37381310640988 85.42801877522965-64.80746234058272 123.72333731334321 17.674762103466666 26.51214380246913 53.02428760493826 47.132700237116055 120.77754298216297 47.132700237116055 114.885956908879 0 167.9102445138173-32.40373117029136 191.4765952796444-53.02428760493826 5.891587367822223-5.891587367822223 11.783174735644446-5.891587367822223 20.620555140108642-5.891587367822223 8.837381699002469 0 14.728969066824689 2.9457943311802466 20.62055643464691 5.891587367822223 23.56634947128889 20.62055643464691 73.64484403958517 53.02428760493826 191.4765939851062 53.02428760493826 64.80746234058272 0 103.10278087869627-20.62055643464691 120.77754427670124-47.132700237116055 23.56634947128889-38.29531853811359 2.9457943311802466-106.04857520987652-64.80746234058272-123.72333731334321 41.24111286929382-55.97008193611851 58.91587497276049-100.15698784205432 67.75325667176295-126.66913164452346 29.457938133649378 61.86166930394074 67.75325667176295 85.42801877522965 82.48222444404936 64.80746234058272 5.891587367822223-17.674762103466666 11.783174735644446-53.02428760493826 8.837381699002469-76.59063707622718z m0 0</Geometry>
+        <Geometry x:Key="EmailGeometry">M430.079734 481.464543c45.196365 45.596478 118.486578 45.596478 163.68499 0l360.684736-324.939627c0.547469 3.751441 1.13894 7.490601 1.13894 11.401678l0 404.753417 0 116.754121c0 42.995233-34.547841 77.838809-77.145008 77.838809L145.397996 767.272941c-42.597167 0-77.145008-34.844599-77.145008-77.838809L68.252988 494.839155 68.252988 167.926594c0-3.911076 0.593518-7.65126 1.139963-11.401678L430.079734 481.464543zM910.960992 74.226538 562.044278 387.28558c-38.470173 38.811957-62.276369 38.811957-100.770078 0L112.538611 74.408687c10.011005-4.789073 21.069875-7.673773 32.859385-7.673773l733.044372 0C890.095779 66.735937 901.065622 69.539796 910.960992 74.226538z</Geometry>
+    </Grid.Resources>
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition />
+        <ColumnDefinition Width="Auto" />
+    </Grid.ColumnDefinitions>
+    <StackPanel VerticalAlignment="Stretch" Orientation="Horizontal">
+        <Menu Margin="10,0,0,0" Background="Transparent">
+            <MenuItem Height="29" Header="{x:Static langs:Lang.Repository}">
+                <MenuItem
+                    Command="hc:ControlCommands.OpenLink"
+                    CommandParameter="https://github.com/dotnet9/lqclass.com"
+                    Header="GitHub">
+                    <MenuItem.Icon>
+                        <Path
+                            Width="16"
+                            Data="{StaticResource GithubGeometry}"
+                            Fill="{DynamicResource PrimaryTextBrush}" />
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Height="29" Header="{x:Static langs:Lang.About}">
+                <MenuItem
+                    Command="{Binding RaiseShowDialogCommand}"
+                    CommandParameter="QQGroup"
+                    Header="{x:Static langs:Lang.QQGroup}">
+                    <MenuItem.Icon>
+                        <Path
+                            Width="16"
+                            Data="{StaticResource QqGeometry}"
+                            Fill="{DynamicResource PrimaryBrush}" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem
+                    Command="hc:ControlCommands.OpenLink"
+                    CommandParameter="mailto:632871194@qq.com"
+                    Header="{x:Static langs:Lang.Email}">
+                    <MenuItem.Icon>
+                        <Path
+                            Width="16"
+                            Data="{StaticResource EmailGeometry}"
+                            Fill="{DynamicResource WarningBrush}" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem
+                    Command="hc:ControlCommands.OpenLink"
+                    CommandParameter="http://lqclass.com/"
+                    Header="{x:Static langs:Lang.Foreground}">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/SysForeground.png" Width="16"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem
+                    Command="hc:ControlCommands.OpenLink"
+                    CommandParameter="http://admin.lqclass.com/"
+                    Header="{x:Static langs:Lang.Background}">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/SysBackground.png" Width="16"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem
+                    Command="hc:ControlCommands.OpenLink"
+                    CommandParameter="http://api.lqclass.com/swagger/index.html"
+                    Header="Web API">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/SysWebAPI.png" Width="16"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem
+                    Command="{Binding RaiseShowDialogCommand}"
+                    CommandParameter="About"
+                    Header="{x:Static langs:Lang.About}">
+                    <MenuItem.Icon>
+                        <Path
+                            Width="16"
+                            Data="{StaticResource InfoGeometry}"
+                            Fill="{DynamicResource SuccessBrush}" />
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Height="29" Header="{x:Static langs:Lang.Recommendation}">
+                <MenuItem Header="{x:Static langs:Lang.Website}"
+                    Command="{Binding RaiseShowDialogCommand}"
+                    CommandParameter="Web" >
+                    <MenuItem.Icon>
+                        <Image Source="/Images/Website.png" Width="16"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+        <Border Margin="10,0,0,0" VerticalAlignment="Center" CornerRadius="2" Padding="10,4" Background="{DynamicResource SecondaryRegionBrush}">
+            <TextBlock FontWeight="Bold" Text="v 1.0.0 NET 50" VerticalAlignment="Center" Foreground="{DynamicResource PrimaryTextBrush}"/>
+        </Border>
+    </StackPanel>
+</Grid>

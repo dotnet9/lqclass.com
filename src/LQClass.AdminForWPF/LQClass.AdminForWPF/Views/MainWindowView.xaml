@@ -5,15 +5,14 @@
     xmlns:Behaviors="http://schemas.microsoft.com/xaml/behaviors"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:hc="https://handyorg.github.io/handycontrol"
-    xmlns:i18="clr-namespace:LQClass.AdminForWPF.I18nResources"
     xmlns:inf="clr-namespace:LQClass.AdminForWPF.Infrastructure;assembly=LQClass.AdminForWPF.Infrastructure"
-    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
-    xmlns:markup="clr-namespace:WpfExtensions.Xaml.Markup;assembly=WpfExtensions.Xaml"
+    xmlns:langs="clr-namespace:LQClass.AdminForWPF.Properties.Langs"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prism="http://prismlibrary.com/"
+    xmlns:views="clr-namespace:LQClass.AdminForWPF.Views"
     x:Name="win"
-    Title="{Binding Title}"
+    Title="{x:Static langs:Lang.App_Title}"
     Width="1200"
     Height="800"
     hc:GlobalShortcut.Host="True"
@@ -22,6 +21,7 @@
     Icon="../Images/logo.ico"
     ResizeMode="CanResizeWithGrip"
     ShowTitle="False"
+    Style="{StaticResource WindowBlur}"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <hc:BlurWindow.Resources>
@@ -39,6 +39,9 @@
         </ResourceDictionary>
     </hc:BlurWindow.Resources>
 
+    <hc:Window.NonClientAreaContent>
+        <views:NoUserContent />
+    </hc:Window.NonClientAreaContent>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200" MinWidth="50" />
@@ -89,94 +92,6 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-
-        <!--#region 标题栏菜单-->
-        <Menu
-            Grid.Column="1"
-            Margin="0,0,130,0"
-            HorizontalAlignment="Right">
-            <MenuItem
-                Command="{Binding RaiseOpenLinkCommand}"
-                CommandParameter="https://github.com/dotnet9/lqclass.com"
-                Header="Wechat">
-                <MenuItem.Icon>
-                    <materialDesign:PackIcon
-                        Width="22"
-                        Height="22"
-                        Kind="Wechat" />
-                </MenuItem.Icon>
-            </MenuItem>
-            <MenuItem
-                Command="{Binding RaiseOpenLinkCommand}"
-                CommandParameter="https://github.com/dotnet9/lqclass.com"
-                Header="QQchat">
-                <MenuItem.Icon>
-                    <materialDesign:PackIcon
-                        Width="22"
-                        Height="22"
-                        Kind="Qqchat" />
-                </MenuItem.Icon>
-            </MenuItem>
-            <MenuItem
-                Command="{Binding RaiseOpenLinkCommand}"
-                CommandParameter="https://github.com/dotnet9/lqclass.com"
-                Header="{markup:I18n {x:Static i18:Language.MainWindowView_GithubToolTip}}">
-                <MenuItem.Icon>
-                    <materialDesign:PackIcon
-                        Width="22"
-                        Height="22"
-                        Kind="Github" />
-                </MenuItem.Icon>
-            </MenuItem>
-            <MenuItem Header="{markup:I18n {x:Static i18:Language.MainWindowView_Internationalization}}">
-                <MenuItem.Icon>
-                    <materialDesign:PackIcon
-                        Width="22"
-                        Height="22"
-                        Kind="Web" />
-                </MenuItem.Icon>
-                <MenuItem
-                    Command="{Binding RaiseChangeLanguageCommand}"
-                    CommandParameter="zh-CN"
-                    Header="中文" />
-                <MenuItem
-                    Command="{Binding RaiseChangeLanguageCommand}"
-                    CommandParameter="en"
-                    Header="English" />
-            </MenuItem>
-            <MenuItem Header="lqclass">
-                <MenuItem.Icon>
-                    <Image
-                        Width="25"
-                        Height="25"
-                        Source="../Images/logo.png" />
-                </MenuItem.Icon>
-                <MenuItem
-                    Command="{Binding RaiseOpenLinkCommand}"
-                    CommandParameter="http://lqclass.com"
-                    Header="Web" />
-                <MenuItem
-                    Command="{Binding RaiseOpenLinkCommand}"
-                    CommandParameter="http://admin.lqclass.com"
-                    Header="Admin" />
-                <MenuItem
-                    Command="{Binding RaiseOpenLinkCommand}"
-                    CommandParameter="http://api.lqclass.com/swagger/index.html"
-                    Header="Web API" />
-            </MenuItem>
-            <MenuItem Header="Welcome">
-                <MenuItem.Icon>
-                    <Image
-                        Width="25"
-                        Height="25"
-                        Source="../Images/user.png" />
-                </MenuItem.Icon>
-                <MenuItem Header="{markup:I18n {x:Static i18:Language.MainWindowView_FirstPage}}" />
-                <MenuItem Header="{markup:I18n {x:Static i18:Language.MainWindowView_ModifyPwd}}" />
-                <MenuItem Command="{Binding RaiseLogoutCommand}" Header="{markup:I18n {x:Static i18:Language.MainWindowView_Logout}}" />
-            </MenuItem>
-        </Menu>
-        <!--#endregion-->
 
         <!--#region 左侧菜单树-->
         <TreeView

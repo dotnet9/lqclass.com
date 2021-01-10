@@ -1,0 +1,37 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="CloseButtonStyle" TargetType="{x:Type Button}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border
+                        x:Name="back"
+                        Padding="8"
+                        Background="#01ffffff"
+                        BorderBrush="Transparent"
+                        CornerRadius="5">
+                        <Path
+                            x:Name="cp"
+                            Width="20"
+                            Height="10"
+                            Stroke="{TemplateBinding Foreground}"
+                            StrokeThickness="1.5">
+                            <Path.Data>
+                                <PathGeometry Figures="M 11,9 L 16,13 M 11,13 L 16,9" />
+                            </Path.Data>
+                        </Path>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="back" Property="Background" Value="Red" />
+                            <Setter TargetName="back" Property="BorderBrush" Value="Gold" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="back" Property="Background" Value="Red" />
+                            <Setter TargetName="back" Property="BorderBrush" Value="Gold" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

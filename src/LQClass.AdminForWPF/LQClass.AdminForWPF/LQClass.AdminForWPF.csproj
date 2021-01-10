@@ -6,6 +6,8 @@
 		<TargetFramework>net5.0-windows</TargetFramework>
 		<UseWPF>true</UseWPF>
 		<ApplicationIcon>Images\logo.ico</ApplicationIcon>
+		<Authors>lqclass.com</Authors>
+		<Product>lqclass.com</Product>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -18,19 +20,24 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<None Remove="fonts\Quartz Regular.ttf" />
+		<None Remove="Images\Cover.jpg" />
 		<None Remove="Images\Data_Privilege.png" />
 		<None Remove="Images\Data_PrivilegeOfTab.png" />
 		<None Remove="Images\Down.png" />
+		<None Remove="Images\GitHub.png" />
 		<None Remove="Images\Group_Management.png" />
 		<None Remove="Images\Group_ManagementOfTab.png" />
-		<None Remove="Images\home.png" />
+		<None Remove="Images\Home.png" />
 		<None Remove="Images\HomeOfTab.png" />
-		<None Remove="Images\log.png" />
+		<None Remove="Images\Log.png" />
+		<None Remove="Images\login_cover.png" />
 		<None Remove="Images\logo.ico" />
 		<None Remove="Images\logo.png" />
 		<None Remove="Images\LogOfTab.png" />
 		<None Remove="Images\Menu_Mangement.png" />
 		<None Remove="Images\Menu_MangementOfTab.png" />
+		<None Remove="Images\QQGroup1.png" />
 		<None Remove="Images\Right.png" />
 		<None Remove="Images\Role_Management.png" />
 		<None Remove="Images\Role_ManagementOfTab.png" />
@@ -38,13 +45,16 @@
 		<None Remove="Images\sidebar-2.jpg" />
 		<None Remove="Images\sidebar-3.jpg" />
 		<None Remove="Images\sidebar-4.jpg" />
-		<None Remove="Images\system.png" />
+		<None Remove="Images\SysBackground.png" />
+		<None Remove="Images\SysForeground.png" />
+		<None Remove="Images\System.png" />
 		<None Remove="Images\SystemOfTab.png" />
+		<None Remove="Images\SysWebAPI.png" />
 		<None Remove="Images\user.png" />
 		<None Remove="Images\User_Management.png" />
 		<None Remove="Images\User_ManagementOfTab.png" />
+		<None Remove="Images\Website.png" />
 		<None Remove="Images\WeChat-public-address.jpg" />
-		<None Remove="fonts\Quartz Regular.ttf" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -63,81 +73,53 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Resource Include="Images\Data_Privilege.png">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Resource>
-		<Resource Include="Images\Data_PrivilegeOfTab.png" />
-		<Resource Include="Images\Down.png">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Resource>
-		<Resource Include="Images\Group_Management.png">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Resource>
-		<Resource Include="Images\Group_ManagementOfTab.png" />
-		<Resource Include="Images\Home.png">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Resource>
-		<Resource Include="Images\HomeOfTab.png" />
-		<Resource Include="Images\Log.png">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Resource>
-		<Resource Include="Images\logo.ico">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Resource>
-		<Resource Include="Images\logo.png">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Resource>
-		<Resource Include="Images\LogOfTab.png" />
-		<Resource Include="Images\Menu_Mangement.png">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Resource>
-		<Resource Include="Images\Menu_MangementOfTab.png" />
-		<Resource Include="Images\Right.png">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Resource>
-		<Resource Include="Images\Role_ManagementOfTab.png" />
-		<Resource Include="Images\sidebar-1.jpg">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Resource>
-		<Resource Include="Images\sidebar-2.jpg">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Resource>
-		<Resource Include="Images\sidebar-3.jpg">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Resource>
-		<Resource Include="Images\sidebar-4.jpg">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Resource>
-		<Resource Include="Images\System.png">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Resource>
-		<Resource Include="Images\Role_Management.png">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Resource>
-		<Resource Include="Images\SystemOfTab.png" />
-		<Resource Include="Images\User_Management.png">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Resource>
-		<Resource Include="Images\user.png">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Resource>
-		<Resource Include="Images\User_ManagementOfTab.png" />
-		<Resource Include="Images\WeChat-public-address.jpg">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Resource>
 		<Resource Include="fonts\Quartz Regular.ttf" />
+		<Resource Include="Images\GitHub.png" />
+		<Resource Include="Images\QQGroup1.png" />
+		<Resource Include="Images\SysBackground.png" />
+		<Resource Include="Images\SysForeground.png" />
+		<Resource Include="Images\SysWebAPI.png" />
+		<Resource Include="Images\Website.png" />
+		<SplashScreen Include="Images\Cover.jpg" />
+		<Resource Include="Images\Data_Privilege.png" />
+		<Resource Include="Images\Data_PrivilegeOfTab.png" />
+		<Resource Include="Images\Down.png" />
+		<Resource Include="Images\Group_Management.png" />
+		<Resource Include="Images\Group_ManagementOfTab.png" />
+		<Resource Include="Images\Home.png" />
+		<Resource Include="Images\HomeOfTab.png" />
+		<Resource Include="Images\Log.png" />
+		<Resource Include="Images\login_cover.png" />
+		<Resource Include="Images\logo.ico" />
+		<Resource Include="Images\logo.png" />
+		<Resource Include="Images\LogOfTab.png" />
+		<Resource Include="Images\Menu_Mangement.png" />
+		<Resource Include="Images\Menu_MangementOfTab.png" />
+		<Resource Include="Images\Right.png" />
+		<Resource Include="Images\Role_Management.png" />
+		<Resource Include="Images\Role_ManagementOfTab.png" />
+		<Resource Include="Images\sidebar-1.jpg" />
+		<Resource Include="Images\sidebar-2.jpg" />
+		<Resource Include="Images\sidebar-3.jpg" />
+		<Resource Include="Images\sidebar-4.jpg" />
+		<Resource Include="Images\System.png" />
+		<Resource Include="Images\SystemOfTab.png" />
+		<Resource Include="Images\user.png" />
+		<Resource Include="Images\User_Management.png" />
+		<Resource Include="Images\User_ManagementOfTab.png" />
+		<Resource Include="Images\WeChat-public-address.jpg" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<Compile Update="I18nResources\Language.cs">
-			<DesignTime>True</DesignTime>
-			<AutoGen>True</AutoGen>
-			<DependentUpon>Language.tt</DependentUpon>
+		<Compile Update="Langs\Lang.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>Lang.resx</DependentUpon>
 		</Compile>
-		<Compile Update="I18nResources\UiResource.Designer.cs">
-			<DesignTime>True</DesignTime>
-			<AutoGen>True</AutoGen>
-			<DependentUpon>UiResource.resx</DependentUpon>
+		<Compile Update="Properties\Langs\Lang.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>Lang.resx</DependentUpon>
 		</Compile>
 		<Compile Update="Settings.Designer.cs">
 			<DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -156,10 +138,6 @@
 		<None Update="config.Production.json">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		<None Update="I18nResources\Language.tt">
-			<Generator>TextTemplatingFileGenerator</Generator>
-			<LastGenOutput>Language.cs</LastGenOutput>
-		</None>
 		<None Update="Settings.settings">
 			<Generator>SettingsSingleFileGenerator</Generator>
 			<LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -171,14 +149,18 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<EmbeddedResource Update="I18nResources\UiResource.resx">
-			<Generator>ResXFileCodeGenerator</Generator>
-			<LastGenOutput>UiResource.Designer.cs</LastGenOutput>
-		</EmbeddedResource>
+		<Folder Include="Properties\" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<Folder Include="Dtos\" />
+	  <EmbeddedResource Update="Langs\Lang.resx">
+	    <Generator>ResXFileCodeGenerator</Generator>
+	    <LastGenOutput>Lang.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Langs\Lang.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>Lang.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
 	</ItemGroup>
 
 </Project>

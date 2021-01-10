@@ -6,7 +6,9 @@ using LQClass.AdminForWPF.Models;
 using LQClass.AdminForWPF.Views;
 using LQClass.CustomControls.TabControlHelper;
 using Prism.Commands;
+using Prism.Modularity;
 using Prism.Regions;
+using Prism.Services.Dialogs;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -70,7 +72,7 @@ namespace LQClass.AdminForWPF.ViewModels
 
 		#endregion
 
-		public MainWindowViewModel(MainWindowModel mainWindowModel, IRegionManager regionManager) : base(regionManager)
+		public MainWindowViewModel(MainWindowModel mainWindowModel, IRegionManager regionManager, IModuleManager moduleManager, IDialogService dialogService) : base(regionManager,  moduleManager,dialogService)
 		{
 			windowModel = mainWindowModel;
 		}

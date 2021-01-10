@@ -26,20 +26,6 @@
       "URL": "https://github.com/PrismLibrary/Prism"
     },
     {
-      "Name": "MaterialDesignInXamlToolkit",
-      "Desc": "WPF控件库",
-      "Version": "4.0.0",
-      "VersionColor": "#1182c3",
-      "URL": "https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit"
-    },
-    {
-      "Name": "MahApps.Metro",
-      "Desc": "WPF控件库",
-      "Version": "2.4.3",
-      "VersionColor": "#1182c3",
-      "URL": "https://github.com/MahApps/MahApps.Metro"
-    },
-    {
       "Name": "HandyControl",
       "Desc": "WPF控件库",
       "Version": "3.0.0",

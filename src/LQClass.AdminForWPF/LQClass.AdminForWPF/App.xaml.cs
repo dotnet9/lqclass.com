@@ -1,26 +1,53 @@
 using LQClass.AdminForWPF.Infrastructure.Configs;
+using LQClass.AdminForWPF.Infrastructure.Tools;
 using LQClass.AdminForWPF.Models;
 using LQClass.AdminForWPF.ViewModels;
 using LQClass.AdminForWPF.Views;
+using LQClass.CustomControls.Controls;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Unity;
 using System;
+using System.Diagnostics;
 using System.IO;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
-using WpfExtensions.Xaml;
 
 namespace LQClass.AdminForWPF
 {
-	/// <summary>
-	/// Interaction logic for App.xaml
-	/// </summary>
 	public partial class App : PrismApplication
 	{
+		private static Mutex AppMutex;
+
 		protected override void OnStartup(StartupEventArgs e)
 		{
-			base.OnStartup(e);
+			var current = Process.GetCurrentProcess();
+			var name = System.IO.Path.GetFileNameWithoutExtension(current.MainModule.FileName);
+			AppMutex = new Mutex(true, name, out var createdNew);
+
+			if (!createdNew)
+			{
+				foreach (var process in Process.GetProcessesByName(current.ProcessName))
+				{
+					if (process.Id != current.Id)
+					{
+						Win32Helper.SetForegroundWindow(process.MainWindowHandle);
+						break;
+					}
+				}
+				Shutdown();
+			}
+			else
+			{
+				//var splashScreenImg = $"Images{Path.DirectorySeparatorChar}Cover.png";
+				//var splashScreen = new SplashScreen(splashScreenImg);
+				//splashScreen.Show(true);
+				ShutdownMode = ShutdownMode.OnMainWindowClose;
+				AppConfig.Instance.SetLanguage(AppConfig.Instance.Language);
+				base.OnStartup(e);
+
+			}
 
 			DispatcherUnhandledException += App_DispatcherUnhandledException;
 			AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
@@ -31,7 +58,6 @@ namespace LQClass.AdminForWPF
 
 		protected override Window CreateShell()
 		{
-			I18nManager.Instance.Add(I18nResources.UiResource.ResourceManager);
 			AppConfig.Instance.SetLanguage();
 			return Container.Resolve<MainWindowView>();
 		}
@@ -55,6 +81,10 @@ namespace LQClass.AdminForWPF
 		{
 			containerRegistry.RegisterSingleton<LoginModel>();
 			containerRegistry.RegisterSingleton<MainWindowModel>();
+			containerRegistry.RegisterDialogWindow<DialogWindow>();//注册自定义对话框窗体
+			containerRegistry.RegisterDialog<QQGroupView, QQGroupViewModel>("QQGroup");
+			containerRegistry.RegisterDialog<AboutView, AboutViewModel>("About");
+			containerRegistry.RegisterDialog<WebView, WebViewModel>("Web");
 		}
 
 		protected override IModuleCatalog CreateModuleCatalog()

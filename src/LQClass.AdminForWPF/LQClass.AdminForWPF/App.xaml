@@ -1,18 +1,19 @@
 <prism:PrismApplication
     x:Class="LQClass.AdminForWPF.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:prism="http://prismlibrary.com/"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:prism="http://prismlibrary.com/">
     <prism:PrismApplication.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
 
-                <!--#region TabControl风格使用HandyControl控件库-->
+                <ResourceDictionary Source="pack://application:,,,/LQClass.AdminForWPF;component/Styles/CommonButtonStyle.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/LQClass.CustomControls;component/Styles/Buttons.xaml" />
+
+                <!--#region HandyControl控件库-->
                 <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml" />
                 <!--#endregion-->
-
-                <ResourceDictionary Source="pack://application:,,,/LQClass.AdminForWPF;component/Styles/CommonButtonStyle.xaml" />
             </ResourceDictionary.MergedDictionaries>
             <FontFamily x:Key="QuartzRegular">pack://application:,,,/LQClass.AdminForWPF;component/fonts/#Quartz Regular</FontFamily>
         </ResourceDictionary>

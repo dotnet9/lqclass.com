@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<themes>
+	<static>
+		<skin_change_9>
+			<canvas normal="0x00ffffff"/>
+			<border normal="0xffffffff" width="1"/>
+			<font face="微软雅黑,宋体,Tahoma" color="0x00ffffff" size="9" bold="0" italic="0" underline="0"/>
+			<caption normal="0xFF237f67" hot="0xFF237f67" selected="0xFF237f67" link_color="0xFF237f67" disable_color="0xff808080" draw_background="0"/>
+		</skin_change_9>
+		<skin_change_10>
+			<canvas normal="0xff666666"/>
+			<border normal="0xff400040" width="1"/>
+			<font face="微软雅黑,宋体,Tahoma" color="0x00ffffff" size="10" bold="0" italic="0" underline="0" bind_font_by_language="0" ref=""/>
+			<caption normal="0xFF237f67" hot="0xFF237f67" selected="0xFF237f67" link_color="0xFF237f67" disable_color="0xff808080" draw_background="0"/>
+		</skin_change_10>
+		<skin_change_link_10>
+			<canvas normal="0xff666666"/>
+			<border normal="0xff400040" width="1"/>
+			<font face="微软雅黑,宋体,Tahoma" color="0x00ffffff" size="10" bold="0" italic="0" underline="0" bind_font_by_language="0" ref=""/>
+			<caption normal="0xFF237f67" hot="0xFF237f67" selected="0xFF237f67" link_color="0xFF237f67" disable_color="0xff808080" draw_background="0"/>
+		</skin_change_link_10>
+		<skin_change_safetitle>
+			<canvas normal="0x003a6026"/>
+			<border normal="0xff638c39" width="1"/>
+			<font face="微软雅黑" color="0x00ffffff" size="9" bold="0" italic="0" underline="0"/>
+			<caption normal="0xFF237f67" hot="0xFF237f67" selected="0xFF237f67" link_color="0xFF237f67"/>
+		</skin_change_safetitle>
+	</static>
+</themes>

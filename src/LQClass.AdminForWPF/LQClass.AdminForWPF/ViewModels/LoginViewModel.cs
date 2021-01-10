@@ -10,6 +10,7 @@ using Prism.Commands;
 using Prism.Regions;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
@@ -18,6 +19,16 @@ namespace LQClass.AdminForWPF.ViewModels
 	public class LoginViewModel : ViewModelBase
 	{
 		#region 属性
+
+		private string _BackgroundImg = string.Empty;
+		/// <summary>
+		/// 背景图片
+		/// </summary>
+		public string BackgroundImg
+		{
+			get { return _BackgroundImg; }
+			set { this.SetProperty(ref _BackgroundImg, value); }
+		}
 
 		private bool _isRemberMe = false;
 		/// <summary>
@@ -135,6 +146,7 @@ namespace LQClass.AdminForWPF.ViewModels
 		/// <param name="loginModel"></param>
 		public LoginViewModel(LoginModel loginModel, IRegionManager regionManager) : base(regionManager)
 		{
+			ReadBackgroundImg();
 			this._loginModel = loginModel;
 			this.IsRemberMe = AppConfig.Instance.IsRemberMe;
 			this.IsAutoLogin = AppConfig.Instance.IsAutoLogin;
@@ -157,6 +169,7 @@ namespace LQClass.AdminForWPF.ViewModels
 		}
 
 		#region 命令处理方法
+
 		public event Action<bool> LoginComplete;
 		/// <summary>
 		/// 处理登录操作
@@ -172,7 +185,7 @@ namespace LQClass.AdminForWPF.ViewModels
 				IsIndeterminate = true;
 
 				// 使用cookie的方式登录，动态获取菜单信息
-				Password = this.PasswordBox.Password;
+				Password = (this.PasswordBox == null ? Password : this.PasswordBox.Password);
 				var response = await _loginModel.Login(UserName, Password);
 				if (response.IsSuccessful)
 				{
@@ -231,6 +244,25 @@ namespace LQClass.AdminForWPF.ViewModels
 
 		#endregion
 
+		#region 私有方法 
 
+		private void ReadBackgroundImg()
+		{
+			try
+			{
+				var imgDir = $"{AppDomain.CurrentDomain.BaseDirectory}Images{Path.DirectorySeparatorChar}background";
+				var childDirs = System.IO.Directory.GetDirectories(imgDir);
+				Random rd = new Random(DateTime.Now.Millisecond);
+				var chilDirIndex = rd.Next(childDirs.Length);
+				var choidDir = childDirs[chilDirIndex];
+				this.BackgroundImg = $"{choidDir}{Path.DirectorySeparatorChar}Frame.jpg";
+			}
+			catch (Exception ex)
+			{
+
+			}
+		}
+
+		#endregion
 	}
 }

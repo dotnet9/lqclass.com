@@ -3,8 +3,10 @@ using LQClass.AdminForWPF.Infrastructure.Configs;
 using LQClass.AdminForWPF.Infrastructure.Models;
 using MaterialDesignThemes.Wpf;
 using Prism.Commands;
+using Prism.Modularity;
 using Prism.Mvvm;
 using Prism.Regions;
+using Prism.Services.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -69,18 +71,20 @@ namespace LQClass.AdminForWPF.Infrastructure.Mvvm
 		public ICommand RaiseChangeLanguageCommand =>
 		  _RaiseChangeLanguageCommand ?? (_RaiseChangeLanguageCommand = new DelegateCommand<string>(RaiseChangeLanguageHandler));
 
-		private ICommand _raiseOpenLinkCommand;
+		private ICommand _RaiseShowDialogCommand;
 		/// <summary>
-		/// 打开命令
+		/// 打开对话框
 		/// </summary>
-		public ICommand RaiseOpenLinkCommand =>
-		  _raiseOpenLinkCommand ?? (_raiseOpenLinkCommand = new DelegateCommand<string>(RaiseOpenLinkHandler));
+		public ICommand RaiseShowDialogCommand =>
+		  _RaiseShowDialogCommand ?? (_RaiseShowDialogCommand = new DelegateCommand<string>(RaiseShowDialogHandler));
 
 		#endregion
 
 		#region private变量
 
 		public readonly IRegionManager RegionManager;
+		public readonly IModuleManager ModuleManager;
+		public readonly IDialogService DialogService;
 
 		#endregion
 
@@ -89,10 +93,22 @@ namespace LQClass.AdminForWPF.Infrastructure.Mvvm
 			RegionManager = regionManager;
 			RaiseChangeLanguageHandler(AppConfig.Instance.Language);
 		}
+		public ViewModelBase(IRegionManager regionManager, IModuleManager moduleManager, IDialogService dialogService)
+		{
+			RegionManager = regionManager;
+			ModuleManager = moduleManager;
+			DialogService = dialogService;
+			ModuleManager.LoadModuleCompleted += _moduleManager_LoadModuleCompleted;
+			RaiseChangeLanguageHandler(AppConfig.Instance.Language);
+		}
 
 		public ViewModelBase()
 		{
 
+		}
+		private void _moduleManager_LoadModuleCompleted(object sender, LoadModuleCompletedEventArgs e)
+		{
+			//DialogService.ShowDialog("SuccessDialog", new DialogParameters($"message={e.ModuleInfo.ModuleName + "模块被加载了"}"), null);
 		}
 
 		#region 命令处理方法
@@ -109,18 +125,17 @@ namespace LQClass.AdminForWPF.Infrastructure.Mvvm
 		}
 
 		/// <summary>
-		/// 打开超链接
+		/// 显示对话框
 		/// </summary>
-		private void RaiseOpenLinkHandler(string url)
+		/// <param name="dlgName"></param>
+		private void RaiseShowDialogHandler(string dlgName)
 		{
-			Process.Start(new ProcessStartInfo("cmd", $"/c start {url}")
-			{
-				UseShellExecute = false,
-				CreateNoWindow = true
-			});
+			DialogService.ShowDialog(dlgName);
 		}
 
 		#endregion
+
+
 
 		/// <summary>
 		/// 显示界面提示信息
@@ -128,14 +143,14 @@ namespace LQClass.AdminForWPF.Infrastructure.Mvvm
 		/// <param name="msg"></param>
 		public void ShowTipMsg(string msg)
 		{
-			
-			 //  Snackbar?.MessageQueue?.Enqueue(msg,
-			 //null,
-			 //null,
-			 //null,
-			 //false,
-			 //true,
-			 //TimeSpan.FromSeconds(3));
+
+			//  Snackbar?.MessageQueue?.Enqueue(msg,
+			//null,
+			//null,
+			//null,
+			//false,
+			//true,
+			//TimeSpan.FromSeconds(3));
 		}
 	}
 }
