@@ -12,12 +12,14 @@
     <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
     <CopyRefAssembliesToPublishDirectory>true</CopyRefAssembliesToPublishDirectory>
     <UserSecretsId>b5ed7b09-0b7c-4998-b4fd-dfc1a85822eb</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
 </PropertyGroup>
 
 
 
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.10" />
     <PackageReference Include="WalkingTec.Mvvm.TagHelpers.LayUI" Version="3.8.0" />
     <PackageReference Include="WalkingTec.Mvvm.Mvc.Admin" Version="3.8.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0-rc4" />
@@ -53,6 +55,12 @@
     <ProjectReference Include="..\LQClass.DataAccess\LQClass.DataAccess.csproj" />
     <ProjectReference Include="..\LQClass.ViewModel\LQClass.ViewModel.csproj" />
  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Dockerfile">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>
 
 
