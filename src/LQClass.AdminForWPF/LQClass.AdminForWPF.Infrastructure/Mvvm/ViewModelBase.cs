@@ -1,4 +1,5 @@
 using HandyControl.Controls;
+using HandyControl.Data;
 using LQClass.AdminForWPF.Infrastructure.Configs;
 using LQClass.AdminForWPF.Infrastructure.Models;
 using MaterialDesignThemes.Wpf;
@@ -143,7 +144,7 @@ namespace LQClass.AdminForWPF.Infrastructure.Mvvm
 		/// <param name="msg"></param>
 		public void ShowTipMsg(string msg)
 		{
-
+			Growl.ErrorGlobal(new GrowlInfo { Message = msg, WaitTime = 5 });
 			//  Snackbar?.MessageQueue?.Enqueue(msg,
 			//null,
 			//null,
