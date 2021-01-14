@@ -7,7 +7,6 @@
     xmlns:hc="https://handyorg.github.io/handycontrol"
     xmlns:inf="clr-namespace:LQClass.AdminForWPF.Infrastructure;assembly=LQClass.AdminForWPF.Infrastructure"
     xmlns:langs="clr-namespace:LQClass.AdminForWPF.Properties.Langs"
-    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prism="http://prismlibrary.com/"
     xmlns:views="clr-namespace:LQClass.AdminForWPF.Views"
@@ -40,7 +39,7 @@
     </hc:BlurWindow.Resources>
 
     <hc:Window.NonClientAreaContent>
-        <views:NoUserContent />
+        <views:NonClientAreaContent />
     </hc:Window.NonClientAreaContent>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -143,9 +142,7 @@
                                             Command="{Binding Path=CloseCommand}"
                                             CommandParameter="{Binding}"
                                             Cursor="Hand"
-                                            Visibility="{Binding Path=Visibility}">
-                                            <materialDesign:PackIcon Kind="Close" />
-                                        </Button>
+                                            Visibility="{Binding Path=Visibility}" Content="X"/>
                                     </Grid>
                                 </DataTemplate>
                             </Setter.Value>
@@ -204,7 +201,7 @@
         <!--#endregion-->
 
         <!--  消息提示  -->
-        <materialDesign:Snackbar
+        <!--<materialDesign:Snackbar
             x:Name="messageTips"
             Grid.Row="2"
             Grid.RowSpan="2"
@@ -215,6 +212,6 @@
                     <Setter Property="HorizontalContentAlignment" Value="Center" />
                 </Style>
             </materialDesign:Snackbar.Resources>
-        </materialDesign:Snackbar>
+        </materialDesign:Snackbar>-->
     </Grid>
 </hc:BlurWindow>

@@ -15,7 +15,7 @@ namespace LQClass.AdminForWPF.Views
 			this.Loaded += (sender, args) =>
 			{
 				var vm = this.DataContext as MainWindowViewModel;
-				MainWindowViewModel.Snackbar = this.messageTips;
+				//MainWindowViewModel.Snackbar = this.messageTips;
 				if (vm.NeedShowHome)
 				{
 					vm.ShowHome();

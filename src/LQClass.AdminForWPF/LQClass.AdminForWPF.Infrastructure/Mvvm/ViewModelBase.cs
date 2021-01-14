@@ -120,9 +120,9 @@ namespace LQClass.AdminForWPF.Infrastructure.Mvvm
 		/// <param name="languageKey"></param>
 		private void RaiseChangeLanguageHandler(string languageKey)
 		{
-			var lan = Languages.Find(cu => cu.Key == languageKey);
-			this.CurrentLanguage = lan.Name;
-			AppConfig.Instance.SetLanguage(languageKey);
+			//var lan = Languages.Find(cu => cu.Key == languageKey);
+			//this.CurrentLanguage = lan.Name;
+			//AppConfig.Instance.SetLanguage(languageKey);
 		}
 
 		/// <summary>

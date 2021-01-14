@@ -58,7 +58,7 @@ namespace LQClass.AdminForWPF
 
 		protected override Window CreateShell()
 		{
-			AppConfig.Instance.SetLanguage();
+			//AppConfig.Instance.SetLanguage();
 			return Container.Resolve<MainWindowView>();
 		}
 

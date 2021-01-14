@@ -1,8 +1,8 @@
 {
     "Name": "乐 趣 课 堂",
-    "Language": "zh-CN",
+    "Language": "zh-cn",
     "IsRemberMe": true,
-    "IsAutoLogin": true,
+    "IsAutoLogin": false,
     "UserName": "j8ZC524bF5GA49FVb3BV3Q==",
     "Password": "j8ZC524bF5GA49FVb3BV3Q==",
     "ConfigType": "Production",
