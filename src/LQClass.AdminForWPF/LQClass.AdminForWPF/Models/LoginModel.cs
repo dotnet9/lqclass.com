@@ -19,13 +19,13 @@ namespace LQClass.AdminForWPF.Models
 		/// <returns></returns>
 		public async Task<IRestResponse> Login(string userName, string pwd, bool cookie = true)
 		{
-			var client = new RestClient($"{AppConfig.Instance.API}_login/Login");
+			var client = new RestClient($"{AppConfig.Instance.API}_Account/Login");
 			client.Timeout = -1;
 			var request = new RestRequest(Method.POST);
 			request.AlwaysMultipartFormData = true;
-			request.AddParameter("userid", userName);
+			request.AddParameter("account", userName);
 			request.AddParameter("password", pwd);
-			request.AddParameter("cookie", $"{cookie}");
+			request.AddParameter("rememberLogin", $"{cookie}");
 			var response = await client.ExecuteAsync(request);
 
 			return response;
