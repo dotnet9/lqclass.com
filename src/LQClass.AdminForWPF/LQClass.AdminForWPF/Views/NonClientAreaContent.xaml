@@ -4,7 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:hc="https://handyorg.github.io/handycontrol"
-    xmlns:langs="clr-namespace:LQClass.AdminForWPF.Properties.Langs"
+    xmlns:i18NResources="clr-namespace:LQClass.AdminForWPF.I18nResources"
+    xmlns:markup="clr-namespace:WpfExtensions.Xaml.Markup;assembly=WpfExtensions.Xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:o="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
     d:DesignHeight="450"
@@ -22,7 +23,7 @@
     </Grid.ColumnDefinitions>
     <StackPanel VerticalAlignment="Stretch" Orientation="Horizontal">
         <Menu Margin="10,0,0,0" Background="Transparent">
-            <MenuItem Height="29" Header="{x:Static langs:Lang.Repository}">
+            <MenuItem Height="29" Header="{markup:I18n {x:Static i18NResources:Language.Repository}}">
                 <MenuItem
                     Command="hc:ControlCommands.OpenLink"
                     CommandParameter="https://github.com/dotnet9/lqclass.com"
@@ -35,11 +36,11 @@
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
-            <MenuItem Height="29" Header="{x:Static langs:Lang.About}">
+            <MenuItem Height="29" Header="{markup:I18n {x:Static i18NResources:Language.About}}">
                 <MenuItem
                     Command="{Binding RaiseShowDialogCommand}"
                     CommandParameter="QQGroup"
-                    Header="{x:Static langs:Lang.QQGroup}">
+                    Header="{markup:I18n {x:Static i18NResources:Language.QQGroup}}">
                     <MenuItem.Icon>
                         <Path
                             Width="16"
@@ -50,7 +51,7 @@
                 <MenuItem
                     Command="hc:ControlCommands.OpenLink"
                     CommandParameter="mailto:632871194@qq.com"
-                    Header="{x:Static langs:Lang.Email}">
+                    Header="{markup:I18n {x:Static i18NResources:Language.Email}}">
                     <MenuItem.Icon>
                         <Path
                             Width="16"
@@ -61,7 +62,7 @@
                 <MenuItem
                     Command="hc:ControlCommands.OpenLink"
                     CommandParameter="http://lqclass.com/"
-                    Header="{x:Static langs:Lang.Foreground}">
+                    Header="{markup:I18n {x:Static i18NResources:Language.Foreground}}">
                     <MenuItem.Icon>
                         <Image Width="16" Source="/Images/SysForeground.png" />
                     </MenuItem.Icon>
@@ -69,7 +70,7 @@
                 <MenuItem
                     Command="hc:ControlCommands.OpenLink"
                     CommandParameter="http://admin.lqclass.com/"
-                    Header="{x:Static langs:Lang.Background}">
+                    Header="{markup:I18n {x:Static i18NResources:Language.Background}}">
                     <MenuItem.Icon>
                         <Image Width="16" Source="/Images/SysBackground.png" />
                     </MenuItem.Icon>
@@ -85,7 +86,7 @@
                 <MenuItem
                     Command="{Binding RaiseShowDialogCommand}"
                     CommandParameter="About"
-                    Header="{x:Static langs:Lang.About}">
+                    Header="{markup:I18n {x:Static i18NResources:Language.About}}">
                     <MenuItem.Icon>
                         <Path
                             Width="16"
@@ -94,11 +95,11 @@
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
-            <MenuItem Height="29" Header="{x:Static langs:Lang.Recommendation}">
+            <MenuItem Height="29" Header="{markup:I18n {x:Static i18NResources:Language.Recommendation}}">
                 <MenuItem
                     Command="{Binding RaiseShowDialogCommand}"
                     CommandParameter="Web"
-                    Header="{x:Static langs:Lang.Website}">
+                    Header="{markup:I18n {x:Static i18NResources:Language.Website}}">
                     <MenuItem.Icon>
                         <Image Width="16" Source="/Images/Website.png" />
                     </MenuItem.Icon>

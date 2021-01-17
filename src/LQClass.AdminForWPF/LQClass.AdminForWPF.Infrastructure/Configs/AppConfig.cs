@@ -47,31 +47,16 @@ namespace LQClass.AdminForWPF.Infrastructure.Configs
 		public string Password { get; set; }
 
 		/// <summary>
-		/// 使用的配置类型
+		/// 使用的Web API地址
 		/// </summary>
-		public string ConfigType { get; set; }
+		public string API { get; set; }
 
 		/// <summary>
 		/// 超链接
 		/// </summary>
 		public List<QuickLink> QuickLinks { get; set; }
 
-		/// <summary>
-		/// 当前项目链接
-		/// </summary>
-		public List<QuickLink> WebLinks { get; set; }
-
-		/// <summary>
-		/// 菜单中文翻译，其他语言可考虑单独做成配置文件
-		/// </summary>
-		public List<MainMenuItem> MainMenus { get; set; }
-
 		#endregion
-
-		/// <summary>
-		/// 运行配置，分为开发环境、生产环境
-		/// </summary>
-		public ConfigDesc RunningConfig { get; set; }
 
 		private static object lockObj = new object();
 
@@ -93,10 +78,6 @@ namespace LQClass.AdminForWPF.Infrastructure.Configs
 					var configFile = $"{AppDomain.CurrentDomain.BaseDirectory}config.json";
 					var configContent = File.ReadAllText(configFile);
 					_Instance = JsonConvert.DeserializeObject<AppConfig>(configContent);
-
-					var configDescFile = $"{AppDomain.CurrentDomain.BaseDirectory}config.{_Instance.ConfigType}.json";
-					var configDescContent = File.ReadAllText(configDescFile);
-					_Instance.RunningConfig = JsonConvert.DeserializeObject<ConfigDesc>(configDescContent);
 				}
 				return _Instance;
 			}
@@ -120,7 +101,7 @@ namespace LQClass.AdminForWPF.Infrastructure.Configs
 			_Instance.Language = language;
 
 			var culture = new System.Globalization.CultureInfo(language);
-			Application.Current.Dispatcher.Thread.CurrentUICulture = culture;
+			I18nManager.Instance.CurrentUICulture = culture;
 			Save();
 		}
 
@@ -141,33 +122,7 @@ namespace LQClass.AdminForWPF.Infrastructure.Configs
 				File.AppendAllText(configFile, formatStr);
 			}
 		}
-
-		/// <summary>
-		/// 获取菜单对应的中文值
-		/// </summary>
-		/// <param name="key"></param>
-		/// <returns></returns>
-		public MainMenuItem GetMenu(string key)
-		{
-			var kv = this.MainMenus.Find(cu => cu.Key == key);
-			if (kv != null)
-			{
-				return kv;
-			}
-			return new MainMenuItem { Key = key, Value = key, Icon = "home.png" };
-		}
 		private AppConfig() { }
-	}
-
-	/// <summary>
-	/// 配置详细信息
-	/// </summary>
-	public class ConfigDesc
-	{
-		/// <summary>
-		/// api地址
-		/// </summary>
-		public string API { get; set; }
 	}
 
 	/// <summary>

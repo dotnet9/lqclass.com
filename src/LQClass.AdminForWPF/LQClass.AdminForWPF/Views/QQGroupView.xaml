@@ -4,7 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:hc="https://handyorg.github.io/handycontrol"
-    xmlns:langs="clr-namespace:LQClass.AdminForWPF.Properties.Langs"
+    xmlns:i18NResources="clr-namespace:LQClass.AdminForWPF.I18nResources"
+    xmlns:markup="clr-namespace:WpfExtensions.Xaml.Markup;assembly=WpfExtensions.Xaml"
     xmlns:prism="http://prismlibrary.com/"
     Width="300"
     Height="400"
@@ -64,7 +65,7 @@
                     HorizontalAlignment="Right"
                     Command="{Binding CloseDialogCommand}"
                     CommandParameter="true"
-                    Content="{x:Static langs:Lang.OK}"
+                    Content="{markup:I18n {x:Static i18NResources:Language.OK}}"
                     Style="{StaticResource ButtonSuccess}" />
             </Grid>
         </Border>

@@ -20,7 +20,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<None Remove="fonts\Quartz Regular.ttf" />
 		<None Remove="Images\Cover.jpg" />
 		<None Remove="Images\Data_Privilege.png" />
 		<None Remove="Images\Data_PrivilegeOfTab.png" />
@@ -82,7 +81,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Resource Include="fonts\Quartz Regular.ttf" />
 		<Resource Include="Images\Flag\ca-Es.png" />
 		<Resource Include="Images\Flag\cn.png" />
 		<Resource Include="Images\Flag\en.png" />
@@ -130,15 +128,20 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Compile Update="Langs\Lang.Designer.cs">
+		<Compile Update="I18nResources\LangProvider.cs">
 		  <DesignTime>True</DesignTime>
 		  <AutoGen>True</AutoGen>
-		  <DependentUpon>Lang.resx</DependentUpon>
+		  <DependentUpon>LangProvider.tt</DependentUpon>
 		</Compile>
-		<Compile Update="Properties\Langs\Lang.Designer.cs">
+		<Compile Update="I18nResources\Language.cs">
 		  <DesignTime>True</DesignTime>
 		  <AutoGen>True</AutoGen>
-		  <DependentUpon>Lang.resx</DependentUpon>
+		  <DependentUpon>Language.tt</DependentUpon>
+		</Compile>
+		<Compile Update="I18nResources\UiResource.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>UiResource.resx</DependentUpon>
 		</Compile>
 		<Compile Update="Settings.Designer.cs">
 			<DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -151,11 +154,9 @@
 		<None Update="config.json">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		<None Update="config.Development.json">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</None>
-		<None Update="config.Production.json">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		<None Update="I18nResources\Language.tt">
+		  <Generator>TextTemplatingFileGenerator</Generator>
+		  <LastGenOutput>Language.cs</LastGenOutput>
 		</None>
 		<None Update="Settings.settings">
 			<Generator>SettingsSingleFileGenerator</Generator>
@@ -168,17 +169,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Folder Include="Properties\" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <EmbeddedResource Update="Langs\Lang.resx">
 	    <Generator>ResXFileCodeGenerator</Generator>
 	    <LastGenOutput>Lang.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
-	  <EmbeddedResource Update="Properties\Langs\Lang.resx">
+	  <EmbeddedResource Update="I18nResources\UiResource.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
-	    <LastGenOutput>Lang.Designer.cs</LastGenOutput>
+	    <LastGenOutput>UiResource.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
 	</ItemGroup>
 

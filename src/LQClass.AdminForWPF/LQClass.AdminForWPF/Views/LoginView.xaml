@@ -4,11 +4,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:hc="https://handyorg.github.io/handycontrol"
-    xmlns:langs="clr-namespace:LQClass.AdminForWPF.Properties.Langs"
+    xmlns:i18NResources="clr-namespace:LQClass.AdminForWPF.I18nResources"
+    xmlns:markup="clr-namespace:WpfExtensions.Xaml.Markup;assembly=WpfExtensions.Xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prism="http://prismlibrary.com/"
     x:Name="win"
-    Title="{x:Static langs:Lang.App_Title}"
+    Title="{markup:I18n {x:Static i18NResources:Language.App_Title}}"
     Width="900"
     Height="700"
     prism:ViewModelLocator.AutoWireViewModel="True"
@@ -77,7 +78,7 @@
                         HorizontalAlignment="Center"
                         FontSize="50"
                         FontWeight="Bold"
-                        Text="{x:Static langs:Lang.App_Title}" />
+                        Text="{markup:I18n {x:Static i18NResources:Language.App_Title}}" />
 
 
                     <hc:TextBox
@@ -85,8 +86,8 @@
                         Grid.Row="1"
                         Grid.Column="1"
                         VerticalAlignment="Center"
-                        hc:InfoElement.Placeholder="{x:Static langs:Lang.LoginView_UserInputToolTip}"
-                        hc:InfoElement.Title="{x:Static langs:Lang.LoginView_UserLblTitle}"
+                        hc:InfoElement.Placeholder="{markup:I18n {x:Static i18NResources:Language.LoginView_UserInputToolTip}}"
+                        hc:InfoElement.Title="{markup:I18n {x:Static i18NResources:Language.LoginView_UserLblTitle}}"
                         hc:InfoElement.TitleWidth="140"
                         FontSize="14"
                         ShowClearButton="True"
@@ -97,8 +98,8 @@
                         Grid.Row="2"
                         Grid.Column="1"
                         VerticalAlignment="Center"
-                        hc:InfoElement.Placeholder="{x:Static langs:Lang.LoginView_PasswordInputToolTip}"
-                        hc:InfoElement.Title="{x:Static langs:Lang.LoginView_PasswordLblTitle}"
+                        hc:InfoElement.Placeholder="{markup:I18n {x:Static i18NResources:Language.LoginView_PasswordInputToolTip}}"
+                        hc:InfoElement.Title="{markup:I18n {x:Static i18NResources:Language.LoginView_PasswordLblTitle}}"
                         FontSize="14"
                         ShowClearButton="True" />
 
@@ -110,11 +111,11 @@
                         Orientation="Horizontal">
                         <CheckBox
                             Margin="30,0"
-                            Content="{x:Static langs:Lang.LoginView_RememberMe}"
+                            Content="{markup:I18n {x:Static i18NResources:Language.LoginView_RememberMe}}"
                             IsChecked="{Binding IsRemberMe}" />
                         <CheckBox
                             Margin="30,0"
-                            Content="{x:Static langs:Lang.LoginView_AutoLogin}"
+                            Content="{markup:I18n {x:Static i18NResources:Language.LoginView_AutoLogin}}"
                             IsChecked="{Binding IsAutoLogin}" />
                     </StackPanel>
 
@@ -123,7 +124,7 @@
                         Width="330"
                         Height="40"
                         Command="{Binding RaiseLoginCommand}"
-                        Content="{x:Static langs:Lang.LoginView_LoginButtonContent}"
+                        Content="{markup:I18n {x:Static i18NResources:Language.LoginView_LoginButtonContent}}"
                         FontSize="16"
                         IsChecked="{Binding IsBusy}"
                         IsEnabled="{Binding RelativeSource={RelativeSource Mode=Self}, Path=IsChecked, Converter={StaticResource Boolean2BooleanReConverter}}"

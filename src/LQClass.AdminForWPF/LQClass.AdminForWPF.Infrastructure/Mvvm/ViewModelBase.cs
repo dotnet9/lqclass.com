@@ -2,15 +2,13 @@ using HandyControl.Controls;
 using HandyControl.Data;
 using LQClass.AdminForWPF.Infrastructure.Configs;
 using LQClass.AdminForWPF.Infrastructure.Models;
-using MaterialDesignThemes.Wpf;
 using Prism.Commands;
+using Prism.Events;
 using Prism.Modularity;
 using Prism.Mvvm;
 using Prism.Regions;
 using Prism.Services.Dialogs;
-using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Windows.Input;
 
 namespace LQClass.AdminForWPF.Infrastructure.Mvvm
@@ -58,19 +56,11 @@ namespace LQClass.AdminForWPF.Infrastructure.Mvvm
 		/// <summary>
 		/// 提示控件，未找到设置时间等绑定属性，先由view输入viewmodel
 		/// </summary>
-		public static Snackbar Snackbar { get; set; }
+		//public static Snackbar Snackbar { get; set; }
 
 		#endregion
 
 		#region 共用命令
-
-
-		private ICommand _RaiseChangeLanguageCommand;
-		/// <summary>
-		/// 切换语言命令
-		/// </summary>
-		public ICommand RaiseChangeLanguageCommand =>
-		  _RaiseChangeLanguageCommand ?? (_RaiseChangeLanguageCommand = new DelegateCommand<string>(RaiseChangeLanguageHandler));
 
 		private ICommand _RaiseShowDialogCommand;
 		/// <summary>
@@ -86,26 +76,28 @@ namespace LQClass.AdminForWPF.Infrastructure.Mvvm
 		public readonly IRegionManager RegionManager;
 		public readonly IModuleManager ModuleManager;
 		public readonly IDialogService DialogService;
+		public readonly IEventAggregator EventAggregator;
 
 		#endregion
 
-		public ViewModelBase(IRegionManager regionManager)
+		public ViewModelBase(IRegionManager regionManager) : this()
 		{
 			RegionManager = regionManager;
-			RaiseChangeLanguageHandler(AppConfig.Instance.Language);
 		}
-		public ViewModelBase(IRegionManager regionManager, IModuleManager moduleManager, IDialogService dialogService)
+		public ViewModelBase(IRegionManager regionManager, 
+			IModuleManager moduleManager,
+			IDialogService dialogService,
+			IEventAggregator eventAggregator) : this()
 		{
 			RegionManager = regionManager;
 			ModuleManager = moduleManager;
 			DialogService = dialogService;
+			EventAggregator = eventAggregator;
 			ModuleManager.LoadModuleCompleted += _moduleManager_LoadModuleCompleted;
-			RaiseChangeLanguageHandler(AppConfig.Instance.Language);
 		}
 
 		public ViewModelBase()
 		{
-
 		}
 		private void _moduleManager_LoadModuleCompleted(object sender, LoadModuleCompletedEventArgs e)
 		{
@@ -113,17 +105,6 @@ namespace LQClass.AdminForWPF.Infrastructure.Mvvm
 		}
 
 		#region 命令处理方法
-
-		/// <summary>
-		/// 切换语言
-		/// </summary>
-		/// <param name="languageKey"></param>
-		private void RaiseChangeLanguageHandler(string languageKey)
-		{
-			//var lan = Languages.Find(cu => cu.Key == languageKey);
-			//this.CurrentLanguage = lan.Name;
-			//AppConfig.Instance.SetLanguage(languageKey);
-		}
 
 		/// <summary>
 		/// 显示对话框
@@ -152,6 +133,11 @@ namespace LQClass.AdminForWPF.Infrastructure.Mvvm
 			//false,
 			//true,
 			//TimeSpan.FromSeconds(3));
+		}
+
+		public void CurrentUICultureChanged()
+		{
+
 		}
 	}
 }

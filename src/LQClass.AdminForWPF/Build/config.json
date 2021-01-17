@@ -5,7 +5,7 @@
     "IsAutoLogin": false,
     "UserName": "j8ZC524bF5GA49FVb3BV3Q==",
     "Password": "j8ZC524bF5GA49FVb3BV3Q==",
-    "ConfigType": "Production",
+    "API": "http://api.lqclass.com/api/",
     "QuickLinks": [
         {
             "Name": "Github",
@@ -42,73 +42,5 @@
             "Desc": "WPF开源项目",
             "Url": "https://github.com/Accelerider/Accelerider.Windows"
         }
-    ],
-    "WebLinks": [
-        {
-            "Name": "Blog",
-            "Version": null,
-            "VersionColor": null,
-            "Desc": "博客前台",
-            "Url": "http://lqclass.com"
-        },
-        {
-            "Name": "Admin",
-            "Version": null,
-            "VersionColor": null,
-            "Desc": "博客后台",
-            "Url": "http://admin.lqclass.com"
-        },
-        {
-            "Name": "API",
-            "Version": null,
-            "VersionColor": null,
-            "Desc": "后端API文档",
-            "Url": "http://api.lqclass.com/swagger/index.html"
-        }
-    ],
-    "MainMenus": [
-        {
-            "Key": "Home",
-            "Value": "首页",
-            "Icon": null
-        },
-        {
-            "Key": "System",
-            "Value": "系统管理",
-            "Icon": null
-        },
-        {
-            "Key": "Log",
-            "Value": "日志",
-            "Icon": null
-        },
-        {
-            "Key": "User_Management",
-            "Value": "用户管理",
-            "Icon": null
-        },
-        {
-            "Key": "Role_Management",
-            "Value": "角色管理",
-            "Icon": null
-        },
-        {
-            "Key": "Group_Management",
-            "Value": "用户组管理",
-            "Icon": null
-        },
-        {
-            "Key": "Menu_Mangement",
-            "Value": "菜单管理",
-            "Icon": null
-        },
-        {
-            "Key": "Data_Privilege",
-            "Value": "数据权限",
-            "Icon": null
-        }
-    ],
-    "RunningConfig": {
-        "API": "http://api.lqclass.com/api/"
-    }
+    ]
 }

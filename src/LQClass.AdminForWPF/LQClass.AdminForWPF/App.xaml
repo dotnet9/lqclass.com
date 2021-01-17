@@ -15,7 +15,6 @@
                 <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml" />
                 <!--#endregion-->
             </ResourceDictionary.MergedDictionaries>
-            <FontFamily x:Key="QuartzRegular">pack://application:,,,/LQClass.AdminForWPF;component/fonts/#Quartz Regular</FontFamily>
         </ResourceDictionary>
     </prism:PrismApplication.Resources>
 </prism:PrismApplication>

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LQClass.AdminForWPF.Properties.Langs {
+namespace LQClass.AdminForWPF.I18nResources {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace LQClass.AdminForWPF.Properties.Langs {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Lang {
+    public class UiResource {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Lang() {
+        internal UiResource() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace LQClass.AdminForWPF.Properties.Langs {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LQClass.AdminForWPF.Properties.Langs.Lang", typeof(Lang).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LQClass.AdminForWPF.I18nResources.UiResource", typeof(UiResource).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,7 +61,7 @@ namespace LQClass.AdminForWPF.Properties.Langs {
         }
         
         /// <summary>
-        ///   查找类似 关于 的本地化字符串。
+        ///   查找类似 About 的本地化字符串。
         /// </summary>
         public static string About {
             get {
@@ -70,7 +70,7 @@ namespace LQClass.AdminForWPF.Properties.Langs {
         }
         
         /// <summary>
-        ///   查找类似 乐 趣 课 堂 的本地化字符串。
+        ///   查找类似 LQClass 的本地化字符串。
         /// </summary>
         public static string App_Title {
             get {
@@ -79,7 +79,7 @@ namespace LQClass.AdminForWPF.Properties.Langs {
         }
         
         /// <summary>
-        ///   查找类似 后端 的本地化字符串。
+        ///   查找类似 Background 的本地化字符串。
         /// </summary>
         public static string Background {
             get {
@@ -88,7 +88,7 @@ namespace LQClass.AdminForWPF.Properties.Langs {
         }
         
         /// <summary>
-        ///   查找类似 邮箱 的本地化字符串。
+        ///   查找类似 Email 的本地化字符串。
         /// </summary>
         public static string Email {
             get {
@@ -97,7 +97,7 @@ namespace LQClass.AdminForWPF.Properties.Langs {
         }
         
         /// <summary>
-        ///   查找类似 前端 的本地化字符串。
+        ///   查找类似 Foreground 的本地化字符串。
         /// </summary>
         public static string Foreground {
             get {
@@ -106,7 +106,7 @@ namespace LQClass.AdminForWPF.Properties.Langs {
         }
         
         /// <summary>
-        ///   查找类似 自动登录 的本地化字符串。
+        ///   查找类似 Auto Log In 的本地化字符串。
         /// </summary>
         public static string LoginView_AutoLogin {
             get {
@@ -115,7 +115,7 @@ namespace LQClass.AdminForWPF.Properties.Langs {
         }
         
         /// <summary>
-        ///   查找类似 登             录 的本地化字符串。
+        ///   查找类似 Log in 的本地化字符串。
         /// </summary>
         public static string LoginView_LoginButtonContent {
             get {
@@ -124,7 +124,7 @@ namespace LQClass.AdminForWPF.Properties.Langs {
         }
         
         /// <summary>
-        ///   查找类似 请输入密码，测试密码：lqclass.com 的本地化字符串。
+        ///   查找类似 Please input password, the test passwrod is lqclass.com 的本地化字符串。
         /// </summary>
         public static string LoginView_PasswordInputToolTip {
             get {
@@ -133,7 +133,7 @@ namespace LQClass.AdminForWPF.Properties.Langs {
         }
         
         /// <summary>
-        ///   查找类似 密码 的本地化字符串。
+        ///   查找类似 Password 的本地化字符串。
         /// </summary>
         public static string LoginView_PasswordLblTitle {
             get {
@@ -142,7 +142,7 @@ namespace LQClass.AdminForWPF.Properties.Langs {
         }
         
         /// <summary>
-        ///   查找类似 记住我 的本地化字符串。
+        ///   查找类似 Remember Me 的本地化字符串。
         /// </summary>
         public static string LoginView_RememberMe {
             get {
@@ -151,7 +151,7 @@ namespace LQClass.AdminForWPF.Properties.Langs {
         }
         
         /// <summary>
-        ///   查找类似 请输入账号，测试账号：lqclass.com 的本地化字符串。
+        ///   查找类似 Please input account, the test acount is lqclass.com 的本地化字符串。
         /// </summary>
         public static string LoginView_UserInputToolTip {
             get {
@@ -160,7 +160,7 @@ namespace LQClass.AdminForWPF.Properties.Langs {
         }
         
         /// <summary>
-        ///   查找类似 账号 的本地化字符串。
+        ///   查找类似 Account 的本地化字符串。
         /// </summary>
         public static string LoginView_UserLblTitle {
             get {
@@ -169,7 +169,79 @@ namespace LQClass.AdminForWPF.Properties.Langs {
         }
         
         /// <summary>
-        ///   查找类似 确定 的本地化字符串。
+        ///   查找类似 Data Privilege 的本地化字符串。
+        /// </summary>
+        public static string MainMenu_Data_Privilege {
+            get {
+                return ResourceManager.GetString("MainMenu_Data_Privilege", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Group Management 的本地化字符串。
+        /// </summary>
+        public static string MainMenu_Group_Management {
+            get {
+                return ResourceManager.GetString("MainMenu_Group_Management", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Home 的本地化字符串。
+        /// </summary>
+        public static string MainMenu_Home {
+            get {
+                return ResourceManager.GetString("MainMenu_Home", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Log 的本地化字符串。
+        /// </summary>
+        public static string MainMenu_Log {
+            get {
+                return ResourceManager.GetString("MainMenu_Log", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Menu Mangement 的本地化字符串。
+        /// </summary>
+        public static string MainMenu_Menu_Mangement {
+            get {
+                return ResourceManager.GetString("MainMenu_Menu_Mangement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Role Management 的本地化字符串。
+        /// </summary>
+        public static string MainMenu_Role_Management {
+            get {
+                return ResourceManager.GetString("MainMenu_Role_Management", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 System 的本地化字符串。
+        /// </summary>
+        public static string MainMenu_System {
+            get {
+                return ResourceManager.GetString("MainMenu_System", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 User Management 的本地化字符串。
+        /// </summary>
+        public static string MainMenu_User_Management {
+            get {
+                return ResourceManager.GetString("MainMenu_User_Management", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 OK 的本地化字符串。
         /// </summary>
         public static string OK {
             get {
@@ -178,7 +250,7 @@ namespace LQClass.AdminForWPF.Properties.Langs {
         }
         
         /// <summary>
-        ///   查找类似 QQ群 的本地化字符串。
+        ///   查找类似 QQ Group 的本地化字符串。
         /// </summary>
         public static string QQGroup {
             get {
@@ -187,7 +259,7 @@ namespace LQClass.AdminForWPF.Properties.Langs {
         }
         
         /// <summary>
-        ///   查找类似 推荐 的本地化字符串。
+        ///   查找类似 Recommendation 的本地化字符串。
         /// </summary>
         public static string Recommendation {
             get {
@@ -196,7 +268,7 @@ namespace LQClass.AdminForWPF.Properties.Langs {
         }
         
         /// <summary>
-        ///   查找类似 代码仓库 的本地化字符串。
+        ///   查找类似 Repository 的本地化字符串。
         /// </summary>
         public static string Repository {
             get {
@@ -205,7 +277,7 @@ namespace LQClass.AdminForWPF.Properties.Langs {
         }
         
         /// <summary>
-        ///   查找类似 网站 的本地化字符串。
+        ///   查找类似 Website 的本地化字符串。
         /// </summary>
         public static string Website {
             get {

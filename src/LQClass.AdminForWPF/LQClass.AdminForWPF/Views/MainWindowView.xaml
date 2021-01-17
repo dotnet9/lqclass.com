@@ -6,12 +6,13 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:hc="https://handyorg.github.io/handycontrol"
     xmlns:inf="clr-namespace:LQClass.AdminForWPF.Infrastructure;assembly=LQClass.AdminForWPF.Infrastructure"
-    xmlns:langs="clr-namespace:LQClass.AdminForWPF.Properties.Langs"
+    xmlns:i18NResources="clr-namespace:LQClass.AdminForWPF.I18nResources"
+    xmlns:markup="clr-namespace:WpfExtensions.Xaml.Markup;assembly=WpfExtensions.Xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prism="http://prismlibrary.com/"
     xmlns:views="clr-namespace:LQClass.AdminForWPF.Views"
     x:Name="win"
-    Title="{x:Static langs:Lang.App_Title}"
+    Title="{markup:I18n {x:Static i18NResources:Language.App_Title}}"
     Width="1200"
     Height="800"
     hc:GlobalShortcut.Host="True"
@@ -39,7 +40,7 @@
     </hc:BlurWindow.Resources>
 
     <hc:Window.NonClientAreaContent>
-        <views:NonClientAreaContent />
+        <views:NonClientAreaContent x:Name="titleBar"/>
     </hc:Window.NonClientAreaContent>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -72,11 +73,10 @@
                 Source="/Images/logo.png" />
             <TextBlock
                 VerticalAlignment="Center"
-                FontFamily="{StaticResource QuartzRegular}"
                 FontSize="18"
                 FontWeight="Bold"
                 Foreground="White"
-                Text="{Binding Title}" />
+                Text="{markup:I18n {x:Static i18NResources:Language.App_Title}}" />
         </StackPanel>
         <!--#endregion-->
 
@@ -109,7 +109,8 @@
 
         <!--#region 右侧内容区域-->
         <Border
-            Grid.Row="2"
+            Grid.Row="0"
+            Grid.RowSpan="3"
             Grid.Column="1"
             Padding="0,8,0,0"
             Background="{StaticResource tabBackground}"

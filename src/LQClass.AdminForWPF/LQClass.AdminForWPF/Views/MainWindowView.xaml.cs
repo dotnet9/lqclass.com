@@ -1,6 +1,7 @@
 using HandyControl.Controls;
 using LQClass.AdminForWPF.ViewModels;
 using MahApps.Metro.Controls;
+using Prism.Events;
 
 namespace LQClass.AdminForWPF.Views
 {
@@ -9,7 +10,7 @@ namespace LQClass.AdminForWPF.Views
 	/// </summary>
 	public partial class MainWindowView : BlurWindow
 	{
-		public MainWindowView()
+		public MainWindowView(IEventAggregator eventAggregator)
 		{
 			InitializeComponent();
 			this.Loaded += (sender, args) =>
@@ -22,6 +23,7 @@ namespace LQClass.AdminForWPF.Views
 					vm.NeedShowHome = false;
 				}
 			};
+			this.titleBar.EventAggregator = eventAggregator;
 		}
 	}
 }

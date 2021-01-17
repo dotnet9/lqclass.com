@@ -5,7 +5,8 @@
     xmlns:cuscontrol="clr-namespace:LQClass.CustomControls.Controls;assembly=LQClass.CustomControls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:hc="https://handyorg.github.io/handycontrol"
-    xmlns:langs="clr-namespace:LQClass.AdminForWPF.Properties.Langs"
+    xmlns:i18NResources="clr-namespace:LQClass.AdminForWPF.I18nResources"
+    xmlns:markup="clr-namespace:WpfExtensions.Xaml.Markup;assembly=WpfExtensions.Xaml"
     xmlns:prism="http://prismlibrary.com/"
     Width="600"
     Height="400"
@@ -25,7 +26,7 @@
 
                 <StackPanel>
                     <DockPanel>
-                        <TextBlock FontSize="16" Text="{x:Static langs:Lang.Website}" />
+                        <TextBlock FontSize="16" Text="{markup:I18n {x:Static i18NResources:Language.Website}}" />
                         <Button
                                 HorizontalAlignment="Right"
                                 VerticalAlignment="Top"

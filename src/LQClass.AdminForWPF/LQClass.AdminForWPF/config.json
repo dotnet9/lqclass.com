@@ -2,7 +2,7 @@
   "Name": "乐 趣 课 堂",
   "IsRemberMe": false,
   "IsAutoLogin": false,
-  "ConfigType": "Production",
+  "API": "http://api.lqclass.com/api/",
   "QuickLinks": [
     {
       "Name": "Github",
@@ -38,57 +38,6 @@
       "Version": "1.0",
       "VersionColor": "#1182c3",
       "URL": "https://github.com/Accelerider/Accelerider.Windows"
-    }
-  ],
-  "WebLinks": [
-    {
-      "Name": "Blog",
-      "Desc": "博客前台",
-      "URL": "http://lqclass.com"
-    },
-    {
-      "Name": "Admin",
-      "Desc": "博客后台",
-      "URL": "http://admin.lqclass.com"
-    },
-    {
-      "Name": "API",
-      "Desc": "后端API文档",
-      "URL": "http://api.lqclass.com/swagger/index.html"
-    }
-  ],
-  "MainMenus": [
-    {
-      "Key": "Home",
-      "Value": "首页"
-    },
-    {
-      "Key": "System",
-      "Value": "系统管理"
-    },
-    {
-      "Key": "Log",
-      "Value": "日志"
-    },
-    {
-      "Key": "User_Management",
-      "Value": "用户管理"
-    },
-    {
-      "Key": "Role_Management",
-      "Value": "角色管理"
-    },
-    {
-      "Key": "Group_Management",
-      "Value": "用户组管理"
-    },
-    {
-      "Key": "Menu_Mangement",
-      "Value": "菜单管理"
-    },
-    {
-      "Key": "Data_Privilege",
-      "Value": "数据权限"
     }
   ]
 }

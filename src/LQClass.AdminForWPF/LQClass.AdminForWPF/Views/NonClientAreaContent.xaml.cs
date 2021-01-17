@@ -1,7 +1,7 @@
-﻿using HandyControl.Properties.Langs;
-using HandyControl.Tools;
+﻿using HandyControl.Tools;
 using LQClass.AdminForWPF.Infrastructure.Configs;
-using System.Globalization;
+using LQClass.AdminForWPF.Infrastructure.Events;
+using Prism.Events;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -12,6 +12,7 @@ namespace LQClass.AdminForWPF.Views
 	/// </summary>
 	public partial class NonClientAreaContent
 	{
+		public IEventAggregator EventAggregator { get; set; }
 		public NonClientAreaContent()
 		{
 			InitializeComponent();
@@ -32,11 +33,7 @@ namespace LQClass.AdminForWPF.Views
 				if (langName.Equals(AppConfig.Instance.Language)) return;
 				AppConfig.Instance.SetLanguage(langName);
 				ConfigHelper.Instance.SetLang(langName);
-				//LangProvider.Culture = new CultureInfo(langName);
-				//Messenger.Default.Send<object>(null, "LangUpdated");
-
-				//GlobalData.Config.Lang = langName;
-				//GlobalData.Save();
+				EventAggregator.GetEvent<ChangeLanguageSentEvent>().Publish();
 			}
 		}
 	}

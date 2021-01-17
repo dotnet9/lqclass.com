@@ -1,11 +1,13 @@
 using LQClass.AdminForWPF.Infrastructure;
 using LQClass.AdminForWPF.Infrastructure.Configs;
+using LQClass.AdminForWPF.Infrastructure.Events;
 using LQClass.AdminForWPF.Infrastructure.Models;
 using LQClass.AdminForWPF.Infrastructure.Mvvm;
 using LQClass.AdminForWPF.Models;
 using LQClass.AdminForWPF.Views;
 using LQClass.CustomControls.TabControlHelper;
 using Prism.Commands;
+using Prism.Events;
 using Prism.Modularity;
 using Prism.Regions;
 using Prism.Services.Dialogs;
@@ -14,6 +16,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Controls;
 using System.Windows.Input;
+using WpfExtensions.Xaml;
 
 namespace LQClass.AdminForWPF.ViewModels
 {
@@ -72,9 +75,14 @@ namespace LQClass.AdminForWPF.ViewModels
 
 		#endregion
 
-		public MainWindowViewModel(MainWindowModel mainWindowModel, IRegionManager regionManager, IModuleManager moduleManager, IDialogService dialogService) : base(regionManager,  moduleManager,dialogService)
+		public MainWindowViewModel(MainWindowModel mainWindowModel,
+			IRegionManager regionManager,
+			IModuleManager moduleManager,
+			IDialogService dialogService,
+			IEventAggregator eventAggregator) : base(regionManager, moduleManager, dialogService, eventAggregator)
 		{
 			windowModel = mainWindowModel;
+			eventAggregator.GetEvent<ChangeLanguageSentEvent>().Subscribe(ReceivedChangeLanguage);
 		}
 
 		/// <summary>
@@ -97,6 +105,12 @@ namespace LQClass.AdminForWPF.ViewModels
 				SelectedMenuItem = _CustomMenus.First(cu => cu.Key == CustomMenuItem.KEY_OF_HOME);
 				RaiseSelectedItemHandler(SelectedMenuItem);
 			}
+		}
+
+
+		public new void CurrentUICultureChanged(CurrentUICultureChangedEventArgs args)
+		{
+
 		}
 
 		#region 命令处理方法
@@ -202,6 +216,11 @@ namespace LQClass.AdminForWPF.ViewModels
 			{
 				isSelectedItem = false;
 			}
+		}
+
+		private void ReceivedChangeLanguage()
+		{
+			InitData();
 		}
 
 		#endregion

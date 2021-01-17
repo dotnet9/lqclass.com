@@ -98,62 +98,86 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="App_Title" xml:space="preserve">
-    <value>乐 趣 课 堂</value>
+    <value>LQClass</value>
     <comment>应用程序名称</comment>
   </data>
   <data name="LoginView_UserLblTitle" xml:space="preserve">
-    <value>账号</value>
+    <value>Account</value>
     <comment>登录视图账号输入框标题</comment>
   </data>
   <data name="LoginView_UserInputToolTip" xml:space="preserve">
-    <value>请输入账号，测试账号：lqclass.com</value>
+    <value>Please input account, the test acount is lqclass.com</value>
     <comment>登录视图账号输入提示</comment>
   </data>
   <data name="LoginView_PasswordInputToolTip" xml:space="preserve">
-    <value>请输入密码，测试密码：lqclass.com</value>
+    <value>Please input password, the test passwrod is lqclass.com</value>
     <comment>登录视图密码输入提示</comment>
   </data>
   <data name="LoginView_PasswordLblTitle" xml:space="preserve">
-    <value>密码</value>
+    <value>Password</value>
     <comment>登录视图密码输入框标题</comment>
   </data>
   <data name="LoginView_RememberMe" xml:space="preserve">
-    <value>记住我</value>
+    <value>Remember Me</value>
     <comment>登录视图记住我</comment>
   </data>
   <data name="LoginView_AutoLogin" xml:space="preserve">
-    <value>自动登录</value>
+    <value>Auto Log In</value>
     <comment>登录视图自动登录</comment>
   </data>
   <data name="LoginView_LoginButtonContent" xml:space="preserve">
-    <value>登             录</value>
+    <value>Log in</value>
     <comment>登录视图登录按钮文本</comment>
   </data>
   <data name="Repository" xml:space="preserve">
-    <value>代码仓库</value>
+    <value>Repository</value>
   </data>
   <data name="About" xml:space="preserve">
-    <value>关于</value>
+    <value>About</value>
   </data>
   <data name="QQGroup" xml:space="preserve">
-    <value>QQ群</value>
+    <value>QQ Group</value>
   </data>
   <data name="Email" xml:space="preserve">
-    <value>邮箱</value>
+    <value>Email</value>
   </data>
   <data name="OK" xml:space="preserve">
-    <value>确定</value>
+    <value>OK</value>
   </data>
   <data name="Foreground" xml:space="preserve">
-    <value>前端</value>
+    <value>Foreground</value>
   </data>
   <data name="Background" xml:space="preserve">
-    <value>后端</value>
+    <value>Background</value>
   </data>
   <data name="Recommendation" xml:space="preserve">
-    <value>推荐</value>
+    <value>Recommendation</value>
   </data>
   <data name="Website" xml:space="preserve">
-    <value>网站</value>
+    <value>Website</value>
+  </data>
+  <data name="MainMenu_Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="MainMenu_System" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="MainMenu_Log" xml:space="preserve">
+    <value>Log</value>
+  </data>
+  <data name="MainMenu_User_Management" xml:space="preserve">
+    <value>User Management</value>
+  </data>
+  <data name="MainMenu_Role_Management" xml:space="preserve">
+    <value>Role Management</value>
+  </data>
+  <data name="MainMenu_Group_Management" xml:space="preserve">
+    <value>Group Management</value>
+  </data>
+  <data name="MainMenu_Menu_Mangement" xml:space="preserve">
+    <value>Menu Mangement</value>
+  </data>
+  <data name="MainMenu_Data_Privilege" xml:space="preserve">
+    <value>Data Privilege</value>
   </data>
 </root>

@@ -13,6 +13,7 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using WpfExtensions.Xaml;
 
 namespace LQClass.AdminForWPF
 {
@@ -58,7 +59,8 @@ namespace LQClass.AdminForWPF
 
 		protected override Window CreateShell()
 		{
-			//AppConfig.Instance.SetLanguage();
+			I18nManager.Instance.Add(LQClass.AdminForWPF.I18nResources.UiResource.ResourceManager);
+			AppConfig.Instance.SetLanguage();
 			return Container.Resolve<MainWindowView>();
 		}
 
