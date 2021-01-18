@@ -10,7 +10,7 @@ namespace LQClass.ModuleOfHome
 {
 	public class ModuleOfHomeModule : IModule
 	{
-		public const string KEY_OF_CURRENT_MODULE = "Home";
+		public const string KEY_OF_CURRENT_MODULE = "MenuKey_Home";
 		private readonly IRegionManager _regionManager;
 		private readonly IUnityContainer _unityContainer;
 

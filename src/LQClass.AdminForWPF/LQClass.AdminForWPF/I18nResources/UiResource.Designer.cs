@@ -171,72 +171,72 @@ namespace LQClass.AdminForWPF.I18nResources {
         /// <summary>
         ///   查找类似 Data Privilege 的本地化字符串。
         /// </summary>
-        public static string MainMenu_Data_Privilege {
+        public static string MenuKey_DataPrivilege {
             get {
-                return ResourceManager.GetString("MainMenu_Data_Privilege", resourceCulture);
+                return ResourceManager.GetString("MenuKey_DataPrivilege", resourceCulture);
             }
         }
         
         /// <summary>
         ///   查找类似 Group Management 的本地化字符串。
         /// </summary>
-        public static string MainMenu_Group_Management {
+        public static string MenuKey_GroupManagement {
             get {
-                return ResourceManager.GetString("MainMenu_Group_Management", resourceCulture);
+                return ResourceManager.GetString("MenuKey_GroupManagement", resourceCulture);
             }
         }
         
         /// <summary>
         ///   查找类似 Home 的本地化字符串。
         /// </summary>
-        public static string MainMenu_Home {
+        public static string MenuKey_Home {
             get {
-                return ResourceManager.GetString("MainMenu_Home", resourceCulture);
+                return ResourceManager.GetString("MenuKey_Home", resourceCulture);
             }
         }
         
         /// <summary>
         ///   查找类似 Log 的本地化字符串。
         /// </summary>
-        public static string MainMenu_Log {
+        public static string MenuKey_Log {
             get {
-                return ResourceManager.GetString("MainMenu_Log", resourceCulture);
+                return ResourceManager.GetString("MenuKey_Log", resourceCulture);
             }
         }
         
         /// <summary>
         ///   查找类似 Menu Mangement 的本地化字符串。
         /// </summary>
-        public static string MainMenu_Menu_Mangement {
+        public static string MenuKey_MenuMangement {
             get {
-                return ResourceManager.GetString("MainMenu_Menu_Mangement", resourceCulture);
+                return ResourceManager.GetString("MenuKey_MenuMangement", resourceCulture);
             }
         }
         
         /// <summary>
         ///   查找类似 Role Management 的本地化字符串。
         /// </summary>
-        public static string MainMenu_Role_Management {
+        public static string MenuKey_RoleManagement {
             get {
-                return ResourceManager.GetString("MainMenu_Role_Management", resourceCulture);
+                return ResourceManager.GetString("MenuKey_RoleManagement", resourceCulture);
             }
         }
         
         /// <summary>
         ///   查找类似 System 的本地化字符串。
         /// </summary>
-        public static string MainMenu_System {
+        public static string MenuKey_SystemManagement {
             get {
-                return ResourceManager.GetString("MainMenu_System", resourceCulture);
+                return ResourceManager.GetString("MenuKey_SystemManagement", resourceCulture);
             }
         }
         
         /// <summary>
         ///   查找类似 User Management 的本地化字符串。
         /// </summary>
-        public static string MainMenu_User_Management {
+        public static string MenuKey_UserManagement {
             get {
-                return ResourceManager.GetString("MainMenu_User_Management", resourceCulture);
+                return ResourceManager.GetString("MenuKey_UserManagement", resourceCulture);
             }
         }
         

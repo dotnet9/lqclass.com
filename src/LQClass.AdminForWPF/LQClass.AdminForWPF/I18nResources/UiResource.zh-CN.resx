@@ -168,28 +168,28 @@
   <data name="LoginView_AutoLogin" xml:space="preserve">
     <value>自动登录</value>
   </data>
-  <data name="MainMenu_Home" xml:space="preserve">
+  <data name="MenuKey_Home" xml:space="preserve">
     <value>首页</value>
   </data>
-  <data name="MainMenu_System" xml:space="preserve">
+  <data name="MenuKey_SystemManagement" xml:space="preserve">
     <value>系统管理</value>
   </data>
-  <data name="MainMenu_Log" xml:space="preserve">
+  <data name="MenuKey_Log" xml:space="preserve">
     <value>日志</value>
   </data>
-  <data name="MainMenu_User_Management" xml:space="preserve">
+  <data name="MenuKey_UserManagement" xml:space="preserve">
     <value>用户管理</value>
   </data>
-  <data name="MainMenu_Role_Management" xml:space="preserve">
+  <data name="MenuKey_RoleManagement" xml:space="preserve">
     <value>角色管理</value>
   </data>
-  <data name="MainMenu_Group_Management" xml:space="preserve">
+  <data name="MenuKey_GroupManagement" xml:space="preserve">
     <value>用户组管理</value>
   </data>
-  <data name="MainMenu_Menu_Mangement" xml:space="preserve">
+  <data name="MenuKey_MenuMangement" xml:space="preserve">
     <value>菜单管理</value>
   </data>
-  <data name="MainMenu_Data_Privilege" xml:space="preserve">
+  <data name="MenuKey_DataPrivilege" xml:space="preserve">
     <value>数据权限</value>
   </data>
 </root>

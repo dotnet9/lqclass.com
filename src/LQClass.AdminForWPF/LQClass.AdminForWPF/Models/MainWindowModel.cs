@@ -64,10 +64,9 @@ namespace LQClass.AdminForWPF.Models
 		/// <returns></returns>
 		public MainMenuItem GetMenu(string key)
 		{
-			string languageKey = $"MainMenu_{key}";
 			Type t = typeof(Language);
-			var result = t.GetField(languageKey, System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static);
-			ComponentResourceKey resKey = Language.MainMenu_Home;
+			var result = t.GetField(key, System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static);
+			ComponentResourceKey resKey = Language.MenuKey_Home;
 			if (result != null)
 			{
 				resKey = result.GetValue(null) as ComponentResourceKey;

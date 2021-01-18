@@ -22,7 +22,7 @@ namespace LQClass.AdminForWPF.Models
 			var client = new RestClient($"{AppConfig.Instance.API}_Account/Login");
 			client.Timeout = -1;
 			var request = new RestRequest(Method.POST);
-			request.AlwaysMultipartFormData = true;
+			request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
 			request.AddParameter("account", userName);
 			request.AddParameter("password", pwd);
 			request.AddParameter("rememberLogin", $"{cookie}");

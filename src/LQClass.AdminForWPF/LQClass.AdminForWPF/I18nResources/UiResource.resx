@@ -156,28 +156,28 @@
   <data name="Website" xml:space="preserve">
     <value>Website</value>
   </data>
-  <data name="MainMenu_Home" xml:space="preserve">
+  <data name="MenuKey_Home" xml:space="preserve">
     <value>Home</value>
   </data>
-  <data name="MainMenu_System" xml:space="preserve">
+  <data name="MenuKey_SystemManagement" xml:space="preserve">
     <value>System</value>
   </data>
-  <data name="MainMenu_Log" xml:space="preserve">
+  <data name="MenuKey_Log" xml:space="preserve">
     <value>Log</value>
   </data>
-  <data name="MainMenu_User_Management" xml:space="preserve">
+  <data name="MenuKey_UserManagement" xml:space="preserve">
     <value>User Management</value>
   </data>
-  <data name="MainMenu_Role_Management" xml:space="preserve">
+  <data name="MenuKey_RoleManagement" xml:space="preserve">
     <value>Role Management</value>
   </data>
-  <data name="MainMenu_Group_Management" xml:space="preserve">
+  <data name="MenuKey_GroupManagement" xml:space="preserve">
     <value>Group Management</value>
   </data>
-  <data name="MainMenu_Menu_Mangement" xml:space="preserve">
+  <data name="MenuKey_MenuMangement" xml:space="preserve">
     <value>Menu Mangement</value>
   </data>
-  <data name="MainMenu_Data_Privilege" xml:space="preserve">
+  <data name="MenuKey_DataPrivilege" xml:space="preserve">
     <value>Data Privilege</value>
   </data>
 </root>

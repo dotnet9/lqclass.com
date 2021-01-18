@@ -10,7 +10,7 @@ namespace LQClass.ModuleOfDataPrivilege
 {
 	public class ModuleOfDataPrivilegeModule : IModule
 	{
-		public const string KEY_OF_CURRENT_MODULE = "Data_Privilege";
+		public const string KEY_OF_CURRENT_MODULE = "MenuKey_DataPrivilege";
 		private readonly IRegionManager _regionManager;
 		private readonly IUnityContainer _unityContainer;
 

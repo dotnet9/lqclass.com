@@ -5,7 +5,7 @@ namespace LQClass.AdminForWPF.Infrastructure.Models
 {
 	public class CustomMenuItem : BindableBase
 	{
-		public const string KEY_OF_HOME = "Home";
+		public const string KEY_OF_HOME = "MenuKey_Home";
 
 		public string ID { get; set; }
 		public string ParentID { get; set; }

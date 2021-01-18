@@ -10,7 +10,7 @@ namespace LQClass.ModuleOfGroupManagement
 {
 	public class ModuleOfGroupManagementModule : IModule
 	{
-		public const string KEY_OF_CURRENT_MODULE = "Group_Management";
+		public const string KEY_OF_CURRENT_MODULE = "MenuKey_GroupManagement";
 		private readonly IRegionManager _regionManager;
 		private readonly IUnityContainer _unityContainer;
 

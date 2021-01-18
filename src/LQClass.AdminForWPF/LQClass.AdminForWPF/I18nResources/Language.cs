@@ -31,13 +31,13 @@ namespace LQClass.AdminForWPF.I18nResources
 		public static readonly ComponentResourceKey Background = new ComponentResourceKey(typeof(UiResource), nameof(Background));
 		public static readonly ComponentResourceKey Recommendation = new ComponentResourceKey(typeof(UiResource), nameof(Recommendation));
 		public static readonly ComponentResourceKey Website = new ComponentResourceKey(typeof(UiResource), nameof(Website));
-		public static readonly ComponentResourceKey MainMenu_Home = new ComponentResourceKey(typeof(UiResource), nameof(MainMenu_Home));
-		public static readonly ComponentResourceKey MainMenu_System = new ComponentResourceKey(typeof(UiResource), nameof(MainMenu_System));
-		public static readonly ComponentResourceKey MainMenu_Log = new ComponentResourceKey(typeof(UiResource), nameof(MainMenu_Log));
-		public static readonly ComponentResourceKey MainMenu_User_Management = new ComponentResourceKey(typeof(UiResource), nameof(MainMenu_User_Management));
-		public static readonly ComponentResourceKey MainMenu_Role_Management = new ComponentResourceKey(typeof(UiResource), nameof(MainMenu_Role_Management));
-		public static readonly ComponentResourceKey MainMenu_Group_Management = new ComponentResourceKey(typeof(UiResource), nameof(MainMenu_Group_Management));
-		public static readonly ComponentResourceKey MainMenu_Menu_Mangement = new ComponentResourceKey(typeof(UiResource), nameof(MainMenu_Menu_Mangement));
-		public static readonly ComponentResourceKey MainMenu_Data_Privilege = new ComponentResourceKey(typeof(UiResource), nameof(MainMenu_Data_Privilege));
+		public static readonly ComponentResourceKey MenuKey_Home = new ComponentResourceKey(typeof(UiResource), nameof(MenuKey_Home));
+		public static readonly ComponentResourceKey MenuKey_SystemManagement = new ComponentResourceKey(typeof(UiResource), nameof(MenuKey_SystemManagement));
+		public static readonly ComponentResourceKey MenuKey_Log = new ComponentResourceKey(typeof(UiResource), nameof(MenuKey_Log));
+		public static readonly ComponentResourceKey MenuKey_UserManagement = new ComponentResourceKey(typeof(UiResource), nameof(MenuKey_UserManagement));
+		public static readonly ComponentResourceKey MenuKey_RoleManagement = new ComponentResourceKey(typeof(UiResource), nameof(MenuKey_RoleManagement));
+		public static readonly ComponentResourceKey MenuKey_GroupManagement = new ComponentResourceKey(typeof(UiResource), nameof(MenuKey_GroupManagement));
+		public static readonly ComponentResourceKey MenuKey_MenuMangement = new ComponentResourceKey(typeof(UiResource), nameof(MenuKey_MenuMangement));
+		public static readonly ComponentResourceKey MenuKey_DataPrivilege = new ComponentResourceKey(typeof(UiResource), nameof(MenuKey_DataPrivilege));
 	}
 }
