@@ -10,7 +10,7 @@ namespace LQClass.ModuleOfRoleManagement
 {
 	public class ModuleOfRoleManagementModule :IModule
 	{
-		public const string KEY_OF_CURRENT_MODULE = "MenuKey_RoleManagement";
+		public const string KEY_OF_CURRENT_MODULE = "Role_Management";
 		private readonly IRegionManager _regionManager;
 		private readonly IUnityContainer _unityContainer;
 

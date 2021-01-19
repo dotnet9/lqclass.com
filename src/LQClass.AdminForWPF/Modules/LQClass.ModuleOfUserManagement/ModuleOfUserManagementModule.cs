@@ -10,7 +10,7 @@ namespace LQClass.ModuleOfUserManagement
 {
 	public class ModuleOfUserManagementModule : IModule
 	{
-		public const string KEY_OF_CURRENT_MODULE = "MenuKey_UserManagement";
+		public const string KEY_OF_CURRENT_MODULE = "User_Management";
 		private readonly IRegionManager _regionManager;
 		private readonly IUnityContainer _unityContainer;
 

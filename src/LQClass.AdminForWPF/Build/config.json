@@ -2,7 +2,7 @@
     "Name": "乐 趣 课 堂",
     "Language": "zh-cn",
     "IsRemberMe": true,
-    "IsAutoLogin": false,
+    "IsAutoLogin": true,
     "UserName": "j8ZC524bF5GA49FVb3BV3Q==",
     "Password": "j8ZC524bF5GA49FVb3BV3Q==",
     "API": "http://api.lqclass.com/api/",

@@ -50,7 +50,8 @@ namespace LQClass.AdminForWPF.Models
 			}
 			foreach (var menuItem in findResults)
 			{
-				var mainMenu = GetMenu(menuItem.Text);
+				var key = menuItem.Text.Replace(' ', '_');
+				var mainMenu = GetMenu(key);
 				var newMenu = new CustomMenuItem(level, menuItem.Id, parentID, mainMenu.Key, mainMenu.Value, $"./../Images/{mainMenu.Key}.png");
 				customMenus.Add(newMenu);
 				ReadChildren(level + 1, newMenu.ID, soureMenus, newMenu.Children);
@@ -66,7 +67,7 @@ namespace LQClass.AdminForWPF.Models
 		{
 			Type t = typeof(Language);
 			var result = t.GetField(key, System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static);
-			ComponentResourceKey resKey = Language.MenuKey_Home;
+			ComponentResourceKey resKey = Language.Home;
 			if (result != null)
 			{
 				resKey = result.GetValue(null) as ComponentResourceKey;

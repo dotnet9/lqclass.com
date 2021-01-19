@@ -27,12 +27,10 @@
     <hc:BlurWindow.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <!--#region 主窗体使用MahApps.Metro控件库风格-->
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Light.Blue.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/LQClass.AdminForWPF;component/Styles/MainMenuStyle.xaml" />
-                <!--#endregion-->
             </ResourceDictionary.MergedDictionaries>
             <SolidColorBrush x:Key="tabBackground" Color="#F5F5F5" />
             <SolidColorBrush x:Key="tabBorderBrush" Color="#ccc" />

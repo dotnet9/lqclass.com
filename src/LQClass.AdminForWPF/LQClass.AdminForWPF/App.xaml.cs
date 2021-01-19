@@ -1,3 +1,5 @@
+using LQClass.AdminForWPF.CommonService;
+using LQClass.AdminForWPF.ICommonService;
 using LQClass.AdminForWPF.Infrastructure.Configs;
 using LQClass.AdminForWPF.Infrastructure.Tools;
 using LQClass.AdminForWPF.Models;
@@ -83,6 +85,7 @@ namespace LQClass.AdminForWPF
 		{
 			containerRegistry.RegisterSingleton<LoginModel>();
 			containerRegistry.RegisterSingleton<MainWindowModel>();
+			containerRegistry.Register<ISystemMenuService, SystemMenuService>();
 			containerRegistry.RegisterDialogWindow<DialogWindow>();//注册自定义对话框窗体
 			containerRegistry.RegisterDialog<QQGroupView, QQGroupViewModel>("QQGroup");
 			containerRegistry.RegisterDialog<AboutView, AboutViewModel>("About");

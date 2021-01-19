@@ -1,6 +1,5 @@
 using HandyControl.Controls;
 using LQClass.AdminForWPF.ViewModels;
-using MahApps.Metro.Controls;
 using Prism.Events;
 
 namespace LQClass.AdminForWPF.Views

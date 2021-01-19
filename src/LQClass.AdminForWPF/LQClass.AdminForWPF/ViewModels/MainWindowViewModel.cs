@@ -1,3 +1,5 @@
+using LQClass.AdminForWPF.ICommonService;
+using LQClass.AdminForWPF.ICommonService.Dtos;
 using LQClass.AdminForWPF.Infrastructure;
 using LQClass.AdminForWPF.Infrastructure.Configs;
 using LQClass.AdminForWPF.Infrastructure.Events;
@@ -14,6 +16,7 @@ using Prism.Services.Dialogs;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
 using WpfExtensions.Xaml;
@@ -71,7 +74,8 @@ namespace LQClass.AdminForWPF.ViewModels
 
 		#region к╫сп╠Да©
 
-		private MainWindowModel windowModel = null;
+		private MainWindowModel _windowModel = null;
+		private ISystemMenuService _systemMenuService = null;
 
 		#endregion
 
@@ -81,7 +85,7 @@ namespace LQClass.AdminForWPF.ViewModels
 			IDialogService dialogService,
 			IEventAggregator eventAggregator) : base(regionManager, moduleManager, dialogService, eventAggregator)
 		{
-			windowModel = mainWindowModel;
+			_windowModel = mainWindowModel;
 			eventAggregator.GetEvent<ChangeLanguageSentEvent>().Subscribe(ReceivedChangeLanguage);
 		}
 
@@ -91,7 +95,7 @@ namespace LQClass.AdminForWPF.ViewModels
 		public void InitData()
 		{
 			_CustomMenus.Clear();
-			_CustomMenus.AddRange(windowModel.ReadCustomMenus());
+			_CustomMenus.AddRange(_windowModel.ReadCustomMenus());
 		}
 
 		public bool NeedShowHome { get; set; } = true;

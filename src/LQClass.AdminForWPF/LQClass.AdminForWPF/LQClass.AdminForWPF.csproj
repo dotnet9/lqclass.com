@@ -64,6 +64,11 @@
 		<None Remove="Images\User_ManagementOfTab.png" />
 		<None Remove="Images\Website.png" />
 		<None Remove="Images\WeChat-public-address.jpg" />
+		<None Remove="Images\_wtmicon-chaxun.png" />
+		<None Remove="Images\_wtmicon-chaxunOfTab.png" />
+		<None Remove="Images\_wtmicon-zhanghaoquanxianguanli.png" />
+		<None Remove="Images\_wtmicon-zuzhiqunzu.png" />
+		<None Remove="Images\_wtmicon-zuzhiqunzuOfTab.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -76,6 +81,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\LQClass.AdminForWPF.CommonService\LQClass.AdminForWPF.CommonService.csproj" />
+		<ProjectReference Include="..\LQClass.AdminForWPF.ICommonService\LQClass.AdminForWPF.ICommonService.csproj" />
 		<ProjectReference Include="..\LQClass.AdminForWPF.Infrastructure\LQClass.AdminForWPF.Infrastructure.csproj" />
 		<ProjectReference Include="..\LQClass.CustomControls\LQClass.CustomControls.csproj" />
 	</ItemGroup>
@@ -91,25 +98,26 @@
 		<Resource Include="Images\Flag\ru.png" />
 		<Resource Include="Images\Flag\tr.png" />
 		<Resource Include="Images\GitHub.png" />
+		<Resource Include="Images\Group_Management.png" />
+		<Resource Include="Images\Group_ManagementOfTab.png" />
 		<Resource Include="Images\Langs.png" />
+		<Resource Include="Images\Log.png" />
+		<Resource Include="Images\LogOfTab.png" />
 		<Resource Include="Images\QQGroup1.png" />
 		<Resource Include="Images\SysBackground.png" />
 		<Resource Include="Images\SysForeground.png" />
 		<Resource Include="Images\SysWebAPI.png" />
+		<Resource Include="Images\User_Management.png" />
 		<Resource Include="Images\Website.png" />
 		<SplashScreen Include="Images\Cover.jpg" />
 		<Resource Include="Images\Data_Privilege.png" />
 		<Resource Include="Images\Data_PrivilegeOfTab.png" />
 		<Resource Include="Images\Down.png" />
-		<Resource Include="Images\Group_Management.png" />
-		<Resource Include="Images\Group_ManagementOfTab.png" />
 		<Resource Include="Images\Home.png" />
 		<Resource Include="Images\HomeOfTab.png" />
-		<Resource Include="Images\Log.png" />
 		<Resource Include="Images\login_cover.png" />
 		<Resource Include="Images\logo.ico" />
 		<Resource Include="Images\logo.png" />
-		<Resource Include="Images\LogOfTab.png" />
 		<Resource Include="Images\Menu_Mangement.png" />
 		<Resource Include="Images\Menu_MangementOfTab.png" />
 		<Resource Include="Images\Right.png" />
@@ -122,7 +130,6 @@
 		<Resource Include="Images\System.png" />
 		<Resource Include="Images\SystemOfTab.png" />
 		<Resource Include="Images\user.png" />
-		<Resource Include="Images\User_Management.png" />
 		<Resource Include="Images\User_ManagementOfTab.png" />
 		<Resource Include="Images\WeChat-public-address.jpg" />
 	</ItemGroup>

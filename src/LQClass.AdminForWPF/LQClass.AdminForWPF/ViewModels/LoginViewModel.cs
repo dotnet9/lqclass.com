@@ -1,5 +1,7 @@
 using HandyControl.Controls;
 using HandyControl.Data;
+using LQClass.AdminForWPF.ICommonService;
+using LQClass.AdminForWPF.ICommonService.Dtos;
 using LQClass.AdminForWPF.Infrastructure.Configs;
 using LQClass.AdminForWPF.Infrastructure.Models;
 using LQClass.AdminForWPF.Infrastructure.Mvvm;
@@ -137,6 +139,7 @@ namespace LQClass.AdminForWPF.ViewModels
 		#region 私有字段
 
 		private LoginModel _loginModel;
+		private ISystemMenuService _systemMenuService;
 
 		#endregion
 
@@ -144,10 +147,13 @@ namespace LQClass.AdminForWPF.ViewModels
 		/// 切换语言
 		/// </summary>
 		/// <param name="loginModel"></param>
-		public LoginViewModel(LoginModel loginModel, IRegionManager regionManager) : base(regionManager)
+		public LoginViewModel(LoginModel loginModel,
+			IRegionManager regionManager,
+			ISystemMenuService systemMenuService) : base(regionManager)
 		{
 			ReadBackgroundImg();
 			this._loginModel = loginModel;
+			this._systemMenuService = systemMenuService;
 			this.IsRemberMe = AppConfig.Instance.IsRemberMe;
 			this.IsAutoLogin = AppConfig.Instance.IsAutoLogin;
 
@@ -200,7 +206,7 @@ namespace LQClass.AdminForWPF.ViewModels
 					else
 					{
 						AppConfig.Instance.UserName =
-						  AppConfig.Instance.Password = string.Empty;
+						AppConfig.Instance.Password = string.Empty;
 					}
 					AppConfig.Instance.Save();
 					// 使用jwttoken的方式登录，获取jwttoken，用于其他api调用使用
@@ -232,7 +238,7 @@ namespace LQClass.AdminForWPF.ViewModels
 		/// <returns></returns>
 		private async Task GetJwtTokenInfo()
 		{
-			var response = await _loginModel.Login(UserName, Password, false);
+			var response = await _loginModel.LoginJwt(new LoginJwtDto { Account = UserName, Password = Password });
 			LoginJwtResultDto.Instance = JsonConvert.DeserializeObject<LoginJwtResultDto>(response.Content);
 		}
 

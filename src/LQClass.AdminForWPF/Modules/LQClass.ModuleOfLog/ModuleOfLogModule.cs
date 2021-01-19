@@ -12,7 +12,7 @@ namespace LQClass.ModuleOfLog
 {
 	public class ModuleOfLogModule : IModule
 	{
-		public const string KEY_OF_CURRENT_MODULE = "MenuKey_Log";
+		public const string KEY_OF_CURRENT_MODULE = "Log";
 		private readonly IRegionManager _regionManager;
 		private readonly IUnityContainer _unityContainer;
 
