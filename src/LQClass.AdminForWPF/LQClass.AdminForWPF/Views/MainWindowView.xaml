@@ -27,9 +27,6 @@
     <hc:BlurWindow.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Light.Blue.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/LQClass.AdminForWPF;component/Styles/MainMenuStyle.xaml" />
             </ResourceDictionary.MergedDictionaries>
             <SolidColorBrush x:Key="tabBackground" Color="#F5F5F5" />
@@ -180,7 +177,7 @@
                 </ResourceDictionary>
             </Border.Resources>
             <!--<ContentControl prism:RegionManager.RegionName="{x:Static inf:RegionNames.MainTabRegion}"/>-->
-            <TabControl
+            <TabControl Style="{x:Null}"
                 x:Name="tc"
                 prism:RegionManager.RegionName="{x:Static inf:RegionNames.MainTabRegion}"
                 BorderThickness="0">
