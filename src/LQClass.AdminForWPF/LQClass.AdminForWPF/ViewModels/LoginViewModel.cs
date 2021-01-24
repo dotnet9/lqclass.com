@@ -113,7 +113,7 @@ namespace LQClass.AdminForWPF.ViewModels
 		/// <summary>
 		/// 超链接列表
 		/// </summary>
-		public List<QuickLink> QuickLinks { get { return AppConfig.Instance.QuickLinks; } }
+		public List<QuickLink> QuickLinks { get { return QuickLinksSection.GetAllQuickLinks(); } }
 
 		#endregion
 
@@ -154,18 +154,18 @@ namespace LQClass.AdminForWPF.ViewModels
 			ReadBackgroundImg();
 			this._loginModel = loginModel;
 			this._systemMenuService = systemMenuService;
-			this.IsRemberMe = AppConfig.Instance.IsRemberMe;
-			this.IsAutoLogin = AppConfig.Instance.IsAutoLogin;
+			this.IsRemberMe = AppSettingsHelper.IsRemberMe;
+			this.IsAutoLogin = AppSettingsHelper.IsAutoLogin;
 
 
 			// 配置文件中的账号和密码为加密后的密文
-			if (!string.IsNullOrWhiteSpace(AppConfig.Instance.UserName))
+			if (!string.IsNullOrWhiteSpace(AppSettingsHelper.UserName))
 			{
-				this.UserName = DESHelper.Decrypt3Des(AppConfig.Instance.UserName);
+				this.UserName = DESHelper.Decrypt3Des(AppSettingsHelper.UserName);
 			}
-			if (!string.IsNullOrWhiteSpace(AppConfig.Instance.Password))
+			if (!string.IsNullOrWhiteSpace(AppSettingsHelper.Password))
 			{
-				this.Password = DESHelper.Decrypt3Des(AppConfig.Instance.Password);
+				this.Password = DESHelper.Decrypt3Des(AppSettingsHelper.Password);
 			}
 
 			if (this.IsAutoLogin)
@@ -196,19 +196,18 @@ namespace LQClass.AdminForWPF.ViewModels
 				if (response.IsSuccessful)
 				{
 					LoginResultDto.Instance = JsonConvert.DeserializeObject<LoginResultDto>(response.Content);
-					AppConfig.Instance.IsRemberMe = this.IsRemberMe;
-					AppConfig.Instance.IsAutoLogin = this.IsAutoLogin;
-					if (AppConfig.Instance.IsRemberMe)
+					AppSettingsHelper.IsRemberMe = this.IsRemberMe;
+					AppSettingsHelper.IsAutoLogin = this.IsAutoLogin;
+					if (AppSettingsHelper.IsRemberMe)
 					{
-						AppConfig.Instance.UserName = DESHelper.Encrypt3Des(this.UserName);
-						AppConfig.Instance.Password = DESHelper.Encrypt3Des(this.Password);
+						AppSettingsHelper.UserName = DESHelper.Encrypt3Des(this.UserName);
+						AppSettingsHelper.Password = DESHelper.Encrypt3Des(this.Password);
 					}
 					else
 					{
-						AppConfig.Instance.UserName =
-						AppConfig.Instance.Password = string.Empty;
+						AppSettingsHelper.UserName =
+						AppSettingsHelper.Password = string.Empty;
 					}
-					AppConfig.Instance.Save();
 					// 使用jwttoken的方式登录，获取jwttoken，用于其他api调用使用
 					await GetJwtTokenInfo();
 					LoginComplete?.Invoke(true);
@@ -217,8 +216,7 @@ namespace LQClass.AdminForWPF.ViewModels
 				{
 					Growl.ErrorGlobal(new GrowlInfo { Message = $"{JsonHelper.FormatJsonString(response.Content)}", WaitTime = 5 });
 					ShowTipMsg($"{JsonHelper.FormatJsonString(response.Content)}");
-					AppConfig.Instance.IsAutoLogin = this.IsAutoLogin = false;
-					AppConfig.Instance.Save();
+					AppSettingsHelper.IsAutoLogin = this.IsAutoLogin = false;
 				}
 			}
 			catch (Exception ex)

@@ -17,14 +17,6 @@ namespace LQClass.AdminForWPF.Infrastructure.Mvvm
 	{
 		#region 共用属性
 
-		/// <summary>
-		/// 窗体标题
-		/// </summary>
-		public string Title
-		{
-			get { return AppConfig.Instance.Name; }
-		}
-
 		private bool _IsIndeterminate = false;
 		/// <summary>
 		/// 登录时显示正在繁忙

@@ -30,8 +30,8 @@ namespace LQClass.AdminForWPF.Views
 			if (e.OriginalSource is Button button && button.Tag is string langName)
 			{
 				PopupConfig.IsOpen = false;
-				if (langName.Equals(AppConfig.Instance.Language)) return;
-				AppConfig.Instance.SetLanguage(langName);
+				if (langName.Equals(AppSettingsHelper.Language)) return;
+				AppSettingsHelper.SetLanguage(langName);
 				ConfigHelper.Instance.SetLang(langName);
 				EventAggregator.GetEvent<ChangeLanguageSentEvent>().Publish();
 			}

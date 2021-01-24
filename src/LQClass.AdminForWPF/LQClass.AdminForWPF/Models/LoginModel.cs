@@ -20,7 +20,7 @@ namespace LQClass.AdminForWPF.Models
 		/// <returns></returns>
 		public async Task<IRestResponse> Login(string userName, string pwd, bool cookie = true)
 		{
-			var client = new RestClient($"{AppConfig.Instance.API}_Account/Login");
+			var client = new RestClient($"{AppSettingsHelper.API}_Account/Login");
 			client.Timeout = -1;
 			var request = new RestRequest(Method.POST);
 			request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -41,7 +41,7 @@ namespace LQClass.AdminForWPF.Models
 		/// <returns></returns>
 		public async Task<IRestResponse> LoginJwt(LoginJwtDto loginJwtDto)
 		{
-			var client = new RestClient($"{AppConfig.Instance.API}_Account/LoginJwt");
+			var client = new RestClient($"{AppSettingsHelper.API}_Account/LoginJwt");
 			client.Timeout = -1;
 			var request = new RestRequest(Method.POST);
 			request.AddHeader("Content-Type", "application/json");

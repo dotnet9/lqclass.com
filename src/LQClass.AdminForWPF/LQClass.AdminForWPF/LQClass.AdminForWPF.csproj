@@ -157,9 +157,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Update="config.json">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</None>
 		<None Update="I18nResources\Language.tt">
 		  <Generator>TextTemplatingFileGenerator</Generator>
 		  <LastGenOutput>Language.cs</LastGenOutput>
@@ -184,5 +181,7 @@
 	    <LastGenOutput>UiResource.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
 	</ItemGroup>
+
+	<ProjectExtensions><VisualStudio><UserProperties config_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
 
 </Project>

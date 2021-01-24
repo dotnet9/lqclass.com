@@ -125,8 +125,7 @@ namespace LQClass.AdminForWPF.ViewModels
 		/// <param name="key"></param>
 		private void RaiseLogoutHandler()
 		{
-			AppConfig.Instance.IsAutoLogin = false;
-			AppConfig.Instance.Save();
+			AppSettingsHelper.IsAutoLogin = false;
 			ShellSwitcher.Switch<MainWindowView, LoginView>();
 		}
 

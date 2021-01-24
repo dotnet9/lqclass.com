@@ -13,7 +13,7 @@ namespace LQClass.ModuleOfLog.Models
 		/// <returns></returns>
 		public async Task<IRestResponse> Search()
 		{
-			var client = new RestClient($"{AppConfig.Instance.API}_actionlog/search");
+			var client = new RestClient($"{AppSettingsHelper.API}_actionlog/search");
 			client.Timeout = -1;
 			var request = new RestRequest(Method.POST);
 			request.AddHeader("Authorization", $"Bearer {LoginJwtResultDto.Instance.AccessToken}");

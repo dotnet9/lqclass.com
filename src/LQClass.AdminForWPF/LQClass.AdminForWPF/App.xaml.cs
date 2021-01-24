@@ -47,7 +47,6 @@ namespace LQClass.AdminForWPF
 				//var splashScreen = new SplashScreen(splashScreenImg);
 				//splashScreen.Show(true);
 				ShutdownMode = ShutdownMode.OnMainWindowClose;
-				AppConfig.Instance.SetLanguage(AppConfig.Instance.Language);
 				base.OnStartup(e);
 
 			}
@@ -62,7 +61,7 @@ namespace LQClass.AdminForWPF
 		protected override Window CreateShell()
 		{
 			I18nManager.Instance.Add(LQClass.AdminForWPF.I18nResources.UiResource.ResourceManager);
-			AppConfig.Instance.SetLanguage();
+			AppSettingsHelper.SetLanguage();
 			return Container.Resolve<MainWindowView>();
 		}
 
