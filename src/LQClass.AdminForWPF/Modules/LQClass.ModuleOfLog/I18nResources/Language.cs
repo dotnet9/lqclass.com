@@ -15,5 +15,16 @@ namespace LQClass.ModuleOfLog.I18nResources
 	public static class Language
 	{
 		public static readonly ComponentResourceKey MainTabItemView_Header = new ComponentResourceKey(typeof(UiResource), nameof(MainTabItemView_Header));
+		public static readonly ComponentResourceKey ITCode = new ComponentResourceKey(typeof(UiResource), nameof(ITCode));
+		public static readonly ComponentResourceKey LogType = new ComponentResourceKey(typeof(UiResource), nameof(LogType));
+		public static readonly ComponentResourceKey Normal = new ComponentResourceKey(typeof(UiResource), nameof(Normal));
+		public static readonly ComponentResourceKey Exception = new ComponentResourceKey(typeof(UiResource), nameof(Exception));
+		public static readonly ComponentResourceKey Debug = new ComponentResourceKey(typeof(UiResource), nameof(Debug));
+		public static readonly ComponentResourceKey StartTime = new ComponentResourceKey(typeof(UiResource), nameof(StartTime));
+		public static readonly ComponentResourceKey EndTime = new ComponentResourceKey(typeof(UiResource), nameof(EndTime));
+		public static readonly ComponentResourceKey Search = new ComponentResourceKey(typeof(UiResource), nameof(Search));
+		public static readonly ComponentResourceKey Reset = new ComponentResourceKey(typeof(UiResource), nameof(Reset));
+		public static readonly ComponentResourceKey Delete = new ComponentResourceKey(typeof(UiResource), nameof(Delete));
+		public static readonly ComponentResourceKey Export = new ComponentResourceKey(typeof(UiResource), nameof(Export));
 	}
 }

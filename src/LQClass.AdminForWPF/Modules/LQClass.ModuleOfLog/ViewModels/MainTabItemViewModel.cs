@@ -7,6 +7,7 @@ using Prism.Commands;
 using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using System.Windows.Documents;
 using System.Windows.Input;
 using WpfExtensions.Xaml;
 
@@ -35,6 +36,27 @@ namespace LQClass.ModuleOfLog.ViewModels
 		/// 数据列表
 		/// </summary>
 		public ObservableCollection<LogDto> ListData { get { return _ListDatas; } }
+
+		private ObservableCollection<LogTypeInfo> _ListLogTypes = null;
+		/// <summary>
+		/// 日志类型列表
+		/// </summary>
+		public ObservableCollection<LogTypeInfo> ListLogTypes
+		{
+			get
+			{
+				if (_ListLogTypes == null || _ListLogTypes.Count <= 0)
+				{
+					_ListLogTypes = new ObservableCollection<LogTypeInfo>
+					{
+						new LogTypeInfo(0,I18nManager.Instance.Get(I18nResources.Language.Normal).ToString()),
+						new LogTypeInfo(1,I18nManager.Instance.Get(I18nResources.Language.Exception).ToString()),
+						new LogTypeInfo(2,I18nManager.Instance.Get(I18nResources.Language.Debug).ToString())
+					};
+				}
+				return _ListLogTypes;
+			}
+		}
 
 		#endregion
 

@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:hc="https://handyorg.github.io/handycontrol"
-    xmlns:i18="clr-namespace:LQClass.ModuleOfLog.I18nResources"
+    xmlns:i18NResources="clr-namespace:LQClass.ModuleOfLog.I18nResources"
     xmlns:local="clr-namespace:LQClass.ModuleOfLog.Views"
     xmlns:markup="clr-namespace:WpfExtensions.Xaml.Markup;assembly=WpfExtensions.Xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -13,130 +13,178 @@
     mc:Ignorable="d">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="150" />
+            <RowDefinition Height="120" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <WrapPanel Orientation="Horizontal" Margin="5">
+        <WrapPanel Margin="5" Orientation="Horizontal">
             <WrapPanel.Resources>
-                <Style x:Key="searchLable" TargetType="TextBlock">
-                    <Style.Setters>
-                        <Setter Property="VerticalAlignment" Value="Bottom" />
-                        <Setter Property="HorizontalAlignment" Value="Right" />
-                        <Setter Property="Width" Value="70" />
-                        <Setter Property="Margin" Value="20,10,0,10" />
-                    </Style.Setters>
-                </Style>
                 <Style
-                        x:Key="searchTxt"
-                        TargetType="TextBox">
+                    x:Key="searchTxt"
+                    BasedOn="{StaticResource TextBoxExtend}"
+                    TargetType="TextBox">
                     <Style.Setters>
                         <Setter Property="VerticalAlignment" Value="Center" />
+                        <Setter Property="hc:InfoElement.TitlePlacement" Value="Left"/>
+                        <Setter Property="hc:InfoElement.TitleWidth" Value="60"/>
                         <Setter Property="Width" Value="200" />
-                        <Setter Property="Margin" Value="0,10,50,10" />
+                        <Setter Property="Margin" Value="10,15,50,0" />
                     </Style.Setters>
                 </Style>
-                <Style
-                        x:Key="searchDateTimePickere"
-                        TargetType="hc:DateTimePicker">
+                <Style x:Key="checkComboBox" TargetType="hc:CheckComboBox" BasedOn="{StaticResource CheckComboBoxExtend}">
                     <Style.Setters>
-                        <Setter Property="hc:InfoElement.TitleWidth" Value="0" />
+                        <Setter Property="hc:InfoElement.TitlePlacement" Value="Left"/>
+                        <Setter Property="hc:InfoElement.TitleWidth" Value="60"/>
                         <Setter Property="VerticalAlignment" Value="Bottom" />
                         <Setter Property="Width" Value="200" />
-                        <Setter Property="Margin" Value="0,10,50,10" />
+                        <Setter Property="Margin" Value="10,15,50,0" />
+                        <Setter Property="ShowClearButton" Value="True" />
+                    </Style.Setters>
+                </Style>
+                <Style x:Key="searchDateTimePickere" TargetType="hc:DateTimePicker" BasedOn="{StaticResource DateTimePickerExtend}">
+                    <Style.Setters>
+                        <Setter Property="hc:InfoElement.TitlePlacement" Value="Left"/>
+                        <Setter Property="hc:InfoElement.TitleWidth" Value="60"/>
+                        <Setter Property="VerticalAlignment" Value="Bottom" />
+                        <Setter Property="Width" Value="200" />
+                        <Setter Property="Margin" Value="10,15,50,0" />
                         <Setter Property="ShowClearButton" Value="True" />
                     </Style.Setters>
                 </Style>
             </WrapPanel.Resources>
 
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Style="{StaticResource searchLable}" Text="ITCode：" />
-                <TextBox Style="{StaticResource searchTxt}" />
-            </StackPanel>
+            <TextBox
+                Width="380"
+                hc:InfoElement.Title="{markup:I18n {x:Static i18NResources:Language.ITCode}}"
+                Style="{StaticResource searchTxt}" />
 
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Style="{StaticResource searchLable}" Text="Url：" />
-                <TextBox Style="{StaticResource searchTxt}" />
-            </StackPanel>
+            <TextBox
+                Width="380"
+                hc:InfoElement.Title="Url"
+                Style="{StaticResource searchTxt}" />
 
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Style="{StaticResource searchLable}" Text="IP：" />
-                <TextBox Style="{StaticResource searchTxt}" />
-            </StackPanel>
+            <TextBox
+                Width="380"
+                hc:InfoElement.Title="IP"
+                Style="{StaticResource searchTxt}" />
 
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Style="{StaticResource searchLable}" Text="类型：" />
-                <TextBox Style="{StaticResource searchTxt}" />
-            </StackPanel>
+            <hc:CheckComboBox
+                Width="380"
+                hc:InfoElement.Title="{markup:I18n {x:Static i18NResources:Language.LogType}}"
+                DisplayMemberPath="Value"
+                ItemsSource="{Binding ListLogTypes}"
+                SelectedValuePath="Key"
+                ShowClearButton="True"
+                ShowSelectAllButton="True"
+                Style="{StaticResource checkComboBox}" />
 
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Style="{StaticResource searchLable}" Text="开始时间：" />
-                <hc:DateTimePicker Style="{StaticResource searchDateTimePickere}" />
-            </StackPanel>
+            <hc:DateTimePicker
+                Width="380"
+                hc:InfoElement.Title="{markup:I18n {x:Static i18NResources:Language.StartTime}}"
+                Style="{StaticResource searchDateTimePickere}" />
 
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Style="{StaticResource searchLable}" Text="结束时间：" />
-                <hc:DateTimePicker Style="{StaticResource searchDateTimePickere}" />
-            </StackPanel>
+            <hc:DateTimePicker
+                Width="380"
+                hc:InfoElement.Title="{markup:I18n {x:Static i18NResources:Language.EndTime}}"
+                Style="{StaticResource searchDateTimePickere}" />
 
-            <StackPanel Orientation="Horizontal">
-                <Button Command="{Binding RaiseSearchCommand, Mode=OneTime}" Style="{StaticResource SearchButton}" />
-                <Button Command="{Binding CopyToClipboardCommand, Mode=OneTime}" Style="{StaticResource ClearButton}" />
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Margin="0 15 0 0"
+                    hc:IconElement.Geometry="{StaticResource SearchGeometry}"
+                    Command="{Binding RaiseSearchCommand, Mode=OneTime}"
+                    Content="{markup:I18n {x:Static i18NResources:Language.Search}}"
+                    Style="{StaticResource ButtonPrimary}" />
+                <Button Margin="10 15 10 0"
+                    hc:IconElement.Geometry="{StaticResource DeleteGeometry}"
+                    Command="{Binding CopyToClipboardCommand, Mode=OneTime}"
+                    Content="{markup:I18n {x:Static i18NResources:Language.Delete}}"
+                    Style="{StaticResource ButtonDanger}" />
+                <Button Margin="0 15 0 0"
+                    hc:IconElement.Geometry="{StaticResource DownloadGeometry}"
+                    Command="{Binding CopyToClipboardCommand, Mode=OneTime}"
+                    Content="{markup:I18n {x:Static i18NResources:Language.Export}}"
+                    Style="{StaticResource ButtonSuccess}" />
             </StackPanel>
         </WrapPanel>
         <Grid Grid.Row="1" Margin="5">
             <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
                 <RowDefinition Height="*" />
-                <RowDefinition Height="80" />
+                <RowDefinition Height="40" />
             </Grid.RowDefinitions>
+
+            <hc:Pagination
+                Grid.Row="0"
+                IsJumpEnabled="True"
+                MaxPageCount="10"
+                PageIndex="{Binding PageIndex}">
+                <hc:Interaction.Triggers>
+                    <hc:EventTrigger EventName="PageUpdated">
+                        <hc:EventToCommand Command="{Binding PageUpdatedCmd}" PassEventArgsToCommand="True" />
+                    </hc:EventTrigger>
+                </hc:Interaction.Triggers>
+            </hc:Pagination>
             <DataGrid
-                    AutoGenerateColumns="False"
-                    IsReadOnly="True"
-                    ItemsSource="{Binding ListData}">
+                Grid.Row="1"
+                hc:DataGridAttach.ShowRowNumber="True"
+                AutoGenerateColumns="False"
+                HeadersVisibility="All"
+                IsReadOnly="True"
+                ItemsSource="{Binding ListData}"
+                RowHeaderWidth="40">
+                <DataGrid.RowHeaderTemplate>
+                    <DataTemplate>
+                        <CheckBox IsChecked="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=DataGridRow}}" />
+                    </DataTemplate>
+                </DataGrid.RowHeaderTemplate>
                 <DataGrid.Columns>
                     <DataGridTextColumn
-                            Width="200"
-                            Binding="{Binding LogType}"
-                            Header="类型" />
+                        Width="200"
+                        Binding="{Binding LogType}"
+                        Header="类型" />
                     <DataGridTextColumn
-                            Width="150"
-                            Binding="{Binding ModuleName}"
-                            Header="模块" />
+                        Width="150"
+                        Binding="{Binding ModuleName}"
+                        Header="模块" />
                     <DataGridTextColumn
-                            Width="180"
-                            Binding="{Binding ActionName}"
-                            Header="动作" />
+                        Width="180"
+                        Binding="{Binding ActionName}"
+                        Header="动作" />
                     <DataGridTextColumn
-                            Width="180"
-                            Binding="{Binding ITCode}"
-                            Header="ITCode" />
+                        Width="180"
+                        Binding="{Binding ITCode}"
+                        Header="ITCode" />
                     <DataGridTextColumn
-                            Width="180"
-                            Binding="{Binding ActionUrl}"
-                            Header="Url" />
+                        Width="180"
+                        Binding="{Binding ActionUrl}"
+                        Header="Url" />
                     <DataGridTextColumn
-                            Width="180"
-                            Binding="{Binding ActionTime}"
-                            Header="操作时间" />
+                        Width="180"
+                        Binding="{Binding ActionTime}"
+                        Header="操作时间" />
                     <DataGridTextColumn
-                            Width="180"
-                            Binding="{Binding Duration}"
-                            Header="时长" />
+                        Width="180"
+                        Binding="{Binding Duration}"
+                        Header="时长" />
                     <DataGridTextColumn
-                            Width="180"
-                            Binding="{Binding IP}"
-                            Header="IP" />
+                        Width="180"
+                        Binding="{Binding IP}"
+                        Header="IP" />
                     <DataGridTextColumn
-                            Width="180"
-                            Binding="{Binding Remark}"
-                            Header="备注" />
+                        Width="180"
+                        Binding="{Binding Remark}"
+                        Header="备注" />
                     <DataGridTextColumn
-                            Width="180"
-                            Binding="{Binding PUID}"
-                            Header="操作" />
+                        Width="180"
+                        Binding="{Binding PUID}"
+                        Header="操作" />
                 </DataGrid.Columns>
             </DataGrid>
 
-            <hc:Pagination Grid.Row="1" MaxPageCount="10" PageIndex="{Binding PageIndex}" IsJumpEnabled="True">
+            <hc:Pagination
+                Grid.Row="2"
+                IsJumpEnabled="True"
+                MaxPageCount="10"
+                PageIndex="{Binding PageIndex}">
                 <hc:Interaction.Triggers>
                     <hc:EventTrigger EventName="PageUpdated">
                         <hc:EventToCommand Command="{Binding PageUpdatedCmd}" PassEventArgsToCommand="True" />
