@@ -1,4 +1,9 @@
-﻿using LQClass.CustomControls.TabControlHelper;
+﻿using HandyControl.Controls;
+using LQClass.CustomControls.TabControlHelper;
+using LQClass.ModuleOfLog.DTOs;
+using LQClass.ModuleOfLog.ViewModels;
+using System;
+using System.Collections.Generic;
 using System.Windows.Controls;
 using WpfExtensions.Xaml;
 
@@ -16,5 +21,18 @@ namespace LQClass.ModuleOfLog.Views
 		}
 
 		public CloseableHeader Closer { get; private set; }
+
+		private void LogTypeSelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+			var vm = (this.DataContext as MainTabItemViewModel);
+			var selectedItems = (sender as CheckComboBox).SelectedItems;
+			vm.SelectedLogTypes.Clear();
+			foreach (var item in selectedItems)
+			{
+				var key = (item as LogTypeInfo).Key;
+				ActionLogTypesEnum logType = (ActionLogTypesEnum)Enum.Parse(typeof(ActionLogTypesEnum), key.ToString());
+				vm.SelectedLogTypes.Add(logType);
+			}
+		}
 	}
 }

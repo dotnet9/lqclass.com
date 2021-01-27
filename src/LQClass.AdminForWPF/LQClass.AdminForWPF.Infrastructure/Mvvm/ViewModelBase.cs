@@ -8,6 +8,7 @@ using Prism.Modularity;
 using Prism.Mvvm;
 using Prism.Regions;
 using Prism.Services.Dialogs;
+using System;
 using System.Collections.Generic;
 using System.Windows.Input;
 
@@ -44,6 +45,47 @@ namespace LQClass.AdminForWPF.Infrastructure.Mvvm
 		/// 语言列表
 		/// </summary>
 		public List<LanguageModel> Languages { get { return LanguageModel.GetLanguages(); } }
+
+		private DateTime _StartTime;
+		/// <summary>
+		/// 开始时间
+		/// </summary>
+		public DateTime StartTime
+		{
+			get { return _StartTime; }
+			set { SetProperty(ref _StartTime, value); }
+		}
+		private DateTime _EndTime;
+		/// <summary>
+		/// IP
+		/// </summary>
+		public DateTime EndTime
+		{
+			get { return _EndTime; }
+			set { SetProperty(ref _EndTime, value); }
+		}
+		private int _MaxPageCount;
+		/// <summary>
+		/// 页数
+		/// </summary>
+		public int MaxPageCount
+		{
+			get { return _MaxPageCount; }
+			set { SetProperty(ref _MaxPageCount, value); }
+		}
+		private int _PageIndex;
+		/// <summary>
+		/// 页索引
+		/// </summary>
+		public int PageIndex
+		{
+			get { return _PageIndex; }
+			set { SetProperty(ref _PageIndex, value); }
+		}
+		/// <summary>
+		/// 每页显示大小
+		/// </summary>
+		public int DataCountPerPage { get; set; } = 50;
 
 		/// <summary>
 		/// 提示控件，未找到设置时间等绑定属性，先由view输入viewmodel

@@ -6,14 +6,16 @@
     <prism:PrismApplication.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-
-                <ResourceDictionary Source="pack://application:,,,/LQClass.AdminForWPF;component/Styles/CommonButtonStyle.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/LQClass.CustomControls;component/Styles/Buttons.xaml" />
-
                 <!--#region HandyControl控件库-->
                 <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml" />
                 <!--#endregion-->
+
+                <!--#region 封装的部分样式-->
+                <ResourceDictionary Source="pack://application:,,,/LQClass.CustomControls;component/Styles/Buttons.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/LQClass.AdminForWPF;component/Styles/CommonSearchAreanStyle.xaml" />
+                <!--#endregion-->
+
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </prism:PrismApplication.Resources>

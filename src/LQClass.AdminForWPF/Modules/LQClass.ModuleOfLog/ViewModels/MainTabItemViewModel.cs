@@ -1,10 +1,13 @@
-﻿using LQClass.AdminForWPF.Infrastructure.Mvvm;
+﻿using HandyControl.Data;
+using LQClass.AdminForWPF.Infrastructure.Mvvm;
 using LQClass.AdminForWPF.Infrastructure.Tools;
 using LQClass.ModuleOfLog.DTOs;
 using LQClass.ModuleOfLog.Models;
 using Newtonsoft.Json;
 using Prism.Commands;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Documents;
@@ -29,6 +32,33 @@ namespace LQClass.ModuleOfLog.ViewModels
 		{
 			get { return _Header; }
 			set { SetProperty(ref _Header, value); }
+		}
+		private string _ITCode;
+		/// <summary>
+		/// 账号
+		/// </summary>
+		public string ITCode
+		{
+			get { return _ITCode; }
+			set { SetProperty(ref _ITCode, value); }
+		}
+		private string _ActionUrl;
+		/// <summary>
+		/// 账号
+		/// </summary>
+		public string ActionUrl
+		{
+			get { return _ActionUrl; }
+			set { SetProperty(ref _ActionUrl, value); }
+		}
+		private string _IP;
+		/// <summary>
+		/// IP
+		/// </summary>
+		public string IP
+		{
+			get { return _IP; }
+			set { SetProperty(ref _IP, value); }
 		}
 
 		private ObservableCollection<LogDto> _ListDatas = new ObservableCollection<LogDto>();
@@ -57,6 +87,10 @@ namespace LQClass.ModuleOfLog.ViewModels
 				return _ListLogTypes;
 			}
 		}
+		/// <summary>
+		/// 选择的日志类型列表
+		/// </summary>
+		public List<ActionLogTypesEnum> SelectedLogTypes { get; set; } = new List<ActionLogTypesEnum>();
 
 		#endregion
 
@@ -68,6 +102,12 @@ namespace LQClass.ModuleOfLog.ViewModels
 		/// </summary>
 		public ICommand RaiseSearchCommand =>
 		  _raiseSearchCommand ?? (_raiseSearchCommand = new DelegateCommand(async () => await RaiseSearchHandler()));
+		private ICommand _RaisePageUpdatedCommand;
+		/// <summary>
+		/// 查询命令
+		/// </summary>
+		public ICommand RaisePageUpdatedCommand =>
+		  _RaisePageUpdatedCommand ?? (_RaisePageUpdatedCommand = new DelegateCommand<FunctionEventArgs<int>>(async (pageIndex) => await RaisePageUpdateHandler(pageIndex)));
 
 
 		#endregion
@@ -85,6 +125,22 @@ namespace LQClass.ModuleOfLog.ViewModels
 		/// </summary>
 		private async Task RaiseSearchHandler()
 		{
+			PageIndex = 1;
+			await SearchData();
+		}
+
+		/// <summary>
+		/// 分页变化事件
+		/// </summary>
+		/// <returns></returns>
+		private async Task RaisePageUpdateHandler(FunctionEventArgs<int> pageIndex)
+		{
+			PageIndex = pageIndex.Info;
+			await SearchData();
+		}
+
+		private async Task SearchData()
+		{
 			try
 			{
 				if (IsIndeterminate)
@@ -92,13 +148,28 @@ namespace LQClass.ModuleOfLog.ViewModels
 					return;
 				}
 				IsIndeterminate = true;
-
-				var response = await mainTabItemModel.Search();
+				var searchCondition = new ActionLogSearcherDto
+				{
+					Page = PageIndex,
+					Limit = 50,
+					ITCode = ITCode,
+					ActionUrl = ActionUrl,
+					IP = IP,
+					LogType = SelectedLogTypes
+				};
+				if (default(DateTime) != StartTime && default(DateTime) != EndTime && StartTime <= EndTime)
+				{
+					searchCondition.ActionTime.Add(StartTime.ToString("yyyy-MM-dd HH:mm:ss"));
+					searchCondition.ActionTime.Add(EndTime.ToString("yyyy-MM-dd HH:mm:ss"));
+				}
+				var response = await mainTabItemModel.Search(searchCondition);
 				if (response.IsSuccessful)
 				{
 					var searchResult = JsonConvert.DeserializeObject<SearchLogResultDto>(response.Content);
 					ListData.Clear();
 					ListData.AddRange(searchResult.Data);
+					this.MaxPageCount = searchResult.PageCount;
+					this.PageIndex = searchResult.Page;
 				}
 				else
 				{
