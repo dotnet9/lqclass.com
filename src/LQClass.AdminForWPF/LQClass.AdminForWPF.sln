@@ -25,9 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LQClass.ModuleOfMenuManagem
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LQClass.ModuleOfDataPrivilege", "Modules\LQClass.ModuleOfDataPrivilege\LQClass.ModuleOfDataPrivilege.csproj", "{6A9221D3-1439-40A5-99A3-C8EE7C975205}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LQClass.AdminForWPF.ICommonService", "LQClass.AdminForWPF.ICommonService\LQClass.AdminForWPF.ICommonService.csproj", "{E8C8229A-F6AE-44FD-93F2-DEB2F7076977}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LQClass.AdminForWPF.ICommonService", "LQClass.AdminForWPF.ICommonService\LQClass.AdminForWPF.ICommonService.csproj", "{E8C8229A-F6AE-44FD-93F2-DEB2F7076977}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LQClass.AdminForWPF.CommonService", "LQClass.AdminForWPF.CommonService\LQClass.AdminForWPF.CommonService.csproj", "{1C1FBDE4-98F7-4CB7-92D0-875FBC891634}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LQClass.AdminForWPF.CommonService", "LQClass.AdminForWPF.CommonService\LQClass.AdminForWPF.CommonService.csproj", "{1C1FBDE4-98F7-4CB7-92D0-875FBC891634}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

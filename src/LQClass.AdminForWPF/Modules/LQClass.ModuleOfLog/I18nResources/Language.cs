@@ -26,5 +26,11 @@ namespace LQClass.ModuleOfLog.I18nResources
 		public static readonly ComponentResourceKey Reset = new ComponentResourceKey(typeof(UiResource), nameof(Reset));
 		public static readonly ComponentResourceKey Delete = new ComponentResourceKey(typeof(UiResource), nameof(Delete));
 		public static readonly ComponentResourceKey Export = new ComponentResourceKey(typeof(UiResource), nameof(Export));
+		public static readonly ComponentResourceKey ModuleName = new ComponentResourceKey(typeof(UiResource), nameof(ModuleName));
+		public static readonly ComponentResourceKey ActionName = new ComponentResourceKey(typeof(UiResource), nameof(ActionName));
+		public static readonly ComponentResourceKey ActionTime = new ComponentResourceKey(typeof(UiResource), nameof(ActionTime));
+		public static readonly ComponentResourceKey Duration = new ComponentResourceKey(typeof(UiResource), nameof(Duration));
+		public static readonly ComponentResourceKey Remark = new ComponentResourceKey(typeof(UiResource), nameof(Remark));
+		public static readonly ComponentResourceKey Action = new ComponentResourceKey(typeof(UiResource), nameof(Action));
 	}
 }

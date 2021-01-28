@@ -61,6 +61,33 @@ namespace LQClass.ModuleOfLog.I18nResources {
         }
         
         /// <summary>
+        ///   查找类似 Action 的本地化字符串。
+        /// </summary>
+        internal static string Action {
+            get {
+                return ResourceManager.GetString("Action", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Action 的本地化字符串。
+        /// </summary>
+        internal static string ActionName {
+            get {
+                return ResourceManager.GetString("ActionName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 ActionTime 的本地化字符串。
+        /// </summary>
+        internal static string ActionTime {
+            get {
+                return ResourceManager.GetString("ActionTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Debug 的本地化字符串。
         /// </summary>
         internal static string Debug {
@@ -75,6 +102,15 @@ namespace LQClass.ModuleOfLog.I18nResources {
         internal static string Delete {
             get {
                 return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Duration 的本地化字符串。
+        /// </summary>
+        internal static string Duration {
+            get {
+                return ResourceManager.GetString("Duration", resourceCulture);
             }
         }
         
@@ -115,7 +151,7 @@ namespace LQClass.ModuleOfLog.I18nResources {
         }
         
         /// <summary>
-        ///   查找类似 Type 的本地化字符串。
+        ///   查找类似 LogType 的本地化字符串。
         /// </summary>
         internal static string LogType {
             get {
@@ -133,11 +169,29 @@ namespace LQClass.ModuleOfLog.I18nResources {
         }
         
         /// <summary>
+        ///   查找类似 Module 的本地化字符串。
+        /// </summary>
+        internal static string ModuleName {
+            get {
+                return ResourceManager.GetString("ModuleName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Normal 的本地化字符串。
         /// </summary>
         internal static string Normal {
             get {
                 return ResourceManager.GetString("Normal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Remark 的本地化字符串。
+        /// </summary>
+        internal static string Remark {
+            get {
+                return ResourceManager.GetString("Remark", resourceCulture);
             }
         }
         

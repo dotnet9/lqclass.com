@@ -153,4 +153,22 @@
   <data name="Export" xml:space="preserve">
     <value>导出</value>
   </data>
+  <data name="ModuleName" xml:space="preserve">
+    <value>模块</value>
+  </data>
+  <data name="ActionName" xml:space="preserve">
+    <value>动作</value>
+  </data>
+  <data name="ActionTime" xml:space="preserve">
+    <value>操作时间</value>
+  </data>
+  <data name="Duration" xml:space="preserve">
+    <value>时长</value>
+  </data>
+  <data name="Remark" xml:space="preserve">
+    <value>备注</value>
+  </data>
+  <data name="Action" xml:space="preserve">
+    <value>操作</value>
+  </data>
 </root>

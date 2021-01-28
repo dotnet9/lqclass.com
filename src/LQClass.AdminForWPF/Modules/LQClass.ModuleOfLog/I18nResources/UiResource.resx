@@ -124,7 +124,7 @@
     <value>Account</value>
   </data>
   <data name="LogType" xml:space="preserve">
-    <value>Type</value>
+    <value>LogType</value>
   </data>
   <data name="Normal" xml:space="preserve">
     <value>Normal</value>
@@ -152,5 +152,23 @@
   </data>
   <data name="Export" xml:space="preserve">
     <value>Export</value>
+  </data>
+  <data name="ModuleName" xml:space="preserve">
+    <value>Module</value>
+  </data>
+  <data name="ActionName" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="ActionTime" xml:space="preserve">
+    <value>ActionTime</value>
+  </data>
+  <data name="Duration" xml:space="preserve">
+    <value>Duration</value>
+  </data>
+  <data name="Remark" xml:space="preserve">
+    <value>Remark</value>
+  </data>
+  <data name="Action" xml:space="preserve">
+    <value>Action</value>
   </data>
 </root>
