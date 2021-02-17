@@ -135,14 +135,8 @@
   <data name="Debug" xml:space="preserve">
     <value>调试</value>
   </data>
-  <data name="StartTime" xml:space="preserve">
-    <value>开始时间</value>
-  </data>
   <data name="EndTime" xml:space="preserve">
     <value>结束时间</value>
-  </data>
-  <data name="Search" xml:space="preserve">
-    <value>查询</value>
   </data>
   <data name="Reset" xml:space="preserve">
     <value>重置</value>
@@ -170,5 +164,11 @@
   </data>
   <data name="Action" xml:space="preserve">
     <value>操作</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>查询</value>
+  </data>
+  <data name="StartTime" xml:space="preserve">
+    <value>开始时间</value>
   </data>
 </root>
