@@ -6,13 +6,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using SqlSugar.IOC;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace LQClass.WebApi
+namespace LQClass.Api
 {
 	public class Startup
 	{
@@ -30,19 +29,8 @@ namespace LQClass.WebApi
 			services.AddControllers();
 			services.AddSwaggerGen(c =>
 			{
-				c.SwaggerDoc("v1", new OpenApiInfo { Title = "LQClass.WebApi", Version = "v1" });
+				c.SwaggerDoc("v1", new OpenApiInfo { Title = "LQClass.Api", Version = "v1" });
 			});
-			#region SqlSugarIOC
-			services.AddSqlSugar(new IocConfig()
-			{
-				ConnectionString = this.Configuration["SqlConn"],
-				DbType = IocDbType.Sqlite,
-				IsAutoCloseConnection = true // 自动释放
-			});
-			#endregion
-			#region SqlSugarIOC依赖注入
-			services.AddCustomIOC();
-			#endregion
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,7 +40,7 @@ namespace LQClass.WebApi
 			{
 				app.UseDeveloperExceptionPage();
 				app.UseSwagger();
-				app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "LQClass.WebApi v1"));
+				app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "LQClass.Api v1"));
 			}
 
 			app.UseRouting();

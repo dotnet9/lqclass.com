@@ -1,6 +1,6 @@
 using System;
 
-namespace LQClass.WebApi
+namespace LQClass.Api
 {
 	public class WeatherForecast
 	{
