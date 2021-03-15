@@ -1,6 +1,9 @@
+using LQClass.Api.Database;
+using LQClass.Api.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -27,9 +30,17 @@ namespace LQClass.Api
 		{
 
 			services.AddControllers();
+
+			//services.AddTransient<ITouristRouteRepository, MockTouristRouteRepository>();
+			services.AddTransient<ITouristRouteRepository, TouristRouteRepository>();
+
 			services.AddSwaggerGen(c =>
 			{
 				c.SwaggerDoc("v1", new OpenApiInfo { Title = "LQClass.Api", Version = "v1" });
+			});
+			services.AddDbContext<AppDbContext>(option =>
+			{
+				option.UseSqlite(Configuration["DbContext:ConnectionString"]);
 			});
 		}
 
