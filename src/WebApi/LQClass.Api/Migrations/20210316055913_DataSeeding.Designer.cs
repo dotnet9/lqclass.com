@@ -3,14 +3,16 @@ using System;
 using LQClass.Api.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LQClass.Api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210316055913_DataSeeding")]
+    partial class DataSeeding
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,9 +26,6 @@ namespace LQClass.Api.Migrations
 
                     b.Property<DateTime>("CreateTime")
                         .HasColumnType("TEXT");
-
-                    b.Property<int?>("DepartureCity")
-                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime?>("DepartureTime")
                         .HasColumnType("TEXT");
@@ -56,12 +55,6 @@ namespace LQClass.Api.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("TravelDays")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int?>("TripType")
-                        .HasColumnType("INTEGER");
-
                     b.Property<DateTime?>("UpdateTime")
                         .HasColumnType("TEXT");
 
@@ -72,8 +65,8 @@ namespace LQClass.Api.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("59dadee6-f5bb-442e-b419-5b012410fac1"),
-                            CreateTime = new DateTime(2021, 3, 16, 10, 6, 47, 510, DateTimeKind.Utc).AddTicks(6648),
+                            Id = new Guid("0b227792-5d63-4b54-ad4d-a4a7613650cb"),
+                            CreateTime = new DateTime(2021, 3, 16, 5, 59, 12, 910, DateTimeKind.Utc).AddTicks(5543),
                             Description = "说明",
                             OriginalPrice = 0m,
                             Title = "测试标题"
@@ -98,14 +91,6 @@ namespace LQClass.Api.Migrations
                     b.HasIndex("TouristRouteId");
 
                     b.ToTable("TouristRoutePictures");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            TouristRouteId = new Guid("59dadee6-f5bb-442e-b419-5b012410fac1"),
-                            Url = "test"
-                        });
                 });
 
             modelBuilder.Entity("LQClass.Api.Models.TouristRoutePicture", b =>

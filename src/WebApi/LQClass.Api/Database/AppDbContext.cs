@@ -1,4 +1,4 @@
-﻿using LQClass.Api.Models;
+using LQClass.Api.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,15 +7,35 @@ using System.Threading.Tasks;
 
 namespace LQClass.Api.Database
 {
-	public class AppDbContext : DbContext
-	{
-		public AppDbContext(DbContextOptions<AppDbContext> options)
-			: base(options)
-		{
+  public class AppDbContext : DbContext
+  {
+    public AppDbContext(DbContextOptions<AppDbContext> options)
+      : base(options)
+    {
 
-		}
+    }
 
-		public DbSet<TouristRoute> TouristRoutes { get; set; }
-		public DbSet<TouristRoutePicture> TouristRoutePictures { get; set; }
-	}
+    public DbSet<TouristRoute> TouristRoutes { get; set; }
+    public DbSet<TouristRoutePicture> TouristRoutePictures { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+      var touristRouteID = Guid.NewGuid();
+      modelBuilder.Entity<TouristRoute>().HasData(new TouristRoute()
+      {
+        Id = touristRouteID,
+        Title = "测试标题",
+        Description = "说明",
+        OriginalPrice = 0,
+        CreateTime = DateTime.UtcNow
+      });
+      modelBuilder.Entity<TouristRoutePicture>().HasData(new TouristRoutePicture
+      {
+        Id = 1,
+        Url = "test",
+        TouristRouteId = touristRouteID
+      });
+      base.OnModelCreating(modelBuilder);
+    }
+  }
 }

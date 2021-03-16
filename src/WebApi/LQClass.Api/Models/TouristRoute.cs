@@ -53,5 +53,11 @@ namespace LQClass.Api.Models
 		public string Notes { get; set; }
 		public ICollection<TouristRoutePicture> TouristRoutePictures { get; set; }
 			= new List<TouristRoutePicture>();
-	}
+
+    public TravelDays? TravelDays { get; set; }
+
+    public TripType? TripType { get; set; }
+
+    public DepartureCity? DepartureCity { get; set; }
+  }
 }

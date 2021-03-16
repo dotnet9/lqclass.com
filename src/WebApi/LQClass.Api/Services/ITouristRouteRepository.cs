@@ -10,5 +10,8 @@ namespace LQClass.Api.Services
   {
     IEnumerable<TouristRoute> GetRouristRoutes();
     TouristRoute GetTouristRoute(Guid touristRouteId);
+    bool TouristRouteExists(Guid touristRouteId);
+    IEnumerable<TouristRoutePicture> GetPicturesByTouristRouteId(Guid touristRouteId);
+    TouristRoutePicture GetPicture(int pictureId);
   }
 }

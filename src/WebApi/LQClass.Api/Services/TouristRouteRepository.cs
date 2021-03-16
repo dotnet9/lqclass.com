@@ -1,13 +1,13 @@
-﻿using LQClass.Api.Database;
+using LQClass.Api.Database;
 using LQClass.Api.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace LQClass.Api.Services
 {
-	public class TouristRouteRepository : ITouristRouteRepository
+  public class TouristRouteRepository : ITouristRouteRepository
 	{
 		private readonly AppDbContext _context;
 
@@ -16,14 +16,31 @@ namespace LQClass.Api.Services
 			_context = context;
 		}
 
-		public IEnumerable<TouristRoute> GetRouristRoutes()
+    public IEnumerable<TouristRoute> GetRouristRoutes()
 		{
-			return _context.TouristRoutes.ToList();
+      // include vs join
+			return _context.TouristRoutes.Include(t=>t.TouristRoutePictures);
 		}
 
 		public TouristRoute GetTouristRoute(Guid touristRouteId)
 		{
-			return _context.TouristRoutes.FirstOrDefault(n => n.Id == touristRouteId);
+			return _context.TouristRoutes.Include(t => t.TouristRoutePictures).FirstOrDefault(n => n.Id == touristRouteId);
 		}
-	}
+
+    public bool TouristRouteExists(Guid touristRouteId)
+    {
+      return _context.TouristRoutes.Any(t => t.Id == touristRouteId);
+    }
+
+    public IEnumerable<TouristRoutePicture> GetPicturesByTouristRouteId(Guid touristRouteId)
+    {
+      return _context.TouristRoutePictures
+        .Where(p => p.TouristRouteId == touristRouteId).ToList();
+    }
+
+    public TouristRoutePicture GetPicture(int pictureId)
+    {
+      return _context.TouristRoutePictures.Where(p => p.Id == pictureId).FirstOrDefault();
+    }
+  }
 }
