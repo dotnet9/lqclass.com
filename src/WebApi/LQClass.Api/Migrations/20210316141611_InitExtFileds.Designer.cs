@@ -3,14 +3,16 @@ using System;
 using LQClass.Api.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LQClass.Api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210316141611_InitExtFileds")]
+    partial class InitExtFileds
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,9 +53,6 @@ namespace LQClass.Api.Migrations
                     b.Property<decimal>("OriginalPrice")
                         .HasColumnType("decimal(18, 2)");
 
-                    b.Property<double?>("Rating")
-                        .HasColumnType("REAL");
-
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -75,12 +74,11 @@ namespace LQClass.Api.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("dba1d911-c8ec-472a-88b7-16703368b749"),
-                            CreateTime = new DateTime(2021, 3, 16, 14, 34, 52, 857, DateTimeKind.Utc).AddTicks(6645),
+                            Id = new Guid("7c495638-7122-4b0e-8e68-efae686876b3"),
+                            CreateTime = new DateTime(2021, 3, 16, 14, 16, 10, 505, DateTimeKind.Utc).AddTicks(1555),
                             DepartureCity = 0,
                             Description = "说明",
                             OriginalPrice = 0m,
-                            Rating = 3.7999999999999998,
                             Title = "测试标题",
                             TravelDays = 0,
                             TripType = 0
@@ -110,7 +108,7 @@ namespace LQClass.Api.Migrations
                         new
                         {
                             Id = 1,
-                            TouristRouteId = new Guid("dba1d911-c8ec-472a-88b7-16703368b749"),
+                            TouristRouteId = new Guid("7c495638-7122-4b0e-8e68-efae686876b3"),
                             Url = "test"
                         });
                 });

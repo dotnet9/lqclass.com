@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace LQClass.Api.Services
 {
-  public interface ITouristRouteRepository
-  {
-    IEnumerable<TouristRoute> GetRouristRoutes();
-    TouristRoute GetTouristRoute(Guid touristRouteId);
-    bool TouristRouteExists(Guid touristRouteId);
-    IEnumerable<TouristRoutePicture> GetPicturesByTouristRouteId(Guid touristRouteId);
-    TouristRoutePicture GetPicture(int pictureId);
-  }
+	public interface ITouristRouteRepository
+	{
+		IEnumerable<TouristRoute> GetRouristRoutes(string key, string operatorType, int? ratingValue);
+		TouristRoute GetTouristRoute(Guid touristRouteId);
+		bool TouristRouteExists(Guid touristRouteId);
+		IEnumerable<TouristRoutePicture> GetPicturesByTouristRouteId(Guid touristRouteId);
+		TouristRoutePicture GetPicture(int pictureId);
+	}
 }
