@@ -1,13 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace LQClass.Api.Dtos
 {
-  public class LoginDto
-  {
-    // 11-3
-    public string Email { get; set; }
-  }
+	public class LoginDto
+	{
+		[Required]
+		public string Email { get; set; }
+		[Required]
+		public string Password { get; set; }
+	}
 }
