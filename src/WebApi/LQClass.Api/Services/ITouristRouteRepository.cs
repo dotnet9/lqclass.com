@@ -8,10 +8,17 @@ namespace LQClass.Api.Services
 {
 	public interface ITouristRouteRepository
 	{
-		IEnumerable<TouristRoute> GetRouristRoutes(string key, string operatorType, int? ratingValue);
-		TouristRoute GetTouristRoute(Guid touristRouteId);
-		bool TouristRouteExists(Guid touristRouteId);
-		IEnumerable<TouristRoutePicture> GetPicturesByTouristRouteId(Guid touristRouteId);
-		TouristRoutePicture GetPicture(int pictureId);
+		Task<IEnumerable<TouristRoute>> GetRouristRoutesAsync(string key, string operatorType, int? ratingValue);
+		Task<TouristRoute> GetTouristRouteAsync(Guid touristRouteId);
+    Task<IEnumerable<TouristRoute>> GetTouristRoutesByIDListAsync(IEnumerable<Guid> ids);
+    Task<bool> TouristRouteExistsAsync(Guid touristRouteId);
+		Task<IEnumerable<TouristRoutePicture>> GetPicturesByTouristRouteIdAsync(Guid touristRouteId);
+		Task<TouristRoutePicture> GetPictureAsync(int pictureId);
+    void AddTouristRoute(TouristRoute touristRoute);
+    void AddTouristRoutePicture(Guid touristRouteId, TouristRoutePicture touristRoutePicture);
+    void DeleteTouristRoute(TouristRoute touristRoute);
+    void DeleteTouristRoutes(IEnumerable<TouristRoute> touristRoutes);
+    void DeleteTouristRoutePicture(TouristRoutePicture picture);
+    Task<bool> SaveAsync();
 	}
 }

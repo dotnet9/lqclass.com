@@ -18,8 +18,8 @@ namespace LQClass.Api.Profiles
           opt => opt.MapFrom(src => src.OriginalPrice * (decimal)(src.DiscountPresent ?? 1))
           )
         .ForMember(
-          dest=>dest.TravelDays,
-          opt=>opt.MapFrom(src=>src.TravelDays.ToString())
+          dest => dest.TravelDays,
+          opt => opt.MapFrom(src => src.TravelDays.ToString())
         )
         .ForMember(
           dest => dest.TripType,
@@ -30,6 +30,13 @@ namespace LQClass.Api.Profiles
           opt => opt.MapFrom(src => src.DepartureCity.ToString())
         );
 
+      CreateMap<TouristRouteForCreationDto, TouristRoute>()
+        .ForMember(
+          dest => dest.Id,
+          opt => opt.MapFrom(src => Guid.NewGuid())
+        );
+
+      CreateMap<TouristRouteForUpdateDto, TouristRoute>().ReverseMap();
     }
   }
 }
