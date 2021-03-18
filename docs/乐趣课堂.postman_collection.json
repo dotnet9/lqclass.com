@@ -1,220 +1,109 @@
 {
 	"info": {
-		"_postman_id": "9c3c837a-540e-4526-b35e-d90d513cd164",
+		"_postman_id": "bfdf46aa-7ae7-4da9-b8f8-a44b81a8f3c6",
 		"name": "乐趣课堂",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "系统菜单",
-			"item": [
-				{
-					"name": "查询菜单",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJscWNsYXNzLmNvbSIsImV4cCI6MTYxMTA3MDk5OCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdCIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3QifQ._meBf__GcZZfzkYNar31EmiCrjdGlZPbFiw8ieI89iI",
-								"type": "text"
-							},
-							{
-								"key": "Accept-Language",
-								"value": "zh-CN",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\"SortInfo\":null,\"Page\":1,\"Limit\":50}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+			"name": "远程登录",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "userid",
+							"value": "lqclass.com",
+							"type": "text"
 						},
-						"url": {
-							"raw": "http://api.lqclass.com/api/_FrameworkMenu/Search",
-							"protocol": "http",
-							"host": [
-								"api",
-								"lqclass",
-								"com"
-							],
-							"path": [
-								"api",
-								"_FrameworkMenu",
-								"Search"
-							]
+						{
+							"key": "password",
+							"value": "lqclass.com",
+							"type": "text"
+						},
+						{
+							"key": "cookie",
+							"value": "true",
+							"type": "text"
 						}
-					},
-					"response": []
+					]
+				},
+				"url": {
+					"raw": "http://api.lqclass.com/api/_login/Login",
+					"protocol": "http",
+					"host": [
+						"api",
+						"lqclass",
+						"com"
+					],
+					"path": [
+						"api",
+						"_login",
+						"Login"
+					]
 				}
-			]
+			},
+			"response": []
 		},
 		{
-			"name": "账号",
-			"item": [
-				{
-					"name": "远程登录",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "userid",
-									"value": "lqclass.com",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "lqclass.com",
-									"type": "text"
-								},
-								{
-									"key": "cookie",
-									"value": "false",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "http://api.lqclass.com/api/_login/Login",
-							"protocol": "http",
-							"host": [
-								"api",
-								"lqclass",
-								"com"
-							],
-							"path": [
-								"api",
-								"_login",
-								"Login"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "本地登录",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": "http://api.lqclass.com/api/_login/Login",
-							"protocol": "http",
-							"host": [
-								"api",
-								"lqclass",
-								"com"
-							],
-							"path": [
-								"api",
-								"_login",
-								"Login"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Jwt登录",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"Account\": \"lqclass.com\",\r\n  \"Password\": \"lqclass.com\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://api.lqclass.com/api/_Account/LoginJwt",
-							"protocol": "http",
-							"host": [
-								"api",
-								"lqclass",
-								"com"
-							],
-							"path": [
-								"api",
-								"_Account",
-								"LoginJwt"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "查询旅游路线",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": ""
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "注册",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": ""
-						}
-					},
-					"response": []
+			"name": "本地登录",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://api.lqclass.com/api/_login/Login",
+					"protocol": "http",
+					"host": [
+						"api",
+						"lqclass",
+						"com"
+					],
+					"path": [
+						"api",
+						"_login",
+						"Login"
+					]
 				}
-			]
+			},
+			"response": []
 		},
 		{
-			"name": "日志",
-			"item": [
-				{
-					"name": "查询日志",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyMjc5NzBiYy05OTM4LTQzMTUtOTRiMy1kN2NlZTJmZGY3NDYiLCJuYW1lIjoi6K6_5a6iIiwiZXhwIjoxNjA5OTQxNjU5LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0IiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdCJ9.tEnuHjON9ByJ3zBR83smTEOXx65ts2vP1p1oX8boFNg",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\"Page\":1,\"Limit\":50}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://admin.lqclass.com/api/_actionlog/search",
-							"protocol": "http",
-							"host": [
-								"admin",
-								"lqclass",
-								"com"
-							],
-							"path": [
-								"api",
-								"_actionlog",
-								"search"
-							]
-						}
-					},
-					"response": []
-				}
-			]
+			"name": "注册用户",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "获得当前用户购物车",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "添加商品",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "获取所有路线",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
 		}
 	]
 }
