@@ -18,6 +18,7 @@
     </PackageReference>
     <PackageReference Include="stateless" Version="5.10.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.1" />
+    <PackageReference Include="System.Linq.Dynamic.Core" Version="1.2.8" />
   </ItemGroup>
 
 </Project>
