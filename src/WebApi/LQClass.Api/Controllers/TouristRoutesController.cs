@@ -53,6 +53,7 @@ namespace LQClass.Api.Controllers
 				ResourceUriType.PreviousPage => urlHelper.Link("GetTouristRoutesAsync",
 				  new
 				  {
+					  fields = parameters.Fields,
 					  orderBy = parameters.OrderBy,
 					  keyword = parameters.Key,
 					  rating = parameters.Rating,
@@ -62,6 +63,7 @@ namespace LQClass.Api.Controllers
 				ResourceUriType.NextPage => urlHelper.Link("GetTouristRoutesAsync",
 				  new
 				  {
+					  fields = parameters.Fields,
 					  orderBy = parameters.OrderBy,
 					  keyword = parameters.Key,
 					  rating = parameters.Rating,
@@ -71,6 +73,7 @@ namespace LQClass.Api.Controllers
 				_ => urlHelper.Link("GetTouristRoutesAsync",
 				  new
 				  {
+					  fields = parameters.Fields,
 					  orderBy = parameters.OrderBy,
 					  keyword = parameters.Key,
 					  rating = parameters.Rating,
@@ -80,7 +83,8 @@ namespace LQClass.Api.Controllers
 			};
 		}
 
-		// api/touristRoutes?key=传入的参数
+		// fields=id,title为数据塑形
+		// api/touristRoutes?key=传入的参数?fields=id,title
 		[HttpGet(Name = "GetTouristRoutesAsync")]
 		[Authorize(AuthenticationSchemes = "Bearer")]
 		[Authorize(Roles = "Admin")]
@@ -94,6 +98,12 @@ namespace LQClass.Api.Controllers
 				parameters.OrderBy))
 			{
 				return BadRequest("请输入正确的排序参数");
+			}
+
+			if(!propertyMappingService
+				.IsPropertiesExists<TouristRouteDto>(parameters.Fields))
+			{
+				return BadRequest("请输入正确的塑形参数");
 			}
 
 			var touristRoutesFromRepo = await touristRouteRepository
@@ -135,22 +145,34 @@ namespace LQClass.Api.Controllers
 			Response.Headers.Add("x-pagination",
 			  Newtonsoft.Json.JsonConvert.SerializeObject(pagenationMetadata));
 
-			return Ok(touristRoutesFromRepoDto);
+			// ShapeData数据塑形
+			return Ok(touristRoutesFromRepoDto.ShapeData(parameters.Fields));
 		}
 
-		// api/touristroutes/{touristRouteId}
+		// fields=id,title塑形字段
+		// api/touristroutes/{touristRouteId}?fields=id,title
 		[HttpGet("{touristRouteId}", Name = "GetRouristRouteById")]
 		[Authorize(AuthenticationSchemes = "Bearer")]
 		[Authorize(Roles = "Admin")]
-		public async Task<IActionResult> GetRouristRouteByIdAsync(Guid touristRouteId)
+		public async Task<IActionResult> GetRouristRouteByIdAsync(
+			Guid touristRouteId,
+			string fields)		// 塑形字段
 		{
 			var touristRouteFromRepo = await touristRouteRepository.GetTouristRouteAsync(touristRouteId);
 			if (touristRouteFromRepo == null)
 			{
 				return NotFound($"旅游路线{touristRouteId}找不到");
 			}
+
+
+			if (!propertyMappingService
+				.IsPropertiesExists<TouristRouteDto>(fields))
+			{
+				return BadRequest("请输入正确的塑形参数");
+			}
+
 			var touristRouteFromRepoDto = mapper.Map<TouristRouteDto>(touristRouteFromRepo);
-			return Ok(touristRouteFromRepoDto);
+			return Ok(touristRouteFromRepoDto.ShapeData(fields));
 		}
 
 		[HttpPost]

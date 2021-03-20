@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace LQClass.Api.Services
@@ -66,7 +67,39 @@ namespace LQClass.Api.Services
 				var propertyName = (indexOfFirstSpace == -1) ?
 					trimmedField : trimmedField.Remove(indexOfFirstSpace);
 
-				if(!propertyMapping.ContainsKey(propertyName))
+				if (!propertyMapping.ContainsKey(propertyName))
+				{
+					return false;
+				}
+			}
+
+			return true;
+		}
+
+		public bool IsPropertiesExists<T>(string fields)
+		{
+			if (string.IsNullOrWhiteSpace(fields))
+			{
+				return true;
+			}
+
+			// 逗号来分隔字符串
+			var fieldsAfterSplit = fields.Split(',');
+
+			foreach (var field in fieldsAfterSplit)
+			{
+				// 获得属性名称字符串
+				var propertyName = fields.Trim();
+
+				var propertyInfo = typeof(T)
+					.GetProperty(
+						propertyName,
+						BindingFlags.IgnoreCase | BindingFlags.Public
+							| BindingFlags.Instance
+					);
+
+				// 如果T中没找到对应的属性
+				if(propertyInfo==null)
 				{
 					return false;
 				}

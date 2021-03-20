@@ -37,5 +37,7 @@ namespace LQClass.Api.ResourceParameters
 				_rating = value;
 			}
 		}
+
+		public string Fields { get; set; }
 	}
 }
