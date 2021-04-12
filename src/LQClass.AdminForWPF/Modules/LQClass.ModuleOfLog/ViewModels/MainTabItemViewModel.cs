@@ -5,6 +5,10 @@ using LQClass.ModuleOfLog.DTOs;
 using LQClass.ModuleOfLog.Models;
 using Newtonsoft.Json;
 using Prism.Commands;
+using Prism.Events;
+using Prism.Modularity;
+using Prism.Regions;
+using Prism.Services.Dialogs;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -18,7 +22,12 @@ namespace LQClass.ModuleOfLog.ViewModels
 {
 	public class MainTabItemViewModel : ViewModelBase
 	{
-		public MainTabItemViewModel(MainTabItemModel mainTabItemModel)
+		public MainTabItemViewModel(
+			MainTabItemModel mainTabItemModel,
+			IRegionManager regionManager,
+			IModuleManager moduleManager,
+			IDialogService dialogService,
+			IEventAggregator eventAggregator) : base(regionManager, moduleManager, dialogService, eventAggregator)
 		{
 			this.mainTabItemModel = mainTabItemModel;
 			Header = I18nManager.Instance.Get(I18nResources.Language.MainTabItemView_Header).ToString();
@@ -102,6 +111,14 @@ namespace LQClass.ModuleOfLog.ViewModels
 		/// </summary>
 		public ICommand RaiseSearchCommand =>
 		  _raiseSearchCommand ?? (_raiseSearchCommand = new DelegateCommand(async () => await RaiseSearchHandler()));
+
+		private ICommand _raiseAddCommand;
+		/// <summary>
+		/// 添加命令
+		/// </summary>
+		public ICommand RaiseAddCommand =>
+		  _raiseAddCommand ?? (_raiseAddCommand = new DelegateCommand(async () => await RaiseAddHandler()));
+
 		private ICommand _RaisePageUpdatedCommand;
 		/// <summary>
 		/// 查询命令
@@ -127,6 +144,15 @@ namespace LQClass.ModuleOfLog.ViewModels
 		{
 			PageIndex = 1;
 			await SearchData();
+		}
+
+		/// <summary>
+		/// 添加
+		/// </summary>
+		/// <returns></returns>
+		private async Task RaiseAddHandler()
+		{
+
 		}
 
 		/// <summary>

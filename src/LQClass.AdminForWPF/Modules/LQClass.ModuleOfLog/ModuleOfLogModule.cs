@@ -31,6 +31,8 @@ namespace LQClass.ModuleOfLog
 		{
 			containerRegistry.RegisterForNavigation<MainTabItemView, MainTabItemViewModel>(KEY_OF_CURRENT_MODULE);
 			containerRegistry.RegisterSingleton<MainTabItemModel>();
+
+			containerRegistry.RegisterDialog<AddView, AddViewModel>("AddLogView");
 		}
 	}
 }

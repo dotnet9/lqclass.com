@@ -140,14 +140,14 @@
             CornerRadius="4"
             Effect="{StaticResource EffectShadow2}">
             <StackPanel Orientation="Horizontal">
-                <StackPanel Margin="10"  Button.Click="ButtonLangs_OnClick">
+                <StackPanel Margin="10" Button.Click="ButtonLangs_OnClick">
                     <Button Style="{StaticResource ButtonCustom}" Tag="zh-cn">
                         <Image Width="32" Source="/LQClass.AdminForWPF;component/Images/Flag/cn.png" />
                     </Button>
                     <Button
-                            Margin="0,10,0,0"
-                            Style="{StaticResource ButtonCustom}"
-                            Tag="en">
+                        Margin="0,10,0,0"
+                        Style="{StaticResource ButtonCustom}"
+                        Tag="en">
                         <Image Width="32" Source="/LQClass.AdminForWPF;component/Images/Flag/en.png" />
                     </Button>
                 </StackPanel>

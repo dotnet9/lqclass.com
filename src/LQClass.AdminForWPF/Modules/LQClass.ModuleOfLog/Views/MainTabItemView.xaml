@@ -76,6 +76,13 @@
                     Command="{Binding RaiseSearchCommand, Mode=OneTime}"
                     Content="{markup:I18n {x:Static i18NResources:Language.Search}}"
                     Style="{StaticResource ButtonPrimary}" />
+
+                <Button
+                    Margin="10,15,10,0" 
+                    Style="{StaticResource ButtonSuccess}"
+                    Command="{Binding RaiseShowDialogCommand}"
+                    CommandParameter="AddLogView"
+                    Content="{markup:I18n {x:Static i18NResources:Language.Add}}"/>
                 <Button
                     Margin="10,15,10,0"
                     hc:IconElement.Geometry="{StaticResource DeleteGeometry}"

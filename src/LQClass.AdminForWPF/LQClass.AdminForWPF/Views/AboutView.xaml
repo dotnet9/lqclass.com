@@ -12,7 +12,7 @@
     <UserControl.Resources />
     <Border Background="White" CornerRadius="10">
         <Border Background="{DynamicResource QqDrawingBrush}" CornerRadius="10">
-            <Grid Margin="5 5 5 15">
+            <Grid Margin="5,5,5,15">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="*" />
@@ -20,7 +20,7 @@
 
                 <StackPanel>
                     <DockPanel>
-                        <TextBlock Text="{markup:I18n {x:Static i18NResources:Language.About}}" FontSize="16"/>
+                        <TextBlock FontSize="16" Text="{markup:I18n {x:Static i18NResources:Language.About}}" />
                         <Button
                             HorizontalAlignment="Right"
                             VerticalAlignment="Top"
@@ -46,11 +46,16 @@
                         Foreground="{StaticResource PrimaryBrush}"
                         Text="v 1.0.0 NET 50" />
                 </StackPanel>
-                <TextBlock FontSize="16" Foreground="#333333" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Center">
-                        <Run Text="Copyright © 2020-2021 " Foreground="{StaticResource ThirdlyTextBrush}"/>
-                        <Hyperlink Command="hc:ControlCommands.OpenLink" CommandParameter="http://lqclass.com">
-                            <Run Text="LQClass.com" Foreground="{StaticResource ThirdlyTextBrush}"/>
-                        </Hyperlink>
+                <TextBlock
+                    Grid.Row="1"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    FontSize="16"
+                    Foreground="#333333">
+                    <Run Foreground="{StaticResource ThirdlyTextBrush}" Text="Copyright © 2020-2021 " />
+                    <Hyperlink Command="hc:ControlCommands.OpenLink" CommandParameter="http://lqclass.com">
+                        <Run Foreground="{StaticResource ThirdlyTextBrush}" Text="LQClass.com" />
+                    </Hyperlink>
                 </TextBlock>
             </Grid>
         </Border>

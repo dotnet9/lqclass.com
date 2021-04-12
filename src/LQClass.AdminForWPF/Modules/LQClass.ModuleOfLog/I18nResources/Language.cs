@@ -32,5 +32,8 @@ namespace LQClass.ModuleOfLog.I18nResources
 		public static readonly ComponentResourceKey Duration = new ComponentResourceKey(typeof(UiResource), nameof(Duration));
 		public static readonly ComponentResourceKey Remark = new ComponentResourceKey(typeof(UiResource), nameof(Remark));
 		public static readonly ComponentResourceKey Action = new ComponentResourceKey(typeof(UiResource), nameof(Action));
+		public static readonly ComponentResourceKey Add = new ComponentResourceKey(typeof(UiResource), nameof(Add));
+		public static readonly ComponentResourceKey Save = new ComponentResourceKey(typeof(UiResource), nameof(Save));
+		public static readonly ComponentResourceKey Cancel = new ComponentResourceKey(typeof(UiResource), nameof(Cancel));
 	}
 }

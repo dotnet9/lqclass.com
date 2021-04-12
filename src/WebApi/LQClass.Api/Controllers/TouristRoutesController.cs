@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.Routing;
+using Microsoft.AspNetCore.Routing;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -100,7 +101,7 @@ namespace LQClass.Api.Controllers
 				return BadRequest("请输入正确的排序参数");
 			}
 
-			if(!propertyMappingService
+			if (!propertyMappingService
 				.IsPropertiesExists<TouristRouteDto>(parameters.Fields))
 			{
 				return BadRequest("请输入正确的塑形参数");
@@ -156,7 +157,7 @@ namespace LQClass.Api.Controllers
 		[Authorize(Roles = "Admin")]
 		public async Task<IActionResult> GetRouristRouteByIdAsync(
 			Guid touristRouteId,
-			string fields)		// 塑形字段
+			string fields)      // 塑形字段
 		{
 			var touristRouteFromRepo = await touristRouteRepository.GetTouristRouteAsync(touristRouteId);
 			if (touristRouteFromRepo == null)
@@ -172,7 +173,60 @@ namespace LQClass.Api.Controllers
 			}
 
 			var touristRouteFromRepoDto = mapper.Map<TouristRouteDto>(touristRouteFromRepo);
-			return Ok(touristRouteFromRepoDto.ShapeData(fields));
+			//return Ok(touristRouteFromRepoDto.ShapeData(fields));
+
+			var linkDtos = CreateLinkForTouristRoute(touristRouteId, fields);
+
+			var result = touristRouteFromRepoDto.ShapeData(fields)
+				as IDictionary<string, object>;
+			result.Add("links", linkDtos);
+
+			return Ok(result);
+		}
+
+		private IEnumerable<LinkDto> CreateLinkForTouristRoute(
+				Guid touristRouteId,
+				string fields
+			)
+		{
+			var links = new List<LinkDto>();
+
+			links.Add(
+				new LinkDto(
+					Url.Link("GetTouristRouteByIdAsync", new { touristRouteId, fields }),
+					"self",
+					"GET"
+					)
+				);
+
+			// 更新
+			links.Add(
+				new LinkDto(
+					Url.Link("UpdateTouristRouteAsync", new { touristRouteId }),
+					"update",
+					"PUT"
+					)
+				);
+
+			// 局部更新
+			links.Add(
+				new LinkDto(
+					Url.Link("PartiallyUpdateTouristRouteAsync", new { touristRouteId }),
+					"partially_update",
+					"PATCH"
+					)
+				);
+
+			// 删除
+			links.Add(
+				new LinkDto(
+					Url.Link("DeleteTouristRouteAsync", new { touristRouteId }),
+					"delete",
+					"DELETE"
+					)
+				);
+
+			return links;
 		}
 
 		[HttpPost]
@@ -185,14 +239,21 @@ namespace LQClass.Api.Controllers
 			await touristRouteRepository.SaveAsync();
 			var touristRouteToReturn = mapper.Map<TouristRouteDto>(touristRouteModel);
 
+			var links = CreateLinkForTouristRoute(touristRouteModel.Id, null);
+
+			var result = touristRouteToReturn.ShapeData(null)
+				as IDictionary<string, object>;
+
+			result.Add("links", links);
+
 			return CreatedAtRoute(
 			  "GetRouristRouteById"
 			  , new { touristRouteId = touristRouteToReturn.Id },
-			  touristRouteToReturn
+			  result
 			  );
 		}
 
-		[HttpPut("{touristRouteId}")]
+		[HttpPut("{touristRouteId}", Name = "UpdateTouristRouteAsync")]
 		[Authorize(AuthenticationSchemes = "Bearer")]
 		[Authorize(Roles = "Admin")]
 		public async Task<IActionResult> UpdateTouristRouteAsync(
@@ -213,7 +274,7 @@ namespace LQClass.Api.Controllers
 			return NoContent();
 		}
 
-		[HttpPatch("{touristRouteId}")]
+		[HttpPatch("{touristRouteId}", Name = "PartiallyUpdateTouristRouteAsync")]
 		[Authorize(AuthenticationSchemes = "Bearer")]
 		[Authorize(Roles = "Admin")]
 		public async Task<IActionResult> PartiallyUpdateTouristRouteAsync(
@@ -240,7 +301,7 @@ namespace LQClass.Api.Controllers
 			return NoContent();
 		}
 
-		[HttpDelete("{touristRouteId}")]
+		[HttpDelete("{touristRouteId}", Name = "DeleteTouristRouteAsync")]
 		[Authorize(AuthenticationSchemes = "Bearer")]
 		[Authorize(Roles = "Admin")]
 		public async Task<IActionResult> DeleteTouristRouteAsync([FromRoute] Guid touristRouteId)
