@@ -5,7 +5,7 @@ export const HeaderWrapper = styled.div`
     position: relative;
     height: 56px;
     border-bottom: 1px solid #f0f0f0;
-`
+`;
 
 export const Logo = styled.a`
     position: absolute;
@@ -16,7 +16,7 @@ export const Logo = styled.a`
     height: 56px;
     background: url(${logoPic});
     background-size: contain;
-`
+`;
 
 export const Nav = styled.div`
     width: 960px;
@@ -24,7 +24,7 @@ export const Nav = styled.div`
     margin: 0 auto;
     padding-right: 70px;
     box-sizing: border-box;
-`
+`;
 
 export const NavItem = styled.div`
     line-height: 56px;
@@ -41,7 +41,7 @@ export const NavItem = styled.div`
     &.active {
         color: #ea6f51;
     }
-`
+`;
 
 export const SearchWrapper = styled.div`
     position: relative;
@@ -59,7 +59,7 @@ export const SearchWrapper = styled.div`
             color: #fff;
         }
     }
-`
+`;
 
 export const NavSearch = styled.input.attrs({
     placeholder: '搜索'
@@ -93,7 +93,7 @@ export const NavSearch = styled.input.attrs({
     &.slide-exit-active {
         width: 160px;
     }
-`
+`;
 
 export const SearchInfo = styled.div`
     position: absolute;
@@ -102,7 +102,8 @@ export const SearchInfo = styled.div`
     width: 240px;
     padding: 0 20px;
     box-shadow: 0 0 8px rgba(0,0,0,.2);
-`
+    background: #fff;
+`;
 
 export const SearchInfoTitle = styled.div`
     margin-top: 20px;
@@ -110,7 +111,7 @@ export const SearchInfoTitle = styled.div`
     line-height: 20px;
     font-size: 14px;
     color: #969696;
-`
+`;
 
 export const SearchInfoSwitch = styled.span`
     float: right;
@@ -124,11 +125,11 @@ export const SearchInfoSwitch = styled.span`
         transition: all .2s ease-in;
         transform-origin: center center;
     }
-`
+`;
 
 export const SearchInfoList = styled.div`
     overflow: hidden;
-`
+`;
 
 export const SearchInfoItem = styled.a`
     display: block;
@@ -141,14 +142,14 @@ export const SearchInfoItem = styled.a`
     border: 1px solid #ddd;
     color: #787878;
     border-radius: 3px;
-`
+`;
 
 export const Addition = styled.div`
     position: absolute;
     right: 0;
     top: 0;
     height: 56px;
-`
+`;
 
 export const Button = styled.div`
     float: right;
@@ -166,4 +167,4 @@ export const Button = styled.div`
         color: #fff;
         background: #ec6149;
     }
-`
+`;
