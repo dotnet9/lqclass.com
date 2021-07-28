@@ -1,11 +1,11 @@
 {
   "runtimeTarget": {
-    "name": ".NETCoreApp,Version=v5.0",
+    "name": ".NETCoreApp,Version=v6.0",
     "signature": ""
   },
   "compilationOptions": {},
   "targets": {
-    ".NETCoreApp,Version=v5.0": {
+    ".NETCoreApp,Version=v6.0": {
       "LQClass.ModuleOfGroupManagement/1.0.0": {
         "dependencies": {
           "HandyControl": "3.1.0",
@@ -136,10 +136,7 @@
       },
       "WpfExtensions.Xaml/1.2.0": {
         "runtime": {
-          "lib/netcoreapp3.0/WpfExtensions.Xaml.dll": {
-            "assemblyVersion": "1.2.0.0",
-            "fileVersion": "1.2.0.0"
-          }
+          "WpfExtensions.Xaml.dll": {}
         }
       }
     }
@@ -221,11 +218,9 @@
       "hashPath": "unity.container.5.11.8.nupkg.sha512"
     },
     "WpfExtensions.Xaml/1.2.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-LG/XojiEIfG4r2QQMMIH2zFJQekM9IcxBS1gecJ8ergNyENKaJUa1JIwxWwzZhpKPa31wOaWbkf2a/dUHBaqZg==",
-      "path": "wpfextensions.xaml/1.2.0",
-      "hashPath": "wpfextensions.xaml.1.2.0.nupkg.sha512"
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30804.86
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31512.422
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LQClass.AdminForWPF", "LQClass.AdminForWPF\LQClass.AdminForWPF.csproj", "{34293A3B-540B-4AD0-A49F-B325EF6C0F50}"
 EndProject
@@ -28,6 +28,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LQClass.AdminForWPF.ICommonService", "LQClass.AdminForWPF.ICommonService\LQClass.AdminForWPF.ICommonService.csproj", "{E8C8229A-F6AE-44FD-93F2-DEB2F7076977}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LQClass.AdminForWPF.CommonService", "LQClass.AdminForWPF.CommonService\LQClass.AdminForWPF.CommonService.csproj", "{1C1FBDE4-98F7-4CB7-92D0-875FBC891634}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfExtensions.Xaml", "WpfExtensions.Xaml\WpfExtensions.Xaml.csproj", "{5CD33034-BC3A-4F35-908C-7F50115C9A1F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -83,6 +85,10 @@ Global
 		{1C1FBDE4-98F7-4CB7-92D0-875FBC891634}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C1FBDE4-98F7-4CB7-92D0-875FBC891634}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C1FBDE4-98F7-4CB7-92D0-875FBC891634}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CD33034-BC3A-4F35-908C-7F50115C9A1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CD33034-BC3A-4F35-908C-7F50115C9A1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CD33034-BC3A-4F35-908C-7F50115C9A1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CD33034-BC3A-4F35-908C-7F50115C9A1F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

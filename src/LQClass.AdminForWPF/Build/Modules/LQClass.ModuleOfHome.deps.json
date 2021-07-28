@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "LQClass.ModuleOfRoleManagement/1.0.0": {
+      "LQClass.ModuleOfHome/1.0.0": {
         "dependencies": {
           "HandyControl": "3.1.0",
           "LQClass.AdminForWPF.Infrastructure": "1.0.0",
@@ -16,10 +16,10 @@
           "WpfExtensions.Xaml": "1.2.0"
         },
         "runtime": {
-          "LQClass.ModuleOfRoleManagement.dll": {}
+          "LQClass.ModuleOfHome.dll": {}
         },
         "resources": {
-          "zh-CN/LQClass.ModuleOfRoleManagement.resources.dll": {
+          "zh-CN/LQClass.ModuleOfHome.resources.dll": {
             "locale": "zh-CN"
           }
         }
@@ -134,6 +134,17 @@
           }
         }
       },
+      "LQClass.CustomControls/1.0.0": {
+        "dependencies": {
+          "HandyControl": "3.1.0",
+          "Microsoft.Xaml.Behaviors.Wpf": "1.1.31",
+          "Prism.Core": "8.0.0.1909",
+          "Prism.Wpf": "8.0.0.1909"
+        },
+        "runtime": {
+          "LQClass.CustomControls.dll": {}
+        }
+      },
       "WpfExtensions.Xaml/1.2.0": {
         "runtime": {
           "WpfExtensions.Xaml.dll": {}
@@ -142,7 +153,7 @@
     }
   },
   "libraries": {
-    "LQClass.ModuleOfRoleManagement/1.0.0": {
+    "LQClass.ModuleOfHome/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -216,6 +227,11 @@
       "sha512": "sha512-iZeix/165OP+EN7oN5UaVHIEi4Aya3jhBUo3TVReWDcyp8iYBExT19Drp5Q5rf56Hpcf+tN86tZW0B378NhwZQ==",
       "path": "unity.container/5.11.8",
       "hashPath": "unity.container.5.11.8.nupkg.sha512"
+    },
+    "LQClass.CustomControls/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "WpfExtensions.Xaml/1.2.0": {
       "type": "project",

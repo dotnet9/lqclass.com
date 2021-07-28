@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<AppendTargetFrameworkToOutputPath>Flase</AppendTargetFrameworkToOutputPath>
-		<TargetFramework>net5.0-windows</TargetFramework>
+		<TargetFramework>net6.0-windows7.0</TargetFramework>
 		<UseWPF>true</UseWPF>
 		<AssemblyName>LQClass.ModuleOfMenuManagement</AssemblyName>
 	</PropertyGroup>
@@ -15,7 +15,6 @@
 		<PackageReference Include="HandyControl" Version="3.1.0" />
 		<PackageReference Include="Prism.Unity" Version="8.0.0.1909" />
 		<PackageReference Include="Prism.Wpf" Version="8.0.0.1909" />
-		<PackageReference Include="WpfExtensions.Xaml" Version="1.2.0" />
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\..\LQClass.AdminForWPF.Infrastructure\LQClass.AdminForWPF.Infrastructure.csproj">
@@ -24,6 +23,7 @@
 		<ProjectReference Include="..\..\LQClass.CustomControls\LQClass.CustomControls.csproj">
 		  <Private>false</Private>
 		</ProjectReference>
+		<ProjectReference Include="..\..\WpfExtensions.Xaml\WpfExtensions.Xaml.csproj" />
 	</ItemGroup>
 	<ItemGroup>
 		<Compile Update="I18nResources\Language.cs">
