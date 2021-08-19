@@ -16,8 +16,8 @@ namespace LQClass.AdminForWPF.Views
 			var vm = this.DataContext as LoginViewModel;
 			//LoginViewModel.Snackbar = this.messageTips;
 			vm.LoginComplete += ((result) => DialogResult = result);
-			vm.PasswordBox = this.passwordBox;
-			this.passwordBox.Password = vm.Password;
+			//vm.PasswordBox = this.passwordBox;
+			//this.passwordBox.Password = vm.Password;
 		}
 
 		private void MoveWindow_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)

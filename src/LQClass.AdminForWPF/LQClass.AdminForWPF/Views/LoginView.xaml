@@ -8,6 +8,10 @@
     xmlns:markup="clr-namespace:WpfExtensions.Xaml.Markup;assembly=WpfExtensions.Xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prism="http://prismlibrary.com/"
+    xmlns:local="clr-namespace:LQClass.AdminForWPF.Helper"
+       xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+    xmlns:i="clr-namespace:Microsoft.VisualBasic;assembly=Microsoft.VisualBasic.Core"
     x:Name="win"
     Title="{markup:I18n {x:Static i18NResources:Language.App_Title}}"
     Width="900"
@@ -92,17 +96,35 @@
                         FontSize="14"
                         ShowClearButton="True"
                         Text="{Binding UserName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-
-                    <hc:PasswordBox
+             
+                    <!--<hc:PasswordBox
                         x:Name="passwordBox"
                         Grid.Row="2"
                         Grid.Column="1"
+                        Password="{Binding Password}"
+            
                         VerticalAlignment="Center"
                         hc:InfoElement.Placeholder="{markup:I18n {x:Static i18NResources:Language.LoginView_PasswordInputToolTip}}"
                         hc:InfoElement.Title="{markup:I18n {x:Static i18NResources:Language.LoginView_PasswordLblTitle}}"
                         FontSize="14"
-                        ShowClearButton="True" />
-
+                        ShowClearButton="True" >
+               
+                    </hc:PasswordBox>-->
+                    <PasswordBox
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        x:Name="passwordBox"
+                        VerticalAlignment="Center"
+                       
+                        local:PasswordBoxHelper.Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        FontSize="14"
+                        BorderBrush="Black"
+                        Foreground="Black"
+                        IsEnabled="{Binding IsLoginBtnEnable}">
+                        <b:Interaction.Behaviors>
+                            <local:PasswordBoxBehavior />
+                        </b:Interaction.Behaviors>
+                    </PasswordBox>
                     <StackPanel
                         Grid.Row="3"
                         Grid.ColumnSpan="2"

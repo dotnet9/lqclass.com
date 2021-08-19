@@ -7,6 +7,7 @@ using LQClass.AdminForWPF.Infrastructure.Models;
 using LQClass.AdminForWPF.Infrastructure.Mvvm;
 using LQClass.AdminForWPF.Infrastructure.Tools;
 using LQClass.AdminForWPF.Models;
+
 using Newtonsoft.Json;
 using Prism.Commands;
 using Prism.Regions;
@@ -14,6 +15,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace LQClass.AdminForWPF.ViewModels
@@ -105,10 +107,7 @@ namespace LQClass.AdminForWPF.ViewModels
 				this.SetProperty(ref _IsBusy, value);
 			}
 		}
-		/// <summary>
-		/// 密码框
-		/// </summary>
-		public PasswordBox PasswordBox { get; set; }
+
 
 		/// <summary>
 		/// 超链接列表
@@ -191,7 +190,7 @@ namespace LQClass.AdminForWPF.ViewModels
 				IsIndeterminate = true;
 
 				// 使用cookie的方式登录，动态获取菜单信息
-				Password = (this.PasswordBox == null ? Password : this.PasswordBox.Password);
+				//Password = (this.PasswordBox == null ? Password : this.PasswordBox.Password);
 				var response = await _loginModel.Login(UserName, Password);
 				if (response.IsSuccessful)
 				{
@@ -269,4 +268,7 @@ namespace LQClass.AdminForWPF.ViewModels
 
 		#endregion
 	}
+
+
+
 }
