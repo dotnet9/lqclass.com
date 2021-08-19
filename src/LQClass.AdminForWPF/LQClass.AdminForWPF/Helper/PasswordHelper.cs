@@ -36,6 +36,10 @@ namespace LQClass.AdminForWPF.Helper
 		}
 	}
 
+
+	/// <summary>
+	///  绑定密码更改事件将值传给PasswordBoxHelper的Password属性
+	/// </summary>
 	public class PasswordBoxBehavior : Behavior<PasswordBox>
 	{
 		protected override void OnAttached()
