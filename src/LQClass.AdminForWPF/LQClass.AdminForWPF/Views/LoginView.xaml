@@ -9,9 +9,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prism="http://prismlibrary.com/"
     xmlns:local="clr-namespace:LQClass.AdminForWPF.Helper"
-       xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
-     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
-    xmlns:i="clr-namespace:Microsoft.VisualBasic;assembly=Microsoft.VisualBasic.Core"
+    xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
     x:Name="win"
     Title="{markup:I18n {x:Static i18NResources:Language.App_Title}}"
     Width="900"
@@ -96,7 +94,7 @@
                         FontSize="14"
                         ShowClearButton="True"
                         Text="{Binding UserName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-             
+
                     <!--<hc:PasswordBox
                         x:Name="passwordBox"
                         Grid.Row="2"
@@ -115,7 +113,7 @@
                         Grid.Column="1"
                         x:Name="passwordBox"
                         VerticalAlignment="Center"
-                       
+
                         local:PasswordBoxHelper.Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                         FontSize="14"
                         BorderBrush="Black"

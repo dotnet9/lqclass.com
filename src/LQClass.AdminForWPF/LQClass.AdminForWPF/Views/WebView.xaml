@@ -3,7 +3,6 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:cuscontrol="clr-namespace:LQClass.CustomControls.Controls;assembly=LQClass.CustomControls"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:hc="https://handyorg.github.io/handycontrol"
     xmlns:i18NResources="clr-namespace:LQClass.AdminForWPF.I18nResources"
     xmlns:markup="clr-namespace:WpfExtensions.Xaml.Markup;assembly=WpfExtensions.Xaml"
@@ -13,10 +12,10 @@
     prism:ViewModelLocator.AutoWireViewModel="True">
     <Border Background="White" CornerRadius="10">
         <hc:Watermark
-                FontSize="80"
-                FontWeight="Bold"
-                Mark="Website"
-                MarkMargin="30,0">
+            FontSize="80"
+            FontWeight="Bold"
+            Mark="Website"
+            MarkMargin="30,0">
 
             <Grid Margin="5,5,5,15">
                 <Grid.RowDefinitions>
@@ -28,28 +27,28 @@
                     <DockPanel>
                         <TextBlock FontSize="16" Text="{markup:I18n {x:Static i18NResources:Language.Website}}" />
                         <Button
-                                HorizontalAlignment="Right"
-                                VerticalAlignment="Top"
-                                Command="{Binding CloseDialogCommand}"
-                                CommandParameter="true"
-                                Content="X"
-                                DockPanel.Dock="Right"
-                                Style="{DynamicResource CloseButtonStyle}" />
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Top"
+                            Command="{Binding CloseDialogCommand}"
+                            CommandParameter="true"
+                            Content="X"
+                            DockPanel.Dock="Right"
+                            Style="{DynamicResource CloseButtonStyle}" />
                     </DockPanel>
                 </StackPanel>
 
                 <ListBox
-                        Grid.Row="1"
-                        Background="Transparent"
-                        BorderThickness="0"
-                        ItemContainerStyle="{StaticResource ListBoxItemCustom}"
-                        ItemsSource="{Binding ListDatas}">
+                    Grid.Row="1"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    ItemContainerStyle="{StaticResource ListBoxItemCustom}"
+                    ItemsSource="{Binding ListDatas}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <cuscontrol:Avatar
-                                    DisplayName="{Binding DisplayName}"
-                                    Link="{Binding Link}"
-                                    Source="{Binding AvatarUri}" />
+                                DisplayName="{Binding DisplayName}"
+                                Link="{Binding Link}"
+                                Source="{Binding AvatarUri}" />
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>

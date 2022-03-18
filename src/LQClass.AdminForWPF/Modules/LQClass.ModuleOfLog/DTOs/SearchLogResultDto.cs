@@ -1,19 +1,18 @@
 ﻿using System.Collections.Generic;
 
-namespace LQClass.ModuleOfLog.DTOs
+namespace LQClass.ModuleOfLog.DTOs;
+
+public class SearchLogResultDto
 {
-	public class SearchLogResultDto
-	{
-		public List<LogDto> Data;
+    public List<LogDto> Data;
 
-		public int Count { get; set; }
+    public int Count { get; set; }
 
-		public int Page { get; set; }
+    public int Page { get; set; }
 
-		public int PageCount { get; set; }
+    public int PageCount { get; set; }
 
-		public string Msg { get; set; }
+    public string Msg { get; set; }
 
-		public int Code { get; set; }
-	}
+    public int Code { get; set; }
 }

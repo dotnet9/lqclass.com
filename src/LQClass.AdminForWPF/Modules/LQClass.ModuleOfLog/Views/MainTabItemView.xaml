@@ -78,11 +78,11 @@
                     Style="{StaticResource ButtonPrimary}" />
 
                 <Button
-                    Margin="10,15,10,0" 
+                    Margin="10,15,10,0"
                     Style="{StaticResource ButtonSuccess}"
                     Command="{Binding RaiseShowDialogCommand}"
                     CommandParameter="AddLogView"
-                    Content="{markup:I18n {x:Static i18NResources:Language.Add}}"/>
+                    Content="{markup:I18n {x:Static i18NResources:Language.Add}}" />
                 <Button
                     Margin="10,15,10,0"
                     hc:IconElement.Geometry="{StaticResource DeleteGeometry}"
@@ -118,11 +118,13 @@
                 RowHeaderWidth="40">
                 <DataGrid.RowHeaderTemplate>
                     <DataTemplate>
-                        <CheckBox IsChecked="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=DataGridRow}}" />
+                        <CheckBox
+                            IsChecked="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=DataGridRow}}" />
                     </DataTemplate>
                 </DataGrid.RowHeaderTemplate>
                 <DataGrid.Columns>
-                    <DataGridTemplateColumn Width="100" Header="{markup:I18n {x:Static i18NResources:Language.LogType}}">
+                    <DataGridTemplateColumn Width="100"
+                                            Header="{markup:I18n {x:Static i18NResources:Language.LogType}}">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock
@@ -169,7 +171,7 @@
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
                                     <Button
-                                        Margin="0,0,10,0" 
+                                        Margin="0,0,10,0"
                                         hc:IconElement.Geometry="{StaticResource SearchGeometry}"
                                         Command="{Binding RaiseSearchCommand, Mode=OneTime}"
                                         Content="{markup:I18n {x:Static i18NResources:Language.Search}}"

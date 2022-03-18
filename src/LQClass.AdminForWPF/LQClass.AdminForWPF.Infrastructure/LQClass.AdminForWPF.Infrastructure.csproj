@@ -1,27 +1,27 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-	  <AppendTargetFrameworkToOutputPath>Flase</AppendTargetFrameworkToOutputPath>
-	  <TargetFramework>net6.0-windows7.0</TargetFramework>
-  </PropertyGroup>
+	<PropertyGroup>
+		<AppendTargetFrameworkToOutputPath>Flase</AppendTargetFrameworkToOutputPath>
+		<TargetFramework>net6.0-windows7.0</TargetFramework>
+	</PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputPath>.\..\Build\</OutputPath>
-  </PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<OutputPath>.\..\Build\</OutputPath>
+	</PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <OutputPath>.\..\Build\</OutputPath>
-  </PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<OutputPath>.\..\Build\</OutputPath>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="HandyControl" Version="3.1.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="Prism.Core" Version="8.0.0.1909" />
-    <PackageReference Include="Prism.Wpf" Version="8.0.0.1909" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="HandyControl" Version="3.1.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+		<PackageReference Include="Prism.Core" Version="8.0.0.1909" />
+		<PackageReference Include="Prism.Wpf" Version="8.0.0.1909" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\WpfExtensions.Xaml\WpfExtensions.Xaml.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\WpfExtensions.Xaml\WpfExtensions.Xaml.csproj" />
+	</ItemGroup>
 
 </Project>

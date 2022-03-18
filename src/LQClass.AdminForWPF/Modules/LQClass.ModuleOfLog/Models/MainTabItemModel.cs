@@ -1,31 +1,30 @@
-﻿using LQClass.AdminForWPF.Infrastructure.Configs;
+﻿using System.Threading.Tasks;
+using LQClass.AdminForWPF.Infrastructure.Configs;
 using LQClass.AdminForWPF.Infrastructure.Models;
 using LQClass.ModuleOfLog.DTOs;
 using Newtonsoft.Json;
 using RestSharp;
-using System.Threading.Tasks;
 
-namespace LQClass.ModuleOfLog.Models
+namespace LQClass.ModuleOfLog.Models;
+
+public class MainTabItemModel
 {
-	public class MainTabItemModel
-	{
-		/// <summary>
-		/// 查询日志
-		/// </summary>
-		/// <returns></returns>
-		public async Task<IRestResponse> Search(ActionLogSearcherDto actionLogSearcherDto)
-		{
-			var searchStr = JsonConvert.SerializeObject(actionLogSearcherDto);
+    /// <summary>
+    ///     查询日志
+    /// </summary>
+    /// <returns></returns>
+    public async Task<IRestResponse> Search(ActionLogSearcherDto actionLogSearcherDto)
+    {
+        var searchStr = JsonConvert.SerializeObject(actionLogSearcherDto);
 
-			var client = new RestClient($"{AppSettingsHelper.API}_actionlog/search");
-			client.Timeout = -1;
-			var request = new RestRequest(Method.POST);
-			request.AddHeader("Authorization", $"Bearer {LoginJwtResultDto.Instance.AccessToken}");
-			request.AddHeader("Content-Type", "application/json");
-			request.AddParameter("application/json", searchStr, ParameterType.RequestBody);
-			IRestResponse response = await client.ExecuteAsync(request);
+        var client = new RestClient($"{AppSettingsHelper.API}_actionlog/search");
+        client.Timeout = -1;
+        var request = new RestRequest(Method.POST);
+        request.AddHeader("Authorization", $"Bearer {LoginJwtResultDto.Instance.AccessToken}");
+        request.AddHeader("Content-Type", "application/json");
+        request.AddParameter("application/json", searchStr, ParameterType.RequestBody);
+        var response = await client.ExecuteAsync(request);
 
-			return response;
-		}
-	}
+        return response;
+    }
 }

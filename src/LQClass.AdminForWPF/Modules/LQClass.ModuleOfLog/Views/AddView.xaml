@@ -1,16 +1,15 @@
 ﻿<UserControl x:Class="LQClass.ModuleOfLog.Views.AddView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:LQClass.ModuleOfLog.Views"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:i18NResources="clr-namespace:LQClass.ModuleOfLog.I18nResources"
              xmlns:markup="clr-namespace:WpfExtensions.Xaml.Markup;assembly=WpfExtensions.Xaml"
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True"
-             mc:Ignorable="d" 
-            Width="600"
-            Height="400">
+             mc:Ignorable="d"
+             Width="600"
+             Height="400">
     <Border Background="White" CornerRadius="10">
         <Grid Margin="5 5 5 15">
             <Grid.RowDefinitions>
@@ -21,20 +20,21 @@
 
             <StackPanel>
                 <DockPanel>
-                    <TextBlock Text="{markup:I18n {x:Static i18NResources:Language.Add}}" FontSize="16"/>
+                    <TextBlock Text="{markup:I18n {x:Static i18NResources:Language.Add}}" FontSize="16" />
                     <Button
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Top"
-                            Command="{Binding CloseDialogCommand}"
-                            CommandParameter="true"
-                            Content="X"
-                            DockPanel.Dock="Right"
-                            Style="{DynamicResource CloseButtonStyle}" />
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Command="{Binding CloseDialogCommand}"
+                        CommandParameter="true"
+                        Content="X"
+                        DockPanel.Dock="Right"
+                        Style="{DynamicResource CloseButtonStyle}" />
                 </DockPanel>
             </StackPanel>
 
             <Border BorderThickness="1" BorderBrush="Green" Grid.Row="1">
-                <TextBlock Text="中间放表单" Foreground="Green" FontSize="50" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <TextBlock Text="中间放表单" Foreground="Green" FontSize="50" VerticalAlignment="Center"
+                           HorizontalAlignment="Center" />
             </Border>
 
             <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 20 0">
@@ -43,11 +43,11 @@
                     CommandParameter="true"
                     Content="{markup:I18n {x:Static i18NResources:Language.Save}}"
                     Style="{DynamicResource ButtonSuccess}" />
-                
+
                 <Button Margin="20 0 0 0"
-                    Command="{Binding CloseDialogCommand}"
-                    CommandParameter="true"
-                    Content="{markup:I18n {x:Static i18NResources:Language.Cancel}}"/>
+                        Command="{Binding CloseDialogCommand}"
+                        CommandParameter="true"
+                        Content="{markup:I18n {x:Static i18NResources:Language.Cancel}}" />
             </StackPanel>
         </Grid>
     </Border>

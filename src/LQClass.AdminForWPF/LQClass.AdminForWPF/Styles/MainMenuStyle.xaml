@@ -18,11 +18,13 @@
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="True">
-                            <Setter TargetName="ExpandImg" Property="Source" Value="/LQClass.AdminForWPF;component/Images/Down.png" />
+                            <Setter TargetName="ExpandImg" Property="Source"
+                                    Value="/LQClass.AdminForWPF;component/Images/Down.png" />
                             <Setter Property="Cursor" Value="Hand" />
                         </Trigger>
                         <Trigger Property="IsChecked" Value="False">
-                            <Setter TargetName="ExpandImg" Property="Source" Value="/LQClass.AdminForWPF;component/Images/Right.png" />
+                            <Setter TargetName="ExpandImg" Property="Source"
+                                    Value="/LQClass.AdminForWPF;component/Images/Right.png" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -49,7 +51,9 @@
                         SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                         UseLayoutRounding="True">
                         <StackPanel Height="Auto">
-                            <Grid Margin="{Binding Converter={StaticResource IndentConverter}, RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="Bottom">
+                            <Grid
+                                Margin="{Binding Converter={StaticResource IndentConverter}, RelativeSource={RelativeSource TemplatedParent}}"
+                                VerticalAlignment="Bottom">
                                 <Grid.ColumnDefinitions>
                                     <!--<ColumnDefinition Width="*" />-->
                                     <ColumnDefinition Width="Auto" MinWidth="90" />
@@ -81,7 +85,8 @@
                                     Style="{StaticResource ExpandCollapseToggleStyle}" />
 
                             </Grid>
-                            <ItemsPresenter x:Name="ItemsHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                            <ItemsPresenter x:Name="ItemsHost"
+                                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                         </StackPanel>
                     </Border>
                     <ControlTemplate.Triggers>

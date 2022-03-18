@@ -21,7 +21,7 @@
 			<Private>false</Private>
 		</ProjectReference>
 		<ProjectReference Include="..\..\LQClass.CustomControls\LQClass.CustomControls.csproj">
-		  <Private>false</Private>
+			<Private>false</Private>
 		</ProjectReference>
 		<ProjectReference Include="..\..\WpfExtensions.Xaml\WpfExtensions.Xaml.csproj" />
 	</ItemGroup>

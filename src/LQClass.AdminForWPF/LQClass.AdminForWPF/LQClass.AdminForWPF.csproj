@@ -135,19 +135,19 @@
 
 	<ItemGroup>
 		<Compile Update="I18nResources\LangProvider.cs">
-		  <DesignTime>True</DesignTime>
-		  <AutoGen>True</AutoGen>
-		  <DependentUpon>LangProvider.tt</DependentUpon>
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>LangProvider.tt</DependentUpon>
 		</Compile>
 		<Compile Update="I18nResources\Language.cs">
-		  <DesignTime>True</DesignTime>
-		  <AutoGen>True</AutoGen>
-		  <DependentUpon>Language.tt</DependentUpon>
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Language.tt</DependentUpon>
 		</Compile>
 		<Compile Update="I18nResources\UiResource.Designer.cs">
-		  <DesignTime>True</DesignTime>
-		  <AutoGen>True</AutoGen>
-		  <DependentUpon>UiResource.resx</DependentUpon>
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>UiResource.resx</DependentUpon>
 		</Compile>
 		<Compile Update="Settings.Designer.cs">
 			<DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -158,8 +158,8 @@
 
 	<ItemGroup>
 		<None Update="I18nResources\Language.tt">
-		  <Generator>TextTemplatingFileGenerator</Generator>
-		  <LastGenOutput>Language.cs</LastGenOutput>
+			<Generator>TextTemplatingFileGenerator</Generator>
+			<LastGenOutput>Language.cs</LastGenOutput>
 		</None>
 		<None Update="Settings.settings">
 			<Generator>SettingsSingleFileGenerator</Generator>
@@ -172,16 +172,20 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <EmbeddedResource Update="Langs\Lang.resx">
-	    <Generator>ResXFileCodeGenerator</Generator>
-	    <LastGenOutput>Lang.Designer.cs</LastGenOutput>
-	  </EmbeddedResource>
-	  <EmbeddedResource Update="I18nResources\UiResource.resx">
-	    <Generator>PublicResXFileCodeGenerator</Generator>
-	    <LastGenOutput>UiResource.Designer.cs</LastGenOutput>
-	  </EmbeddedResource>
+		<EmbeddedResource Update="Langs\Lang.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>Lang.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<EmbeddedResource Update="I18nResources\UiResource.resx">
+			<Generator>PublicResXFileCodeGenerator</Generator>
+			<LastGenOutput>UiResource.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
 	</ItemGroup>
 
-	<ProjectExtensions><VisualStudio><UserProperties config_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+	<ProjectExtensions>
+		<VisualStudio>
+			<UserProperties config_1json__JsonSchema="" />
+		</VisualStudio>
+	</ProjectExtensions>
 
 </Project>

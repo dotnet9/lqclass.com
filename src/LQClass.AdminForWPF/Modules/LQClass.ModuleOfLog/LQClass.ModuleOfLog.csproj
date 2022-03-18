@@ -19,10 +19,10 @@
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\..\LQClass.AdminForWPF.Infrastructure\LQClass.AdminForWPF.Infrastructure.csproj">
-		  <Private>false</Private>
+			<Private>false</Private>
 		</ProjectReference>
 		<ProjectReference Include="..\..\LQClass.CustomControls\LQClass.CustomControls.csproj">
-		  <Private>false</Private>
+			<Private>false</Private>
 		</ProjectReference>
 		<ProjectReference Include="..\..\WpfExtensions.Xaml\WpfExtensions.Xaml.csproj" />
 	</ItemGroup>
@@ -54,6 +54,6 @@
 		</EmbeddedResource>
 	</ItemGroup>
 	<ItemGroup>
-	  <Folder Include="I18nResources\" />
+		<Folder Include="I18nResources\" />
 	</ItemGroup>
 </Project>

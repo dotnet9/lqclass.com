@@ -12,8 +12,10 @@
                 <!--#endregion-->
 
                 <!--#region 封装的部分样式-->
-                <ResourceDictionary Source="pack://application:,,,/LQClass.CustomControls;component/Styles/Buttons.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/LQClass.AdminForWPF;component/Styles/CommonSearchAreanStyle.xaml" />
+                <ResourceDictionary
+                    Source="pack://application:,,,/LQClass.CustomControls;component/Styles/Buttons.xaml" />
+                <ResourceDictionary
+                    Source="pack://application:,,,/LQClass.AdminForWPF;component/Styles/CommonSearchAreanStyle.xaml" />
                 <!--#endregion-->
 
             </ResourceDictionary.MergedDictionaries>

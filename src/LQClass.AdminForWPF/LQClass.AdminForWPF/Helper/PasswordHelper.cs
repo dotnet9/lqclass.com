@@ -1,69 +1,63 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using Microsoft.Xaml.Behaviors;
+﻿using System.Windows;
 using System.Windows.Controls;
+using Microsoft.Xaml.Behaviors;
+
 //using HandyControl.Controls;
-namespace LQClass.AdminForWPF.Helper
+namespace LQClass.AdminForWPF.Helper;
+
+public static class PasswordBoxHelper
 {
-	public static class PasswordBoxHelper
-	{
-		public static readonly DependencyProperty PasswordProperty =
-			DependencyProperty.RegisterAttached("Password",
-				typeof(string), typeof(PasswordBoxHelper),
-				new FrameworkPropertyMetadata(string.Empty, OnPasswordPropertyChanged));
+    public static readonly DependencyProperty PasswordProperty =
+        DependencyProperty.RegisterAttached("Password",
+            typeof(string), typeof(PasswordBoxHelper),
+            new FrameworkPropertyMetadata(string.Empty, OnPasswordPropertyChanged));
 
-		private static void OnPasswordPropertyChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
-		{
-			var passwordBox = sender as PasswordBox;
+    private static void OnPasswordPropertyChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
+    {
+        var passwordBox = sender as PasswordBox;
 
-			var password = (string)e.NewValue;
+        var password = (string)e.NewValue;
 
-			if (passwordBox != null && passwordBox.Password != password) passwordBox.Password = password;
-		}
+        if (passwordBox != null && passwordBox.Password != password) passwordBox.Password = password;
+    }
 
-		public static string GetPassword(DependencyObject dp)
-		{
-			return (string)dp.GetValue(PasswordProperty);
-		}
+    public static string GetPassword(DependencyObject dp)
+    {
+        return (string)dp.GetValue(PasswordProperty);
+    }
 
-		public static void SetPassword(DependencyObject dp, string value)
-		{
-			dp.SetValue(PasswordProperty, value);
-		}
-	}
+    public static void SetPassword(DependencyObject dp, string value)
+    {
+        dp.SetValue(PasswordProperty, value);
+    }
+}
 
+/// <summary>
+///     绑定密码更改事件将值传给PasswordBoxHelper的Password属性
+/// </summary>
+public class PasswordBoxBehavior : Behavior<PasswordBox>
+{
+    protected override void OnAttached()
+    {
+        base.OnAttached();
 
-	/// <summary>
-	///  绑定密码更改事件将值传给PasswordBoxHelper的Password属性
-	/// </summary>
-	public class PasswordBoxBehavior : Behavior<PasswordBox>
-	{
-		protected override void OnAttached()
-		{
-			base.OnAttached();
+        AssociatedObject.PasswordChanged += OnPasswordChanged;
+    }
 
-			AssociatedObject.PasswordChanged += OnPasswordChanged;
-		}
+    private static void OnPasswordChanged(object sender, RoutedEventArgs e)
+    {
+        var passwordBox = sender as PasswordBox;
 
-		private static void OnPasswordChanged(object sender, RoutedEventArgs e)
-		{
-			var passwordBox = sender as PasswordBox;
+        var password = PasswordBoxHelper.GetPassword(passwordBox);
 
-			var password = PasswordBoxHelper.GetPassword(passwordBox);
+        if (passwordBox != null && passwordBox.Password != password)
+            PasswordBoxHelper.SetPassword(passwordBox, passwordBox.Password);
+    }
 
-			if (passwordBox != null && passwordBox.Password != password)
-				PasswordBoxHelper.SetPassword(passwordBox, passwordBox.Password);
-		}
+    protected override void OnDetaching()
+    {
+        base.OnDetaching();
 
-		protected override void OnDetaching()
-		{
-			base.OnDetaching();
-
-			AssociatedObject.PasswordChanged -= OnPasswordChanged;
-		}
-	}
+        AssociatedObject.PasswordChanged -= OnPasswordChanged;
+    }
 }

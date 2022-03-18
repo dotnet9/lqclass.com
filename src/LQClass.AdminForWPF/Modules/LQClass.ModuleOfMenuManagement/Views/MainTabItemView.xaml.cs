@@ -1,20 +1,20 @@
-﻿using LQClass.CustomControls.TabControlHelper;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
+using LQClass.CustomControls.TabControlHelper;
 using WpfExtensions.Xaml;
 
-namespace LQClass.ModuleOfMenuManagement.Views
-{
-	/// <summary>
-	/// Interaction logic for ViewA.xaml
-	/// </summary>
-	public partial class MainTabItemView : UserControl, ICloseable
-	{
-		public MainTabItemView()
-		{
-			InitializeComponent();
-			this.Closer = new CloseableHeader(ModuleOfMenuManagementModule.KEY_OF_CURRENT_MODULE, I18nManager.Instance.Get(I18nResources.Language.MainTabItemView_Header).ToString(), true);
-		}
+namespace LQClass.ModuleOfMenuManagement.Views;
 
-		public CloseableHeader Closer { get; private set; }
-	}
+/// <summary>
+///     Interaction logic for ViewA.xaml
+/// </summary>
+public partial class MainTabItemView : UserControl, ICloseable
+{
+    public MainTabItemView()
+    {
+        InitializeComponent();
+        Closer = new CloseableHeader(ModuleOfMenuManagementModule.KEY_OF_CURRENT_MODULE,
+            I18nManager.Instance.Get(I18nResources.Language.MainTabItemView_Header).ToString(), true);
+    }
+
+    public CloseableHeader Closer { get; }
 }
