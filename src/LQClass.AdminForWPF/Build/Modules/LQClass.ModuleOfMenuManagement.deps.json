@@ -13,6 +13,7 @@
           "LQClass.CustomControls": "1.0.0",
           "Prism.Unity": "8.0.0.1909",
           "Prism.Wpf": "8.0.0.1909",
+          "RestSharp": "106.11.8-alpha.0.12",
           "WpfExtensions.Xaml": "1.2.0"
         },
         "runtime": {
@@ -109,6 +110,14 @@
           }
         }
       },
+      "RestSharp/106.11.8-alpha.0.12": {
+        "runtime": {
+          "lib/netstandard2.0/RestSharp.dll": {
+            "assemblyVersion": "106.11.8.0",
+            "fileVersion": "106.11.8.0"
+          }
+        }
+      },
       "System.Runtime.CompilerServices.Unsafe/4.5.2": {},
       "System.Threading.Tasks.Extensions/4.5.2": {},
       "Unity.Abstractions/5.11.6": {
@@ -188,6 +197,13 @@
       "sha512": "sha512-RAIMvKo/CMcyHqFKXuHk4sU3HpdZgzf3xh885VJQ3HzgY5g4NtRdZalvQr87tmJ8ptMY/e5PSZhiJ9RTcuXPpQ==",
       "path": "prism.wpf/8.0.0.1909",
       "hashPath": "prism.wpf.8.0.0.1909.nupkg.sha512"
+    },
+    "RestSharp/106.11.8-alpha.0.12": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-DkOtfheve3X51Zjw1hJoN56EmXUrDng6nd8S8krDYnh6lbCEW2GSfmj4ZY/cttJSNbBU5UT8eAETVgV09iCljg==",
+      "path": "restsharp/106.11.8-alpha.0.12",
+      "hashPath": "restsharp.106.11.8-alpha.0.12.nupkg.sha512"
     },
     "System.Runtime.CompilerServices.Unsafe/4.5.2": {
       "type": "package",

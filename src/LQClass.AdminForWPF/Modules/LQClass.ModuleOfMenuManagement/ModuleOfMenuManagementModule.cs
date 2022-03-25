@@ -1,4 +1,5 @@
 ﻿using LQClass.ModuleOfMenuManagement.I18nResources;
+using LQClass.ModuleOfMenuManagement.Models;
 using LQClass.ModuleOfMenuManagement.ViewModels;
 using LQClass.ModuleOfMenuManagement.Views;
 using Prism.Ioc;
@@ -29,5 +30,6 @@ public class ModuleOfMenuManagementModule : IModule
     public void RegisterTypes(IContainerRegistry containerRegistry)
     {
         containerRegistry.RegisterForNavigation<MainTabItemView, MainTabItemViewModel>(KEY_OF_CURRENT_MODULE);
+        containerRegistry.RegisterSingleton<MainTabItemModel>();
     }
 }

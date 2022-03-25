@@ -43,7 +43,7 @@ public class MainWindowModel : ViewModelBase
     private void ReadChildren(int level, string parentID, List<MenuInfo> soureMenus,
         ObservableCollection<CustomMenuItem> customMenus)
     {
-        var findResults = soureMenus.ToList().FindAll(cu => cu.ParentId == parentID);
+        var findResults = soureMenus.ToList().FindAll(cu => cu.ParentIdIgnore == parentID);
         if (findResults == null || findResults.Count <= 0) return;
         foreach (var menuItem in findResults)
         {

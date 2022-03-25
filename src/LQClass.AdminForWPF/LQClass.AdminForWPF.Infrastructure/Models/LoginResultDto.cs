@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 namespace LQClass.AdminForWPF.Infrastructure.Models;
@@ -44,6 +45,22 @@ public class MenuInfo
     private string _Text;
     public string Id { get; set; }
     public string ParentId { get; set; }
+    [JsonIgnore]
+    public string ParentIdIgnore
+    {
+        get
+        {
+            if (!string.IsNullOrEmpty(ParentId))
+            {
+                return ParentId;
+            }
+            else
+            {
+                return string.Empty;
+            }
+
+        }
+    }
 
     public string Text
     {

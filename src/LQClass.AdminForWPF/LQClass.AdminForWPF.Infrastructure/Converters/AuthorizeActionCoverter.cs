@@ -12,6 +12,7 @@ public class AuthorizeActionCoverter : IValueConverter
     public object Convert(object value, Type typeTarget, object param, CultureInfo culture)
     {
         var actionUrl = value as string;
+        LoginResultDto.Instance.Attributes.Actions.Remove(null);
         if (actionUrl != null
             && LoginResultDto.Instance.Attributes.Actions.Exists(cu => cu.EndsWith(actionUrl)))
             return Visibility.Visible;
