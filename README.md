@@ -1,27 +1,31 @@
-# lqclass.com
+# Lequ class
 
-**当前项目正在维护中.....随时欢迎新人加入**
+English | [简体中文](README-zh_CN.md)
 
-当前目标只是完成一个WPF后台管理客户端。
+![dotnet-version](https://img.shields.io/badge/.NET%207.0-blue)  ![Visual Studio 2022](https://img.shields.io/badge/Visual%20Studio%20-2022-blueviolet)  [![Github](https://img.shields.io/badge/%20-github-%2324292e)](https://github.com/dotnet9/lqclass.com) [![Github stars](https://img.shields.io/github/stars/dotnet9/lqclass.com)](https://github.com/dotnet9/lqclass.com/stargazers)
+
+**The current project is under maintenance New people are always welcome to join us**
+
+The current goal is to complete a WPF background management client.
 
 ## 2020-12-21
 
-增加WPF后台管理端登录视图，先依样画葫芦模仿WTM B/S前端
+Add the login view of WPF background management end. First draw a gourd to imitate the [WTM](https://wtmdoc.walkingtec.cn/) B/S front end
 
-### 运行WTM
+### Run WTM
 
-![运行WTM](https://raw.githubusercontent.com/dotnet9/lqclass.com/main/docs/Images/Back0.gif)
+![Run WTM](https://raw.githubusercontent.com/dotnet9/lqclass.com/main/docs/Images/Back0.gif)
 
-### WTM前端登录
+### WTM front-end login
 
-![WTM前端登录](https://raw.githubusercontent.com/dotnet9/lqclass.com/main/docs/Images/Back1.gif)
+![WTM front-end login](https://raw.githubusercontent.com/dotnet9/lqclass.com/main/docs/Images/Back1.gif)
 
-### WTM前端主页面
+### WTM front end main page
 
-![WTM前端主页面](https://raw.githubusercontent.com/dotnet9/lqclass.com/main/docs/Images/Back2.gif)
+![WTM front end main page](https://raw.githubusercontent.com/dotnet9/lqclass.com/main/docs/Images/Back2.gif)
 
 ## 2021-01-14
 
-增加WPF后台登录到主窗口操作
+Add WPF background login to main window
 
-![登录成功操作](https://raw.githubusercontent.com/dotnet9/lqclass.com/main/docs/Images/LoginToLQClass.gif)
+![Login successful operation](https://raw.githubusercontent.com/dotnet9/lqclass.com/main/docs/Images/LoginToLQClass.gif)
