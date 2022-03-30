@@ -31,7 +31,6 @@ public class ModuleOfMenuManagementModule : IModule
 
     public void RegisterTypes(IContainerRegistry containerRegistry)
     {
-        containerRegistry.Register<HttpRestClient>();
         containerRegistry.RegisterForNavigation<MainTabItemView, MainTabItemViewModel>(KEY_OF_CURRENT_MODULE);
         containerRegistry.RegisterSingleton<MainTabItemModel>();
     }

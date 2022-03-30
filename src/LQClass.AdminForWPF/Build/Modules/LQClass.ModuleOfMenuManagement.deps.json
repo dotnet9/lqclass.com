@@ -9,7 +9,6 @@
       "LQClass.ModuleOfMenuManagement/1.0.0": {
         "dependencies": {
           "HandyControl": "3.1.0",
-          "HandyControls": "3.3.11",
           "LQClass.AdminForWPF.Infrastructure": "1.0.0",
           "LQClass.CustomControls": "1.0.0",
           "Prism.Unity": "8.0.0.1909",
@@ -27,6 +26,12 @@
         }
       },
       "HandyControl/3.1.0": {
+        "runtime": {
+          "lib/net5.0/HandyControl.dll": {
+            "assemblyVersion": "3.1.0.0",
+            "fileVersion": "3.1.0.0"
+          }
+        },
         "resources": {
           "lib/net5.0/ca-ES/HandyControl.resources.dll": {
             "locale": "ca-ES"
@@ -54,14 +59,6 @@
           },
           "lib/net5.0/tr/HandyControl.resources.dll": {
             "locale": "tr"
-          }
-        }
-      },
-      "HandyControls/3.3.11": {
-        "runtime": {
-          "lib/net6.0/HandyControl.dll": {
-            "assemblyVersion": "3.3.0.0",
-            "fileVersion": "3.3.0.0"
           }
         }
       },
@@ -165,13 +162,6 @@
       "sha512": "sha512-9JzJOXsiFJPlnZHnlJID6jqDIPj87eQjAqqfg7QrKRiacusupK2qsm5hGO5ZtVZSLKyRHxL04cjFChhgfyn+Ig==",
       "path": "handycontrol/3.1.0",
       "hashPath": "handycontrol.3.1.0.nupkg.sha512"
-    },
-    "HandyControls/3.3.11": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-sfIuJmYVJb07rNBsy1SvZ8X8XHbt1P7wWkVJbZIwD4j4mgztGN6q46pJqLps0iP7lagLKyKlLeAU/pIX7xjsVA==",
-      "path": "handycontrols/3.3.11",
-      "hashPath": "handycontrols.3.3.11.nupkg.sha512"
     },
     "Microsoft.Xaml.Behaviors.Wpf/1.1.31": {
       "type": "package",

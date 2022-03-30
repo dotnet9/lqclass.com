@@ -1,5 +1,4 @@
 ﻿using LQClass.AdminForWPF.Infrastructure.Configs;
-using MyToDo.Shared.Contact;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
