@@ -1,6 +1,6 @@
 # lqclass.com
 
-**眼前没计划继续维护了，自我感觉只有一个WPF客户端勉强可以给大家参考下**
+**当前项目正在维护中.....随时欢迎新人加入**
 
 开源博客网站：react + .net core web api，wpf + xamarin
 
