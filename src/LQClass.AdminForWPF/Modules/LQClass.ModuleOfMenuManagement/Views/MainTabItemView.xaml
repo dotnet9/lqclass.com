@@ -17,8 +17,32 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <StackPanel Margin="5">
-
+        <StackPanel Margin="5" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button
+             Margin="0,0,10,0"
+             Command="{Binding CopyToClipboardCommand, Mode=OneTime}"
+             Content="刷新菜单"
+             Style="{StaticResource ButtonDashedInfo}"/>
+            <Button
+             Margin="0,0,10,0"
+             Command="{Binding RaiseSearchCommand, Mode=OneTime}"
+             Content="添加"
+             Style="{StaticResource ButtonDashedInfo}" />
+            <Button
+             Margin="0,0,10,0"
+             Command="{Binding CopyToClipboardCommand, Mode=OneTime}"
+             Content="修改"
+             Style="{StaticResource ButtonDashedInfo}"/>
+            <Button
+             Margin="0,0,10,0"
+             Command="{Binding CopyToClipboardCommand, Mode=OneTime}"
+             Content="删除"
+             Style="{StaticResource ButtonDanger}"/>
+            <Button
+             Margin="0,0,10,0"
+             Command="{Binding CopyToClipboardCommand, Mode=OneTime}"
+             Content="导出"
+             Style="{StaticResource ButtonDashedInfo}"/>
         </StackPanel>
         <Grid Grid.Row="1" Margin="5">
             <Grid.RowDefinitions>
@@ -69,7 +93,7 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    
+
                     <DataGridTemplateColumn
                         Width="180"
                         Header="目录" >
@@ -83,7 +107,7 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    
+
                     <DataGridTemplateColumn
                         Width="180"
                         Header="公开" >
@@ -109,6 +133,11 @@
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
                                     <Button
+                                        hc:IconElement.Geometry="{StaticResource DeleteGeometry}"
+                                        Command="{Binding CopyToClipboardCommand, Mode=OneTime}"
+                                        Content="详情"
+                                        Style="{StaticResource ButtonDashedInfo}"/>
+                                    <Button
                                         Margin="0,0,10,0"
                                         hc:IconElement.Geometry="{StaticResource SearchGeometry}"
                                         Command="{Binding RaiseSearchCommand, Mode=OneTime}"
@@ -120,11 +149,6 @@
                                         Command="{Binding CopyToClipboardCommand, Mode=OneTime}"
                                         Content="删除"
                                         Style="{StaticResource ButtonDanger}"/>
-                                    <Button
-                                        hc:IconElement.Geometry="{StaticResource DeleteGeometry}"
-                                        Command="{Binding CopyToClipboardCommand, Mode=OneTime}"
-                                        Content="详情"
-                                        Style="{StaticResource ButtonDashedInfo}"/>
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>

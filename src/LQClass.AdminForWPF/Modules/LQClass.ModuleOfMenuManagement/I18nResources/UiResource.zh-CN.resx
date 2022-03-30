@@ -120,4 +120,7 @@
   <data name="MainTabItemView_Header" xml:space="preserve">
     <value>菜单管理</value>
   </data>
+  <data name="MainTabItemView_Add" xml:space="preserve">
+    <value>新增</value>
+  </data>
 </root>

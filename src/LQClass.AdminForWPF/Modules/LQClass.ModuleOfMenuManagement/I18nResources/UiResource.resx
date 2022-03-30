@@ -120,4 +120,7 @@
   <data name="MainTabItemView_Header" xml:space="preserve">
     <value>Menu Management</value>
   </data>
+  <data name="MainTabItemView_Add" xml:space="preserve">
+    <value>New Add</value>
+  </data>
 </root>

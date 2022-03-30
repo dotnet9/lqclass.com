@@ -2,9 +2,11 @@
 using LQClass.ModuleOfMenuManagement.Models;
 using LQClass.ModuleOfMenuManagement.ViewModels;
 using LQClass.ModuleOfMenuManagement.Views;
+using MyToDo.Service;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
+using Prism.Unity;
 using Unity;
 using WpfExtensions.Xaml;
 
@@ -29,6 +31,7 @@ public class ModuleOfMenuManagementModule : IModule
 
     public void RegisterTypes(IContainerRegistry containerRegistry)
     {
+        containerRegistry.Register<HttpRestClient>();
         containerRegistry.RegisterForNavigation<MainTabItemView, MainTabItemViewModel>(KEY_OF_CURRENT_MODULE);
         containerRegistry.RegisterSingleton<MainTabItemModel>();
     }
