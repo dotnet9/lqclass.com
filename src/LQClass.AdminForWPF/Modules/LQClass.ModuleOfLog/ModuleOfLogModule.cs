@@ -5,7 +5,6 @@ using LQClass.ModuleOfLog.Views;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
-using Unity;
 using WpfExtensions.Xaml;
 
 namespace LQClass.ModuleOfLog;
@@ -14,13 +13,11 @@ public class ModuleOfLogModule : IModule
 {
     public const string KEY_OF_CURRENT_MODULE = "Log";
     private readonly IRegionManager _regionManager;
-    private readonly IUnityContainer _unityContainer;
 
-    public ModuleOfLogModule(IRegionManager regionManager, IUnityContainer unityContainer)
+    public ModuleOfLogModule(IRegionManager regionManager)
     {
         I18nManager.Instance.Add(UiResource.ResourceManager);
         _regionManager = regionManager;
-        _unityContainer = unityContainer;
     }
 
     public void OnInitialized(IContainerProvider containerProvider)

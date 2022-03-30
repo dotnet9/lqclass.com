@@ -6,8 +6,6 @@ using MyToDo.Service;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
-using Prism.Unity;
-using Unity;
 using WpfExtensions.Xaml;
 
 namespace LQClass.ModuleOfMenuManagement;
@@ -16,13 +14,11 @@ public class ModuleOfMenuManagementModule : IModule
 {
     public const string KEY_OF_CURRENT_MODULE = "Menu_Mangement";
     private readonly IRegionManager _regionManager;
-    private readonly IUnityContainer _unityContainer;
 
-    public ModuleOfMenuManagementModule(IRegionManager regionManager, IUnityContainer unityContainer)
+    public ModuleOfMenuManagementModule(IRegionManager regionManager)
     {
         I18nManager.Instance.Add(UiResource.ResourceManager);
         _regionManager = regionManager;
-        _unityContainer = unityContainer;
     }
 
     public void OnInitialized(IContainerProvider containerProvider)

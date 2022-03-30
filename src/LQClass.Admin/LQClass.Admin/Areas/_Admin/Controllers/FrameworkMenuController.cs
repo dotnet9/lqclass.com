@@ -59,7 +59,7 @@ namespace WalkingTec.Mvvm.Admin.Api
                 }
                 else
                 {
-                    return Ok(vm.Entity);
+                    return Ok("添加成功！");
                 }
             }
 

@@ -13,7 +13,7 @@
 	</PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="HandyControl" Version="3.1.0" />
-		<PackageReference Include="Prism.Unity" Version="8.0.0.1909" />
+		<PackageReference Include="Prism.DryIoc" Version="8.0.0.1909" />
 		<PackageReference Include="Prism.Wpf" Version="8.0.0.1909" />
 		<PackageReference Include="RestSharp" Version="106.11.8-alpha.0.12" />
 	</ItemGroup>

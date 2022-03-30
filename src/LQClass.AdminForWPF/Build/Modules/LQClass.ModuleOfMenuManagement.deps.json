@@ -11,7 +11,7 @@
           "HandyControl": "3.1.0",
           "LQClass.AdminForWPF.Infrastructure": "1.0.0",
           "LQClass.CustomControls": "1.0.0",
-          "Prism.Unity": "8.0.0.1909",
+          "Prism.DryIoc": "8.0.0.1909",
           "Prism.Wpf": "8.0.0.1909",
           "RestSharp": "106.11.8-alpha.0.12",
           "WpfExtensions.Xaml": "1.2.0"
@@ -22,6 +22,17 @@
         "resources": {
           "zh-CN/LQClass.ModuleOfMenuManagement.resources.dll": {
             "locale": "zh-CN"
+          }
+        }
+      },
+      "DryIoc.dll/4.5.0": {
+        "dependencies": {
+          "System.Reflection.Emit.Lightweight": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/DryIoc.dll": {
+            "assemblyVersion": "4.5.0.0",
+            "fileVersion": "4.5.0.0"
           }
         }
       },
@@ -62,6 +73,8 @@
           }
         }
       },
+      "Microsoft.NETCore.Platforms/1.1.0": {},
+      "Microsoft.NETCore.Targets/1.1.0": {},
       "Microsoft.Xaml.Behaviors.Wpf/1.1.31": {
         "runtime": {
           "lib/net5.0-windows7.0/Microsoft.Xaml.Behaviors.dll": {
@@ -86,13 +99,13 @@
           }
         }
       },
-      "Prism.Unity/8.0.0.1909": {
+      "Prism.DryIoc/8.0.0.1909": {
         "dependencies": {
-          "Prism.Wpf": "8.0.0.1909",
-          "Unity.Container": "5.11.8"
+          "DryIoc.dll": "4.5.0",
+          "Prism.Wpf": "8.0.0.1909"
         },
         "runtime": {
-          "lib/netcoreapp3.1/Prism.Unity.Wpf.dll": {
+          "lib/netcoreapp3.1/Prism.DryIoc.Wpf.dll": {
             "assemblyVersion": "8.0.0.1909",
             "fileVersion": "8.0.0.1909"
           }
@@ -118,29 +131,64 @@
           }
         }
       },
-      "System.Runtime.CompilerServices.Unsafe/4.5.2": {},
-      "System.Threading.Tasks.Extensions/4.5.2": {},
-      "Unity.Abstractions/5.11.6": {
+      "System.IO/4.3.0": {
         "dependencies": {
-          "System.Threading.Tasks.Extensions": "4.5.2"
-        },
-        "runtime": {
-          "lib/netcoreapp3.0/Unity.Abstractions.dll": {
-            "assemblyVersion": "5.11.6.0",
-            "fileVersion": "5.11.6.0"
-          }
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.0",
+          "System.Runtime": "4.3.0",
+          "System.Text.Encoding": "4.3.0",
+          "System.Threading.Tasks": "4.3.0"
         }
       },
-      "Unity.Container/5.11.8": {
+      "System.Reflection/4.3.0": {
         "dependencies": {
-          "System.Runtime.CompilerServices.Unsafe": "4.5.2",
-          "Unity.Abstractions": "5.11.6"
-        },
-        "runtime": {
-          "lib/netcoreapp3.0/Unity.Container.dll": {
-            "assemblyVersion": "5.11.8.0",
-            "fileVersion": "5.11.8.0"
-          }
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.0",
+          "System.IO": "4.3.0",
+          "System.Reflection.Primitives": "4.3.0",
+          "System.Runtime": "4.3.0"
+        }
+      },
+      "System.Reflection.Emit.ILGeneration/4.3.0": {
+        "dependencies": {
+          "System.Reflection": "4.3.0",
+          "System.Reflection.Primitives": "4.3.0",
+          "System.Runtime": "4.3.0"
+        }
+      },
+      "System.Reflection.Emit.Lightweight/4.3.0": {
+        "dependencies": {
+          "System.Reflection": "4.3.0",
+          "System.Reflection.Emit.ILGeneration": "4.3.0",
+          "System.Reflection.Primitives": "4.3.0",
+          "System.Runtime": "4.3.0"
+        }
+      },
+      "System.Reflection.Primitives/4.3.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.0",
+          "System.Runtime": "4.3.0"
+        }
+      },
+      "System.Runtime/4.3.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.0"
+        }
+      },
+      "System.Text.Encoding/4.3.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.0",
+          "System.Runtime": "4.3.0"
+        }
+      },
+      "System.Threading.Tasks/4.3.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.0",
+          "System.Runtime": "4.3.0"
         }
       },
       "WpfExtensions.Xaml/1.2.0": {
@@ -156,12 +204,33 @@
       "serviceable": false,
       "sha512": ""
     },
+    "DryIoc.dll/4.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FMwI/UHyc8utEwInluduwVcdYEocbuAtNjW2bCAdWnhYsaIhlIihotDh5PYoyUn/Ms4+U7QbGdE2MwR3wzxQgg==",
+      "path": "dryioc.dll/4.5.0",
+      "hashPath": "dryioc.dll.4.5.0.nupkg.sha512"
+    },
     "HandyControl/3.1.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-9JzJOXsiFJPlnZHnlJID6jqDIPj87eQjAqqfg7QrKRiacusupK2qsm5hGO5ZtVZSLKyRHxL04cjFChhgfyn+Ig==",
       "path": "handycontrol/3.1.0",
       "hashPath": "handycontrol.3.1.0.nupkg.sha512"
+    },
+    "Microsoft.NETCore.Platforms/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
+      "path": "microsoft.netcore.platforms/1.1.0",
+      "hashPath": "microsoft.netcore.platforms.1.1.0.nupkg.sha512"
+    },
+    "Microsoft.NETCore.Targets/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-aOZA3BWfz9RXjpzt0sRJJMjAscAUm3Hoa4UWAfceV9UTYxgwZ1lZt5nO2myFf+/jetYQo4uTP7zS8sJY67BBxg==",
+      "path": "microsoft.netcore.targets/1.1.0",
+      "hashPath": "microsoft.netcore.targets.1.1.0.nupkg.sha512"
     },
     "Microsoft.Xaml.Behaviors.Wpf/1.1.31": {
       "type": "package",
@@ -184,12 +253,12 @@
       "path": "prism.core/8.0.0.1909",
       "hashPath": "prism.core.8.0.0.1909.nupkg.sha512"
     },
-    "Prism.Unity/8.0.0.1909": {
+    "Prism.DryIoc/8.0.0.1909": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-5WO7gvzQUkqxhJi0Ff+aCv3SSn0H4Eigk/yn4HPnNrQFoHzQJ5L1dtvyBcBP3zxrH/C3XXCfbl/4gikMVd/0MA==",
-      "path": "prism.unity/8.0.0.1909",
-      "hashPath": "prism.unity.8.0.0.1909.nupkg.sha512"
+      "sha512": "sha512-6o6saaXGSEso4xl2F2x5joOOzkSy01osdR9pPoTeXNQTRKIl+tso/4afxQ2ftH75oqfdZGTzjuS5kLgmBKl8ng==",
+      "path": "prism.dryioc/8.0.0.1909",
+      "hashPath": "prism.dryioc.8.0.0.1909.nupkg.sha512"
     },
     "Prism.Wpf/8.0.0.1909": {
       "type": "package",
@@ -205,33 +274,61 @@
       "path": "restsharp/106.11.8-alpha.0.12",
       "hashPath": "restsharp.106.11.8-alpha.0.12.nupkg.sha512"
     },
-    "System.Runtime.CompilerServices.Unsafe/4.5.2": {
+    "System.IO/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-wprSFgext8cwqymChhrBLu62LMg/1u92bU+VOwyfBimSPVFXtsNqEWC92Pf9ofzJFlk4IHmJA75EDJn1b2goAQ==",
-      "path": "system.runtime.compilerservices.unsafe/4.5.2",
-      "hashPath": "system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512"
+      "sha512": "sha512-3qjaHvxQPDpSOYICjUoTsmoq5u6QJAFRUITgeT/4gqkF1bajbSmb1kwSxEA8AHlofqgcKJcM8udgieRNhaJ5Cg==",
+      "path": "system.io/4.3.0",
+      "hashPath": "system.io.4.3.0.nupkg.sha512"
     },
-    "System.Threading.Tasks.Extensions/4.5.2": {
+    "System.Reflection/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-BG/TNxDFv0svAzx8OiMXDlsHfGw623BZ8tCXw4YLhDFDvDhNUEV58jKYMGRnkbJNm7c3JNNJDiN7JBMzxRBR2w==",
-      "path": "system.threading.tasks.extensions/4.5.2",
-      "hashPath": "system.threading.tasks.extensions.4.5.2.nupkg.sha512"
+      "sha512": "sha512-KMiAFoW7MfJGa9nDFNcfu+FpEdiHpWgTcS2HdMpDvt9saK3y/G4GwprPyzqjFH9NTaGPQeWNHU+iDlDILj96aQ==",
+      "path": "system.reflection/4.3.0",
+      "hashPath": "system.reflection.4.3.0.nupkg.sha512"
     },
-    "Unity.Abstractions/5.11.6": {
+    "System.Reflection.Emit.ILGeneration/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-G2nhnzlvizcNYrEDnGsC6aCTT+8FmVbd0PLoItJlJBHHqeX5cYi9neIE2odbkVWGFXZJwbNfwkVHPqHVEIULIg==",
-      "path": "unity.abstractions/5.11.6",
-      "hashPath": "unity.abstractions.5.11.6.nupkg.sha512"
+      "sha512": "sha512-59tBslAk9733NXLrUJrwNZEzbMAcu8k344OYo+wfSVygcgZ9lgBdGIzH/nrg3LYhXceynyvTc8t5/GD4Ri0/ng==",
+      "path": "system.reflection.emit.ilgeneration/4.3.0",
+      "hashPath": "system.reflection.emit.ilgeneration.4.3.0.nupkg.sha512"
     },
-    "Unity.Container/5.11.8": {
+    "System.Reflection.Emit.Lightweight/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-iZeix/165OP+EN7oN5UaVHIEi4Aya3jhBUo3TVReWDcyp8iYBExT19Drp5Q5rf56Hpcf+tN86tZW0B378NhwZQ==",
-      "path": "unity.container/5.11.8",
-      "hashPath": "unity.container.5.11.8.nupkg.sha512"
+      "sha512": "sha512-oadVHGSMsTmZsAF864QYN1t1QzZjIcuKU3l2S9cZOwDdDueNTrqq1yRj7koFfIGEnKpt6NjpL3rOzRhs4ryOgA==",
+      "path": "system.reflection.emit.lightweight/4.3.0",
+      "hashPath": "system.reflection.emit.lightweight.4.3.0.nupkg.sha512"
+    },
+    "System.Reflection.Primitives/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5RXItQz5As4xN2/YUDxdpsEkMhvw3e6aNveFXUn4Hl/udNTCNhnKp8lT9fnc3MhvGKh1baak5CovpuQUXHAlIA==",
+      "path": "system.reflection.primitives/4.3.0",
+      "hashPath": "system.reflection.primitives.4.3.0.nupkg.sha512"
+    },
+    "System.Runtime/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-JufQi0vPQ0xGnAczR13AUFglDyVYt4Kqnz1AZaiKZ5+GICq0/1MH/mO/eAJHt/mHW1zjKBJd7kV26SrxddAhiw==",
+      "path": "system.runtime/4.3.0",
+      "hashPath": "system.runtime.4.3.0.nupkg.sha512"
+    },
+    "System.Text.Encoding/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BiIg+KWaSDOITze6jGQynxg64naAPtqGHBwDrLaCtixsa5bKiR8dpPOHA7ge3C0JJQizJE+sfkz1wV+BAKAYZw==",
+      "path": "system.text.encoding/4.3.0",
+      "hashPath": "system.text.encoding.4.3.0.nupkg.sha512"
+    },
+    "System.Threading.Tasks/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-LbSxKEdOUhVe8BezB/9uOGGppt+nZf6e1VFyw6v3DN6lqitm0OSn2uXMOdtP0M3W4iMcqcivm2J6UgqiwwnXiA==",
+      "path": "system.threading.tasks/4.3.0",
+      "hashPath": "system.threading.tasks.4.3.0.nupkg.sha512"
     },
     "WpfExtensions.Xaml/1.2.0": {
       "type": "project",

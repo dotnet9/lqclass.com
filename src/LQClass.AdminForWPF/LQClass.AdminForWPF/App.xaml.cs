@@ -14,9 +14,9 @@ using LQClass.AdminForWPF.Models;
 using LQClass.AdminForWPF.ViewModels;
 using LQClass.AdminForWPF.Views;
 using LQClass.CustomControls.Controls;
+using Prism.DryIoc;
 using Prism.Ioc;
 using Prism.Modularity;
-using Prism.Unity;
 using WpfExtensions.Xaml;
 
 namespace LQClass.AdminForWPF;
