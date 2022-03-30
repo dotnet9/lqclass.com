@@ -21,7 +21,7 @@ namespace LQClass.ModuleOfMenuManagement.Models
         {
             var searchStr = JsonConvert.SerializeObject(actionLogSearcherDto);
 
-            var client = new RestClient($"{AppSettingsHelper.API+Apis.Search}");
+            var client = new RestClient($"{AppSettingsHelper.API + Apis.Search}");
             client.Timeout = -1;
             var request = new RestRequest(Method.POST);
             request.AddHeader("Authorization", $"Bearer {LoginJwtResultDto.Instance.AccessToken}");
@@ -31,5 +31,21 @@ namespace LQClass.ModuleOfMenuManagement.Models
 
             return response;
         }
+        /// <summary>
+        ///     查询单个信息
+        /// </summary>
+        /// <returns></returns>
+        public async Task<IRestResponse> MenuIdInfo(string Id)
+        {
+
+            var client = new RestClient($"{AppSettingsHelper.API + Apis.MenuId + Id}");
+            client.Timeout = -1;
+            var request = new RestRequest(Method.POST);
+            request.AddHeader("Authorization", $"Bearer {LoginJwtResultDto.Instance.AccessToken}");
+            var response = await client.ExecuteAsync(request);
+
+            return response;
+        }
+
     }
 }

@@ -36,10 +36,10 @@ namespace WalkingTec.Mvvm.Admin.Api
 
         [ActionDescription("Sys.Get")]
         [HttpGet("{id}")]
-        public FrameworkMenuVM2 Get(Guid id)
+        public IActionResult Get(Guid id)
         {
             var vm = Wtm.CreateVM<FrameworkMenuVM2>(id);
-            return vm;
+            return Ok(vm);
         }
 
         [ActionDescription("Sys.Create")]
