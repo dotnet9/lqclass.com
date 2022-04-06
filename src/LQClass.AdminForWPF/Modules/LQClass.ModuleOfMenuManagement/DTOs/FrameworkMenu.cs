@@ -17,7 +17,6 @@ namespace LQClass.ModuleOfMenuManagement.DTOs
         public bool IsPublic { get; set; }
         public int DisplayOrder { get; set; }
         public string Icon { get; set; }
-        public string SelectedModule { get; set; }
-        public List<string> SelectedActionIDs { get; set; }
+
     }
 }

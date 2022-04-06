@@ -12,7 +12,7 @@
 		<OutputPath>.\..\..\Build\Modules</OutputPath>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="HandyControl" Version="3.1.0" />
+		<PackageReference Include="MaterialDesignThemes" Version="4.4.0" />
 		<PackageReference Include="Prism.DryIoc" Version="8.0.0.1909" />
 		<PackageReference Include="Prism.Wpf" Version="8.0.0.1909" />
 	</ItemGroup>

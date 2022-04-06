@@ -7,17 +7,168 @@
     xmlns:markup="clr-namespace:WpfExtensions.Xaml.Markup;assembly=WpfExtensions.Xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prism="http://prismlibrary.com/"
+    xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:Converters="clr-namespace:LQClass.ModuleOfMenuManagement.Converters"
     prism:ViewModelLocator.AutoWireViewModel="True"
     mc:Ignorable="d">
-    <StackPanel>
-        <TextBlock
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Text="{Binding Header}" />
-        <TextBlock
-            FontSize="50"
-            FontWeight="Bold"
-            Foreground="Red"
-            Text="{markup:I18n {x:Static i18:Language.MainTabItemView_Header}}" />
-    </StackPanel>
+    <UserControl.Resources>
+        <Converters:ColumnBoolConverters x:Key="ColumnKey"/>
+    </UserControl.Resources>
+    <Grid Background="Gray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid  Background="White" Margin="5">
+            <WrapPanel HorizontalAlignment="Right">
+                <StackPanel Orientation="Horizontal" Margin="0,0,30,0">
+                    <TextBlock Text="账号:" FontSize="15"/>
+                    <TextBox Width="150" Height="25"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,30,0">
+                    <TextBlock Text="姓名:"  FontSize="15"/>
+                    <TextBox Width="150" Height="25"/>
+                </StackPanel>
+                <Button    Margin="0,0,30,0">
+                    <StackPanel Orientation="Horizontal">
+                        <md:PackIcon  Kind="Magnify" />
+                        <TextBlock Text="搜索"/>
+                    </StackPanel>
+                </Button>
+                <Button  Margin="0,0,30,0">
+                    <StackPanel Orientation="Horizontal">
+                        <md:PackIcon  Kind="CogClockwise" />
+                        <TextBlock Text="重置"/>
+                    </StackPanel>
+                </Button>
+            </WrapPanel>
+        </Grid>
+        <Grid Grid.Row="1 " Background="White" Margin="5">
+            <StackPanel  Margin="5" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button  Margin="0,0,10,0" Command="{Binding AddCommand}">
+                    <StackPanel Orientation="Horizontal">
+                        <md:PackIcon  Kind="Add" />
+                        <TextBlock Text="添 加"/>
+                    </StackPanel>
+                </Button>
+                <Button  Margin="0,0,10,0" Command="{Binding AddCommand}">
+                    <StackPanel Orientation="Horizontal">
+                        <md:PackIcon  Kind="Edit" />
+                        <TextBlock Text="修 改"/>
+                    </StackPanel>
+                </Button>
+                <Button  Margin="0,0,10,0" Command="{Binding AddCommand}">
+                    <StackPanel Orientation="Horizontal">
+                        <md:PackIcon  Kind="Delete" />
+                        <TextBlock Text="删 除"/>
+                    </StackPanel>
+                </Button>
+                <Button  Margin="0,0,10,0" Command="{Binding AddCommand}">
+                    <StackPanel Orientation="Horizontal">
+                        <md:PackIcon  Kind="FolderArrowUp" />
+                        <TextBlock Text="导入"/>
+                    </StackPanel>
+                </Button>
+                <Button  Margin="0,0,10,0" Command="{Binding AddCommand}">
+                    <StackPanel Orientation="Horizontal">
+                        <md:PackIcon  Kind="FolderArrowDown" />
+                        <TextBlock Text="导出"/>
+                    </StackPanel>
+                </Button>
+
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="2" Margin="5" Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="40" />
+            </Grid.RowDefinitions>
+            <DataGrid
+             ItemsSource="{Binding Items2}"
+             CanUserAddRows="False"
+             SelectionUnit="Cell"
+             SelectionMode="Extended" >
+                <DataGrid.RowHeaderTemplate>
+                    <DataTemplate>
+                        <CheckBox />
+                    </DataTemplate>
+                </DataGrid.RowHeaderTemplate>
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn  Header="">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock HorizontalAlignment="Center"  />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn
+                       Binding="{Binding PageName}"
+                        Header="账号" />
+                    <DataGridTextColumn
+                        Binding="{Binding ModuleName}"
+                        Header="姓名" />
+                    <DataGridTemplateColumn
+                        Header="性别" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <CheckBox  IsChecked="{Binding ShowOnMenu,Converter={StaticResource ColumnKey}}" IsEnabled="False"/>
+                                </Grid>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn
+                        Header="照片" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Image/>
+                                </Grid>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn
+                        Header="是否有效" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <CheckBox  IsChecked="{Binding IsPublic,Converter={StaticResource ColumnKey}}" IsEnabled="False"/>
+                                </Grid>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn
+                         Binding="{Binding DisplayOrder}"
+                        Header="角色 " />
+                    <DataGridTextColumn
+                        Binding="{Binding Icon}"
+                        Header="用户组" />
+                    <DataGridTemplateColumn  Header="操作">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button
+                                    
+                                        Command="{Binding CopyToClipboardCommand, Mode=OneTime}"
+                                        Content="详情"/>
+                                    <Button
+                                        Margin="0,0,10,0"
+                                       
+                                        Command="{Binding RaiseSearchCommand, Mode=OneTime}"
+                                        Content="修改" />
+                                    <Button
+                                        Margin="0,0,10,0"
+                                      
+                                        Command="{Binding CopyToClipboardCommand, Mode=OneTime}"
+                                        Content="删除"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Grid>
 </UserControl>

@@ -25,9 +25,9 @@
              Style="{StaticResource ButtonDashedInfo}"/>
             <Button
              Margin="0,0,10,0"
-             Command="{Binding RaiseSearchCommand, Mode=OneTime}"
+             Command="{Binding AddCommand}"
              Content="添加"
-             Style="{StaticResource ButtonDashedInfo}" />
+              />
             <Button
              Margin="0,0,10,0"
              Command="{Binding CopyToClipboardCommand, Mode=OneTime}"
