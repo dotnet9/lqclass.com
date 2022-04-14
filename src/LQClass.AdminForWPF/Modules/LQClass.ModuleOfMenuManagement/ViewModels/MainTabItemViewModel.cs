@@ -189,26 +189,26 @@ public class MainTabItemViewModel : ViewModelBase
     {
         try
         {
-            if (IsIndeterminate) return;
-            IsIndeterminate = true;
-            var searchCondition = new MenuSearcherDTO
-            {
-                Page = PageIndex,
-                Limit = 50,
-            };
-            var response = await mainTabItemModel.Search(searchCondition);
-            if (response.IsSuccessful)
-            {
-                var searchResult = JsonConvert.DeserializeObject<MenuResultDTO>(response.Content);
-                ListData.Clear();
-                ListData.AddRange(searchResult.Data);
-                MaxPageCount = searchResult.PageCount;
-                PageIndex = searchResult.Page;
-            }
-            else
-            {
-                ShowTipMsg($"{JsonHelper.FormatJsonString(response.Content)}");
-            }
+            //if (IsIndeterminate) return;
+            //IsIndeterminate = true;
+            //var searchCondition = new MenuSearcherDTO
+            //{
+            //    Page = PageIndex,
+            //    Limit = 50,
+            //};
+            //var response = await mainTabItemModel.Search(searchCondition);
+            //if (response.IsSuccessful)
+            //{
+            //    var searchResult = JsonConvert.DeserializeObject<MenuResultDTO>(response.Content);
+            //    ListData.Clear();
+            //    ListData.AddRange(searchResult.Data);
+            //    MaxPageCount = searchResult.PageCount;
+            //    PageIndex = searchResult.Page;
+            //}
+            //else
+            //{
+            //    ShowTipMsg($"{JsonHelper.FormatJsonString(response.Content)}");
+            //}
         }
         catch (Exception ex)
         {
