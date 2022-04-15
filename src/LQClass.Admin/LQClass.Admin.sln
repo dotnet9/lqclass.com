@@ -1,10 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30803.129
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32408.312
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LQClass.Admin", "LQClass.Admin\LQClass.Admin.csproj", "{02BAF018-5F17-46D3-ACA0-A2F6504DA351}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LQClass.Admin.Model", "LQClass.Admin.Model\LQClass.Admin.Model.csproj", "{053A9FAA-8C69-4D71-BAA3-34E46106DA89}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LQClass.Admin.DataAccess", "LQClass.Admin.DataAccess\LQClass.Admin.DataAccess.csproj", "{AA6EDCA2-90F0-4848-A947-587888EEF1B1}"
@@ -13,16 +11,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LQClass.Admin.ViewModel", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LQClass.Admin.Test", "LQClass.Admin.Test\LQClass.Admin.Test.csproj", "{4B1B1F50-E6CE-4FB4-8C91-9A8B7CD2EE95}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LQClass.Admin", "LQClass.Admin\LQClass.Admin\LQClass.Admin.csproj", "{F82B1382-2D78-4528-BDB5-8C656F2207DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{02BAF018-5F17-46D3-ACA0-A2F6504DA351}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{02BAF018-5F17-46D3-ACA0-A2F6504DA351}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{02BAF018-5F17-46D3-ACA0-A2F6504DA351}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{02BAF018-5F17-46D3-ACA0-A2F6504DA351}.Release|Any CPU.Build.0 = Release|Any CPU
 		{053A9FAA-8C69-4D71-BAA3-34E46106DA89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{053A9FAA-8C69-4D71-BAA3-34E46106DA89}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{053A9FAA-8C69-4D71-BAA3-34E46106DA89}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +35,10 @@ Global
 		{4B1B1F50-E6CE-4FB4-8C91-9A8B7CD2EE95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B1B1F50-E6CE-4FB4-8C91-9A8B7CD2EE95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B1B1F50-E6CE-4FB4-8C91-9A8B7CD2EE95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F82B1382-2D78-4528-BDB5-8C656F2207DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F82B1382-2D78-4528-BDB5-8C656F2207DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F82B1382-2D78-4528-BDB5-8C656F2207DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F82B1382-2D78-4528-BDB5-8C656F2207DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
