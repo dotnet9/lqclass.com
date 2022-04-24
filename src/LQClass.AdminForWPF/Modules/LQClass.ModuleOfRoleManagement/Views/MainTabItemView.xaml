@@ -14,58 +14,72 @@
     <Grid Background="#FAFAFA">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="65" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Grid Margin="5" Background="White">
-
-            <Expander HorizontalAlignment="Stretch">
-                <Expander.Header>
-                    <HeaderedContentControl>
-                        <DockPanel LastChildFill="False">
-                            <TextBlock
-                                Margin="10,0,0,0"
-                                DockPanel.Dock="Left"
-                                FontSize="18"
-                                Text="搜索条件" />
-                            <Button Margin="0,0,10,0" DockPanel.Dock="Right">
-                                <StackPanel Orientation="Horizontal">
-                                    <md:PackIcon Kind="Magnify" />
-                                    <TextBlock Text="搜索" />
-                                </StackPanel>
-                            </Button>
-                            <Button Margin="0,0,10,0" DockPanel.Dock="Right">
-                                <StackPanel Orientation="Horizontal">
-                                    <md:PackIcon Kind="CogClockwise" />
-                                    <TextBlock Text="重置" />
-                                </StackPanel>
-                            </Button>
-                        </DockPanel>
-                    </HeaderedContentControl>
-                </Expander.Header>
-                <DockPanel LastChildFill="False">
-                    <StackPanel
-                        Margin="50,0,0,0"
-                        DockPanel.Dock="Left"
-                        Orientation="Horizontal">
-                        <TextBlock FontSize="15" Text="角色编号:" />
-                        <TextBox Width="150" Height="25" />
+        <Expander
+            Grid.Row="0"
+            Margin="10"
+            Background="#F5F5F5">
+            <Expander.Header>
+                <HeaderedContentControl>
+                    <DockPanel LastChildFill="False">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="15"
+                            Text="搜索条件" />
+                        <Button Margin="0,0,15,0" DockPanel.Dock="Right">
+                            <StackPanel Orientation="Horizontal">
+                                <md:PackIcon Kind="Magnify" />
+                                <TextBlock Text="搜索" />
+                            </StackPanel>
+                        </Button>
+                        <Button Margin="0,0,10,0" DockPanel.Dock="Right">
+                            <StackPanel Orientation="Horizontal">
+                                <md:PackIcon Kind="CogClockwise" />
+                                <TextBlock Text="重置" />
+                            </StackPanel>
+                        </Button>
+                    </DockPanel>
+                </HeaderedContentControl>
+            </Expander.Header>
+            <Grid Margin="5" Background="White">
+                <StackPanel
+                    Height="50"
+                    Margin="70,0,0,0"
+                    Orientation="Horizontal">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock
+                            Margin="15"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="15"
+                            Text="角色编号:" />
+                        <TextBox
+                            Width="200"
+                            Height="30"
+                            Style="{x:Null}" />
                     </StackPanel>
-                    <StackPanel
-                        Margin="10,0,0,0"
-                        DockPanel.Dock="Left"
-                        Orientation="Horizontal">
-                        <TextBlock FontSize="15" Text="角色名称:" />
-                        <TextBox Width="150" Height="25" />
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock
+                            Margin="15"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="15"
+                            Text="角色名称:" />
+                        <TextBox
+                            Width="200"
+                            Height="30"
+                            Style="{x:Null}" />
                     </StackPanel>
-
-                </DockPanel>
-            </Expander>
-        </Grid>
+                </StackPanel>
+            </Grid>
+        </Expander>
         <Grid
             Grid.Row="1 "
             Margin="5"
-            Background="White">
+           Background="#F5F5F5">
             <StackPanel
                 Margin="5"
                 HorizontalAlignment="Right"

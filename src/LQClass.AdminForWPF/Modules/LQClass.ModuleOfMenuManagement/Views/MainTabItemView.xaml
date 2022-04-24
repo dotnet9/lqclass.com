@@ -2,48 +2,46 @@
     x:Class="LQClass.ModuleOfMenuManagement.Views.MainTabItemView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:prism="http://prismlibrary.com/"
     xmlns:Converters="clr-namespace:LQClass.ModuleOfMenuManagement.Converters"
-     xmlns:hc="https://handyorg.github.io/handycontrol"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:prism="http://prismlibrary.com/"
     prism:ViewModelLocator.AutoWireViewModel="True"
     mc:Ignorable="d">
     <UserControl.Resources>
-        <Converters:ColumnBoolConverters x:Key="ColumnKey"/>
+        <Converters:ColumnBoolConverters x:Key="ColumnKey" />
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="80" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <StackPanel Margin="5" Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button
-             Margin="0,0,10,0"
-             Command="{Binding CopyToClipboardCommand, Mode=OneTime}"
-             Content="刷新菜单"
-             Style="{StaticResource ButtonDashedInfo}"/>
-            <Button
-             Margin="0,0,10,0"
-             Command="{Binding AddCommand}"
-             Content="添加"
-              />
-            <Button
-             Margin="0,0,10,0"
-             Command="{Binding CopyToClipboardCommand, Mode=OneTime}"
-             Content="修改"
-             Style="{StaticResource ButtonDashedInfo}"/>
-            <Button
-             Margin="0,0,10,0"
-             Command="{Binding CopyToClipboardCommand, Mode=OneTime}"
-             Content="删除"
-             Style="{StaticResource ButtonDanger}"/>
-            <Button
-             Margin="0,0,10,0"
-             Command="{Binding CopyToClipboardCommand, Mode=OneTime}"
-             Content="导出"
-             Style="{StaticResource ButtonDashedInfo}"/>
-        </StackPanel>
+        <Grid Margin="10" Background="#F5F5F5">
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+
+                <Button Margin="0,0,10,0" Command="{Binding AddCommand}">
+                    <StackPanel Orientation="Horizontal">
+                        <md:PackIcon Kind="Add" />
+                        <TextBlock Text="新 建" />
+                    </StackPanel>
+                </Button>
+                <Button Margin="0,0,10,0">
+                    <StackPanel Orientation="Horizontal">
+                        <md:PackIcon Kind="PlaylistCheck" />
+                        <TextBlock Text="检查页面" />
+                    </StackPanel>
+                </Button>
+                <Button Margin="0,0,10,0">
+                    <StackPanel Orientation="Horizontal">
+                        <md:PackIcon Kind="Refresh" />
+                        <TextBlock Text="刷新菜单" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Grid>
+
         <Grid Grid.Row="1" Margin="5">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
@@ -55,6 +53,7 @@
                 Grid.Row="0"
                 hc:DataGridAttach.ShowRowNumber="True"
                 AutoGenerateColumns="False"
+                Background="White"
                 HeadersVisibility="All"
                 IsReadOnly="True"
                 ItemsSource="{Binding ListData}"
@@ -65,56 +64,49 @@
                     </DataTemplate>
                 </DataGrid.RowHeaderTemplate>
                 <DataGrid.Columns>
-                    <DataGridTemplateColumn Width="100"
-                                            Header="">
+                    <DataGridTemplateColumn Width="100" Header="">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock HorizontalAlignment="Center"  />
+                                <TextBlock HorizontalAlignment="Center" />
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTextColumn
                         Width="150"
-                       Binding="{Binding PageName}"
+                        Binding="{Binding PageName}"
                         Header="页面名称" />
                     <DataGridTextColumn
                         Width="180"
                         Binding="{Binding ModuleName}"
                         Header="模块名称" />
 
-                    <DataGridTemplateColumn
-                        Width="180"
-                        Header="菜单显示" >
+                    <DataGridTemplateColumn Width="180" Header="菜单显示">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <Grid>
-                                    <CheckBox  IsChecked="{Binding ShowOnMenu,Converter={StaticResource ColumnKey}}" IsEnabled="False"/>
+                                    <CheckBox IsChecked="{Binding ShowOnMenu, Converter={StaticResource ColumnKey}}" IsEnabled="False" />
                                 </Grid>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
 
-                    <DataGridTemplateColumn
-                        Width="180"
-                        Header="目录" >
+                    <DataGridTemplateColumn Width="180" Header="目录">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <Grid>
                                     <hc:TransitioningContentControl>
-                                        <CheckBox IsChecked="{Binding FolderOnly,Converter={StaticResource ColumnKey}}" IsEnabled="False"/>
+                                        <CheckBox IsChecked="{Binding FolderOnly, Converter={StaticResource ColumnKey}}" IsEnabled="False" />
                                     </hc:TransitioningContentControl>
                                 </Grid>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
 
-                    <DataGridTemplateColumn
-                        Width="180"
-                        Header="公开" >
+                    <DataGridTemplateColumn Width="180" Header="公开">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <Grid>
-                                    <CheckBox  IsChecked="{Binding IsPublic,Converter={StaticResource ColumnKey}}" IsEnabled="False"/>
+                                    <CheckBox IsChecked="{Binding IsPublic, Converter={StaticResource ColumnKey}}" IsEnabled="False" />
                                 </Grid>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
@@ -122,7 +114,7 @@
 
                     <DataGridTextColumn
                         Width="100"
-                         Binding="{Binding DisplayOrder}"
+                        Binding="{Binding DisplayOrder}"
                         Header="顺序" />
                     <DataGridTextColumn
                         Width="180"
@@ -136,7 +128,7 @@
                                         hc:IconElement.Geometry="{StaticResource DeleteGeometry}"
                                         Command="{Binding CopyToClipboardCommand, Mode=OneTime}"
                                         Content="详情"
-                                        Style="{StaticResource ButtonDashedInfo}"/>
+                                        Style="{StaticResource ButtonDashedInfo}" />
                                     <Button
                                         Margin="0,0,10,0"
                                         hc:IconElement.Geometry="{StaticResource SearchGeometry}"
@@ -148,7 +140,7 @@
                                         hc:IconElement.Geometry="{StaticResource DeleteGeometry}"
                                         Command="{Binding CopyToClipboardCommand, Mode=OneTime}"
                                         Content="删除"
-                                        Style="{StaticResource ButtonDanger}"/>
+                                        Style="{StaticResource ButtonDanger}" />
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
