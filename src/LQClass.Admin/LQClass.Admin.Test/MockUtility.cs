@@ -29,6 +29,7 @@ namespace LQClass.Admin.Test
             mockHttpContext.Setup(s => s.Session).Returns(mockSession);
             mockHttpContext.Setup(x => x.Request).Returns(new DefaultHttpContext().Request);
             _controller.ControllerContext.HttpContext = mockHttpContext.Object;
+            _controller.Wtm.MSD = new ModelStateServiceProvider(_controller.ModelState);
             return _controller;
         }
 
@@ -41,6 +42,7 @@ namespace LQClass.Admin.Test
             mockHttpContext.Setup(s => s.Session).Returns(mockSession);
             mockHttpContext.Setup(x => x.Request).Returns(new DefaultHttpContext().Request);
             _controller.ControllerContext.HttpContext = mockHttpContext.Object;
+            _controller.Wtm.MSD = new ModelStateServiceProvider(_controller.ModelState);
             return _controller;
         }
 
@@ -170,11 +172,6 @@ namespace LQClass.Admin.Test
             }
         }
 
-        /// <summary>
-        /// ���Ӵ�����Ϣ
-        /// </summary>
-        /// <param name="key">������ֶ���</param>
-        /// <param name="errorMessage">������Ϣ</param>
         public void AddModelError(string key, string errorMessage)
         {
             _states.Add(key, errorMessage);
@@ -224,12 +221,14 @@ namespace LQClass.Admin.Test
             Mock<IServiceProvider> mockService = new Mock<IServiceProvider>();
             MockHttpSession mockSession = new MockHttpSession();
             mockHttpRequest.Setup(x => x.Cookies).Returns(new MockCookie());
-            mockService.Setup(x => x.GetService(typeof(IDistributedCache))).Returns(new MemoryDistributedCache(Options.Create<MemoryDistributedCacheOptions>(new MemoryDistributedCacheOptions())));
+            var cache = new MemoryDistributedCache(Options.Create<MemoryDistributedCacheOptions>(new MemoryDistributedCacheOptions()));
+            var res = new ResourceManagerStringLocalizerFactory(Options.Create<LocalizationOptions>(new LocalizationOptions { ResourcesPath = "Resources" }), new Microsoft.Extensions.Logging.LoggerFactory());
+            mockService.Setup(x => x.GetService(typeof(IDistributedCache))).Returns(cache);
             mockHttpContext.Setup(x => x.Request).Returns(mockHttpRequest.Object);
             mockHttpContext.Setup(x => x.RequestServices).Returns(mockService.Object);
             var httpa = new HttpContextAccessor();
             httpa.HttpContext = mockHttpContext.Object;
-            var wtmcontext = new WTMContext(null, new GlobalData(), httpa, new DefaultUIService(), null,dataContext, new ResourceManagerStringLocalizerFactory(Options.Create<LocalizationOptions>(new LocalizationOptions { ResourcesPath = "Resources" }), new Microsoft.Extensions.Logging.LoggerFactory()));
+            var wtmcontext = new WTMContext(null, new GlobalData(), httpa, new DefaultUIService(), null,dataContext, res, cache:cache);
             wtmcontext.MSD = new BasicMSD();
             wtmcontext.Session = new SessionServiceProvider(mockSession);
             if (dataContext == null)

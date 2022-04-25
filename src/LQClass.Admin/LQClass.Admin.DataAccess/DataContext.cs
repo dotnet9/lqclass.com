@@ -19,8 +19,14 @@ namespace LQClass.Admin.DataAccess
         public DataContext(string cs, DBTypeEnum dbtype)
             : base(cs, dbtype)
         {
-
         }
+
+        public DataContext(string cs, DBTypeEnum dbtype, string version = null)
+            : base(cs, dbtype, version)
+        {
+        }
+
+        
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
 
         public override async Task<bool> DataInit(object allModules, bool IsSpa)
@@ -49,6 +55,7 @@ namespace LQClass.Admin.DataAccess
                     UserCode = user.ITCode,
                     RoleCode = "001"
                 };
+                
                 Set<FrameworkUser>().Add(user);
                 Set<FrameworkUserRole>().Add(userrole);
                 await SaveChangesAsync();
