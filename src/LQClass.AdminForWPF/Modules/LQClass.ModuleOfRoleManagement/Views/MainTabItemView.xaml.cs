@@ -17,6 +17,4 @@ public partial class MainTabItemView : UserControl, ICloseable
     }
 
     public CloseableHeader Closer { get; }
-
-  
 }

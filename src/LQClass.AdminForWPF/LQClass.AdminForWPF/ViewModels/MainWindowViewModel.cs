@@ -40,7 +40,7 @@ public class MainWindowViewModel : ViewModelBase
     public void InitData()
     {
         CustomMenus.Clear();
-       var zz =  _windowModel.ReadCustomMenus();
+        var zz = _windowModel.ReadCustomMenus();
         CustomMenus.AddRange(zz);
     }
 

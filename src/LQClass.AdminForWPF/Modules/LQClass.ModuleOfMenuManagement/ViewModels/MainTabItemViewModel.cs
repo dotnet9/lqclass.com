@@ -1,6 +1,8 @@
-﻿using HandyControl.Data;
+﻿using System;
+using System.Collections.ObjectModel;
+using System.Threading.Tasks;
+using HandyControl.Data;
 using LQClass.AdminForWPF.Infrastructure.Mvvm;
-using LQClass.AdminForWPF.Infrastructure.Tools;
 using LQClass.ModuleOfMenuManagement.DTOs;
 using LQClass.ModuleOfMenuManagement.I18nResources;
 using LQClass.ModuleOfMenuManagement.Models;
@@ -8,27 +10,14 @@ using Newtonsoft.Json;
 using Prism.Commands;
 using Prism.Events;
 using Prism.Modularity;
-using Prism.Mvvm;
 using Prism.Regions;
 using Prism.Services.Dialogs;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Threading.Tasks;
-using System.Windows.Input;
 using WpfExtensions.Xaml;
 
 namespace LQClass.ModuleOfMenuManagement.ViewModels;
 
 public class MainTabItemViewModel : ViewModelBase
 {
-    #region 私有变量
-
-    private readonly MainTabItemModel mainTabItemModel;
-    private readonly IDialogService dialogService;
-
-    #endregion
-
     public MainTabItemViewModel(
         MainTabItemModel mainTabItemModel,
         IRegionManager regionManager,
@@ -43,6 +32,18 @@ public class MainTabItemViewModel : ViewModelBase
         RaiseSearchHandler();
     }
 
+    #region 命令
+
+    public DelegateCommand AddCommand { get; set; }
+
+    #endregion
+
+    #region 私有变量
+
+    private readonly MainTabItemModel mainTabItemModel;
+    private readonly IDialogService dialogService;
+
+    #endregion
 
 
     #region 属性
@@ -93,13 +94,6 @@ public class MainTabItemViewModel : ViewModelBase
     /// </summary>
     public ObservableCollection<MenuDTO> ListData { get; } = new();
 
-
-
-    #endregion
-
-    #region 命令
-    public DelegateCommand AddCommand { get; set; }
-
     #endregion
 
     #region 私有方法
@@ -119,14 +113,11 @@ public class MainTabItemViewModel : ViewModelBase
     /// <returns></returns>
     private async void RaiseAddHandler()
     {
-        DialogParameters keyValuePairs = new DialogParameters();
+        var keyValuePairs = new DialogParameters();
         keyValuePairs.Add("getFoldersModelList", await GetFoldersTask());
         dialogService.ShowDialog("AddMenu", keyValuePairs, callback =>
         {
-            if (callback.Result == ButtonResult.OK)
-            {
-                callback.Parameters.GetValue<EntityDTO>("Value");
-            }
+            if (callback.Result == ButtonResult.OK) callback.Parameters.GetValue<EntityDTO>("Value");
         });
         //try
         //{
@@ -227,14 +218,9 @@ public class MainTabItemViewModel : ViewModelBase
         {
             var response = await mainTabItemModel.GetFolderFunction();
             if (response.IsSuccessful)
-            {
                 return JsonConvert.DeserializeObject<ObservableCollection<GetFoldersModel>>(response.Content);
-
-            }
             else
-            {
                 return new ObservableCollection<GetFoldersModel>();
-            }
         }
         catch (Exception ex)
         {
@@ -244,7 +230,6 @@ public class MainTabItemViewModel : ViewModelBase
         finally
         {
             IsIndeterminate = false;
-
         }
     }
 

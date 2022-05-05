@@ -11,15 +11,14 @@ public class SystemMenuService : ISystemMenuService
 {
     public async Task<SearchMenuResultDto> Search(string apiAddress, string jwtToken, SearchParamDto searchParamDto)
     {
-        var client = new RestClient($"{apiAddress}_FrameworkMenu/Search");
-        client.Timeout = -1;
-        var request = new RestRequest(Method.POST);
+        var client = new RestClient($"{apiAddress}");
+        var request = new RestRequest("_FrameworkMenu/Search", Method.Post);
         request.AddHeader("Authorization", $"Bearer {jwtToken}");
         request.AddHeader("Content-Type", "application/json");
         request.AddParameter("application/json", JsonConvert.SerializeObject(searchParamDto),
             ParameterType.RequestBody);
         var response = await client.ExecuteAsync(request);
-        if (response.StatusCode == HttpStatusCode.OK)
+        if (response.StatusCode == HttpStatusCode.OK && response.Content != null)
             return JsonConvert.DeserializeObject<SearchMenuResultDto>(response.Content);
         return default;
     }

@@ -27,7 +27,8 @@
     <hc:BlurWindow.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/LQClass.AdminForWPF;component/Styles/MainMenuStyle.xaml" />
+                <ResourceDictionary
+                    Source="pack://application:,,,/LQClass.AdminForWPF;component/Styles/MainMenuStyle.xaml" />
             </ResourceDictionary.MergedDictionaries>
             <SolidColorBrush x:Key="tabBackground" Color="#F5F5F5" />
             <SolidColorBrush x:Key="tabBorderBrush" Color="#ccc" />
@@ -96,7 +97,8 @@
             ItemsSource="{Binding CustomMenus}">
             <Behaviors:Interaction.Triggers>
                 <Behaviors:EventTrigger EventName="PreviewMouseUp" SourceObject="{Binding ElementName=tree}">
-                    <Behaviors:InvokeCommandAction Command="{Binding RaiseSelectedItemCommand}" CommandParameter="{Binding ElementName=tree, Path=SelectedItem}" />
+                    <Behaviors:InvokeCommandAction Command="{Binding RaiseSelectedItemCommand}"
+                                                   CommandParameter="{Binding ElementName=tree, Path=SelectedItem}" />
                 </Behaviors:EventTrigger>
             </Behaviors:Interaction.Triggers>
         </TreeView>
@@ -162,18 +164,23 @@
                                     <ControlTemplate.Triggers>
                                         <Trigger Property="TabItem.IsSelected" Value="True">
                                             <Setter TargetName="Border" Property="Border.Background" Value="White" />
-                                            <Setter TargetName="ContentSite" Property="TextBlock.Foreground" Value="#1677D2" />
-                                            <Setter TargetName="Border" Property="Border.BorderThickness" Value="0.5 0.5 0.5 0" />
-                                            <Setter TargetName="Border" Property="Border.BorderBrush" Value="{StaticResource tabBorderBrush}" />
+                                            <Setter TargetName="ContentSite" Property="TextBlock.Foreground"
+                                                    Value="#1677D2" />
+                                            <Setter TargetName="Border" Property="Border.BorderThickness"
+                                                    Value="0.5 0.5 0.5 0" />
+                                            <Setter TargetName="Border" Property="Border.BorderBrush"
+                                                    Value="{StaticResource tabBorderBrush}" />
                                         </Trigger>
                                         <Trigger Property="TabItem.IsSelected" Value="False">
-                                            <Setter TargetName="Border" Property="Border.Background" Value="{StaticResource tabBackground}" />
+                                            <Setter TargetName="Border" Property="Border.Background"
+                                                    Value="{StaticResource tabBackground}" />
                                         </Trigger>
                                     </ControlTemplate.Triggers>
                                 </ControlTemplate>
                             </Setter.Value>
                         </Setter>
-                        <Setter Property="Header" Value="{Binding Path=Content.Closer, RelativeSource={x:Static RelativeSource.Self}}" />
+                        <Setter Property="Header"
+                                Value="{Binding Path=Content.Closer, RelativeSource={x:Static RelativeSource.Self}}" />
                     </Style>
                     <!--#endregion-->
                 </ResourceDictionary>
@@ -186,7 +193,8 @@
                 Style="{x:Null}">
                 <Behaviors:Interaction.Triggers>
                     <Behaviors:EventTrigger EventName="SelectionChanged" SourceObject="{Binding ElementName=tc}">
-                        <Behaviors:InvokeCommandAction Command="{Binding RaiseSelectedTabItemCommand}" CommandParameter="{Binding ElementName=tc, Path=SelectedItem}" />
+                        <Behaviors:InvokeCommandAction Command="{Binding RaiseSelectedTabItemCommand}"
+                                                       CommandParameter="{Binding ElementName=tc, Path=SelectedItem}" />
                     </Behaviors:EventTrigger>
                 </Behaviors:Interaction.Triggers>
             </TabControl>

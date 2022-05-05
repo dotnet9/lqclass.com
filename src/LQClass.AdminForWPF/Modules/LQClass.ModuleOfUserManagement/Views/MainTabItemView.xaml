@@ -5,8 +5,6 @@
     xmlns:Converters="clr-namespace:LQClass.ModuleOfMenuManagement.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:hc="https://handyorg.github.io/handycontrol"
-    xmlns:i18="clr-namespace:LQClass.ModuleOfUserManagement.I18nResources"
-    xmlns:markup="clr-namespace:WpfExtensions.Xaml.Markup;assembly=WpfExtensions.Xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:prism="http://prismlibrary.com/"
@@ -166,7 +164,8 @@
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <Grid>
-                                    <CheckBox IsChecked="{Binding ShowOnMenu, Converter={StaticResource ColumnKey}}" IsEnabled="False" />
+                                    <CheckBox IsChecked="{Binding ShowOnMenu, Converter={StaticResource ColumnKey}}"
+                                              IsEnabled="False" />
                                 </Grid>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
@@ -184,7 +183,8 @@
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <Grid>
-                                    <CheckBox IsChecked="{Binding IsPublic, Converter={StaticResource ColumnKey}}" IsEnabled="False" />
+                                    <CheckBox IsChecked="{Binding IsPublic, Converter={StaticResource ColumnKey}}"
+                                              IsEnabled="False" />
                                 </Grid>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>

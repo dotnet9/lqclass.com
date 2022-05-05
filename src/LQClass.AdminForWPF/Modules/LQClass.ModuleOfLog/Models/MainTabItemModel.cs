@@ -13,13 +13,12 @@ public class MainTabItemModel
     ///     查询日志
     /// </summary>
     /// <returns></returns>
-    public async Task<IRestResponse> Search(ActionLogSearcherDto actionLogSearcherDto)
+    public async Task<RestResponse> Search(ActionLogSearcherDto actionLogSearcherDto)
     {
         var searchStr = JsonConvert.SerializeObject(actionLogSearcherDto);
 
-        var client = new RestClient($"{AppSettingsHelper.API}_actionlog/search");
-        client.Timeout = -1;
-        var request = new RestRequest(Method.POST);
+        var client = new RestClient($"{AppSettingsHelper.API}");
+        var request = new RestRequest("_actionlog/search", Method.Post);
         request.AddHeader("Authorization", $"Bearer {LoginJwtResultDto.Instance.AccessToken}");
         request.AddHeader("Content-Type", "application/json");
         request.AddParameter("application/json", searchStr, ParameterType.RequestBody);

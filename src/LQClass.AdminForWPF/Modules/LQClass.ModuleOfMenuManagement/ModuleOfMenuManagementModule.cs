@@ -3,7 +3,6 @@ using LQClass.ModuleOfMenuManagement.I18nResources;
 using LQClass.ModuleOfMenuManagement.Models;
 using LQClass.ModuleOfMenuManagement.ViewModels;
 using LQClass.ModuleOfMenuManagement.Views;
-using MyToDo.Service;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
@@ -15,6 +14,7 @@ public class ModuleOfMenuManagementModule : IModule
 {
     public const string KEY_OF_CURRENT_MODULE = "Menu_Mangement";
     private readonly IRegionManager _regionManager;
+
     public ModuleOfMenuManagementModule(IRegionManager regionManager)
     {
         I18nManager.Instance.Add(UiResource.ResourceManager);
