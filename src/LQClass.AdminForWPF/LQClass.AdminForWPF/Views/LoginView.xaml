@@ -2,14 +2,14 @@
     x:Class="LQClass.AdminForWPF.Views.LoginView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:hc="https://handyorg.github.io/handycontrol"
     xmlns:i18NResources="clr-namespace:LQClass.AdminForWPF.I18nResources"
+    xmlns:local="clr-namespace:LQClass.AdminForWPF.Helper"
     xmlns:markup="clr-namespace:WpfExtensions.Xaml.Markup;assembly=WpfExtensions.Xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prism="http://prismlibrary.com/"
-    xmlns:local="clr-namespace:LQClass.AdminForWPF.Helper"
-    xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
     x:Name="win"
     Title="{markup:I18n {x:Static i18NResources:Language.App_Title}}"
     Width="900"
@@ -69,14 +69,14 @@
 
                 <Grid Margin="80,50">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="0.8*" />
+                        <RowDefinition Height="0.9*" />
                         <RowDefinition Height="70" />
+                        <RowDefinition Height="25" />
                         <RowDefinition Height="70" />
                         <RowDefinition Height="40" />
                         <RowDefinition Height="40" />
                     </Grid.RowDefinitions>
                     <TextBlock
-                        Grid.ColumnSpan="2"
                         HorizontalAlignment="Center"
                         FontSize="50"
                         FontWeight="Bold"
@@ -86,11 +86,11 @@
                     <hc:TextBox
                         x:Name="NameTextBox"
                         Grid.Row="1"
-                        Grid.Column="1"
                         VerticalAlignment="Center"
                         hc:InfoElement.Placeholder="{markup:I18n {x:Static i18NResources:Language.LoginView_UserInputToolTip}}"
                         hc:InfoElement.Title="{markup:I18n {x:Static i18NResources:Language.LoginView_UserLblTitle}}"
                         hc:InfoElement.TitleWidth="140"
+                        BorderThickness="0 0 0 1" BorderBrush="Black"
                         FontSize="14"
                         ShowClearButton="True"
                         Text="{Binding UserName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
@@ -100,31 +100,31 @@
                         Grid.Row="2"
                         Grid.Column="1"
                         Password="{Binding Password}"
-            
+
                         VerticalAlignment="Center"
                         hc:InfoElement.Placeholder="{markup:I18n {x:Static i18NResources:Language.LoginView_PasswordInputToolTip}}"
                         hc:InfoElement.Title="{markup:I18n {x:Static i18NResources:Language.LoginView_PasswordLblTitle}}"
                         FontSize="14"
                         ShowClearButton="True" >
-               
-                    </hc:PasswordBox>-->
-                    <PasswordBox
-                        Grid.Row="2"
-                        Grid.Column="1"
-                        x:Name="passwordBox"
-                        VerticalAlignment="Center"
 
+                    </hc:PasswordBox>-->
+                    <TextBlock Margin="10 10 0 0" Text="{markup:I18n {x:Static i18NResources:Language.LoginView_PasswordLblTitle}}" Grid.Row="2"></TextBlock>
+                    <PasswordBox
+                        x:Name="passwordBox"
+                        Grid.Row="3"
+                        VerticalAlignment="Center"
                         local:PasswordBoxHelper.Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                        FontSize="14"
                         BorderBrush="Black"
+                        FontSize="14"
                         Foreground="Black"
                         IsEnabled="{Binding IsLoginBtnEnable}">
                         <b:Interaction.Behaviors>
                             <local:PasswordBoxBehavior />
                         </b:Interaction.Behaviors>
                     </PasswordBox>
+
                     <StackPanel
-                        Grid.Row="3"
+                        Grid.Row="4"
                         Grid.ColumnSpan="2"
                         Margin="20,10,20,10"
                         HorizontalAlignment="Center"
@@ -140,7 +140,7 @@
                     </StackPanel>
 
                     <ToggleButton
-                        Grid.Row="4"
+                        Grid.Row="5"
                         Width="330"
                         Height="40"
                         Command="{Binding RaiseLoginCommand}"
@@ -207,9 +207,9 @@
                             <Hyperlink Command="{Binding RaiseOpenLinkCommand}" CommandParameter="https://dotnet9.com">Help</Hyperlink>
                         </TextBlock>
                         <TextBlock FontSize="16" Foreground="#333333">
-                            <Run Text="© 2020-2021 " />
-                            <Hyperlink Command="{Binding RaiseOpenLinkCommand}" CommandParameter="http://lqclass.com">
-                                <Run Text="LQClass.com" />
+                            <Run Text="© 2020-2022 " />
+                            <Hyperlink Command="{Binding RaiseOpenLinkCommand}" CommandParameter="https://dotnet9.com">
+                                <Run Text="dotnet9.com" />
                             </Hyperlink>
                             <Run Text=" all rights reserved" />
                         </TextBlock>
