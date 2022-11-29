@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
 	<PropertyGroup>
-		<TargetFrameworks>net6.0-windows</TargetFrameworks>
+		<TargetFrameworks>net7.0-windows</TargetFrameworks>
 		<Version>1.2.0</Version>
 		<Description>Some common custom markup extensions for WPF.</Description>
 		<PackageTags>wpf;xaml;markup-extension</PackageTags>

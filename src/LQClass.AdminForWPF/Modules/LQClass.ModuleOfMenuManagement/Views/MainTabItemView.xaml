@@ -84,7 +84,8 @@
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <Grid>
-                                    <CheckBox IsChecked="{Binding ShowOnMenu, Converter={StaticResource ColumnKey}}" IsEnabled="False" />
+                                    <CheckBox IsChecked="{Binding ShowOnMenu, Converter={StaticResource ColumnKey}}"
+                                              IsEnabled="False" />
                                 </Grid>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
@@ -95,7 +96,9 @@
                             <DataTemplate>
                                 <Grid>
                                     <hc:TransitioningContentControl>
-                                        <CheckBox IsChecked="{Binding FolderOnly, Converter={StaticResource ColumnKey}}" IsEnabled="False" />
+                                        <CheckBox
+                                            IsChecked="{Binding FolderOnly, Converter={StaticResource ColumnKey}}"
+                                            IsEnabled="False" />
                                     </hc:TransitioningContentControl>
                                 </Grid>
                             </DataTemplate>
@@ -106,7 +109,8 @@
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <Grid>
-                                    <CheckBox IsChecked="{Binding IsPublic, Converter={StaticResource ColumnKey}}" IsEnabled="False" />
+                                    <CheckBox IsChecked="{Binding IsPublic, Converter={StaticResource ColumnKey}}"
+                                              IsEnabled="False" />
                                 </Grid>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>

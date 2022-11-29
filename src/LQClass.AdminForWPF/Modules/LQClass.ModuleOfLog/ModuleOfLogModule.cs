@@ -30,5 +30,6 @@ public class ModuleOfLogModule : IModule
         containerRegistry.RegisterSingleton<MainTabItemModel>();
 
         containerRegistry.RegisterDialog<AddView, AddViewModel>("AddLogView");
+        _regionManager.RegisterViewWithRegion("TestUC", () => new TestView());
     }
 }

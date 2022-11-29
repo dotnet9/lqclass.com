@@ -352,7 +352,4 @@ src/LQClass.AdminForWPF/LQClass.AdminForWPF.Infrastructure/LQClass.AdminForWPF.I
 src/LQClass.AdminForWPF/LQClass.AdminForWPF/LQClass.AdminForWPF.csproj
 src/LQClass.AdminForWPF/LQClass.CustomControls/LQClass.CustomControls.csproj
 *.dll
-src/LQClass.AdminForWPF/Build/LQClass.AdminForWPF.exe
-src/LQClass.AdminForWPF/Build/LQClass.AdminForWPF.deps.json
-src/LQClass.AdminForWPF/Build/LQClass.AdminForWPF.dll.config
-src/LQClass.AdminForWPF/Build/LQClass.AdminForWPF.dll.config
+src/LQClass.AdminForWPF/Build/

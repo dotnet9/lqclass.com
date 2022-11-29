@@ -1,4 +1,3 @@
-using System;
 using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
@@ -20,7 +19,7 @@ public static class ProcessController
     public static void OnWindowLoaded(object sender, RoutedEventArgs e)
     {
         var hwnd = ((HwndSource)PresentationSource.FromVisual((Visual)sender)).Handle;
-        Settings.Default.WindowHandle = (long)hwnd;
+        Settings.Default.WindowHandle = hwnd;
     }
 
     public static void Restart()
@@ -45,7 +44,7 @@ public static class ProcessController
 
     private static void ActivateExistedWindow()
     {
-        var windowHandle = (IntPtr)Settings.Default.WindowHandle;
+        var windowHandle = (nint)Settings.Default.WindowHandle;
 
         SetForegroundWindow(windowHandle);
         ShowWindowAsync(windowHandle, IsIconic(windowHandle) ? SW_RESTORE : SW_SHOW_NORMAL);
@@ -56,22 +55,22 @@ public static class ProcessController
     #region Win32 API functions
 
     [DllImport("user32.dll")]
-    private static extern bool ShowWindowAsync(IntPtr hWnd, int nCmdShow);
+    private static extern bool ShowWindowAsync(nint hWnd, int nCmdShow);
 
     [DllImport("user32.dll")]
-    private static extern bool SetForegroundWindow(IntPtr hWnd);
+    private static extern bool SetForegroundWindow(nint hWnd);
 
     [DllImport("user32.dll")]
-    private static extern IntPtr GetForegroundWindow();
+    private static extern nint GetForegroundWindow();
 
     [DllImport("user32.dll")]
-    private static extern bool IsIconic(IntPtr hWnd);
+    private static extern bool IsIconic(nint hWnd);
 
     [DllImport("user32.dll")]
-    private static extern bool IsZoomed(IntPtr hWnd);
+    private static extern bool IsZoomed(nint hWnd);
 
     [DllImport("user32.dll")]
-    private static extern bool FlashWindow(IntPtr hWnd, bool bInvert);
+    private static extern bool FlashWindow(nint hWnd, bool bInvert);
 
     #endregion
 }

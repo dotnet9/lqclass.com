@@ -92,23 +92,24 @@
                         hc:InfoElement.TitleWidth="140"
                         BorderThickness="0 0 0 1" BorderBrush="Black"
                         FontSize="14"
-                        ShowClearButton="True"
                         Text="{Binding UserName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
                     <!--<hc:PasswordBox
-                        x:Name="passwordBox"
-                        Grid.Row="2"
-                        Grid.Column="1"
-                        Password="{Binding Password}"
+                    x:Name="passwordBox"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Password="{Binding Password}"
 
-                        VerticalAlignment="Center"
-                        hc:InfoElement.Placeholder="{markup:I18n {x:Static i18NResources:Language.LoginView_PasswordInputToolTip}}"
-                        hc:InfoElement.Title="{markup:I18n {x:Static i18NResources:Language.LoginView_PasswordLblTitle}}"
-                        FontSize="14"
-                        ShowClearButton="True" >
+                    VerticalAlignment="Center"
+                    hc:InfoElement.Placeholder="{markup:I18n {x:Static i18NResources:Language.LoginView_PasswordInputToolTip}}"
+                    hc:InfoElement.Title="{markup:I18n {x:Static i18NResources:Language.LoginView_PasswordLblTitle}}"
+                    FontSize="14"
+                    ShowClearButton="True" >
 
                     </hc:PasswordBox>-->
-                    <TextBlock Margin="10 10 0 0" Text="{markup:I18n {x:Static i18NResources:Language.LoginView_PasswordLblTitle}}" Grid.Row="2"></TextBlock>
+                    <TextBlock Margin="10 10 0 0"
+                               Text="{markup:I18n {x:Static i18NResources:Language.LoginView_PasswordLblTitle}}"
+                               Grid.Row="2" />
                     <PasswordBox
                         x:Name="passwordBox"
                         Grid.Row="3"

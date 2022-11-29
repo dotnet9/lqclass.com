@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<AppendTargetFrameworkToOutputPath>Flase</AppendTargetFrameworkToOutputPath>
-		<TargetFramework>net6.0-windows7.0</TargetFramework>
+		<TargetFramework>net7.0-windows7.0</TargetFramework>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -14,8 +14,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="HandyControl" Version="3.3.0" />
-		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+		<PackageReference Include="HandyControl" Version="3.4.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
 		<PackageReference Include="Prism.Core" Version="8.1.97" />
 		<PackageReference Include="Prism.Wpf" Version="8.1.97" />
 	</ItemGroup>

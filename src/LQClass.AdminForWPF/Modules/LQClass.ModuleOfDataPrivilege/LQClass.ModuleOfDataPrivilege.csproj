@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<AppendTargetFrameworkToOutputPath>Flase</AppendTargetFrameworkToOutputPath>
-		<TargetFramework>net6.0-windows7.0</TargetFramework>
+		<TargetFramework>net7.0-windows7.0</TargetFramework>
 		<UseWPF>true</UseWPF>
 		<AssemblyName>LQClass.ModuleOfDataPrivilege</AssemblyName>
 	</PropertyGroup>
@@ -12,8 +12,8 @@
 		<OutputPath>.\..\..\Build\Modules</OutputPath>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="HandyControl" Version="3.3.0" />
-		<PackageReference Include="MaterialDesignThemes" Version="4.5.0" />
+		<PackageReference Include="HandyControl" Version="3.4.0" />
+		<PackageReference Include="MaterialDesignThemes" Version="4.7.0-ci378" />
 		<PackageReference Include="Prism.DryIoc" Version="8.1.97" />
 		<PackageReference Include="Prism.Wpf" Version="8.1.97" />
 	</ItemGroup>

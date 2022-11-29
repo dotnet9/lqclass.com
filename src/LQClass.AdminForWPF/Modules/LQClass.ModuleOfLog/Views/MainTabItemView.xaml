@@ -52,7 +52,6 @@
                     ItemsSource="{Binding ListLogTypes}"
                     SelectedValuePath="Key"
                     SelectionChanged="LogTypeSelectionChanged"
-                    ShowClearButton="True"
                     ShowSelectAllButton="True"
                     Style="{StaticResource checkComboBox}" />
 

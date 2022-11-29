@@ -19,6 +19,7 @@
         </ResourceDictionary>
     </UserControl.Resources>
     <StackPanel>
+        <ContentControl prism:RegionManager.RegionName="TestUC" />
         <hc:CalendarWithClock Margin="32" x:Name="cwc" ShowConfirmButton="False" />
     </StackPanel>
 </UserControl>
